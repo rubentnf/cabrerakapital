@@ -1,0 +1,56 @@
+---
+import { nav } from "../data/nav";
+const { page = "inicio" } = Astro.props;
+---
+
+<header class="nav" id="nav">
+    <div class="wrap">
+        <a class="brand" href="/" aria-label="Cabrera Kapital, inicio">
+            <span class="logo">CK</span>Cabrera Kapital
+        </a>
+        <nav class="links" aria-label="Principal">
+            {
+                nav.map((n) => (
+                    <a
+                        href={n.href}
+                        aria-current={n.id === page ? "page" : undefined}
+                    >
+                        {n.label}
+                    </a>
+                ))
+            }
+        </nav>
+        <div class="navr">
+            <span class="lang">
+                <b>ES</b> · EN
+            </span>
+            <a class="btn gold" href="/contacto/"> Estudio gratuito </a>
+            <button
+                class="burger"
+                id="burger"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                <i></i>
+                <i></i>
+                <i></i>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="menu" id="menu">
+    {
+        nav.map((n) => (
+            <a href={n.href} aria-current={n.id === page ? "page" : undefined}>
+                {n.label}
+            </a>
+        ))
+    }
+    <a
+        class="btn gold"
+        href="/contacto/"
+        style="font:700 15px var(--sans);border:0;text-align: center;"
+    >
+        Estudio gratuito</a
+    >
+</div>

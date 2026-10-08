@@ -1,0 +1,57 @@
+---
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/newsreader/wght-italic.css";
+import "../styles/base.css";
+import "../styles/scroll-story.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    page?: string;
+}
+const { title, description, page = "inicio" } = Astro.props;
+const canonical = new URL(
+    Astro.url.pathname,
+    Astro.site ?? "https://cabrerakapital.es",
+);
+const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta
+            name="robots"
+            content={indexar ? "index,follow" : "noinfex,nofollow"}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:locale" content="es_ES" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <script is:inline>
+            if (matchMedia("(prefers-reduced-motion: reduce)").matches)
+                document.documentElement.classList.add("rm");
+        </script>
+    </head>
+    <body>
+        <div class="prog" aria-hidden="true"></div>
+        <Header page={page} />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+        <script>
+            import "../scripts/main";
+        </script>
+    </body>
+</html>
