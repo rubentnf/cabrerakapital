@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Cabrera Kapital · cabrerakapital.es
 
 Rediseño de la web de **Cabrera Kapital**, agencia de intermediación de crédito inmobiliario y financiación para empresas en La Laguna (Tenerife), inscrita en el Banco de España con el número E593.
@@ -91,7 +90,3 @@ Compatible con Vercel o Netlify: comando `npm run build`, carpeta de salida `dis
 ## Licencia
 
 Código y contenidos de uso privado para Cabrera Kapital. Todos los derechos reservados.
-=======
-# cabrerakapital
-Rediseño de la web de Cabrera Kapital, agencia de intermediación de crédito inmobiliario y financiación para empresas en La Laguna (Tenerife)
->>>>>>> 0e84334a743957845c7ca3caac5241cd47c43bdb
