@@ -1,0 +1,17 @@
+---
+import { motivos } from "../data/porque";
+---
+
+<div class="grid4" data-why>
+    {
+        motivos.map(([t, d], i) => (
+            <article class="card">
+                <span class="num" style="font-size:44px">
+                    0{i + 1}
+                </span>
+                <h3>{t}</h3>
+                <p>{d}</p>
+            </article>
+        ))
+    }
+</div>

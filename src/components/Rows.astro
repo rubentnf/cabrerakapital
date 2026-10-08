@@ -1,0 +1,31 @@
+---
+import { filas } from "../data/servicios";
+---
+
+<ul class="rows" data-rows>
+    {
+        filas.map((f, i) => (
+            <li class="row">
+                <i class="rbg" style={`--img:var(--${f.escena})`} />
+                <p class="rd">
+                    <i>{i + 1}</i>
+                    <span>{f.texto}</span>
+                </p>
+                <span class="rt">
+                    <span>{f.verbo}</span>
+                </span>
+                <svg
+                    class="ra"
+                    viewBox="0 0 56 56"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M10 28h34M30 12l16 16-16 16" />
+                </svg>
+            </li>
+        ))
+    }
+</ul>

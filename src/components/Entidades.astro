@@ -1,0 +1,48 @@
+---
+// Muestra el nombre de cada entidad; si existe su logo en src/assets/logos/<slug>.(svg|png|webp|jpg) se usa el logo.
+// slug = nombre en minúsculas, sin tildes y con guiones: "Laboral Kutxa" -> laboral-kutxa.svg
+import { entidades } from "../data/entidades";
+const logos = import.meta.glob<{ default: ImageMetadata }>(
+    "../assets/logos/*.{svg,png,webp,jpg,jpeg}",
+    { eager: true },
+);
+const slug = (s: string) =>
+    s
+        .toLowerCase()
+        .normalize("NDF")
+        .replace(/[̀-ͯ]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+const logoDe = (n: string) =>
+    Object.entries(logos).find(
+        ([ruta]) =>
+            ruta
+                .split("/")
+                .pop()!
+                .replace(/\.[^.]+$/, "") === slug(n),
+    )?.[1].default;
+---
+
+<div class="ents" data-ents>
+    {
+        entidades.map((e) => {
+            const l = logoDe(e);
+            return (
+                <div class="ent">
+                    {l ? (
+                        <img
+                            src={l.src}
+                            alt={e}
+                            loading="lazy"
+                            width={l.width}
+                            height={l.height}
+                            style="max-height:44px;width:auto;max-width:100%;object-fit:contain"
+                        />
+                    ) : (
+                        e
+                    )}
+                </div>
+            );
+        })
+    }
+</div>
