@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+    title="Contacto · Cabrera Kapital"
+    description="Solicite su estudio gratuito. Respondemos en 24-48 horas laborales."
+    page="contacto"
+>
+    <section class="hero inner">
+        <div class="deco" aria-hidden="true">
+            <i class="d1"></i>
+            <i class="d2"></i>
+            <i class="d3"></i>
+        </div>
+        <div class="wrap">
+            <span class="eyebrow" data-fade> Contacto </span>
+            <h1 data-split>Cuéntenos su caso.</h1>
+            <p class="lead" data-fade>Respondemos en 24-48 horas laborales.</p>
+        </div>
+    </section>
+    <section class="sec">
+        <div class="wrap cgrid">
+            <form class="card pad" id="form" novalidate>
+                <h2 style="font-size:36px;margin:0">
+                    Solicitar estudio gratuito
+                </h2>
+                <div class="f2">
+                    <label>
+                        Nombre
+                        <input type="text" name="nombre" required />
+                    </label>
+                    <label>
+                        Teléfono
+                        <input type="tel" name="telefono" />
+                    </label>
+                </div>
+                <label>
+                    Correo electrónico
+                    <input type="email" name="correo" />
+                </label>
+                <label>
+                    Tipo de operación (hipoteca, financiación empresa...)
+                    <input type="text" name="operacion" />
+                </label>
+                <label>
+                    Cuéntenos su caso<textarea name="mensaje"></textarea>
+                </label>
+                <label class="chk">
+                    <input type="checkbox" name="privacidad" required /> He leído
+                    y acepto la política de privacidad
+                </label>
+                <button
+                    class="btn navyb"
+                    type="submit"
+                    style="align-self:flex-start"
+                >
+                    Enviar solicitud
+                </button>
+                <p class="ok" id="sent" hidden></p>
+            </form>
+            <div class="info" data-stag>
+                <div class="card">
+                    <span class="eyebrow dk">Teléfono</span>
+                    <b>+34 606 395 427</b>
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">Correo</span>
+                    <b
+                        >cabrerakapital@gmail.com [pendiente: correo
+                        corporativo]</b
+                    >
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">Dirección</span>
+                    <b>C/Santa Eulalia, 9, Local · 38320 La Laguna</b>
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">Horario</span>
+                    <b>[pendiente de confirmar]</b>
+                </div>
+                <div class="ph map">
+                    Mapa · La Laguna<small>Incrustar mapa aquí</small>
+                </div>
+            </div>
+        </div>
+    </section></Base
+>

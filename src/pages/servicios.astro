@@ -1,0 +1,76 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import Rows from "../components/Rows.astro";
+---
+
+<Base
+    title="Servicios · Cabrera Kapital"
+    description="Hipotecas, mejora de hipoteca, financiación para pymes, inversión inmobiliaria y compradores no residentes en Tenerife."
+    page="servicios"
+>
+    <section class="hero inner">
+        <div class="deco" aria-hidden="true">
+            <i class="d1"></i>
+            <i class="d2"></i>
+            <i class="d3"></i>
+        </div>
+        <div class="wrap">
+            <span class="eyebrow" data-fade> Servicios </span>
+            <h1 data-split>
+                Financiación a medida, negociada con varios bancos.
+            </h1>
+            <p class="lead" data-fade>
+                Particulares, autónomos, empresas e inversores. Cada caso se
+                estudia a fondo antes de tocar la puerta de ninguna entidad.
+            </p>
+        </div>
+    </section>
+    <section class="dsec" style="margin-top:0;border-radius:0">
+        <div class="wrap">
+            <Rows />
+        </div>
+    </section>
+    <section class="sec alt">
+        <div class="wrap">
+            <span class="eyebrow dk">Cómo trabajamos</span>
+            <h2 data-rise>Un proceso claro de principio a fin.</h2>
+            <div class="grid3 steps">
+                <article class="card">
+                    <span class="num" data-num> 1 </span>
+                    <h3>Estudio gratuito</h3>
+                    <p>
+                        Analizamos sus ingresos, su capacidad de endeudamiento o
+                        las cuentas de su empresa. Sabrá qué es viable desde el
+                        primer día.
+                    </p>
+                    <span class="pill">Primera respuesta en 24-48h</span>
+                </article>
+                <article class="card">
+                    <span class="num" data-num> 2 </span>
+                    <h3>Negociación con entidades</h3>
+                    <p>
+                        Presentamos su operación a varios bancos y alternativas
+                        privadas, y comparamos las ofertas formales contigo.
+                    </p>
+                    <span class="pill">Ofertas formales en 48h hábiles</span>
+                </article>
+                <article class="card">
+                    <span class="num" data-num> 3 </span>
+                    <h3>Firma ante notario</h3>
+                    <p>
+                        Gestionamos la documentación y le acompañamos hasta la
+                        firma. Si más adelante aparece una mejora, le avisamos.
+                    </p>
+                    <span class="pill">Solo cobramos si se firma</span>
+                </article>
+            </div>
+        </div>
+    </section>
+    <Cta
+        title="Cuéntenos su caso."
+        text="Respondemos en 24-48h. El estudio inicial no tiene coste ni compromiso."
+        cta="Pedir estudio gratuito"
+        phone="606 395 427"
+    />
+</Base>
