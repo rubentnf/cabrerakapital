@@ -1,10 +1,14 @@
 ---
-import Editorial from "../components/Editorial.astro";
+import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Manifiesto from "../components/Manifiesto.astro";
 import Oficina from "../components/Oficina.astro";
 import Pasos from "../components/Pasos.astro";
-import Base from "../layouts/Base.astro";
+import Editorial from "../components/Editorial.astro";
+import Servicios from "../components/Servicios.astro";
+import EntidadesSec from "../components/EntidadesSec.astro";
+import Garantias from "../components/Garantias.astro";
+import Cta from "../components/Cta.astro";
 ---
 
 <Base
@@ -19,4 +23,13 @@ Laguna, Tenerife."
 	<Oficina />
 	<Pasos />
 	<Editorial />
+	<Servicios />
+	<EntidadesSec />
+	<Garantias />
+	<Cta
+		title="¿Hablamos de su caso?"
+		text="El estudio inicial es gratuito y sin compromiso. Solo cobramos si la operación se firma."
+		cta="Pedir estudio gratuito"
+		phone="606 395 427"
+	/>
 </Base>
