@@ -9,7 +9,7 @@ export const motivos: [string, string][] = [
     ],
     [
         'Varias entidades, una sola gestión',
-        'Presentamos su caso a 19 entidades y comparan ofertas formales con los números delante.',
+        'Presentamos su caso a 19 entidades y usted compara las ofertas formales con los números delante.',
     ],
     [
         'Regulados e inscritos',
@@ -17,7 +17,7 @@ export const motivos: [string, string][] = [
     ],
     [
         'Respuesta en 24-48 horas',
-        'Un primer análisis rápido para que sepan qué es viable desde el primer día.',
+        'Un primer análisis rápido para que sepa qué es viable desde el primer día.',
     ],
     [
         'Atención en español e inglés',
@@ -29,6 +29,6 @@ export const motivos: [string, string][] = [
     ],
     [
         'Seguimiento después de firmar',
-        'Si más adelante aparece una mejora para su hipoteca o su financiación, les avisamos.',
+        'Si más adelante aparece una mejora para su hipoteca o su financiación, le avisamos.',
     ],
 ];

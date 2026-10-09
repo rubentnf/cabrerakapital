@@ -11,7 +11,7 @@ export const filas: Fila[] = [
     {
         verbo: 'Comprar',
         resto: 'su vivienda',
-        texto: 'Les decimos cuánto pueden financiar de verdad y negociamos las condiciones con varios bancos.',
+        texto: 'Le decimos cuánto puede financiar de verdad y negociamos las condiciones con varios bancos.',
         escena: 's2',
     },
     {
