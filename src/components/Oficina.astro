@@ -1,0 +1,32 @@
+---
+import Foto from "./Foto.astro";
+---
+
+<section class="revimg" aria-labelledby="office-title">
+    <div class="frame" id="frame">
+        <div class="frame-inner" id="frame-inner" aria-hidden="true">
+            <Foto
+                name="oficina"
+                alt="Fachada de la oficina de Cabrera Kapital en La Laguna"
+            >
+                <img
+                    class="foto"
+                    src="/img/scene-catedral.svg"
+                    alt=""
+                    width="1600"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </Foto>
+        </div>
+        <div class="frame-cap">
+            <h2 id="office-title">
+                Una oficina real, en el centro de La Laguna.
+            </h2>
+            <span class="chip"
+                >Aquí irá la foto real del equipo . C/Santa Eulalia 9</span
+            >
+        </div>
+    </div>
+</section>
