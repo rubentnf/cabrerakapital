@@ -6,6 +6,7 @@ import { rollify } from './rollify';
 import { fitWordmark } from './wordmark';
 import { initSimulador } from './simulador';
 import { initFormulario } from './formulario';
+import { initCarrusel } from './carrusel';
 import { initHome } from './anim/home';
 import { initEditorial } from './anim/editorial';
 import { initRows } from './anim/rows';
@@ -22,6 +23,7 @@ rollify();
 fitWordmark();
 initSimulador();
 initFormulario();
+initCarrusel();
 
 // Animaciones: solo si la persona no ha pedido movimiento reducido
 if (!reducedMotion()) {

@@ -9,7 +9,7 @@ const logos = import.meta.glob<{ default: ImageMetadata }>(
 const slug = (s: string) =>
     s
         .toLowerCase()
-        .normalize("NDF")
+        .normalize("NFD")
         .replace(/[̀-ͯ]/g, "")
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/^-|-$/g, "");
@@ -23,12 +23,14 @@ const logoDe = (n: string) =>
     )?.[1].default;
 ---
 
+<!-- La lista va dos veces: la copia (.dup) solo se ve en móvil, para que el carrusel haga bucle sin salto -->
 <div class="ents" data-ents>
     {
-        entidades.map((e) => {
+        [...entidades, ...entidades].map((e, i) => {
             const l = logoDe(e);
+            const dup = i >= entidades.length;
             return (
-                <div class="ent">
+                <div class:list={["ent", { dup }]} aria-hidden={dup ? "true" : undefined}>
                     {l ? (
                         <img
                             src={l.src}
@@ -36,7 +38,6 @@ const logoDe = (n: string) =>
                             loading="lazy"
                             width={l.width}
                             height={l.height}
-                            style="max-height:44px;width:auto;max-width:100%;object-fit:contain"
                         />
                     ) : (
                         e
