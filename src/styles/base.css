@@ -528,7 +528,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: transform 0.4s box-shadow 0.4s;
+    transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .card:hover {
@@ -1313,16 +1313,6 @@ textarea {
     text-shadow: 0 2px 30px rgba(10, 34, 64, 0.45);
 }
 
-.chip {
-    font-size: 12px;
-    font-weight: 700;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(10, 34, 64, 0.72);
-    color: var(--iv);
-    backdrop-filter: blur(6px);
-}
-
 .revimg {
     padding-block: clamp(40px, 6vw, 80px);
     background: var(--iv);
@@ -1867,4 +1857,64 @@ html {
         max-width: none;
         font-size: 12pt;
     }
+}
+
+.edit-r .fi.b {
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    background: #fff;
+}
+
+.fi.a {
+    overflow: hidden;
+}
+
+.fi.b img,
+.fi.a img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fi.a img {
+    object-position: 50% 58%;
+}
+
+@media (max-width: 767px) {
+    .edit-r {
+        aspect-ratio: 3/2;
+    }
+
+    .edit-r .fi.b {
+        aspect-ratio: auto;
+        height: 100%;
+    }
+}
+
+.seals {
+    grid-template-columns: 1fr 1fr;
+}
+
+.seal {
+    align-items: center;
+    justify-content: center;
+    padding: 22px 18px;
+}
+
+.seal.wide {
+    grid-column: 1 / -1;
+}
+
+.seal img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 96px;
+    object-fit: contain;
+}
+
+.seal.wide img {
+    max-height: 120px;
 }

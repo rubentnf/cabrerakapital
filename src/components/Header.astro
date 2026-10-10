@@ -9,7 +9,7 @@ interface Props {
 const { page = "inicio", alt } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
-const ids: PaginaId[] = [
+const ids: (keyof typeof t.nav)[] = [
     "inicio",
     "servicios",
     "equipo",

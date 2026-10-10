@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { langDe, useT } from "../i18n";
+import entidades from "../assets/photos/entidades-financieras.jpg";
+import apreton from "../assets/photos/apreton-manos.jpg";
 const t = useT(langDe(Astro.url.pathname)).inicio.editorial;
 ---
 
@@ -21,15 +24,37 @@ const t = useT(langDe(Astro.url.pathname)).inicio.editorial;
                     <span>{t.l2}</span>
                 </span>
                 <span class="ln">
-                    <em>{t.l3}</em>
+                    <span>
+                        <em>{t.l3}</em>
+                    </span>
                 </span>
             </h2>
             <p class="edit-sub">{t.sub}</p>
         </div>
         <div class="edit-r">
-            <i class="fi b" data-speed="50" style="--img:var(--s3)"></i>
-            <i class="fi a" data-speed="-40" style="--img:var(--s2)"></i>
-            <i class="fi c" data-speed="-70" style="--img:var(--s1)"></i>
+            <div class="fi b" data-speed="50">
+                <Image
+                    src={entidades}
+                    alt={t.altEntidades}
+                    widths={[480, 800, 1200]}
+                    sizes="(max-width: 767px) 100vw, 40vw"
+                    loading="lazy"
+                />
+            </div>
+            <div class="fi a" data-speed="-40">
+                <Image
+                    src={apreton}
+                    alt={t.altApreton}
+                    widths={[300, 480, 700]}
+                    sizes="(max-width: 767px) 0px, 18vw"
+                    loading="lazy"
+                />
+            </div>
+            <i
+                class="fi c"
+                data-speed="-70"
+                style="--img:url('/img/comparar-escudo.svg')"
+                aria-hidden="true"></i>
         </div>
     </div>
 </section>

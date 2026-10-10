@@ -1,6 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import { langDe, useT } from "../i18n";
+import bde from "../assets/sellos/banco-de-espana.png";
+import efpa from "../assets/sellos/efpa.png";
+import lcci from "../assets/sellos/lcci.png";
 const t = useT(langDe(Astro.url.pathname)).inicio.garantias;
+// Mismo orden que t.sellos: Banco de España, EFPA, LCCI
+const logos = [bde, efpa, lcci];
 ---
 
 <section class="sec">
@@ -12,10 +18,15 @@ const t = useT(langDe(Astro.url.pathname)).inicio.garantias;
         </div>
         <div class="seals" data-stag>
             {
-                t.sellos.map(([b, s]) => (
-                    <div class="seal">
-                        <b>{b}</b>
-                        <span>{s}</span>
+                t.sellos.map(([b, s], i) => (
+                    <div class={i === 0 ? "seal wide" : "seal"}>
+                        <Image
+                            src={logos[i]}
+                            alt={`${b} · ${s}`}
+                            widths={[240, 480]}
+                            sizes="(max-width: 767px) 80vw, 280px"
+                            loading="lazy"
+                        />
                     </div>
                 ))
             }

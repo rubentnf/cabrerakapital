@@ -110,6 +110,7 @@ export const en: Dict = {
         oficina: {
             alt: 'Front of the Cabrera Kapital office in La Laguna',
             titulo: 'A real office, in the heart of La Laguna.',
+            chip: 'The real team photo will go here · C/ Santa Eulalia 9',
         },
         pasos: {
             etiqueta: 'How we work',
@@ -133,6 +134,8 @@ export const en: Dict = {
             ],
         },
         editorial: {
+            altEntidades: 'More than 19 financial institutions Cabrera Kapital works with',
+            altApreton: 'Handshake closing an agreement at the office',
             lista: ['Free assessment', 'Several lenders', 'Offers in writing', 'No small print'],
             l1: "Don't sign",
             l2: 'blindly.',
@@ -150,6 +153,7 @@ export const en: Dict = {
         entidades: {
             etiqueta: 'Lenders we work with',
             titulo: 'We work with 19 financial institutions.',
+            nota: '[The original logo of each lender will go here, with their permission]',
         },
         garantias: {
             etiqueta: 'Guarantees and accreditations',
@@ -312,8 +316,11 @@ export const en: Dict = {
                 'He complements his financial training with knowledge of property investment analysis and wealth planning, bringing a close, dynamic and results-oriented approach. He stands out for his negotiation skills, personal follow-up of each file and commitment to securing the best terms for his clients.',
             ],
         },
+        fotoNota: '4:5 · individual photo',
+        sociosTitulo: 'The two partners, in their office',
         equipoAlt: 'Olegario and Alejandro Cabrera in their office in La Laguna',
         equipoFallback: 'Team photo',
+        equipoNota: 'High-resolution original (pending from the client)',
         regEtiqueta: 'Registration and accreditations',
         regTitulo: 'Regulated and accredited',
         regs: [
@@ -335,6 +342,7 @@ export const en: Dict = {
         lead: 'For over twenty years we ran branches, analysed risk and decided which deals went ahead. Today we put all that knowledge to work for you.',
         entEtiqueta: 'Partner lenders',
         entTitulo: '19 financial institutions',
+        entNota: 'The official logos will replace these once we receive the originals.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
         ctaBoton: 'Request a free assessment',

@@ -108,6 +108,7 @@ export const es = {
         oficina: {
             alt: 'Fachada de la oficina de Cabrera Kapital en La Laguna',
             titulo: 'Una oficina real, en el centro de La Laguna.',
+            chip: 'Aquí irá la foto real del equipo · C/ Santa Eulalia 9',
         },
         pasos: {
             etiqueta: 'Cómo trabajamos',
@@ -131,6 +132,8 @@ export const es = {
             ],
         },
         editorial: {
+            altEntidades: 'Más de 19 entidades financieras con las que trabaja Cabrera Kapital',
+            altApreton: 'Apretón de manos al cerrar un acuerdo en la oficina',
             lista: ['Estudio gratuito', 'Varias entidades', 'Ofertas por escrito', 'Sin letra pequeña'],
             l1: 'No firme',
             l2: 'a ciegas.',
@@ -148,6 +151,7 @@ export const es = {
         entidades: {
             etiqueta: 'Entidades con las que trabajamos',
             titulo: 'Trabajamos con 19 entidades financieras.',
+            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
         },
         garantias: {
             etiqueta: 'Garantías y acreditaciones',
@@ -317,8 +321,11 @@ export const es = {
                 'Complementa su formación financiera con conocimientos en análisis de inversiones inmobiliarias y planificación patrimonial, aportando una visión cercana, dinámica y orientada a resultados. Destaca por su capacidad de negociación, seguimiento personalizado de cada expediente y compromiso con la consecución de las mejores condiciones para sus clientes.',
             ],
         },
+        fotoNota: '4:5 · foto individual',
+        sociosTitulo: 'Los dos socios, en su oficina',
         equipoAlt: 'Olegario y Alejandro Cabrera en su oficina de La Laguna',
         equipoFallback: 'Foto del equipo',
+        equipoNota: 'Original en alta resolución (pendiente del cliente)',
         regEtiqueta: 'Registro y acreditaciones',
         regTitulo: 'Regulados y acreditados',
         regs: [
@@ -340,6 +347,7 @@ export const es = {
         lead: 'Durante más de veinte años dirigimos oficinas, analizamos riesgos y decidimos qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
         entEtiqueta: 'Entidades colaboradoras',
         entTitulo: '19 entidades financieras',
+        entNota: 'Los logotipos oficiales se sustituirán al recibir los originales.',
         ctaTitulo: 'Empecemos por el paso uno.',
         ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
