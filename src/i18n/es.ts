@@ -350,6 +350,25 @@ export const es = {
         cerrado: 'cerrado',
         mapa: 'Mapa · La Laguna',
         mapaNota: 'Incrustar mapa aquí',
+        soy: 'Soy…',
+        tipoParticular: 'Particular',
+        tipoPyme: 'Pyme o autónomo',
+        necesidad: '¿Qué necesita?',
+        elegir: 'Elegir…',
+        opcionesParticular: [
+            { v: 'Comprar vivienda', t: 'Comprar vivienda' },
+            { v: 'Mejorar mi hipoteca', t: 'Mejorar mi hipoteca' },
+            { v: 'Invertir en inmuebles', t: 'Invertir en inmuebles' },
+            { v: 'Otra consulta', t: 'Otra consulta' },
+        ],
+        empresa: 'Empresa o actividad',
+        opcionesPyme: [
+            { v: 'Póliza de crédito', t: 'Póliza de crédito' },
+            { v: 'Préstamo de inversión', t: 'Préstamo de inversión' },
+            { v: 'Reorganizar deuda bancaria', t: 'Reorganizar deuda bancaria' },
+            { v: 'Comercio exterior', t: 'Comercio exterior' },
+            { v: 'Otra consulta', t: 'Otra consulta' },
+        ],
     },
 };
 

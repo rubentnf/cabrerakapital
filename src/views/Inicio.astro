@@ -11,6 +11,8 @@ import Garantias from "../components/Garantias.astro";
 import Cta from "../components/Cta.astro";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
+import Caminos from "../components/Caminos.astro";
+import Resenas from "../components/Resenas.astro";
 const t = useT(langDe(Astro.url.pathname)).inicio;
 ---
 
@@ -20,9 +22,11 @@ const t = useT(langDe(Astro.url.pathname)).inicio;
     <Oficina />
     <Pasos />
     <Editorial />
+    <Caminos />
     <Servicios />
     <EntidadesSec />
     <Garantias />
+    <Resenas />
     <Cta
         title={t.cta.titulo}
         text={t.cta.texto}

@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import HeroInterior from "../components/HeroInterior.astro";
+import Mapa from "../components/Mapa.astro";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
 const t = useT(langDe(Astro.url.pathname));
@@ -35,6 +36,52 @@ const tel1 = contacto.telefonos[0].visible;
                     {c.correo}
                     <input type="email" name="correo" />
                 </label>
+                <fieldset class="seg">
+                    <legend>{c.soy}</legend>
+                    <label>
+                        <input
+                            type="radio"
+                            name="tipo_cliente"
+                            value="particular"
+                            checked
+                        />
+                        {c.tipoParticular}
+                    </label>
+                    <label>
+                        <input type="radio" name="tipo_cliente" value="pyme" />
+                        {c.tipoPyme}
+                    </label>
+                </fieldset>
+                <div class="grupo" data-grupo="particular">
+                    <label>
+                        {c.necesidad}
+                        <select name="necesidad">
+                            <option value="">{c.elegir}</option>
+                            {
+                                c.opcionesParticular.map((o) => (
+                                    <option value={o.v}>{o.t}</option>
+                                ))
+                            }
+                        </select>
+                    </label>
+                </div>
+                <div class="grupo" data-grupo="pyme" hidden>
+                    <label>
+                        {c.empresa}
+                        <input type="text" name="empresa" />
+                    </label>
+                    <label>
+                        {c.necesidad}
+                        <select name="necesidad">
+                            <option value="">{c.elegir}</option>
+                            {
+                                c.opcionesPyme.map((o) => (
+                                    <option value={o.v}>{o.t}</option>
+                                ))
+                            }
+                        </select>
+                    </label>
+                </div>
                 <label>
                     {c.mensaje}
                     <textarea name="mensaje"></textarea>
@@ -80,10 +127,7 @@ const tel1 = contacto.telefonos[0].visible;
                         {c.horarioFin}: {c.cerrado}
                     </b>
                 </div>
-                <div class="ph map">
-                    {c.mapa}
-                    <small>{c.mapaNota}</small>
-                </div>
+                <Mapa />
             </div>
         </div>
     </section>

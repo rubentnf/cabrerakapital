@@ -1,4 +1,4 @@
-import { $ } from './utils';
+import { $, $$ } from './utils';
 
 /**
  * Formulario de contacto.
@@ -11,6 +11,25 @@ export function initFormulario() {
     const form = $<HTMLFormElement>('#form');
     const aviso = $('#sent');
     if (!form || !aviso) return;
+
+    // Particular / pyme: se muestran solo los campos del tipo elegido y se desactivan los demás
+    // para que no se envíen. Con ?tipo=pyme en la URL, el formulario llega ya preseleccionado.
+    const grupos = $$('[data-grupo]', form);
+    const aplicarTipo = (tipo: string) => {
+        grupos.forEach((g) => {
+            const activo = g.dataset.grupo === tipo;
+            g.hidden = !activo;
+            $$<HTMLInputElement | HTMLSelectElement>('input, select', g).forEach(
+                (c) => (c.disabled = !activo),
+            );
+        });
+    };
+    const radios = $$<HTMLInputElement>('input[name="tipo_cliente"]', form);
+    const deUrl = new URLSearchParams(location.search).get('tipo');
+    const inicial = radios.find((r) => r.value === deUrl) ?? radios.find((r) => r.checked);
+    if (inicial) inicial.checked = true;
+    aplicarTipo(inicial?.value ?? 'particular');
+    radios.forEach((r) => r.addEventListener('change', () => aplicarTipo(r.value)));
 
     const mostrar = (texto: string, ok = true) => {
         aviso.textContent = texto;
