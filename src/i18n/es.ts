@@ -124,6 +124,48 @@ export const es = {
             boton: 'Pedir estudio gratuito',
         },
     },
+    mapa: {
+        titulo: 'Mapa de la oficina en La Laguna',
+        cargar: 'Ver mapa',
+        nota: 'Al cargar el mapa se conecta con los servidores de Google.',
+        abrir: 'Abrir en Google Maps',
+        comoLlegar: 'Cómo llegar',
+    },
+    resenas: {
+        etiqueta: 'Opiniones',
+        titulo: 'Lo que dicen nuestros clientes',
+        google: 'Publicado en Google',
+        ver: 'Ver todas las reseñas en Google',
+        anterior: 'Reseña anterior',
+        siguiente: 'Reseña siguiente',
+        valoracion: 'valoración en Google',
+    },
+    caminos: {
+        etiqueta: 'Cómo podemos ayudarles',
+        titulo: 'Hipotecas y financiación para pymes',
+        particulares: {
+            t: 'Hipotecas para particulares',
+            d: 'Comprar su vivienda, mejorar la hipoteca que ya tienen o invertir en inmuebles, con ofertas formales de varios bancos.',
+            lista: [
+                'Compra de vivienda habitual o segunda residencia',
+                'Mejora de hipoteca: tipo, cuota o plazo',
+                'Inversión inmobiliaria',
+                'Compradores no residentes',
+            ],
+            boton: 'Quiero una hipoteca',
+        },
+        pymes: {
+            t: 'Financiación para pymes y autónomos',
+            d: 'Liquidez e inversión para su negocio, negociadas con varias entidades y alternativas privadas.',
+            lista: [
+                'Pólizas de crédito',
+                'Préstamos de inversión',
+                'Reorganización del pool bancario',
+                'Comercio exterior',
+            ],
+            boton: 'Quiero financiar mi empresa',
+        },
+    },
     filas: [
         {
             verbo: 'Comprar',

@@ -126,6 +126,43 @@ export const en: Dict = {
             boton: 'Request a free assessment',
         },
     },
+    mapa: {
+        titulo: 'Map of the office in La Laguna',
+        cargar: 'Show map',
+        nota: 'Loading the map connects to Google’s servers.',
+        abrir: 'Open in Google Maps',
+        comoLlegar: 'Get directions',
+    },
+    resenas: {
+        etiqueta: 'Reviews',
+        titulo: 'What our clients say',
+        google: 'Posted on Google',
+        ver: 'See all reviews on Google',
+        anterior: 'Previous review',
+        siguiente: 'Next review',
+        valoracion: 'rating on Google',
+    },
+    caminos: {
+        etiqueta: 'How we can help',
+        titulo: 'Mortgages and SME financing',
+        particulares: {
+            t: 'Mortgages for individuals',
+            d: 'Buy your home, improve the mortgage you already have or invest in property, with formal offers from several banks.',
+            lista: [
+                'Buying a main or second home',
+                'Mortgage improvement: rate, payment or term',
+                'Property investment',
+                'Non-resident buyers',
+            ],
+            boton: 'I want a mortgage',
+        },
+        pymes: {
+            t: 'Financing for SMEs and the self-employed',
+            d: 'Liquidity and investment for your business, negotiated with several lenders and private alternatives.',
+            lista: ['Credit lines', 'Investment loans', 'Bank pool restructuring', 'Foreign trade'],
+            boton: 'I want to finance my business',
+        },
+    },
     filas: [
         {
             verbo: 'Buy',
