@@ -1,0 +1,11 @@
+---
+import Legal from "../../views/Legal.astro";
+import { ids, slugs } from "../../data/legal";
+
+export function getStaticPaths() {
+    return ids.map((id) => ({ params: { slug: slugs[id] }, props: { id } }));
+}
+const { id } = Astro.props;
+---
+
+<Legal id={id} />

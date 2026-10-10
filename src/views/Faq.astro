@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname));
+const f = t.faq;
+
+// Datos estructurados para que Google pueda mostrar las preguntas en los resultados.
+const esquema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: f.items.map((i) => ({
+        "@type": "Question",
+        name: i.q,
+        acceptedAnswer: { "@type": "Answer", text: i.a },
+    })),
+};
+---
+
+<Base title={f.title} description={f.description} page="faq">
+    <script
+        slot="head"
+        type="application/ld+json"
+        set:html={JSON.stringify(esquema)}
+    />
+    <HeroInterior etiqueta={f.etiqueta} titulo={f.h1} lead={f.lead} />
+    <section class="sec">
+        <div class="wrap faq">
+            {
+                f.items.map((i, n) => (
+                    <details class="faq-item" open={n === 0}>
+                        <summary>{i.q}</summary>
+                        <p>{i.a}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
+    <Cta
+        title={f.ctaTitulo}
+        text={f.ctaTexto}
+        cta={f.ctaBoton}
+        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
+    />
+</Base>

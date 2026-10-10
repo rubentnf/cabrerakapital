@@ -3,15 +3,16 @@ import { langDe, ruta, rutas, useT, type PaginaId } from "../i18n";
 
 interface Props {
     page?: PaginaId;
+    alt?: { es: string; en: string };
 }
-const { page = "inicio" } = Astro.props;
+const { page = "inicio", alt } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 ---
 
 <div class="lang" role="group" aria-label={t.idioma.cambiar}>
     <a
-        href={ruta(page, "es")}
+        href={alt?.es ?? ruta(page, "es")}
         hreflang="es"
         lang="es"
         title={t.idioma.es}
@@ -24,7 +25,7 @@ const t = useT(lang);
         </svg>
     </a>
     <a
-        href={ruta(page, "en")}
+        href={alt?.en ?? ruta(page, "en")}
         hreflang="en"
         lang="en"
         title={t.idioma.en}

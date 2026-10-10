@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import { rutaLegal, slugs, type DocumentoId } from "../data/legal";
+import { langDe, ruta, useT } from "../i18n";
+
+interface Props {
+    id: DocumentoId;
+}
+const { id } = Astro.props;
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang);
+const titulo = t.documentos[id];
+
+// El texto de cada documento está en src/legal/<slug>.md
+const archivos = import.meta.glob<{ Content: any }>("../legal/*.md", {
+    eager: true,
+});
+const { Content } = archivos[`../legal/${slugs[id]}.md`];
+---
+
+<!-- page="faq": ninguna pestaña del menú queda marcada en las páginas legales -->
+<Base
+    title={`·{titulo} · Cabrera Kapital`}
+    description={titulo}
+    page="faq"
+    alt={{ es: rutaLegal(id, "es"), en: rutaLegal(id, "en") }}
+>
+    <section class="sec legal">
+        <div class="wrap legal-in">
+            <p>
+                <a href={ruta("inicio", lang)}>← {t.documentos.volver}</a>
+            </p>
+            <h1>{titulo}</h1>
+            {lang === "en" && <p class="note">{t.documentos.soloEs}</p>}
+            <div class="legal-texto">
+                <Content />
+            </div>
+        </div>
+    </section></Base
+>

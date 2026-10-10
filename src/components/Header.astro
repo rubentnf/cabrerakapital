@@ -4,8 +4,9 @@ import LangSwitch from "./LangSwitch.astro";
 
 interface Props {
     page?: PaginaId;
+    alt?: { es: string; en: string };
 }
-const { page = "inicio" } = Astro.props;
+const { page = "inicio", alt } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 const ids: PaginaId[] = [
@@ -41,7 +42,7 @@ const nav = ids.map((id) => ({ id, label: t.nav[id], href: ruta(id, lang) }));
             }
         </nav>
         <div class="navr">
-            <LangSwitch page={page} />
+            <LangSwitch page={page} alt={alt} />
             <a class="btn gold" href={ruta("contacto", lang)}>
                 {t.header.cta}
             </a>
@@ -73,5 +74,5 @@ const nav = ids.map((id) => ({ id, label: t.nav[id], href: ruta(id, lang) }));
     >
         {t.header.cta}
     </a>
-    <LangSwitch page={page} />
+    <LangSwitch page={page} alt={alt} />
 </div>

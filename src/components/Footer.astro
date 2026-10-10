@@ -1,8 +1,10 @@
 ---
 import { contacto } from "../data/contacto";
-import { langDe, useT } from "../i18n";
+import { grupoInformacion, grupoLegal, rutaLegal } from "../data/legal";
+import { langDe, ruta, useT } from "../i18n";
 
-const t = useT(langDe(Astro.url.pathname));
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang);
 ---
 
 <footer class="foot">
@@ -25,8 +27,27 @@ const t = useT(langDe(Astro.url.pathname));
                 <div>{contacto.direccionCorta}</div>
             </div>
             <div>
+                <h4>{t.footer.info}</h4>
+                {
+                    grupoInformacion.map((id) => (
+                        <div>
+                            <a href={rutaLegal(id, lang)}>{t.documentos[id]}</a>
+                        </div>
+                    ))
+                }
+                <div>
+                    <a href={ruta("faq", lang)}>{t.documentos.faq}</a>
+                </div>
+            </div>
+            <div>
                 <h4>{t.footer.legal}</h4>
-                {t.footer.legales.map((l) => <div>{l}</div>)}
+                {
+                    grupoLegal.map((id) => (
+                        <div>
+                            <a href={rutaLegal(id, lang)}>{t.documentos[id]}</a>
+                        </div>
+                    ))
+                }
             </div>
             <div>
                 <h4>{t.footer.registro}</h4>

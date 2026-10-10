@@ -13,12 +13,15 @@ interface Props {
     title: string;
     description: string;
     page?: PaginaId;
+    /** Direcciones de esta página en cada idioma, si no coinciden con las de `page` (por ejemplo, textos legales). */
+    alt?: { es: string; en: string };
 }
-const { title, description, page = "inicio" } = Astro.props;
+const { title, description, page = "inicio", alt } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 const site = Astro.site ?? "https://cabrerakapital.es";
 const canonical = new URL(Astro.url.pathname, site);
+const alts = alt ?? { es: ruta(page, "es"), en: ruta(page, "en") };
 const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
 ---
 
@@ -26,7 +29,7 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
 <html lang={t.htmlLang}>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
@@ -35,24 +38,25 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
                 <link
                     rel="alternate"
                     hreflang={l}
-                    href={new URL(ruta(page, l), site)}
+                    href={new URL(alts[l], site)}
                 />
             ))
         }
         <link
             rel="alternate"
             hreflang="x-default"
-            href={new URL(ruta(page, "es"), site)}
+            href={new URL(alts.es, site)}
         />
         <meta
             name="robots"
-            content={indexar ? "index,follow" : "noinfex,nofollow"}
+            content={indexar ? "index,follow" : "noindex,nofollow"}
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:locale" content={t.ogLocale} />
+        <slot name="head" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script is:inline>
             if (matchMedia("(prefers-reduced-motion: reduce)").matches)
@@ -61,11 +65,12 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
     </head>
     <body>
         <div class="prog" aria-hidden="true"></div>
-        <Header page={page} />
+        <Header page={page} alt={alt} />
         <main>
             <slot />
         </main>
         <Footer />
+        <Whatsapp />
         <script>
             import "../scripts/main";
         </script>

@@ -2,10 +2,12 @@
 import Base from "../layouts/Base.astro";
 import HeroInterior from "../components/HeroInterior.astro";
 import Mapa from "../components/Mapa.astro";
+import { rutaLegal } from "../data/legal";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
 const t = useT(langDe(Astro.url.pathname));
 const c = t.contacto;
+const lang = langDe(Astro.url.pathname);
 const tel1 = contacto.telefonos[0].visible;
 ---
 
@@ -34,7 +36,7 @@ const tel1 = contacto.telefonos[0].visible;
                 </div>
                 <label>
                     {c.correo}
-                    <input type="email" name="correo" />
+                    <input type="email" name="correo" required />
                 </label>
                 <fieldset class="seg">
                     <legend>{c.soy}</legend>
@@ -88,7 +90,14 @@ const tel1 = contacto.telefonos[0].visible;
                 </label>
                 <label class="chk">
                     <input type="checkbox" name="privacidad" required />
-                    {c.privacidad}
+                    {c.privacidadA}
+                    <a
+                        href={rutaLegal("privacidad", lang)}
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        {c.privacidadB}
+                    </a>
                 </label>
                 <button
                     class="btn navyb"
@@ -112,7 +121,7 @@ const tel1 = contacto.telefonos[0].visible;
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.correoCard}</span>
-                    <b>{contacto.correo}</b>
+                    <b>{contacto.correo} [pendiente: correo corporativo]</b>
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.direccion}</span>
