@@ -10,6 +10,7 @@ export const rutas = {
     porque: { es: '/porque-nosotros/', en: '/en/why-us/' },
     simulador: { es: '/simulador/', en: '/en/calculator/' },
     contacto: { es: '/contacto/', en: '/en/contact/' },
+    faq: { es: '/preguntas-frecuentes/', en: '/en/faq/' },
 } as const;
 
 export type PaginaId = keyof typeof rutas;

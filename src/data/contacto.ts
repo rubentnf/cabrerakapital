@@ -6,7 +6,7 @@ export const contacto = {
     ],
     // Número que recibe los mensajes de WhatsApp (confirmado por el cliente: 606 395 427).
     whatsapp: '34606395427',
-    correo: 'cabrerakapital@gmail.com',
+    correo: 'financiacion@cabrerakapital.com',
     direccion: 'C/ Santa Eulalia, 9, Local · 38320 La Laguna',
     // Lunes a viernes; sábado y domingo cerrado.
     horarioLaborable: '8:30 – 18:30',

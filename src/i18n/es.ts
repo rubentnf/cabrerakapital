@@ -35,6 +35,56 @@ export const es = {
         inscrita: 'Inscrita en el Banco de España · E593',
         titular: 'Titular: Olegario Cabrera García',
     },
+    documentos: {
+        indice: 'Contenido',
+        descargar: 'Descargar PDF original',
+        previa: 'Información previa al cliente',
+        independencia: 'Declaración de independencia',
+        aviso: 'Aviso legal',
+        remuneracion: 'Información sobre remuneración',
+        privacidad: 'Política de privacidad',
+        exencion: 'Cláusula de exención de responsabilidad',
+        soloEs: 'Este documento legal solo está disponible en español.',
+        volver: 'Volver al inicio',
+        faq: 'Preguntas frecuentes',
+    },
+    faq: {
+        title: 'Preguntas frecuentes · Cabrera Kapital',
+        description:
+            'Respuestas a las dudas más habituales sobre financiación para empresas e hipotecas: coste, proceso y plazos.',
+        etiqueta: 'Preguntas frecuentes',
+        h1: 'Las dudas más habituales, resueltas.',
+        lead: 'Si no encuentran su pregunta, escríbannos o llámennos: les respondemos en 24–48 horas laborables.',
+        items: [
+            {
+                q: '¿Qué tipo de empresas pueden solicitar financiación con Cabrera Kapital?',
+                a: 'Trabajamos con pymes, autónomos y empresas consolidadas de distintos sectores. Les ayudamos a financiar su crecimiento, su circulante o sus inversiones, a reorganizar su deuda y a conseguir mejores condiciones con sus bancos.',
+            },
+            {
+                q: '¿Qué tipo de financiación gestionan?',
+                a: 'Gestionamos financiación bancaria y privada: líneas de crédito y pólizas, préstamos para inversión, refinanciaciones y reunificación de deuda, financiación para comercio exterior (COMEX), operaciones especiales con garantías e hipotecas.',
+            },
+            {
+                q: '¿También gestionan hipotecas para particulares?',
+                a: 'Sí. Además de la financiación para empresas, actuamos como bróker hipotecario para particulares e inversores. Negociamos con varias entidades para conseguir las mejores condiciones según su perfil.',
+            },
+            {
+                q: '¿Cómo es el proceso de trabajo?',
+                a: 'Empezamos con un estudio gratuito y personalizado. Después analizamos la viabilidad real de la operación, buscamos y negociamos con las entidades, les presentamos las mejores opciones y les acompañamos hasta la firma ante notario. Todo el proceso es transparente.',
+            },
+            {
+                q: '¿Tiene coste el estudio inicial?',
+                a: 'No. El estudio inicial es gratuito y sin compromiso. Solo cobramos si la operación llega a formalizarse.',
+            },
+            {
+                q: '¿Cuánto tiempo tarda normalmente una operación?',
+                a: 'Depende del tipo de financiación, pero en muchos casos podemos presentar opciones viables en pocos días. Nuestro objetivo es agilizar el proceso y evitar retrasos innecesarios.',
+            },
+        ],
+        ctaTitulo: '¿Les queda alguna duda?',
+        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
+        ctaBoton: 'Solicitar estudio gratuito',
+    },
     cta: { llamar: 'Llamar' },
     inicio: {
         title: 'Cabrera Kapital · Intermediación hipotecaria y financiación para empresas en Canarias',
@@ -104,7 +154,6 @@ export const es = {
         entidades: {
             etiqueta: 'Entidades con las que trabajamos',
             titulo: 'Trabajamos con 19 entidades financieras.',
-            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
         },
         garantias: {
             etiqueta: 'Garantías y acreditaciones',

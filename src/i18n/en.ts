@@ -37,6 +37,56 @@ export const en: Dict = {
         inscrita: 'Registered with the Bank of Spain · E593',
         titular: 'Holder: Olegario Cabrera García',
     },
+    documentos: {
+        indice: 'Contents',
+        descargar: 'Download original PDF (Spanish)',
+        previa: 'Pre-contract information',
+        independencia: 'Independence statement',
+        aviso: 'Legal notice',
+        remuneracion: 'Remuneration information',
+        privacidad: 'Privacy policy',
+        exencion: 'Disclaimer',
+        soloEs: 'This legal document is only available in Spanish.',
+        volver: 'Back to home',
+        faq: 'FAQ',
+    },
+    faq: {
+        title: 'FAQ · Cabrera Kapital',
+        description:
+            'Answers to the most common questions about business financing and mortgages: cost, process and timing.',
+        etiqueta: 'FAQ',
+        h1: 'The most common questions, answered.',
+        lead: 'If you do not find your question, write or call us: we reply within 24–48 working hours.',
+        items: [
+            {
+                q: 'What kind of companies can apply for financing with Cabrera Kapital?',
+                a: 'We work with SMEs, self-employed professionals and established companies from different sectors. We help you finance growth, working capital or investments, restructure debt and obtain better terms from your banks.',
+            },
+            {
+                q: 'What kind of financing do you handle?',
+                a: 'We handle bank and private financing: credit lines, investment loans, refinancing and debt consolidation, foreign trade financing (COMEX), special operations with guarantees and mortgages.',
+            },
+            {
+                q: 'Do you also handle mortgages for individuals?',
+                a: 'Yes. Besides business financing, we act as a mortgage broker for individuals and investors. We negotiate with several lenders to obtain the best terms for your profile.',
+            },
+            {
+                q: 'How does the process work?',
+                a: 'We start with a free, personalised assessment. Then we analyse the real viability of the deal, look for and negotiate with lenders, present you the best options and go with you all the way to signing at the notary. The whole process is transparent.',
+            },
+            {
+                q: 'Does the initial assessment cost anything?',
+                a: 'No. The initial assessment is free and without obligation. We only charge if the deal is actually completed.',
+            },
+            {
+                q: 'How long does a deal usually take?',
+                a: 'It depends on the type of financing, but in many cases we can present viable options within a few days. Our aim is to speed up the process and avoid unnecessary delays.',
+            },
+        ],
+        ctaTitulo: 'Any other questions?',
+        ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
+        ctaBoton: 'Request a free assessment',
+    },
     cta: { llamar: 'Call' },
     inicio: {
         title: 'Cabrera Kapital · Mortgage brokerage and business financing in the Canary Islands',
