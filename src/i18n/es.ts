@@ -1,0 +1,314 @@
+/** Textos en español. Es la fuente de verdad: en.ts debe tener exactamente las mismas claves. */
+export const es = {
+    htmlLang: 'es',
+    ogLocale: 'es_ES',
+    idioma: { es: 'Español', en: 'English', cambiar: 'Cambiar idioma' },
+    nav: {
+        inicio: 'Inicio',
+        servicios: 'Servicios',
+        equipo: 'Equipo',
+        porque: 'Por qué nosotros',
+        simulador: 'Simulador',
+        contacto: 'Contacto',
+    },
+    header: {
+        inicio: 'Cabrera Kapital, inicio',
+        principal: 'Principal',
+        abrirMenu: 'Abrir menú',
+        cta: 'Estudio gratuito',
+    },
+    whatsapp: {
+        etiqueta: 'Escribir por WhatsApp',
+        mensaje: 'Hola, me gustaría solicitar un estudio gratuito.',
+    },
+    footer: {
+        descripcion: 'Intermediación de crédito inmobiliario y financiación para empresas en Canarias.',
+        contacto: 'Contacto',
+        legal: 'Legal',
+        legales: [
+            'Aviso legal',
+            'Política de privacidad y cookies',
+            'Información previa al cliente',
+            'Declaración de independencia',
+        ],
+        registro: 'Registro',
+        inscrita: 'Inscrita en el Banco de España · E593',
+        titular: 'Titular: Olegario Cabrera García',
+    },
+    cta: { llamar: 'Llamar' },
+    inicio: {
+        title: 'Cabrera Kapital · Intermediación hipotecaria y financiación para empresas en Canarias',
+        description:
+            'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma. La Laguna, Tenerife.',
+        hero: {
+            eyebrow: 'Broker hipotecario · Financiación para pymes · Tenerife',
+            l1: 'Conocemos la banca',
+            l2: 'por dentro.',
+            l3: 'Ahora negociamos por ustedes.',
+            sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
+            lema: 'Intermediación financiera · Tenerife',
+            desliza: 'Desliza',
+            pedir: 'Pedir estudio gratuito',
+            servicios: 'Ver servicios',
+        },
+        manifiesto: {
+            etiqueta: 'Por qué Cabrera Kapital',
+            texto:
+                'Durante más de veinte años estuvimos al otro lado de la mesa: dirigiendo oficinas, analizando riesgos y decidiendo qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
+            anios: 'años en la banca canaria',
+            registro: 'Registro del Banco de España',
+            respuesta: 'para darles una primera respuesta',
+            coste: 'cuesta el estudio inicial',
+        },
+        oficina: {
+            alt: 'Fachada de la oficina de Cabrera Kapital en La Laguna',
+            titulo: 'Una oficina real, en el centro de La Laguna.',
+            chip: 'Aquí irá la foto real del equipo · C/ Santa Eulalia 9',
+        },
+        pasos: {
+            etiqueta: 'Cómo trabajamos',
+            titulo: 'Tres pasos, sin letra pequeña.',
+            lista: [
+                {
+                    t: 'Estudio gratuito',
+                    d: 'Analizamos sus ingresos, su capacidad de endeudamiento o las cuentas de su empresa. Sabrán qué es viable desde el primer día.',
+                    p: 'Primera respuesta en 24–48 h',
+                },
+                {
+                    t: 'Negociación con entidades',
+                    d: 'Presentamos su operación a varios bancos y alternativas privadas, y comparamos las ofertas formales con ustedes.',
+                    p: 'Ofertas formales en 48 h hábiles',
+                },
+                {
+                    t: 'Firma ante notario',
+                    d: 'Gestionamos la documentación y les acompañamos hasta la firma. Si más adelante aparece una mejora, les avisamos.',
+                    p: 'Solo cobramos si se firma',
+                },
+            ],
+        },
+        editorial: {
+            lista: ['Estudio gratuito', 'Varias entidades', 'Ofertas por escrito', 'Sin letra pequeña'],
+            l1: 'No firme',
+            l2: 'a ciegas.',
+            l3: 'Compare.',
+            sub: 'Con las ofertas formales delante, decidan con números y no con prisas. Solo cobramos si la operación se firma.',
+        },
+        servicios: {
+            etiqueta: 'Qué hacemos',
+            t1: 'Una operación,',
+            t2: 'muchas puertas de banco.',
+            texto:
+                'Presentamos su caso a varias entidades y comparamos ofertas formales. Ustedes eligen con los números delante.',
+            simulador: 'Probar el simulador de cuota',
+        },
+        entidades: {
+            etiqueta: 'Entidades con las que trabajamos',
+            titulo: 'Trabajamos con 19 entidades financieras.',
+            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
+        },
+        garantias: {
+            etiqueta: 'Garantías y acreditaciones',
+            titulo: 'Regulados, certificados y a la vista.',
+            texto:
+                'Agencia intermediadora de crédito inmobiliario inscrita en el Banco de España (E593). Asesores con acreditación LCCI (Ley 5/2019) y certificación EIP de EFPA.',
+            sellos: [
+                ['Banco de España', 'Registro E593'],
+                ['EFPA España', 'Certificación EIP'],
+                ['LCCI', 'Ley 5/2019'],
+            ],
+        },
+        cta: {
+            titulo: '¿Hablamos de su caso?',
+            texto:
+                'El estudio inicial es gratuito y sin compromiso. Solo cobramos si la operación se firma.',
+            boton: 'Pedir estudio gratuito',
+        },
+    },
+    filas: [
+        {
+            verbo: 'Comprar',
+            resto: 'su vivienda',
+            texto:
+                'Les decimos cuánto pueden financiar de verdad y negociamos las condiciones con varios bancos.',
+        },
+        {
+            verbo: 'Mejorar',
+            resto: 'su hipoteca',
+            texto:
+                'Revisamos su hipoteca actual y negociamos un tipo o una cuota mejores, con su banco u otro.',
+        },
+        {
+            verbo: 'Financiar',
+            resto: 'su pyme',
+            texto:
+                'Pólizas, préstamos de inversión, reorganización del pool bancario y comercio exterior.',
+        },
+        {
+            verbo: 'Invertir',
+            resto: 'en inmuebles',
+            texto:
+                'Estructuramos la financiación de su inversión, incluso hasta el 100 % con garantías adicionales.',
+        },
+        {
+            verbo: 'Buying',
+            resto: 'in Tenerife',
+            texto: 'Mortgages for non-resident buyers, explained in English from the first call.',
+        },
+    ],
+    motivos: [
+        {
+            t: 'Conocemos la banca por dentro',
+            d: 'Más de 20 años dirigiendo oficinas y decidiendo operaciones: sabemos qué mira cada entidad.',
+        },
+        {
+            t: 'Solo cobramos si se firma',
+            d: 'Sin anticipos ni letra pequeña. Los honorarios se aclaran por escrito antes de empezar.',
+        },
+        {
+            t: 'Varias entidades, una sola gestión',
+            d: 'Presentamos su caso a 19 entidades y comparan ofertas formales con los números delante.',
+        },
+        {
+            t: 'Regulados e inscritos',
+            d: 'Agencia inscrita en el Banco de España (E593), con asesores acreditados LCCI y EFPA.',
+        },
+        {
+            t: 'Respuesta en 24–48 horas',
+            d: 'Un primer análisis rápido para que sepan qué es viable desde el primer día.',
+        },
+        {
+            t: 'Atención en español e inglés',
+            d: 'Compradores residentes y no residentes atendidos en su idioma desde la primera llamada.',
+        },
+        {
+            t: 'Acompañamiento hasta la firma',
+            d: 'Documentación, tasación y notaría: nos encargamos del papeleo hasta el último día.',
+        },
+        {
+            t: 'Seguimiento después de firmar',
+            d: 'Si más adelante aparece una mejora para su hipoteca o su financiación, les avisamos.',
+        },
+    ],
+    servicios: {
+        title: 'Servicios · Cabrera Kapital',
+        description:
+            'Hipotecas, mejora de hipoteca, financiación para pymes, inversión inmobiliaria y compradores no residentes en Tenerife.',
+        etiqueta: 'Servicios',
+        h1: 'Financiación a medida, negociada con varios bancos.',
+        lead: 'Particulares, autónomos, empresas e inversores. Cada caso se estudia a fondo antes de tocar la puerta de ninguna entidad.',
+        procesoEtiqueta: 'Cómo trabajamos',
+        procesoTitulo: 'Un proceso claro de principio a fin.',
+        ctaTitulo: 'Cuéntennos su caso.',
+        ctaTexto: 'Respondemos en 24–48 h. El estudio inicial no tiene coste ni compromiso.',
+        ctaBoton: 'Pedir estudio gratuito',
+    },
+    equipo: {
+        title: 'Equipo · Cabrera Kapital',
+        description:
+            'Olegario Cabrera García y Alejandro Cabrera Martín: más de veinte años en la banca canaria al servicio de cada operación.',
+        etiqueta: 'Equipo',
+        h1: 'Dos socios, un mismo criterio.',
+        lead: 'Experiencia bancaria real y acreditaciones oficiales al servicio de cada operación.',
+        olegario: {
+            alt: 'Retrato de Olegario',
+            fallback: 'Foto de Olegario',
+            rol: 'Socio fundador',
+            pill: 'Licenciado en ADE · EIP (EFPA) · LCCI',
+            parrafos: [
+                'Especialista en banca y financiación, Licenciado en Administración y Dirección de Empresas, con más de 20 años de experiencia en el sector bancario y financiero en Canarias, desarrollada en entidades de primer nivel donde ha ocupado posiciones de responsabilidad como director de oficina y especialista en clientes residentes y no residentes.',
+                'A lo largo de su trayectoria profesional ha liderado operaciones de financiación para particulares, autónomos y empresas, especializándose en análisis de riesgos, planificación financiera, estructuración de operaciones de crédito y negociación con entidades financieras. Su profundo conocimiento del funcionamiento interno de la banca le permite identificar las mejores alternativas de financiación y diseñar soluciones adaptadas a las necesidades específicas de cada cliente.',
+                'Cuenta con certificaciones profesionales de reconocido prestigio como EIP (EFPA) y la acreditación LCCI – Asesor en Crédito Inmobiliario, que avalan su especialización en asesoramiento financiero, normativa bancaria y crédito hipotecario.',
+                'Su experiencia, capacidad analítica y amplio conocimiento del mercado financiero lo convierten en una figura de referencia para la planificación y gestión de operaciones complejas de financiación e inversión.',
+            ],
+        },
+        alejandro: {
+            alt: 'Retrato de Alejandro',
+            fallback: 'Foto de Alejandro',
+            rol: 'Socio',
+            pill: 'Graduado en ADE · LCCI',
+            parrafos: [
+                'Graduado en Administración y Dirección de Empresas (ADE) y acreditado como Asesor en Crédito Inmobiliario (LCCI), especializado en financiación hipotecaria, análisis financiero y asesoramiento en operaciones de inversión inmobiliaria.',
+                'Desarrolla su actividad profesional en el ámbito de la intermediación financiera y la financiación hipotecaria, participando en el estudio, estructuración y seguimiento integral de operaciones para particulares e inversores. Su trabajo se centra en la búsqueda de soluciones de financiación competitivas, el análisis de viabilidad económica y la optimización de las condiciones ofrecidas por las distintas entidades financieras.',
+                'Complementa su formación financiera con conocimientos en análisis de inversiones inmobiliarias y planificación patrimonial, aportando una visión cercana, dinámica y orientada a resultados. Destaca por su capacidad de negociación, seguimiento personalizado de cada expediente y compromiso con la consecución de las mejores condiciones para sus clientes.',
+            ],
+        },
+        fotoNota: '4:5 · foto individual',
+        sociosTitulo: 'Los dos socios, en su oficina',
+        equipoAlt: 'Olegario y Alejandro Cabrera en su oficina de La Laguna',
+        equipoFallback: 'Foto del equipo',
+        equipoNota: 'Original en alta resolución (pendiente del cliente)',
+        regEtiqueta: 'Registro y acreditaciones',
+        regTitulo: 'Regulados y acreditados',
+        regs: [
+            ['Banco de España', 'Registro E593'],
+            ['EFPA España', 'Acreditación EIP'],
+            ['LCCI · Ley 5/2019', 'Asesor en Crédito Inmobiliario'],
+        ],
+        regNota: 'Sellos oficiales: pendiente de permiso de uso.',
+        ctaTitulo: 'Empecemos por el paso uno.',
+        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
+        ctaBoton: 'Solicitar estudio gratuito',
+    },
+    porque: {
+        title: 'Por qué nosotros · Cabrera Kapital',
+        description:
+            'Conocemos la banca por dentro, solo cobramos si se firma y trabajamos con 19 entidades financieras.',
+        etiqueta: 'Por qué Cabrera Kapital',
+        h1: 'Estuvimos al otro lado de la mesa. Ahora estamos del suyo.',
+        lead: 'Durante más de veinte años dirigimos oficinas, analizamos riesgos y decidimos qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
+        entEtiqueta: 'Entidades colaboradoras',
+        entTitulo: '19 entidades financieras',
+        entNota: 'Los logotipos oficiales se sustituirán al recibir los originales.',
+        ctaTitulo: 'Empecemos por el paso uno.',
+        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
+        ctaBoton: 'Solicitar estudio gratuito',
+    },
+    simulador: {
+        title: 'Simulador de cuota · Cabrera Kapital',
+        description: 'Calcule la cuota mensual orientativa de su hipoteca o préstamo.',
+        etiqueta: 'Simulador',
+        h1: 'Calculen su cuota en segundos.',
+        lead: 'Una estimación orientativa. El estudio real lo hacemos con sus datos y las condiciones de cada entidad.',
+        importe: 'Importe del préstamo',
+        plazo: 'Plazo',
+        interes: 'Tipo de interés',
+        anios: 'años',
+        cuota: 'Cuota mensual estimada',
+        total: 'Total a devolver',
+        intereses: 'Intereses',
+        aviso: 'Cálculo orientativo; no constituye una oferta vinculante.',
+        boton: 'Solicitar estudio real',
+        ctaTitulo: '¿Les encaja? Lo estudiamos juntos.',
+        ctaTexto: 'Sin coste ni compromiso.',
+        ctaBoton: 'Solicitar estudio gratuito',
+    },
+    contacto: {
+        title: 'Contacto · Cabrera Kapital',
+        description: 'Solicite su estudio gratuito. Respondemos en 24–48 horas laborables.',
+        etiqueta: 'Contacto',
+        h1: 'Cuéntennos su caso.',
+        lead: 'Respondemos en 24–48 horas laborables.',
+        formTitulo: 'Solicitar estudio gratuito',
+        nombre: 'Nombre',
+        telefono: 'Teléfono',
+        correo: 'Correo electrónico',
+        operacion: 'Tipo de operación (hipoteca, financiación empresa…)',
+        mensaje: 'Cuéntennos su caso',
+        privacidad: 'He leído y acepto la política de privacidad',
+        enviar: 'Enviar solicitud',
+        demo: 'Modo demostración: el formulario todavía no envía nada.',
+        exito: 'Gracias. Hemos recibido su solicitud y les responderemos en 24–48 horas laborables.',
+        error: 'No hemos podido enviar el formulario. Inténtenlo de nuevo o llámennos al',
+        telefonos: 'Teléfonos',
+        correoCard: 'Correo',
+        direccion: 'Dirección',
+        horario: 'Horario',
+        horarioLv: 'Lunes a viernes',
+        horarioFin: 'Sábado y domingo',
+        cerrado: 'cerrado',
+        mapa: 'Mapa · La Laguna',
+        mapaNota: 'Incrustar mapa aquí',
+    },
+};
+
+export type Dict = typeof es;
