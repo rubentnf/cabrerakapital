@@ -1,4 +1,6 @@
 ---
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import Base from "../layouts/Base.astro";
 import { rutaLegal, slugs, type DocumentoId } from "../data/legal";
 import { langDe, ruta, useT } from "../i18n";
@@ -12,29 +14,72 @@ const t = useT(lang);
 const titulo = t.documentos[id];
 
 // El texto de cada documento está en src/legal/<slug>.md
-const archivos = import.meta.glob<{ Content: any }>("../legal/*.md", {
-    eager: true,
-});
-const { Content } = archivos[`../legal/${slugs[id]}.md`];
+const archivos = import.meta.glob<{
+    Content: any;
+    getHeadings: () => { depth: number; slug: string; text: string }[];
+}>("../legal/*.md", { eager: true });
+const { Content, getHeadings } = archivos[`../legal/${slugs[id]}.md`];
+
+// Índice lateral: los títulos de apartado (## …) del documento
+const indice = getHeadings().filter((h) => h.depth === 2);
+
+// Botón «Descargar PDF original»: solo aparece si el archivo existe en public/legal/<slug>.pdf
+const pdf = existsSync(
+    join(process.cwd(), "public", "legal", `${slugs[id]}.pdf`),
+)
+    ? `/legal/${slugs[id]}.pdf`
+    : null;
 ---
 
 <!-- page="faq": ninguna pestaña del menú queda marcada en las páginas legales -->
 <Base
-    title={`·{titulo} · Cabrera Kapital`}
+    title={`${titulo} · Cabrera Kapital`}
     description={titulo}
     page="faq"
     alt={{ es: rutaLegal(id, "es"), en: rutaLegal(id, "en") }}
 >
     <section class="sec legal">
-        <div class="wrap legal-in">
-            <p>
+        <div class="wrap">
+            <p class="legal-volver">
                 <a href={ruta("inicio", lang)}>← {t.documentos.volver}</a>
             </p>
-            <h1>{titulo}</h1>
+            <h1 class="legal-titulo">{titulo}</h1>
             {lang === "en" && <p class="note">{t.documentos.soloEs}</p>}
-            <div class="legal-texto">
-                <Content />
+            {
+                pdf && (
+                    <p>
+                        <a
+                            class="btn legal-pdf"
+                            href={pdf}
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            {t.documentos.descargar}
+                        </a>
+                    </p>
+                )
+            }
+            <div class="legal-grid">
+                {
+                    indice.length > 1 && (
+                        <nav class="legal-toc" aria-label={t.documentos.indice}>
+                            <p class="legal-toc-t">{t.documentos.indice}</p>
+                            <ol>
+                                {indice.map((h) => (
+                                    <li>
+                                        <a href={`#${h.slug}`}>
+                                            {h.text.replace(/^\d+\.\s*/, "")}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ol>
+                        </nav>
+                    )
+                }
+                <article class="legal-texto">
+                    <Content />
+                </article>
             </div>
         </div>
-    </section></Base
->
+    </section>
+</Base>
