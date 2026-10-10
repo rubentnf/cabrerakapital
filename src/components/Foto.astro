@@ -2,6 +2,7 @@
 // Foto con hueco: si existe src/assets/photos/<name>.(jpg|jpeg|png|webp|avif) se muestra optimizada;
 // si no, se muestra el contenido de reserva (la ilustración).
 import { Image } from "astro:assets";
+import { fotos } from "../utils/assets";
 
 interface Props {
     name: string;
@@ -19,24 +20,13 @@ const {
     loading = "lazy",
 } = Astro.props;
 
-const todas = import.meta.glob<{ default: ImageMetadata }>(
-    "../assets/photos/*.{jpg,jpeg,png,webp,avif}",
-    { eager: true },
-);
-
-const hit = Object.entries(todas).find(
-    ([ruta]) =>
-        ruta
-            .split("/")
-            .pop()!
-            .replace(/\.[^.]+$/, "") === name,
-);
+const img = fotos.get(name);
 ---
 
 {
-    hit ? (
+    img ? (
         <Image
-            src={hit[1].default}
+            src={img}
             alt={alt}
             widths={widths}
             sizes={sizes}

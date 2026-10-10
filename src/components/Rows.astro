@@ -1,5 +1,5 @@
 ---
-import { escenas } from "../data/servicios";
+import { fondos } from "../data/servicios";
 import { langDe, useT } from "../i18n";
 const { filas } = useT(langDe(Astro.url.pathname));
 ---
@@ -8,7 +8,7 @@ const { filas } = useT(langDe(Astro.url.pathname));
     {
         filas.map((f, i) => (
             <li class="row">
-                <i class="rbg" style={`--img:var(--${escenas[i]})`} />
+                <i class="rbg" style={`--img:url('${fondos[i]}')`} />
                 <p class="rd">
                     <i>{i + 1}</i>
                     <span>{f.texto}</span>

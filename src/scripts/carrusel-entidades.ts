@@ -41,21 +41,35 @@ export function initCarruselEntidades() {
             { passive: true },
         );
 
-        new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(el);
-
-        if (reducedMotion()) return;
-
+        let raf = 0;
         const paso = (t: number) => {
             const dt = ultimo ? Math.min(t - ultimo, 100) / 1000 : 0;
             ultimo = t;
-            if (mq.matches && visible && t >= reanudarEn) {
+            if (t >= reanudarEn) {
                 pos += VELOCIDAD * dt;
                 const p = periodo();
                 if (pos >= p) pos -= p;
                 el.scrollLeft = pos;
             }
-            requestAnimationFrame(paso);
+            raf = requestAnimationFrame(paso);
         };
-        requestAnimationFrame(paso);
+
+        // El bucle solo corre en móvil, con el carrusel en pantalla y sin movimiento reducido
+        const actualizar = () => {
+            const activo = mq.matches && visible && !reducedMotion();
+            if (activo && !raf) {
+                ultimo = 0;
+                raf = requestAnimationFrame(paso);
+            } else if (!activo && raf) {
+                cancelAnimationFrame(raf);
+                raf = 0;
+            }
+        };
+
+        new IntersectionObserver(([e]) => {
+            visible = e.isIntersecting;
+            actualizar();
+        }).observe(el);
+        mq.addEventListener('change', actualizar);
     });
 }

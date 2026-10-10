@@ -4,14 +4,18 @@ import Cta from "../components/Cta.astro";
 import Entidades from "../components/Entidades.astro";
 import Porque from "../components/Porque.astro";
 import HeroInterior from "../components/HeroInterior.astro";
-import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
 const t = useT(langDe(Astro.url.pathname));
 const p = t.porque;
 ---
 
 <Base title={p.title} description={p.description} page="porque">
-    <HeroInterior etiqueta={p.etiqueta} titulo={p.h1} lead={p.lead} />
+    <HeroInterior
+        etiqueta={p.etiqueta}
+        titulo={p.h1}
+        lead={p.lead}
+        ilustracion="/img/portada-porque.svg"
+    />
     <section class="sec">
         <div class="wrap">
             <Porque />
@@ -20,7 +24,7 @@ const p = t.porque;
     <section class="sec alt">
         <div class="wrap">
             <span class="eyebrow dk">{p.entEtiqueta}</span>
-            <h2 data-rise style="margin-bottom:32px">
+            <h2 data-rise class="mb-32">
                 {p.entTitulo}
             </h2>
             <Entidades />
@@ -30,6 +34,5 @@ const p = t.porque;
         title={p.ctaTitulo}
         text={p.ctaTexto}
         cta={p.ctaBoton}
-        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
     />
 </Base>

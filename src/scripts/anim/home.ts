@@ -95,9 +95,6 @@ export function initHome() {
         }
     });
 
-    // ---------- 3) Estadísticas (contadores) ----------
-    // (se animan en reveals.ts con [data-count])
-
     // ---------- 4) Marco de la oficina que se expande ----------
     if ($('#frame')) {
         gsap.fromTo(

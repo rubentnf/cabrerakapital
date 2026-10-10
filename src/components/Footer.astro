@@ -23,7 +23,9 @@ const t = useT(lang);
                         </div>
                     ))
                 }
-                <div>{contacto.correo}</div>
+                <div>
+                    <a href={`mailto:${contacto.correo}`}>{contacto.correo}</a>
+                </div>
                 <div>{contacto.direccionCorta}</div>
             </div>
             <div>

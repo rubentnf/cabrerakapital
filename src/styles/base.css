@@ -345,15 +345,6 @@ p {
     margin-top: 22px;
 }
 
-/* pages */
-.page {
-    display: none;
-}
-
-.page.on {
-    display: block;
-}
-
 .hero {
     background: var(--navy);
     color: var(--iv);
@@ -405,28 +396,6 @@ p {
     border: 1px solid rgba(247, 243, 234, 0.3);
 }
 
-.home-hero {
-    padding: clamp(56px, 7vw, 96px) 0;
-}
-
-.hgrid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: 56px;
-    align-items: center;
-}
-
-.home-hero h1 {
-    font-size: clamp(42px, 5.6vw, 80px);
-    margin: 18px 0 22px;
-}
-
-.home-hero p.lead {
-    font-size: 19px;
-    color: #c9d3df;
-    max-width: 46ch;
-}
-
 .btns {
     display: flex;
     gap: 12px;
@@ -452,33 +421,6 @@ p {
 .ph small {
     font: 400 13px var(--sans);
     color: #c4cedb;
-}
-
-.herophoto {
-    min-height: 380px;
-}
-
-.stats {
-    background: var(--iv);
-    padding: 44px 0;
-    border-bottom: 1px solid var(--line);
-}
-
-.stats .wrap {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.stat b {
-    display: block;
-    font: 500 48px/1 var(--serif);
-    color: var(--navy);
-}
-
-.stat>span {
-    font-size: 14px;
-    color: var(--muted);
 }
 
 .sec {
@@ -543,47 +485,6 @@ p {
 .card p {
     font-size: 15px;
     color: var(--muted);
-}
-
-.tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dk);
-}
-
-.dot {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--navy);
-    margin-bottom: 8px;
-    transition: transform 0.5s background 0.4s;
-}
-
-.card:hover .dot {
-    background: var(--gold);
-    transform: rotate(-10deg) scale(1.08);
-}
-
-.card.sim {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: var(--iv);
-    justify-content: center;
-}
-
-.card.sim p {
-    color: #c9d3df;
-}
-
-.card.sim .dot {
-    background: var(--gold);
-}
-
-.card.sim:hover .dot {
-    background: var(--goldl);
 }
 
 .num {
@@ -789,63 +690,6 @@ p {
     color: #9a958a;
 }
 
-/* servicios */
-.svrow {
-    position: relative;
-    display: grid;
-    grid-template-columns: 190px minmax(0, 1fr) 64px;
-    gap: 28px;
-    align-items: center;
-    padding: 36px 0;
-}
-
-.svrow::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: var(--line);
-    transform-origin: 0 50%;
-    transform: scaleX(var(--ln, 1));
-}
-
-.svrow h3 {
-    font-size: clamp(28px, 3.4vw, 42px);
-    margin-bottom: 8px;
-    transition: transform 0.5s;
-}
-
-.svrow:hover h3 {
-    transform: translateX(12px);
-}
-
-.svrow p {
-    color: var(--muted);
-    max-width: 60ch;
-}
-
-.ico {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--navy);
-    display: grid;
-    place-items: center;
-    color: var(--gold);
-    transition:
-        background 0.4s,
-        transform 0.5s,
-        color 0.4s;
-}
-
-.svrow:hover .ico {
-    background: var(--gold);
-    color: var(--navy);
-    transform: rotate(-12deg) scale(1.08);
-}
-
 /* equipo */
 .person {
     display: grid;
@@ -1018,7 +862,6 @@ textarea {
         display: block;
     }
 
-    .hgrid,
     .garant,
     .simg,
     .cgrid,
@@ -1035,10 +878,6 @@ textarea {
         --cols: 4;
     }
 
-    .stats .wrap {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .shead {
         flex-direction: column;
         align-items: start;
@@ -1047,14 +886,6 @@ textarea {
 
     .fgrid {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .svrow {
-        grid-template-columns: 1fr 56px;
-    }
-
-    .svrow>.tag {
-        grid-column: 1/-1;
     }
 
     .person .ph {
@@ -1076,10 +907,6 @@ textarea {
 
     .seals {
         grid-template-columns: 1fr;
-    }
-
-    .herophoto {
-        min-height: 240px;
     }
 
     .btns .btn {
@@ -1356,11 +1183,10 @@ textarea {
     }
 }
 
-/* :root {
+/* Ilustración del Teide: relleno del logotipo gigante de la portada (scroll-story.css) */
+:root {
     --s1: url('/img/scene-teide.svg');
-    --s2: url('/img/scene-catedral.svg');
-    --s3: url('/img/scene-ciudad.svg');
-} */
+}
 
 :root {
     --p1: url('/img/paso-1.svg');
@@ -1617,15 +1443,6 @@ select {
     text-decoration: underline;
 }
 
-.legal-in {
-    max-width: 820px;
-}
-
-.legal-in h1 {
-    font-size: clamp(32px, 4.4vw, 56px);
-    margin: 18px 0 24px;
-}
-
 .legal-texto {
     line-height: 1.7;
 }
@@ -1838,7 +1655,6 @@ html {
 
 @media print {
 
-    .hdr,
     header,
     .foot,
     .wa,
@@ -1917,4 +1733,69 @@ html {
 
 .seal.wide img {
     max-height: 120px;
+}
+
+/* utilidades */
+.mb-32 {
+    margin-bottom: 32px;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+/* Titulares interiores palabra a palabra (splitWords con máscara) */
+.split-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.12em;
+}
+
+.split-mask > .w {
+    display: inline-block;
+}
+
+/* Campo trampa antispam del formulario: invisible para las personas */
+.trampa {
+    position: absolute;
+    left: -9999px;
+}
+
+/* Ilustración de las portadas interiores (HeroInterior con `ilustracion`) */
+.hero-ilus {
+    position: absolute;
+    inset: 0;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: var(--g);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.hero-ilus img {
+    height: min(86%, 420px);
+    width: auto;
+}
+
+/* Con menos ancho, la ilustración se hace más pequeña y se queda detrás del texto */
+@media (max-width: 1100px) {
+    .hero-ilus img {
+        height: 62%;
+        opacity: 0.45;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero-ilus {
+        align-items: flex-end;
+        padding-bottom: 16px;
+    }
+
+    .hero-ilus img {
+        height: 48%;
+        opacity: 0.22;
+    }
 }

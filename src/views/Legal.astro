@@ -1,6 +1,7 @@
 ---
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import type { MarkdownInstance } from "astro";
 import Base from "../layouts/Base.astro";
 import { rutaLegal, slugs, type DocumentoId } from "../data/legal";
 import { langDe, ruta, useT } from "../i18n";
@@ -14,10 +15,10 @@ const t = useT(lang);
 const titulo = t.documentos[id];
 
 // El texto de cada documento está en src/legal/<slug>.md
-const archivos = import.meta.glob<{
-    Content: any;
-    getHeadings: () => { depth: number; slug: string; text: string }[];
-}>("../legal/*.md", { eager: true });
+const archivos = import.meta.glob<MarkdownInstance<Record<string, unknown>>>(
+    "../legal/*.md",
+    { eager: true },
+);
 const { Content, getHeadings } = archivos[`../legal/${slugs[id]}.md`];
 
 // Índice lateral: los títulos de apartado (## …) del documento
@@ -31,12 +32,11 @@ const pdf = existsSync(
     : null;
 ---
 
-<!-- page="faq": ninguna pestaña del menú queda marcada en las páginas legales -->
 <Base
     title={`${titulo} · Cabrera Kapital`}
-    description={titulo}
-    page="faq"
+    description={t.documentos.descripcion.replace("{titulo}", titulo)}
     alt={{ es: rutaLegal(id, "es"), en: rutaLegal(id, "en") }}
+    animaciones={false}
 >
     <section class="sec legal">
         <div class="wrap">

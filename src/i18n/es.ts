@@ -1,3 +1,6 @@
+import { entidades } from '../data/entidades';
+const nEntidades = entidades.length;
+
 /** Textos en español. Es la fuente de verdad: en.ts debe tener exactamente las mismas claves. */
 export const es = {
     htmlLang: 'es',
@@ -15,6 +18,7 @@ export const es = {
         inicio: 'Cabrera Kapital, inicio',
         principal: 'Principal',
         abrirMenu: 'Abrir menú',
+        cerrarMenu: 'Cerrar menú',
         cta: 'Estudio gratuito',
     },
     whatsapp: {
@@ -42,6 +46,8 @@ export const es = {
         soloEs: 'Este documento legal solo está disponible en español.',
         volver: 'Volver al inicio',
         faq: 'Preguntas frecuentes',
+        descripcion:
+            '{titulo} de Cabrera Kapital, intermediario de crédito inmobiliario inscrito en el Banco de España (E593).',
     },
     faq: {
         title: 'Preguntas frecuentes · Cabrera Kapital',
@@ -132,7 +138,7 @@ export const es = {
             ],
         },
         editorial: {
-            altEntidades: 'Más de 19 entidades financieras con las que trabaja Cabrera Kapital',
+            altEntidades: `Más de ${nEntidades} entidades financieras con las que trabaja Cabrera Kapital`,
             altApreton: 'Apretón de manos al cerrar un acuerdo en la oficina',
             lista: ['Estudio gratuito', 'Varias entidades', 'Ofertas por escrito', 'Sin letra pequeña'],
             l1: 'No firme',
@@ -150,8 +156,7 @@ export const es = {
         },
         entidades: {
             etiqueta: 'Entidades con las que trabajamos',
-            titulo: 'Trabajamos con 19 entidades financieras.',
-            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
+            titulo: `Trabajamos con ${nEntidades} entidades financieras.`,
         },
         garantias: {
             etiqueta: 'Garantías y acreditaciones',
@@ -255,7 +260,7 @@ export const es = {
         },
         {
             t: 'Varias entidades, una sola gestión',
-            d: 'Presentamos su caso a 19 entidades y comparan ofertas formales con los números delante.',
+            d: `Presentamos su caso a ${nEntidades} entidades y comparan ofertas formales con los números delante.`,
         },
         {
             t: 'Regulados e inscritos',
@@ -325,7 +330,6 @@ export const es = {
         sociosTitulo: 'Los dos socios, en su oficina',
         equipoAlt: 'Olegario y Alejandro Cabrera en su oficina de La Laguna',
         equipoFallback: 'Foto del equipo',
-        equipoNota: 'Original en alta resolución (pendiente del cliente)',
         regEtiqueta: 'Registro y acreditaciones',
         regTitulo: 'Regulados y acreditados',
         regs: [
@@ -333,7 +337,6 @@ export const es = {
             ['EFPA España', 'Acreditación EIP'],
             ['LCCI · Ley 5/2019', 'Asesor en Crédito Inmobiliario'],
         ],
-        regNota: 'Sellos oficiales: pendiente de permiso de uso.',
         ctaTitulo: 'Empecemos por el paso uno.',
         ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
@@ -341,12 +344,12 @@ export const es = {
     porque: {
         title: 'Por qué nosotros · Cabrera Kapital',
         description:
-            'Conocemos la banca por dentro, solo cobramos si se firma y trabajamos con 19 entidades financieras.',
+            `Conocemos la banca por dentro, solo cobramos si se firma y trabajamos con ${nEntidades} entidades financieras.`,
         etiqueta: 'Por qué Cabrera Kapital',
         h1: 'Estuvimos al otro lado de la mesa. Ahora estamos del suyo.',
         lead: 'Durante más de veinte años dirigimos oficinas, analizamos riesgos y decidimos qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
         entEtiqueta: 'Entidades colaboradoras',
-        entTitulo: '19 entidades financieras',
+        entTitulo: `${nEntidades} entidades financieras`,
         entNota: 'Los logotipos oficiales se sustituirán al recibir los originales.',
         ctaTitulo: 'Empecemos por el paso uno.',
         ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',

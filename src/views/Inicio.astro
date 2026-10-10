@@ -9,14 +9,13 @@ import Servicios from "../components/Servicios.astro";
 import EntidadesSec from "../components/EntidadesSec.astro";
 import Garantias from "../components/Garantias.astro";
 import Cta from "../components/Cta.astro";
-import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
 import Caminos from "../components/Caminos.astro";
 import Resenas from "../components/Resenas.astro";
 const t = useT(langDe(Astro.url.pathname)).inicio;
 ---
 
-<Base title={t.title} description={t.description}>
+<Base title={t.title} description={t.description} page="inicio">
     <Hero />
     <Manifiesto />
     <Oficina />
@@ -31,6 +30,5 @@ const t = useT(langDe(Astro.url.pathname)).inicio;
         title={t.cta.titulo}
         text={t.cta.texto}
         cta={t.cta.boton}
-        phone={contacto.telefonos[0].visible}
     />
 </Base>

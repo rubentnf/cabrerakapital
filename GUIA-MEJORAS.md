@@ -14,7 +14,7 @@ Cada paso indica:
 
 ## Fase 0 · Preparación
 
-### ☐ 0.1 Crea una rama de trabajo
+### ☑ 0.1 Crea una rama de trabajo
 
 ```bash
 git checkout -b mejoras
@@ -22,7 +22,7 @@ git checkout -b mejoras
 
 Así, si algo sale mal, `main` sigue intacta. Al final de cada fase haz un commit (por ejemplo `git commit -am "fix: fase 1 errores"`).
 
-### ☐ 0.2 Instala el comprobador de tipos de Astro
+### ☑ 0.2 Instala el comprobador de tipos de Astro
 
 `astro build` **no** revisa los tipos de los archivos `.astro`; por eso no avisó de los errores de la fase 1. Instala el comprobador:
 
@@ -48,7 +48,7 @@ npm i -D @astrojs/check typescript
 
 ## Fase 1 · Errores (prioridad alta)
 
-### ☐ 1.1 El botón del mapa no funciona
+### ☑ 1.1 El botón del mapa no funciona
 
 📄 `src/scripts/mapa.ts` (línea 6). El script busca un atributo distinto al que tiene el botón en `Mapa.astro` (`data-mapa-btn`).
 
@@ -61,7 +61,7 @@ const boton = caja.querySelector('[data-mapa-btn]');
 
 ✅ `npm run dev` → `/contacto/` → pulsa «Cargar mapa»: debe aparecer el mapa de Google.
 
-### ☐ 1.2 Oficina: texto vacío y `alt` sin traducir
+### ☑ 1.2 Oficina: texto vacío y `alt` sin traducir
 
 📄 `src/components/Oficina.astro`
 
@@ -82,7 +82,7 @@ const boton = caja.querySelector('[data-mapa-btn]');
 
 ✅ En `/` y `/en/`, la sección de la oficina muestra solo el título, sin cápsula vacía.
 
-### ☐ 1.3 Entidades (portada): nota vacía
+### ☑ 1.3 Entidades (portada): nota vacía
 
 📄 `src/components/EntidadesSec.astro` — borra la línea:
 
@@ -90,7 +90,7 @@ const boton = caja.querySelector('[data-mapa-btn]');
 <p class="note">{t.nota}</p>
 ```
 
-### ☐ 1.4 Por qué nosotros: nota vacía
+### ☑ 1.4 Por qué nosotros: nota vacía
 
 📄 `src/views/Porque.astro` (línea 27) — la clave `entNota` no existe en los diccionarios. Tienes dos opciones:
 
@@ -99,7 +99,7 @@ const boton = caja.querySelector('[data-mapa-btn]');
 
 ✅ `npm run check` ya no debe mostrar errores.
 
-### ☐ 1.5 Coma que falta en el CSS
+### ☑ 1.5 Coma que falta en el CSS
 
 📄 `src/styles/base.css` (línea 531, dentro de `.card { … }`)
 
@@ -112,7 +112,7 @@ transition: transform 0.4s, box-shadow 0.4s;
 
 ✅ Al pasar el ratón por una tarjeta (`/porque-nosotros/`), sube y la sombra aparece **suavemente**, no de golpe.
 
-### ☐ 1.6 Marcadores provisionales visibles
+### ☑ 1.6 Marcadores provisionales visibles
 
 **a) Correo pendiente** · 📄 `src/views/Contacto.astro` (línea 124). Aprovecha para convertirlo en enlace:
 
@@ -145,7 +145,7 @@ grep -rn "pendiente\|\[Pegar\|\[Nombre\|\[Aquí" src --include=*.astro --include
 
 Solo debería quedar `regNota` en los diccionarios (es un texto intencionado).
 
-### ☐ 1.7 Tipo de las pestañas del menú
+### ☑ 1.7 Tipo de las pestañas del menú
 
 📄 `src/components/Header.astro` (línea 12). `ids` tiene el tipo `PaginaId[]`, que incluye `"faq"`, pero el diccionario `nav` no tiene pestaña `faq`. Por eso TypeScript da el error `ts(7053)` en `t.nav[id]`.
 
@@ -166,7 +166,7 @@ Si algún día añades `faq` al menú, basta con añadir su texto a `nav` en `es
 
 ## Fase 2 · Limpieza (sin riesgo)
 
-### ☐ 2.1 Código muerto en `servicios.ts`
+### ☑ 2.1 Código muerto en `servicios.ts`
 
 📄 `src/data/servicios.ts` — sustituye **todo** el contenido por:
 
@@ -177,7 +177,7 @@ export const escenas = ['s2', 's3', 's1', 's2', 's3'] as const;
 
 (Se van la interfaz `Fila`, que nadie usa, y el bloque comentado.)
 
-### ☐ 2.2 Animaciones de elementos que no existen
+### ☑ 2.2 Animaciones de elementos que no existen
 
 📄 `src/scripts/anim/reveals.ts` — borra el bloque completo que empieza por `$$('[data-row]').forEach((r) => {` (líneas 111–136). No hay ningún `data-row` ni `.ico` en el HTML.
 
@@ -190,7 +190,7 @@ export const escenas = ['s2', 's3', 's1', 's2', 's3'] as const;
 
 (Si quieres, renumera los comentarios siguientes: 4 → 3 y 5 → 4.)
 
-### ☐ 2.3 CSS sin usar en `base.css`
+### ☑ 2.3 CSS sin usar en `base.css`
 
 Son restos del prototipo anterior. **Antes de borrar cada clase**, confirma que no se usa:
 
@@ -220,7 +220,7 @@ grep -rnw "NOMBRE" src --include=*.astro --include=*.ts
 
 ✅ Recorre todas las páginas en escritorio y en móvil (DevTools → modo dispositivo) y comprueba que nada ha cambiado de aspecto.
 
-### ☐ 2.4 `langDe` llamado dos veces
+### ☑ 2.4 `langDe` llamado dos veces
 
 📄 `src/views/Contacto.astro` (líneas 8–10):
 
@@ -235,7 +235,7 @@ const t = useT(lang);
 const c = t.contacto;
 ```
 
-### ☐ 2.5 Correo como enlace en el pie
+### ☑ 2.5 Correo como enlace en el pie
 
 📄 `src/components/Footer.astro` (línea 26):
 
@@ -246,7 +246,7 @@ const c = t.contacto;
 <div><a href={`mailto:${contacto.correo}`}>{contacto.correo}</a></div>
 ```
 
-### ☐ 2.6 (Opcional) Estilos en línea repetidos
+### ◐ 2.6 (Opcional) Estilos en línea repetidos
 
 Lista los estilos en línea:
 
@@ -275,7 +275,7 @@ Y sustituye, por ejemplo:
 
 ## Fase 3 · Refactorización
 
-### ☐ 3.1 El CTA monta él mismo el botón de teléfono
+### ☑ 3.1 El CTA monta él mismo el botón de teléfono
 
 Hoy cada página pasa el texto del teléfono, y no todas igual: Inicio y Servicios muestran solo el número; el resto, «Llamar 606…». Lo unificamos dentro del componente.
 
@@ -311,7 +311,7 @@ const tel = contacto.telefonos[0];
 
 ✅ `npm run check` sin errores; todas las páginas muestran «Llamar 606 395 427» (o «Call…» en inglés).
 
-### ☐ 3.2 Nombres de los socios en los datos, no en un ternario
+### ☑ 3.2 Nombres de los socios en los datos, no en un ternario
 
 📄 `src/views/Equipo.astro`
 
@@ -341,7 +341,7 @@ Y en el HTML:
 <h2>{s.nombre}</h2>
 ```
 
-### ☐ 3.3 Búsqueda de imágenes compartida + logos optimizados
+### ☑ 3.3 Búsqueda de imágenes compartida + logos optimizados
 
 `Foto.astro` y `Entidades.astro` repiten el mismo código para buscar archivos por nombre. Además, los logos se sirven como PNG originales, sin optimizar.
 
@@ -421,7 +421,7 @@ y, dentro del `.map`, cambia `logoDe(e)` por `logos.get(slug(e))` y el `<img>` p
 
 ✅ `npm run build` → en `dist/_astro/` los logos aparecen como `.webp`. Las fotos del equipo y de la oficina siguen viéndose bien.
 
-### ☐ 3.4 Las páginas legales ya no fingen ser «faq»
+### ☑ 3.4 Las páginas legales ya no fingen ser «faq»
 
 Ahora `Legal.astro` pasa `page="faq"` solo para que no se marque ninguna pestaña del menú. Haremos que `page` sea opcional de verdad y que `Base` calcule las rutas alternativas una sola vez.
 
@@ -479,7 +479,7 @@ y los `href`: `href={alts.es}` y `href={alts.en}`.
 
 ✅ En `/`, «Inicio» queda marcado en el menú; en `/legal/aviso-legal/` no se marca nada, y el cambio de idioma lleva a `/en/legal/aviso-legal/`.
 
-### ☐ 3.5 El «19» de entidades, calculado
+### ☑ 3.5 El «19» de entidades, calculado
 
 El número está escrito a mano en 4 textos por idioma. Si la lista cambia, se desfasan.
 
@@ -503,7 +503,7 @@ titulo: `Trabajamos con ${nEntidades} entidades financieras.`,
 
 ✅ Búsqueda rápida: `grep -n "19 " src/i18n/*.ts` ya no debe devolver textos de entidades.
 
-### ☐ 3.6 Hero: SVG más corto generado con datos
+### ☑ 3.6 Hero: SVG más corto generado con datos
 
 📄 `src/components/Hero.astro` — unas 30 vetas de nieve y 6 grietas son el mismo `<path>` repetido. Muévelas a arrays en el frontmatter:
 
@@ -551,7 +551,7 @@ Haz lo mismo con las 10 `<line>` de la balconada (x = 674, 680, … 728):
 
 ✅ Compara la portada antes y después (haz una captura antes de empezar): debe verse idéntica.
 
-### ☐ 3.7 Simulador: IDs genéricos → atributos `data-*`
+### ☑ 3.7 Simulador: IDs genéricos → atributos `data-*`
 
 `#i`, `#p` y `#t` son IDs fáciles de pisar con otros elementos.
 
@@ -619,7 +619,7 @@ export function initSimulador() {
 
 ✅ `/simulador/` y `/en/calculator/`: al mover los tres deslizadores, las cifras cambian como antes.
 
-### ☐ 3.8 No reconstruir HTML desde texto (`innerHTML`)
+### ☑ 3.8 No reconstruir HTML desde texto (`innerHTML`)
 
 `rollify`, `splitWords` y `[data-split]` leen el texto y lo vuelven a meter como HTML: un `&` o `<` en un texto rompería la página. Los crearemos como nodos.
 
@@ -693,7 +693,7 @@ $$('.btn, .links a').forEach((el) => {
 
 ✅ Los títulos de las páginas interiores siguen entrando palabra a palabra; los botones siguen «rodando» al pasar el ratón; la frase del cielo de la portada se sigue coloreando.
 
-### ☐ 3.9 (Opcional) Tipado de `Legal.astro`
+### ☑ 3.9 (Opcional) Tipado de `Legal.astro`
 
 📄 `src/views/Legal.astro` — sustituye el `any`:
 
@@ -711,7 +711,7 @@ Sobre el PDF: `existsSync(process.cwd() …)` funciona mientras ejecutes `astro 
 
 ## Fase 4 · Rendimiento
 
-### ☐ 4.1 Carrusel de entidades: parar cuando no se ve
+### ☑ 4.1 Carrusel de entidades: parar cuando no se ve
 
 Ahora el bucle `requestAnimationFrame` corre siempre, también en escritorio y con el carrusel fuera de pantalla.
 
@@ -754,11 +754,11 @@ mq.addEventListener('change', actualizar);
 
 ✅ En escritorio: DevTools → *Performance* → graba 5 s en reposo: no debe aparecer actividad continua de *Animation Frame Fired*. En móvil (modo dispositivo), el carrusel sigue avanzando solo.
 
-### ☐ 4.2 Logos optimizados
+### ☑ 4.2 Logos optimizados
 
 Ya está hecho en el paso **3.3** (`<Image>` en `Entidades.astro`).
 
-### ☐ 4.3 Botones «imán» con `quickTo`
+### ☑ 4.3 Botones «imán» con `quickTo`
 
 📄 `src/scripts/anim/magnet.ts` — sustituye todo el archivo:
 
@@ -803,7 +803,7 @@ export function initMagnet() {
 
 Además del rendimiento, esto corrige un tirón: antes, al mover el ratón entre los `<span>` que crea `rollify`, el botón «volvía» a su sitio aunque siguieras encima. Lo único que se pierde es el rebote elástico al salir.
 
-### ☐ 4.4 Logotipo del pie: `ResizeObserver` en vez de `resize`
+### ☑ 4.4 Logotipo del pie: `ResizeObserver` en vez de `resize`
 
 📄 `src/scripts/wordmark.ts` — sustituye todo el archivo:
 
@@ -833,7 +833,7 @@ export function fitWordmark() {
 }
 ```
 
-### ☐ 4.5 (Avanzado, opcional) No cargar GSAP en las páginas legales
+### ☑ 4.5 (Avanzado, opcional) No cargar GSAP en las páginas legales
 
 GSAP + ScrollTrigger son la mayor parte de los ~125 KB del script, y en las páginas legales casi no se usan. Mide antes de empezar:
 
@@ -898,7 +898,7 @@ import('gsap').then(({ gsap }) =>
 
 ## Fase 5 · Otras mejoras
 
-### ☐ 5.1 Imagen al compartir (`og:image`)
+### ☑ 5.1 Imagen al compartir (`og:image`)
 
 1. Crea una imagen de **1200 × 630 px** (logotipo y lema sobre fondo azul marino, por ejemplo) y guárdala como `public/og.jpg`.
 2. 📄 `src/layouts/Base.astro` — junto a las demás etiquetas `og:`:
@@ -913,7 +913,7 @@ import('gsap').then(({ gsap }) =>
 
 ✅ Tras publicar, pega una URL en WhatsApp: debe salir la imagen.
 
-### ☐ 5.2 Descripción de las páginas legales
+### ☑ 5.2 Descripción de las páginas legales
 
 Ahora usan el título como descripción.
 
@@ -935,7 +935,7 @@ descripcion: '{titulo} of Cabrera Kapital, real-estate credit intermediary regis
 description={t.documentos.descripcion.replace("{titulo}", titulo)}
 ```
 
-### ☐ 5.3 Menú móvil accesible
+### ☑ 5.3 Menú móvil accesible
 
 📄 `src/i18n/es.ts` y `en.ts`, dentro de `header`: añade `cerrarMenu: 'Cerrar menú'` / `cerrarMenu: 'Close menu'`.
 
@@ -990,7 +990,7 @@ addEventListener('keydown', (e) => {
 
 ✅ En modo móvil: abre el menú con el teclado (Tab hasta el botón + Enter), recorre con Tab (no sale del menú) y cierra con Escape (el foco vuelve al botón).
 
-### ☐ 5.4 Protección antispam del formulario
+### ☑ 5.4 Protección antispam del formulario
 
 Formspree ignora los envíos que rellenan el campo `_gotcha` (solo lo rellenan los bots).
 

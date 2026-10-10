@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import Cta from "../components/Cta.astro";
 import HeroInterior from "../components/HeroInterior.astro";
-import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
 const t = useT(langDe(Astro.url.pathname));
 const f = t.faq;
@@ -42,6 +41,5 @@ const esquema = {
         title={f.ctaTitulo}
         text={f.ctaTexto}
         cta={f.ctaBoton}
-        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
     />
 </Base>

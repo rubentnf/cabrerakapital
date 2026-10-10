@@ -5,14 +5,19 @@ import Mapa from "../components/Mapa.astro";
 import { rutaLegal } from "../data/legal";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
-const t = useT(langDe(Astro.url.pathname));
-const c = t.contacto;
 const lang = langDe(Astro.url.pathname);
+const t = useT(lang);
+const c = t.contacto;
 const tel1 = contacto.telefonos[0].visible;
 ---
 
 <Base title={c.title} description={c.description} page="contacto">
-    <HeroInterior etiqueta={c.etiqueta} titulo={c.h1} lead={c.lead} />
+    <HeroInterior
+        etiqueta={c.etiqueta}
+        titulo={c.h1}
+        lead={c.lead}
+        ilustracion="/img/portada-contacto.svg"
+    />
     <section class="sec">
         <div class="wrap cgrid">
             <form
@@ -99,11 +104,15 @@ const tel1 = contacto.telefonos[0].visible;
                         {c.privacidadB}
                     </a>
                 </label>
-                <button
-                    class="btn navyb"
-                    type="submit"
-                    style="align-self:flex-start"
-                >
+                <input
+                    class="trampa"
+                    type="text"
+                    name="_gotcha"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                />
+                <button class="btn navyb self-start" type="submit">
                     {c.enviar}
                 </button>
                 <p class="ok" id="sent" hidden></p>
@@ -121,7 +130,11 @@ const tel1 = contacto.telefonos[0].visible;
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.correoCard}</span>
-                    <b>{contacto.correo}</b>
+                    <b
+                        ><a href={`mailto:${contacto.correo}`}
+                            >{contacto.correo}</a
+                        ></b
+                    >
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.direccion}</span>

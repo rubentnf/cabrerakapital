@@ -3,6 +3,61 @@ import { langDe, ruta, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang).inicio.hero;
 const m = useT(lang).inicio.manifiesto;
+
+// Teide: perfil de la montaña (se usa dos veces: como recorte y como relleno)
+const perfil =
+    "M-500 452 L0 430 C150 420 300 380 450 300 C560 240 680 150 770 90 C785 78 800 70 815 72 C830 74 845 84 870 104 C980 190 1100 270 1240 330 C1360 380 1480 410 1600 420 L1600 660 L-500 660 Z";
+
+// Grietas oscuras de la ladera
+const grietas = [
+    "M790 84 L690 400 L706 400 L798 84Z",
+    "M776 96 L600 380 L616 380 L784 96Z",
+    "M760 110 L520 360 L536 360 L768 110Z",
+    "M740 128 L430 340 L446 340 L748 128Z",
+    "M800 80 L745 420 L761 420 L808 80Z",
+    "M700 150 L330 330 L346 330 L708 150Z",
+];
+
+// Vetas de nieve: [trazado, opacidad]
+const nieve: [string, number][] = [
+    ["M840 94 L798 171 L803 171 L843 94Z", 0.77],
+    ["M855 102 L812 180 L818 180 L858 102Z", 0.61],
+    ["M870 110 L837 171 L842 171 L874 110Z", 0.63],
+    ["M885 119 L832 216 L835 216 L888 119Z", 0.49],
+    ["M901 127 L870 182 L877 182 L905 127Z", 0.66],
+    ["M916 135 L887 187 L895 187 L921 135Z", 0.78],
+    ["M931 143 L882 232 L888 232 L935 143Z", 0.42],
+    ["M946 151 L918 202 L924 202 L949 151Z", 0.38],
+    ["M961 159 L927 221 L932 221 L964 159Z", 0.36],
+    ["M976 168 L934 245 L939 245 L979 168Z", 0.73],
+    ["M992 176 L947 257 L953 257 L995 176Z", 0.57],
+    ["M1007 184 L957 274 L963 274 L1010 184Z", 0.48],
+    ["M1022 192 L961 302 L969 302 L1027 192Z", 0.73],
+    ["M1037 200 L986 293 L991 293 L1040 200Z", 0.45],
+    ["M1052 209 L1015 276 L1018 276 L1054 209Z", 0.69],
+    ["M1067 217 L1027 291 L1034 291 L1072 217Z", 0.52],
+    ["M1082 225 L1023 332 L1031 332 L1087 225Z", 0.35],
+    ["M1098 233 L1063 296 L1071 296 L1102 233Z", 0.56],
+    ["M1113 241 L1053 350 L1058 350 L1116 241Z", 0.38],
+    ["M1128 249 L1080 337 L1086 337 L1132 249Z", 0.47],
+    ["M1143 258 L1113 313 L1117 313 L1146 258Z", 0.78],
+    ["M1158 266 L1106 361 L1109 361 L1160 266Z", 0.46],
+    ["M1173 274 L1142 330 L1146 330 L1175 274Z", 0.71],
+    ["M1188 282 L1155 343 L1161 343 L1192 282Z", 0.55],
+    ["M1204 290 L1170 352 L1177 352 L1208 290Z", 0.41],
+    ["M1219 299 L1170 387 L1174 387 L1221 299Z", 0.54],
+    ["M1234 307 L1199 369 L1204 369 L1237 307Z", 0.79],
+    ["M1249 315 L1195 413 L1200 413 L1252 315Z", 0.75],
+    ["M1264 323 L1230 386 L1235 386 L1267 323Z", 0.73],
+    ["M1279 331 L1231 420 L1234 420 L1281 331Z", 0.80],
+    ["M1295 339 L1260 402 L1264 402 L1297 339Z", 0.70],
+    ["M1310 348 L1271 417 L1276 417 L1312 348Z", 0.38],
+    ["M1325 356 L1294 411 L1300 411 L1328 356Z", 0.46],
+    ["M1340 364 L1293 450 L1298 450 L1343 364Z", 0.55],
+];
+
+// Barrotes de la balconada del edificio de la ciudad
+const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
 ---
 
 <section class="tdhero scene" aria-labelledby="hero-title">
@@ -29,187 +84,27 @@ const m = useT(lang).inicio.manifiesto;
                 </linearGradient>
                 <clipPath id="tcl">
                     <path
-                        d="M-500 452 L0 430 C150 420 300 380 450 300 C560 240 680 150 770 90 C785 78 800 70 815 72 C830 74 845 84 870 104 C980 190 1100 270 1240 330 C1360 380 1480 410 1600 420 L1600 660 L-500 660 Z"
+                        d={perfil}
                     ></path>
                 </clipPath>
             </defs>
             <g transform="translate(70 0)">
                 <path
-                    d="M-500 452 L0 430 C150 420 300 380 450 300 C560 240 680 150 770 90 C785 78 800 70 815 72 C830 74 845 84 870 104 C980 190 1100 270 1240 330 C1360 380 1480 410 1600 420 L1600 660 L-500 660 Z"
+                    d={perfil}
                     fill="url(#tr)"></path>
                 <path
                     d="M-500 452 L0 430 C150 420 300 380 450 300 C560 240 680 150 770 90 C785 78 800 70 812 72 C806 120 790 200 800 260 C808 320 770 380 790 440 L-500 470Z"
                     fill="url(#tl)"
                     clip-path="url(#tcl)"></path>
-                <path
-                    d="M790 84 L690 400 L706 400 L798 84Z"
-                    fill="#6b3f26"
-                    opacity=".45"
-                    clip-path="url(#tcl)"></path>
-                <path
-                    d="M776 96 L600 380 L616 380 L784 96Z"
-                    fill="#6b3f26"
-                    opacity=".45"
-                    clip-path="url(#tcl)"></path>
-                <path
-                    d="M760 110 L520 360 L536 360 L768 110Z"
-                    fill="#6b3f26"
-                    opacity=".45"
-                    clip-path="url(#tcl)"></path>
-                <path
-                    d="M740 128 L430 340 L446 340 L748 128Z"
-                    fill="#6b3f26"
-                    opacity=".45"
-                    clip-path="url(#tcl)"></path>
-                <path
-                    d="M800 80 L745 420 L761 420 L808 80Z"
-                    fill="#6b3f26"
-                    opacity=".45"
-                    clip-path="url(#tcl)"></path>
-                <path
-                    d="M700 150 L330 330 L346 330 L708 150Z"
-                    fill="#6b3f26"
-                    opacity=".45"
-                    clip-path="url(#tcl)"></path>
+                {grietas.map((d) => (
+                    <path d={d} fill="#6b3f26" opacity=".45" clip-path="url(#tcl)"></path>
+                ))}
                 <path
                     d="M770 90 C785 78 800 70 815 72 C826 76 836 82 846 92 C820 88 790 90 770 90Z"
                     fill="#c79a6c"></path>
-                <path
-                    d="M840 94 L798 171 L803 171 L843 94Z"
-                    fill="#dfe6ec"
-                    opacity="0.77"></path>
-                <path
-                    d="M855 102 L812 180 L818 180 L858 102Z"
-                    fill="#dfe6ec"
-                    opacity="0.61"></path>
-                <path
-                    d="M870 110 L837 171 L842 171 L874 110Z"
-                    fill="#dfe6ec"
-                    opacity="0.63"></path>
-                <path
-                    d="M885 119 L832 216 L835 216 L888 119Z"
-                    fill="#dfe6ec"
-                    opacity="0.49"></path>
-                <path
-                    d="M901 127 L870 182 L877 182 L905 127Z"
-                    fill="#dfe6ec"
-                    opacity="0.66"></path>
-                <path
-                    d="M916 135 L887 187 L895 187 L921 135Z"
-                    fill="#dfe6ec"
-                    opacity="0.78"></path>
-                <path
-                    d="M931 143 L882 232 L888 232 L935 143Z"
-                    fill="#dfe6ec"
-                    opacity="0.42"></path>
-                <path
-                    d="M946 151 L918 202 L924 202 L949 151Z"
-                    fill="#dfe6ec"
-                    opacity="0.38"></path>
-                <path
-                    d="M961 159 L927 221 L932 221 L964 159Z"
-                    fill="#dfe6ec"
-                    opacity="0.36"></path>
-                <path
-                    d="M976 168 L934 245 L939 245 L979 168Z"
-                    fill="#dfe6ec"
-                    opacity="0.73"></path>
-                <path
-                    d="M992 176 L947 257 L953 257 L995 176Z"
-                    fill="#dfe6ec"
-                    opacity="0.57"></path>
-                <path
-                    d="M1007 184 L957 274 L963 274 L1010 184Z"
-                    fill="#dfe6ec"
-                    opacity="0.48"></path>
-                <path
-                    d="M1022 192 L961 302 L969 302 L1027 192Z"
-                    fill="#dfe6ec"
-                    opacity="0.73"></path>
-                <path
-                    d="M1037 200 L986 293 L991 293 L1040 200Z"
-                    fill="#dfe6ec"
-                    opacity="0.45"></path>
-                <path
-                    d="M1052 209 L1015 276 L1018 276 L1054 209Z"
-                    fill="#dfe6ec"
-                    opacity="0.69"></path>
-                <path
-                    d="M1067 217 L1027 291 L1034 291 L1072 217Z"
-                    fill="#dfe6ec"
-                    opacity="0.52"></path>
-                <path
-                    d="M1082 225 L1023 332 L1031 332 L1087 225Z"
-                    fill="#dfe6ec"
-                    opacity="0.35"></path>
-                <path
-                    d="M1098 233 L1063 296 L1071 296 L1102 233Z"
-                    fill="#dfe6ec"
-                    opacity="0.56"></path>
-                <path
-                    d="M1113 241 L1053 350 L1058 350 L1116 241Z"
-                    fill="#dfe6ec"
-                    opacity="0.38"></path>
-                <path
-                    d="M1128 249 L1080 337 L1086 337 L1132 249Z"
-                    fill="#dfe6ec"
-                    opacity="0.47"></path>
-                <path
-                    d="M1143 258 L1113 313 L1117 313 L1146 258Z"
-                    fill="#dfe6ec"
-                    opacity="0.78"></path>
-                <path
-                    d="M1158 266 L1106 361 L1109 361 L1160 266Z"
-                    fill="#dfe6ec"
-                    opacity="0.46"></path>
-                <path
-                    d="M1173 274 L1142 330 L1146 330 L1175 274Z"
-                    fill="#dfe6ec"
-                    opacity="0.71"></path>
-                <path
-                    d="M1188 282 L1155 343 L1161 343 L1192 282Z"
-                    fill="#dfe6ec"
-                    opacity="0.55"></path>
-                <path
-                    d="M1204 290 L1170 352 L1177 352 L1208 290Z"
-                    fill="#dfe6ec"
-                    opacity="0.41"></path>
-                <path
-                    d="M1219 299 L1170 387 L1174 387 L1221 299Z"
-                    fill="#dfe6ec"
-                    opacity="0.54"></path>
-                <path
-                    d="M1234 307 L1199 369 L1204 369 L1237 307Z"
-                    fill="#dfe6ec"
-                    opacity="0.79"></path>
-                <path
-                    d="M1249 315 L1195 413 L1200 413 L1252 315Z"
-                    fill="#dfe6ec"
-                    opacity="0.75"></path>
-                <path
-                    d="M1264 323 L1230 386 L1235 386 L1267 323Z"
-                    fill="#dfe6ec"
-                    opacity="0.73"></path>
-                <path
-                    d="M1279 331 L1231 420 L1234 420 L1281 331Z"
-                    fill="#dfe6ec"
-                    opacity="0.80"></path>
-                <path
-                    d="M1295 339 L1260 402 L1264 402 L1297 339Z"
-                    fill="#dfe6ec"
-                    opacity="0.70"></path>
-                <path
-                    d="M1310 348 L1271 417 L1276 417 L1312 348Z"
-                    fill="#dfe6ec"
-                    opacity="0.38"></path>
-                <path
-                    d="M1325 356 L1294 411 L1300 411 L1328 356Z"
-                    fill="#dfe6ec"
-                    opacity="0.46"></path>
-                <path
-                    d="M1340 364 L1293 450 L1298 450 L1343 364Z"
-                    fill="#dfe6ec"
-                    opacity="0.55"></path>
+                {nieve.map(([d, o]) => (
+                    <path d={d} fill="#dfe6ec" opacity={o}></path>
+                ))}
                 <path
                     d="M-500 640 L-500 452 L0 440 C150 432 330 440 520 446 C700 450 900 430 1060 392 C1240 370 1420 392 1600 420 L1600 660Z"
                     fill="#4a3a30"
@@ -336,16 +231,9 @@ const m = useT(lang).inicio.manifiesto;
                 <rect x="670" y="124" width="60" height="16"></rect>
             </g>
             <g stroke="#0a2240" stroke-width="2.5">
-                <line x1="674" y1="124" x2="674" y2="140"></line>
-                <line x1="680" y1="124" x2="680" y2="140"></line>
-                <line x1="686" y1="124" x2="686" y2="140"></line>
-                <line x1="692" y1="124" x2="692" y2="140"></line>
-                <line x1="698" y1="124" x2="698" y2="140"></line>
-                <line x1="704" y1="124" x2="704" y2="140"></line>
-                <line x1="710" y1="124" x2="710" y2="140"></line>
-                <line x1="716" y1="124" x2="716" y2="140"></line>
-                <line x1="722" y1="124" x2="722" y2="140"></line>
-                <line x1="728" y1="124" x2="728" y2="140"></line>
+                {balcon.map((x) => (
+                    <line x1={x} y1="124" x2={x} y2="140"></line>
+                ))}
             </g>
             <g fill="#f3e0b8" opacity=".55">
                 <rect x="1084" y="52" width="4" height="10"></rect>

@@ -1,18 +1,17 @@
 ---
-import { langDe, ruta, useT, type PaginaId } from "../i18n";
+import { langDe, useT } from "../i18n";
 
 interface Props {
-    page?: PaginaId;
-    alt?: { es: string; en: string };
+    alts: { es: string; en: string };
 }
-const { page = "inicio", alt } = Astro.props;
+const { alts } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 ---
 
 <div class="lang" role="group" aria-label={t.idioma.cambiar}>
     <a
-        href={alt?.es ?? ruta(page, "es")}
+        href={alts.es}
         hreflang="es"
         lang="es"
         title={t.idioma.es}
@@ -25,7 +24,7 @@ const t = useT(lang);
         </svg>
     </a>
     <a
-        href={alt?.en ?? ruta(page, "en")}
+        href={alts.en}
         hreflang="en"
         lang="en"
         title={t.idioma.en}

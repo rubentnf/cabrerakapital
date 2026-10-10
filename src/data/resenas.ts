@@ -18,8 +18,4 @@ export const google = {
  * y pedir permiso al cliente. Si la lista está vacía, la sección no se muestra.
  * Las tres de abajo son marcadores: sustituirlas por las reales.
  */
-export const resenas: Resena[] = [
-    { nombre: '[Nombre del cliente]', texto: '[Pegar aquí el texto de la reseña 1]', estrellas: 5 },
-    { nombre: '[Nombre del cliente]', texto: '[Pegar aquí el texto de la reseña 2]', estrellas: 5 },
-    { nombre: '[Nombre del cliente]', texto: '[Pegar aquí el texto de la reseña 3]', estrellas: 5 },
-];
+export const resenas: Resena[] = [];

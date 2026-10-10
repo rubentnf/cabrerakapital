@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import Cta from "../components/Cta.astro";
 import HeroInterior from "../components/HeroInterior.astro";
-import { contacto } from "../data/contacto";
 import { langDe, ruta, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
@@ -10,16 +9,21 @@ const s = t.simulador;
 ---
 
 <Base title={s.title} description={s.description} page="simulador">
-    <HeroInterior etiqueta={s.etiqueta} titulo={s.h1} lead={s.lead} />
+    <HeroInterior
+        etiqueta={s.etiqueta}
+        titulo={s.h1}
+        lead={s.lead}
+        ilustracion="/img/portada-simulador.svg"
+    />
     <section class="sec">
-        <div class="wrap simg" data-stag data-lang={lang} data-anios={s.anios}>
+        <div class="wrap simg" data-simulador data-stag data-lang={lang} data-anios={s.anios}>
             <div class="card pad">
                 <label>
                     {s.importe}
-                    <b id="vi"></b>
+                    <b data-out="importe"></b>
                     <input
                         type="range"
-                        id="i"
+                        data-sim="importe"
                         min="30000"
                         max="800000"
                         step="5000"
@@ -28,10 +32,10 @@ const s = t.simulador;
                 </label>
                 <label>
                     {s.plazo}
-                    <b id="vp"></b>
+                    <b data-out="plazo"></b>
                     <input
                         type="range"
-                        id="p"
+                        data-sim="plazo"
                         min="5"
                         max="40"
                         step="1"
@@ -40,10 +44,10 @@ const s = t.simulador;
                 </label>
                 <label>
                     {s.interes}
-                    <b id="vt"></b>
+                    <b data-out="tipo"></b>
                     <input
                         type="range"
-                        id="t"
+                        data-sim="tipo"
                         min="0.5"
                         max="8"
                         step="0.1"
@@ -53,19 +57,18 @@ const s = t.simulador;
             </div>
             <div class="card pad res">
                 <span class="eyebrow">{s.cuota}</span>
-                <div class="huge" id="cuota">0 €</div>
+                <div class="huge" data-out="cuota">0 €</div>
                 <div class="row2">
                     <span>{s.total}</span>
-                    <b id="tot"></b>
+                    <b data-out="total"></b>
                 </div>
                 <div class="row2">
                     <span>{s.intereses}</span>
-                    <b id="int"></b>
+                    <b data-out="intereses"></b>
                 </div>
                 <p class="small">{s.aviso}</p>
                 <a
-                    class="btn gold"
-                    style="align-self:flex-start"
+                    class="btn gold self-start"
                     href={ruta("contacto", lang)}
                 >
                     {s.boton}
@@ -77,6 +80,5 @@ const s = t.simulador;
         title={s.ctaTitulo}
         text={s.ctaTexto}
         cta={s.ctaBoton}
-        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
     />
 </Base>

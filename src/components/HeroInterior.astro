@@ -3,16 +3,26 @@ interface Props {
     etiqueta: string;
     titulo: string;
     lead: string;
+    /** Ilustración de la derecha (public/img/portada-*.svg). Sin ella se muestran las formas decorativas. */
+    ilustracion?: string;
 }
-const { etiqueta, titulo, lead } = Astro.props;
+const { etiqueta, titulo, lead, ilustracion } = Astro.props;
 ---
 
 <section class="hero inner">
-    <div class="deco" aria-hidden="true">
-        <i class="d1"></i>
-        <i class="d2"></i>
-        <i class="d3"></i>
-    </div>
+    {
+        ilustracion ? (
+            <div class="hero-ilus" aria-hidden="true">
+                <img src={ilustracion} alt="" width="600" height="500" decoding="async" />
+            </div>
+        ) : (
+            <div class="deco" aria-hidden="true">
+                <i class="d1" />
+                <i class="d2" />
+                <i class="d3" />
+            </div>
+        )
+    }
     <div class="wrap">
         <span class="eyebrow" data-fade>
             {etiqueta}

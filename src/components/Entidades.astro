@@ -1,44 +1,24 @@
 ---
 // Muestra el nombre de cada entidad; si existe su logo en src/assets/logos/<slug>.(svg|png|webp|jpg) se usa el logo.
-// slug = nombre en minúsculas, sin tildes y con guiones: "Laboral Kutxa" -> laboral-kutxa.svg
+// slug = nombre en minúsculas, sin tildes y con guiones: "Laboral Kutxa" -> laboral-kutxa.png
+import { Image } from "astro:assets";
 import { entidades } from "../data/entidades";
-const logos = import.meta.glob<{ default: ImageMetadata }>(
-    "../assets/logos/*.{svg,png,webp,jpg,jpeg}",
-    { eager: true },
-);
-const slug = (s: string) =>
-    s
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[̀-ͯ]/g, "")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-|-$/g, "");
-const logoDe = (n: string) =>
-    Object.entries(logos).find(
-        ([ruta]) =>
-            ruta
-                .split("/")
-                .pop()!
-                .replace(/\.[^.]+$/, "") === slug(n),
-    )?.[1].default;
+import { logos, slug } from "../utils/assets";
 ---
 
 <!-- La lista va dos veces: la copia (.dup) solo se ve en móvil, para que el carrusel haga bucle sin salto -->
 <div class="ents" data-ents>
     {
         [...entidades, ...entidades].map((e, i) => {
-            const l = logoDe(e);
+            const l = logos.get(slug(e));
             const dup = i >= entidades.length;
             return (
-                <div class:list={["ent", { dup }]} aria-hidden={dup ? "true" : undefined}>
+                <div
+                    class:list={["ent", { dup }]}
+                    aria-hidden={dup ? "true" : undefined}
+                >
                     {l ? (
-                        <img
-                            src={l.src}
-                            alt={e}
-                            loading="lazy"
-                            width={l.width}
-                            height={l.height}
-                        />
+                        <Image src={l} alt={e} width={240} loading="lazy" />
                     ) : (
                         e
                     )}

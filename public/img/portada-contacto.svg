@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+<defs><radialGradient id="halo"><stop offset="0" stop-color="#e8b868" stop-opacity=".22"/><stop offset="1" stop-color="#e8b868" stop-opacity="0"/></radialGradient></defs>
+<circle cx="300" cy="250" r="240" fill="url(#halo)"/>
+
+<polygon points="90,176 230,136 230,412 90,452" fill="#1d4a7a"/>
+<polygon points="230,136 370,176 370,452 230,412" fill="#2a5a8c"/>
+<polygon points="370,176 510,136 510,412 370,452" fill="#1d4a7a"/>
+<g fill="none" stroke="#f7f3ea" stroke-opacity=".28" stroke-width="5" stroke-linecap="round">
+<path d="M90 250L230 214L370 252L510 214"/><path d="M90 340L230 302L370 342L510 302"/>
+<path d="M150 160V436"/><path d="M300 156V432"/><path d="M440 156V432"/>
+</g>
+<path d="M130 410C170 380 200 360 220 330C240 300 260 290 300 262" fill="none" stroke="#e8b868" stroke-width="5" stroke-dasharray="10 9" stroke-linecap="round"/>
+<circle cx="130" cy="410" r="9" fill="#f7f3ea"/>
+<ellipse cx="300" cy="262" rx="26" ry="8" fill="#0a2240" opacity=".5"/>
+<path d="M300 258C300 258 250 196 250 164A50 50 0 0 1 350 164C350 196 300 258 300 258Z" fill="#e8b868"/>
+<circle cx="300" cy="164" r="18" fill="#0a2240"/>
+<g transform="rotate(-8 125 90)">
+<rect x="60" y="48" width="130" height="86" rx="8" fill="#f7f3ea"/>
+<path d="M64 54L125 98L186 54" fill="none" stroke="#6d86a6" stroke-width="5" stroke-linejoin="round"/>
+</g>
+<rect x="404" y="44" width="146" height="92" rx="22" fill="#e8b868"/>
+<polygon points="432,134 420,166 462,134" fill="#e8b868"/>
+<g fill="#0a2240"><circle cx="446" cy="90" r="8"/><circle cx="477" cy="90" r="8"/><circle cx="508" cy="90" r="8"/></g>
+</svg>

@@ -1,4 +1,6 @@
 import type { Dict } from './es';
+import { entidades } from '../data/entidades';
+const nEntidades = entidades.length;
 
 /** English texts. Same keys as es.ts (TypeScript will complain if one is missing). */
 export const en: Dict = {
@@ -17,6 +19,7 @@ export const en: Dict = {
         inicio: 'Cabrera Kapital, home',
         principal: 'Main',
         abrirMenu: 'Open menu',
+        cerrarMenu: 'Close menu',
         cta: 'Free assessment',
     },
     whatsapp: {
@@ -44,6 +47,8 @@ export const en: Dict = {
         soloEs: 'This legal document is only available in Spanish.',
         volver: 'Back to home',
         faq: 'FAQ',
+        descripcion:
+            '{titulo} of Cabrera Kapital, real-estate credit intermediary registered with the Bank of Spain (E593).',
     },
     faq: {
         title: 'FAQ · Cabrera Kapital',
@@ -134,7 +139,7 @@ export const en: Dict = {
             ],
         },
         editorial: {
-            altEntidades: 'More than 19 financial institutions Cabrera Kapital works with',
+            altEntidades: `More than ${nEntidades} financial institutions Cabrera Kapital works with`,
             altApreton: 'Handshake closing an agreement at the office',
             lista: ['Free assessment', 'Several lenders', 'Offers in writing', 'No small print'],
             l1: "Don't sign",
@@ -152,8 +157,7 @@ export const en: Dict = {
         },
         entidades: {
             etiqueta: 'Lenders we work with',
-            titulo: 'We work with 19 financial institutions.',
-            nota: '[The original logo of each lender will go here, with their permission]',
+            titulo: `We work with ${nEntidades} financial institutions.`,
         },
         garantias: {
             etiqueta: 'Guarantees and accreditations',
@@ -250,7 +254,7 @@ export const en: Dict = {
         },
         {
             t: 'Several lenders, one process',
-            d: 'We present your case to 19 lenders and you compare formal offers with the numbers in front of you.',
+            d: `We present your case to ${nEntidades} lenders and you compare formal offers with the numbers in front of you.`,
         },
         {
             t: 'Regulated and registered',
@@ -320,7 +324,6 @@ export const en: Dict = {
         sociosTitulo: 'The two partners, in their office',
         equipoAlt: 'Olegario and Alejandro Cabrera in their office in La Laguna',
         equipoFallback: 'Team photo',
-        equipoNota: 'High-resolution original (pending from the client)',
         regEtiqueta: 'Registration and accreditations',
         regTitulo: 'Regulated and accredited',
         regs: [
@@ -328,7 +331,6 @@ export const en: Dict = {
             ['EFPA España', 'EIP accreditation'],
             ['LCCI · Law 5/2019', 'Real Estate Credit Adviser'],
         ],
-        regNota: 'Official seals: pending permission to use them.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
         ctaBoton: 'Request a free assessment',
@@ -336,12 +338,12 @@ export const en: Dict = {
     porque: {
         title: 'Why us · Cabrera Kapital',
         description:
-            'We know banking from the inside, we only charge if it is signed and we work with 19 financial institutions.',
+            `We know banking from the inside, we only charge if it is signed and we work with ${nEntidades} financial institutions.`,
         etiqueta: 'Why Cabrera Kapital',
         h1: 'We sat on the other side of the table. Now we are on yours.',
         lead: 'For over twenty years we ran branches, analysed risk and decided which deals went ahead. Today we put all that knowledge to work for you.',
         entEtiqueta: 'Partner lenders',
-        entTitulo: '19 financial institutions',
+        entTitulo: `${nEntidades} financial institutions`,
         entNota: 'The official logos will replace these once we receive the originals.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',

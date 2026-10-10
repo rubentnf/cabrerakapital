@@ -7,6 +7,8 @@ import "../styles/scroll-story.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Whatsapp from "../components/Whatsapp.astro";
+import { getImage } from "astro:assets";
+import { fotos } from "../utils/assets";
 import { langDe, langs, ruta, useT, type PaginaId } from "../i18n";
 
 interface Props {
@@ -15,14 +17,29 @@ interface Props {
     page?: PaginaId;
     /** Direcciones de esta página en cada idioma, si no coinciden con las de `page` (por ejemplo, textos legales). */
     alt?: { es: string; en: string };
+    /** false: no carga GSAP ni las animaciones (por ejemplo, textos legales). */
+    animaciones?: boolean;
 }
-const { title, description, page = "inicio", alt } = Astro.props;
+const { title, description, page, alt, animaciones = true } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 const site = Astro.site ?? "https://cabrerakapital.es";
 const canonical = new URL(Astro.url.pathname, site);
-const alts = alt ?? { es: ruta(page, "es"), en: ruta(page, "en") };
+const alts = alt ?? {
+    es: ruta(page ?? "inicio", "es"),
+    en: ruta(page ?? "inicio", "en"),
+};
 const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
+
+// Imagen al compartir en redes y WhatsApp: la foto de la oficina recortada a 1200×630.
+// Para usar un diseño propio, sustituirla por una imagen en public/ (por ejemplo "/og.jpg").
+const og = await getImage({
+    src: fotos.get("oficina")!,
+    width: 1200,
+    height: 630,
+    fit: "cover",
+    format: "jpg",
+});
 ---
 
 <!doctype html>
@@ -56,6 +73,11 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:locale" content={t.ogLocale} />
+        <meta property="og:site_name" content="Cabrera Kapital" />
+        <meta property="og:image" content={new URL(og.src, site)} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
         <slot name="head" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script is:inline>
@@ -63,9 +85,9 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
                 document.documentElement.classList.add("rm");
         </script>
     </head>
-    <body>
+    <body data-sin-animaciones={animaciones ? undefined : ""}>
         <div class="prog" aria-hidden="true"></div>
-        <Header page={page} alt={alt} />
+        <Header page={page} alts={alts} />
         <main>
             <slot />
         </main>

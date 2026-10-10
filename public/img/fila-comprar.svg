@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16345c"/><stop offset="0.55" stop-color="#3f6596"/><stop offset="1" stop-color="#d6b07e"/></linearGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#f6dfae" stop-opacity=".45"/><stop offset="1" stop-color="#f6dfae" stop-opacity="0"/></radialGradient>
+<g id="palma" fill="#0a2240">
+<path d="M-5 0C2-45 4-90 12-128L20-127C13-90 11-45 5 0Z"/>
+<path d="M16-130Q-14-150-58-122Q-20-136 16-124Z"/>
+<path d="M16-130Q48-152 92-126Q52-138 16-124Z"/>
+<path d="M16-130Q-2-168-38-176Q-6-160 14-124Z"/>
+<path d="M16-130Q34-170 72-172Q38-158 18-124Z"/>
+<path d="M16-130Q-26-124-46-88Q-18-116 16-126Z"/>
+<path d="M16-130Q58-124 78-90Q50-116 16-126Z"/>
+</g>
+</defs>
+<rect width="1600" height="400" fill="url(#cielo)"/>
+
+<path d="M0 300C200 262 400 282 600 266C800 250 1000 276 1200 260C1400 246 1500 262 1600 254V400H0Z" fill="#2f4a6e" opacity=".75"/>
+<circle cx="1300" cy="200" r="190" fill="url(#halo)"/>
+<path d="M90 330V268L135 237L180 268V330ZM200 330V274L240 246L280 274V330ZM320 330V280L355 256L390 280V330ZM400 330V266L440 238L480 266V330ZM500 330V286L530 265L560 286V330ZM580 330V260L625 229L670 260V330ZM690 330V278L725 254L760 278V330ZM1090 330V272L1130 244L1170 272V330ZM1190 330V284L1225 260L1260 284V330ZM1280 330V264L1325 233L1370 264V330ZM1400 330V280L1435 256L1470 280V330ZM1490 330V270L1535 239L1580 270V330Z" fill="#142f52"/>
+<rect x="127" y="282" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="232" y="288" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="347" y="294" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="432" y="280" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="522" y="300" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="617" y="274" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="717" y="292" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="1217" y="298" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="1317" y="278" width="16" height="14" fill="#f3e0b8" opacity=".7"/><rect x="1427" y="294" width="16" height="14" fill="#f3e0b8" opacity=".7"/>
+<use href="#palma" transform="translate(790 330) scale(.78)"/>
+<rect x="1000" y="150" width="20" height="44" fill="#0a2240"/>
+<rect x="835" y="205" width="210" height="125" fill="#0a2240"/>
+<polygon points="815,210 940,128 1065,210" fill="#0a2240"/>
+<polyline points="815,210 940,128 1065,210" fill="none" stroke="#e8b868" stroke-width="6" stroke-linejoin="round"/>
+<g fill="#f3e0b8" opacity=".9"><rect x="858" y="228" width="46" height="38"/><rect x="976" y="228" width="46" height="38"/></g>
+<g stroke="#0a2240" stroke-width="4"><path d="M881 228v38M858 247h46M999 228v38M976 247h46"/></g>
+<rect x="850" y="268" width="62" height="6" fill="#e8b868" opacity=".7"/>
+<rect x="918" y="262" width="44" height="68" rx="4" fill="#e8b868"/>
+<circle cx="952" cy="298" r="3.5" fill="#0a2240"/>
+<rect y="328" width="1600" height="72" fill="#0a2240"/>
+<polygon points="918,330 962,330 1010,400 870,400" fill="#1d3a5f"/>
+<g transform="rotate(-18 1300 205)">
+<circle cx="1210" cy="205" r="40" fill="none" stroke="#e8b868" stroke-width="16"/>
+<rect x="1248" y="197" width="170" height="16" rx="8" fill="#e8b868"/>
+<rect x="1370" y="211" width="14" height="30" rx="3" fill="#e8b868"/>
+<rect x="1396" y="211" width="14" height="22" rx="3" fill="#e8b868"/>
+</g>
+</svg>
