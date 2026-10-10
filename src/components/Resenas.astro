@@ -1,0 +1,87 @@
+---
+import { google, resenas } from "../data/resenas";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).resenas;
+const inicial = (n: string) =>
+    n
+        .replace(/[^\p{L}]/gu, "")
+        .charAt(0)
+        .toUpperCase() || "·";
+---
+
+{
+    resenas.length > 0 && (
+        <section class="sec alt" aria-labelledby="opiniones-t">
+            <div class="wrap" data-carrusel>
+                <div class="shead">
+                    <div>
+                        <span class="eyebrow dk">{t.etiqueta}</span>
+                        <h2 id="opiniones-t" data-rise>
+                            {t.titulo}
+                        </h2>
+                        {google.puntuacion !== null && (
+                            <p class="opin-nota">
+                                <b>{google.puntuacion.toFixed(1)}</b>
+                                <span class="stars" aria-hidden="true">
+                                    ★★★★★
+                                </span>
+                                {google.total !== null && (
+                                    <span>
+                                        · {google.total} {t.valoracion}
+                                    </span>
+                                )}
+                            </p>
+                        )}
+                    </div>
+                    <div class="opin-nav">
+                        <button type="button" data-prev aria-label={t.anterior}>
+                            ←
+                        </button>
+                        <button
+                            type="button"
+                            data-next
+                            aria-label={t.siguiente}
+                        >
+                            →
+                        </button>
+                    </div>
+                </div>
+                <ul class="opin-pista" data-pista tabindex="0">
+                    {resenas.map((r) => (
+                        <li class="card opin">
+                            <span
+                                class="stars"
+                                role="img"
+                                aria-label={`${r.estrellas} / 5`}
+                            >
+                                {"★".repeat(r.estrellas)}
+                            </span>
+                            <p>{r.texto}</p>
+                            <div class="opin-quien">
+                                <span class="opin-av" aria-hidden="true">
+                                    {inicial(r.nombre)}
+                                </span>
+                                <div>
+                                    <b>{r.nombre}</b>
+                                    <small>
+                                        {t.google}
+                                        {r.fecha ? ` · ${r.fecha}` : ""}
+                                    </small>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                <p class="note">
+                    <a
+                        href={google.enlace}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {t.ver}
+                    </a>
+                </p>
+            </div>
+        </section>
+    )
+}

@@ -6,13 +6,15 @@ import { rollify } from './rollify';
 import { fitWordmark } from './wordmark';
 import { initSimulador } from './simulador';
 import { initFormulario } from './formulario';
-import { initCarrusel } from './carrusel';
+import { initCarruselEntidades } from './carrusel-entidades';
 import { initHome } from './anim/home';
 import { initEditorial } from './anim/editorial';
 import { initRows } from './anim/rows';
 import { initFooter } from './anim/footer';
 import { initReveals } from './anim/reveals';
 import { initMagnet } from './anim/magnet';
+import { initMapa } from './mapa';
+import { initCarrusel } from './carrusel';
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true }); // evita saltos cuando la barra del navegador móvil se oculta
@@ -23,6 +25,8 @@ rollify();
 fitWordmark();
 initSimulador();
 initFormulario();
+initMapa();
+initCarruselEntidades();
 initCarrusel();
 
 // Animaciones: solo si la persona no ha pedido movimiento reducido

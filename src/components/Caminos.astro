@@ -1,0 +1,40 @@
+---
+import { langDe, ruta, useT } from "../i18n";
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang).caminos;
+const cards = [
+    { d: t.particulares, tipo: "particular" },
+    { d: t.pymes, tipo: "pyme" },
+];
+---
+
+<section class="sec" aria-labelledby="caminos-t">
+    <div class="wrap">
+        <span class="eyebrow dk">{t.etiqueta}</span>
+        <h2 id="caminos-t" data-rise style="margin-bottom:32px">
+            {t.titulo}
+        </h2>
+        <div class="caminos" data-stag>
+            {
+                cards.map(({ d, tipo }) => (
+                    <article class="card pad camino">
+                        <h3>{d.t}</h3>
+                        <p>{d.d}</p>
+                        <ul class="camino-lista">
+                            {d.lista.map((x) => (
+                                <li>{x}</li>
+                            ))}
+                        </ul>
+                        <a
+                            class="btn gold"
+                            style="align-self:flex-start"
+                            href={`${ruta("contacto", lang)}?tipo=${tipo}`}
+                        >
+                            {d.boton}
+                        </a>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>
