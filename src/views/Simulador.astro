@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { contacto } from "../data/contacto";
+import { langDe, ruta, useT } from "../i18n";
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang);
+const s = t.simulador;
+---
+
+<Base title={s.title} description={s.description} page="simulador">
+    <HeroInterior etiqueta={s.etiqueta} titulo={s.h1} lead={s.lead} />
+    <section class="sec">
+        <div class="wrap simg" data-stag data-lang={lang} data-anios={s.anios}>
+            <div class="card pad">
+                <label>
+                    {s.importe}
+                    <b id="vi"></b>
+                    <input
+                        type="range"
+                        id="i"
+                        min="30000"
+                        max="800000"
+                        step="5000"
+                        value="200000"
+                    />
+                </label>
+                <label>
+                    {s.plazo}
+                    <b id="vp"></b>
+                    <input
+                        type="range"
+                        id="p"
+                        min="5"
+                        max="40"
+                        step="1"
+                        value="25"
+                    />
+                </label>
+                <label>
+                    {s.interes}
+                    <b id="vt"></b>
+                    <input
+                        type="range"
+                        id="t"
+                        min="0.5"
+                        max="8"
+                        step="0.1"
+                        value="3"
+                    />
+                </label>
+            </div>
+            <div class="card pad res">
+                <span class="eyebrow">{s.cuota}</span>
+                <div class="huge" id="cuota">0 €</div>
+                <div class="row2">
+                    <span>{s.total}</span>
+                    <b id="tot"></b>
+                </div>
+                <div class="row2">
+                    <span>{s.intereses}</span>
+                    <b id="int"></b>
+                </div>
+                <p class="small">{s.aviso}</p>
+                <a
+                    class="btn gold"
+                    style="align-self:flex-start"
+                    href={ruta("contacto", lang)}
+                >
+                    {s.boton}
+                </a>
+            </div>
+        </div>
+    </section>
+    <Cta
+        title={s.ctaTitulo}
+        text={s.ctaTexto}
+        cta={s.ctaBoton}
+        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
+    />
+</Base>

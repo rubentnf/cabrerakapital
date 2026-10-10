@@ -6,28 +6,44 @@ import "../styles/base.css";
 import "../styles/scroll-story.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Whatsapp from "../components/Whatsapp.astro";
+import { langDe, langs, ruta, useT, type PaginaId } from "../i18n";
 
 interface Props {
     title: string;
     description: string;
-    page?: string;
+    page?: PaginaId;
 }
 const { title, description, page = "inicio" } = Astro.props;
-const canonical = new URL(
-    Astro.url.pathname,
-    Astro.site ?? "https://cabrerakapital.es",
-);
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang);
+const site = Astro.site ?? "https://cabrerakapital.es";
+const canonical = new URL(Astro.url.pathname, site);
 const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={t.htmlLang}>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
+        {
+            langs.map((l) => (
+                <link
+                    rel="alternate"
+                    hreflang={l}
+                    href={new URL(ruta(page, l), site)}
+                />
+            ))
+        }
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={new URL(ruta(page, "es"), site)}
+        />
         <meta
             name="robots"
             content={indexar ? "index,follow" : "noinfex,nofollow"}
@@ -36,7 +52,7 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
-        <meta property="og:locale" content="es_ES" />
+        <meta property="og:locale" content={t.ogLocale} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script is:inline>
             if (matchMedia("(prefers-reduced-motion: reduce)").matches)

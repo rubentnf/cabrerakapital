@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import Entidades from "../components/Entidades.astro";
+import Porque from "../components/Porque.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname));
+const p = t.porque;
+---
+
+<Base title={p.title} description={p.description} page="porque">
+    <HeroInterior etiqueta={p.etiqueta} titulo={p.h1} lead={p.lead} />
+    <section class="sec">
+        <div class="wrap">
+            <Porque />
+        </div>
+    </section>
+    <section class="sec alt">
+        <div class="wrap">
+            <span class="eyebrow dk">{p.entEtiqueta}</span>
+            <h2 data-rise style="margin-bottom:32px">
+                {p.entTitulo}
+            </h2>
+            <Entidades />
+            <p class="note">{p.entNota}</p>
+        </div>
+    </section>
+    <Cta
+        title={p.ctaTitulo}
+        text={p.ctaTexto}
+        cta={p.ctaBoton}
+        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
+    />
+</Base>

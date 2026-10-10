@@ -1,7 +1,11 @@
 import { gsap } from 'gsap';
 import { $, reducedMotion } from './utils';
 
-const eur = (v: number) => Math.round(v).toLocaleString('es-ES') + ' €';
+const caja = document.querySelector<HTMLElement>('.simg');
+const en = caja?.dataset.lang === 'en';
+const eur = (v: number) =>
+    en ? '€' + Math.round(v).toLocaleString('en-GB') : Math.round(v).toLocaleString('es-ES') + ' €';
+const anios = caja?.dataset.anios ?? 'años';
 
 /** Simulador de cuota (sistema francés). Solo se activa si la página lo contiene. */
 export function initSimulador() {
@@ -16,7 +20,6 @@ export function initSimulador() {
         $('#tot')!.textContent = eur(mostrado.t);
         $('#int')!.textContent = eur(mostrado.i);
     };
-
     const calcular = () => {
         const im = +importe.value,
             años = +plazo.value,
@@ -25,8 +28,8 @@ export function initSimulador() {
             n = años * 12;
         const cuota = m ? (im * m) / (1 - Math.pow(1 + m, -n)) : im / n;
         $('#vi')!.textContent = eur(im);
-        $('#vp')!.textContent = `${años} años`;
-        $('#vt')!.textContent = ti.toFixed(1).replace('.', ',') + ' %';
+        $('#vp')!.textContent = `${años} ${anios}`;
+        $('#vt')!.textContent = (en ? ti.toFixed(1) : ti.toFixed(1).replace('.', ',')) + ' %';
         const destino = { c: cuota, t: cuota * n, i: cuota * n - im };
         if (reducedMotion()) {
             Object.assign(mostrado, destino);

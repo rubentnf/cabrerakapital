@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Manifiesto from "../components/Manifiesto.astro";
+import Oficina from "../components/Oficina.astro";
+import Pasos from "../components/Pasos.astro";
+import Editorial from "../components/Editorial.astro";
+import Servicios from "../components/Servicios.astro";
+import EntidadesSec from "../components/EntidadesSec.astro";
+import Garantias from "../components/Garantias.astro";
+import Cta from "../components/Cta.astro";
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio;
+---
+
+<Base title={t.title} description={t.description}>
+    <Hero />
+    <Manifiesto />
+    <Oficina />
+    <Pasos />
+    <Editorial />
+    <Servicios />
+    <EntidadesSec />
+    <Garantias />
+    <Cta
+        title={t.cta.titulo}
+        text={t.cta.texto}
+        cta={t.cta.boton}
+        phone={contacto.telefonos[0].visible}
+    />
+</Base>

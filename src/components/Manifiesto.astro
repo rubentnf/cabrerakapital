@@ -1,23 +1,26 @@
+---
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio.manifiesto;
+---
+
 <section class="manif" aria-labelledby="mlabel">
     <div class="wrap">
         <span class="eyebrow dk mob" id="mlabel">
-            Por qué Cabrera Kapital
+            {t.etiqueta}
         </span>
         <p class="manif-t mob" data-words>
-            Durante más de veinte años estuvimos al otro lado de la mesa:
-            dirigiendo oficinas, analizando riesgos y decidiendo qué operaciones
-            salían adelante. Hoy ponemos todo ese conocimiento a su favor.
+            {t.texto}
         </p>
         <div class="mstats" data-stag>
             <div>
                 <b>
                     <span data-count="20">20</span>+
                 </b>
-                <span>años en la banca canaria</span>
+                <span>{t.anios}</span>
             </div>
             <div>
                 <b>E593</b>
-                <span>Registro del Banco de España</span>
+                <span>{t.registro}</span>
             </div>
             <div>
                 <b>
@@ -25,13 +28,13 @@
                         >48</span
                     > h
                 </b>
-                <span>para darle una primera respuesta</span>
+                <span>{t.respuesta}</span>
             </div>
             <div>
                 <b>
                     <span data-count="0">0</span> €
                 </b>
-                <span>cuesta el estudio inicial</span>
+                <span>{t.coste}</span>
             </div>
         </div>
     </div>

@@ -1,30 +1,37 @@
+---
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+
+const t = useT(langDe(Astro.url.pathname));
+---
+
 <footer class="foot">
     <div class="wrap">
         <div class="fgrid">
             <div>
                 <div class="fb">Cabrera Kapital</div>
-                <div>
-                    Intermediación de crédito inmobiliario y financiación para
-                    empresas en Canarias.
-                </div>
+                <div>{t.footer.descripcion}</div>
             </div>
             <div>
-                <h4>Contacto</h4>
-                <div>606 395 427</div>
-                <div>cabrerakapital@gmail.com</div>
-                <div>C/Santa Eulalia 9, Local · La Laguna</div>
+                <h4>{t.footer.contacto}</h4>
+                {
+                    contacto.telefonos.map((p) => (
+                        <div>
+                            <a href={`tel:${p.tel}`}>{p.visible}</a>
+                        </div>
+                    ))
+                }
+                <div>{contacto.correo}</div>
+                <div>{contacto.direccionCorta}</div>
             </div>
             <div>
-                <h4>Legal</h4>
-                <div>Aviso legal</div>
-                <div>Política de privacidad y cookies</div>
-                <div>Información previa al cliente</div>
-                <div>Declaración de independencia</div>
+                <h4>{t.footer.legal}</h4>
+                {t.footer.legales.map((l) => <div>{l}</div>)}
             </div>
             <div>
-                <h4>Registro</h4>
-                <div>Inscrita en el Banco de España · E593</div>
-                <div>Titular: Olegario Cabrera García</div>
+                <h4>{t.footer.registro}</h4>
+                <div>{t.footer.inscrita}</div>
+                <div>{t.footer.titular}</div>
             </div>
         </div>
         <div class="bigwm" aria-hidden="true">

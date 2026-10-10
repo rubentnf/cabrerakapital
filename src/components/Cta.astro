@@ -1,11 +1,16 @@
 ---
+import { contacto } from "../data/contacto";
+import { langDe, ruta } from "../i18n";
+
 interface Props {
     title: string;
     text: string;
     cta: string;
+    /** Texto del botón de teléfono (por ejemplo "Llamar 606 395 427"). */
     phone: string;
 }
 const { title, text, cta, phone } = Astro.props;
+const lang = langDe(Astro.url.pathname);
 ---
 
 <section class="cta">
@@ -15,8 +20,10 @@ const { title, text, cta, phone } = Astro.props;
             <p>{text}</p>
         </div>
         <div class="btns" style="margin:0">
-            <a class="btn gold" href="/contacto/"> {cta}</a>
-            <a class="btn line" href="tel:+34606395427">
+            <a class="btn gold" href={ruta("contacto", lang)}>
+                {cta}
+            </a>
+            <a class="btn line" href={`tel:${contacto.telefonos[0].tel}`}>
                 {phone}
             </a>
         </div>

@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import Rows from "../components/Rows.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname));
+const s = t.servicios;
+---
+
+<Base title={s.title} description={s.description} page="servicios">
+    <HeroInterior etiqueta={s.etiqueta} titulo={s.h1} lead={s.lead} />
+    <section class="dsec" style="margin-top:0;border-radius:0">
+        <div class="wrap">
+            <Rows />
+        </div>
+    </section>
+    <section class="sec alt">
+        <div class="wrap">
+            <span class="eyebrow dk">{s.procesoEtiqueta}</span>
+            <h2 data-rise>{s.procesoTitulo}</h2>
+            <div class="grid3 steps" data-stag>
+                {
+                    t.inicio.pasos.lista.map((p, i) => (
+                        <article class="card">
+                            <span class="num" data-num>
+                                {i + 1}
+                            </span>
+                            <h3>{p.t}</h3>
+                            <p>{p.d}</p>
+                            <span class="pill">{p.p}</span>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+    <Cta
+        title={s.ctaTitulo}
+        text={s.ctaTexto}
+        cta={s.ctaBoton}
+        phone={contacto.telefonos[0].visible}
+    />
+</Base>

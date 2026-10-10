@@ -1,16 +1,17 @@
 ---
-import { motivos } from "../data/porque";
+import { langDe, useT } from "../i18n";
+const { motivos } = useT(langDe(Astro.url.pathname));
 ---
 
 <div class="grid4" data-why>
     {
-        motivos.map(([t, d], i) => (
+        motivos.map((m, i) => (
             <article class="card">
                 <span class="num" style="font-size:44px">
                     0{i + 1}
                 </span>
-                <h3>{t}</h3>
-                <p>{d}</p>
+                <h3>{m.t}</h3>
+                <p>{m.d}</p>
             </article>
         ))
     }

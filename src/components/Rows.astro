@@ -1,18 +1,23 @@
 ---
-import { filas } from "../data/servicios";
+import { escenas } from "../data/servicios";
+import { langDe, useT } from "../i18n";
+const { filas } = useT(langDe(Astro.url.pathname));
 ---
 
 <ul class="rows" data-rows>
     {
         filas.map((f, i) => (
             <li class="row">
-                <i class="rbg" style={`--img:var(--${f.escena})`} />
+                <i class="rbg" style={`--img:var(--${escenas[i]})`} />
                 <p class="rd">
                     <i>{i + 1}</i>
                     <span>{f.texto}</span>
                 </p>
                 <span class="rt">
-                    <span>{f.verbo}</span>
+                    <span>
+                        {f.verbo}
+                        <em>{f.resto}</em>
+                    </span>
                 </span>
                 <svg
                     class="ra"

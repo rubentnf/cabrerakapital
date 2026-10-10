@@ -1,27 +1,30 @@
+---
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio.editorial;
+---
+
 <section class="edit" id="edit">
     <div class="wrap">
         <div class="edit-l">
             <ul class="edit-list" aria-hidden="true">
-                <li class="on">Estudio gratuito</li>
-                <li>Varias entidades</li>
-                <li>Ofertas por escrito</li>
-                <li>Sin letra pequeña</li>
+                {
+                    t.lista.map((x, i) => (
+                        <li class={i === 0 ? "on" : undefined}>{x}</li>
+                    ))
+                }
             </ul>
             <h2>
                 <span class="ln">
-                    <span>No firme</span>
+                    <span>{t.l1}</span>
                 </span>
                 <span class="ln">
-                    <span>a ciegas.</span>
+                    <span>{t.l2}</span>
                 </span>
                 <span class="ln">
-                    <em>Compare.</em>
+                    <em>{t.l3}</em>
                 </span>
             </h2>
-            <p class="edit-sub">
-                Con las ofertas formales delante, decida con números y no con
-                prisas. Solo cobramos si la operación se firma.
-            </p>
+            <p class="edit-sub">{t.sub}</p>
         </div>
         <div class="edit-r">
             <i class="fi b" data-speed="50" style="--img:var(--s3)"></i>

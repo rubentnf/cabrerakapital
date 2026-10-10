@@ -1,5 +1,7 @@
 ---
 import Foto from "./Foto.astro";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio.oficina;
 ---
 
 <section class="revimg" aria-labelledby="office-title">
@@ -21,9 +23,8 @@ import Foto from "./Foto.astro";
             </Foto>
         </div>
         <div class="frame-cap">
-            <h2 id="office-title">
-                Una oficina real, en el centro de La Laguna.
-            </h2>
+            <h2 id="office-title">{t.titulo}</h2>
+            <span class="chip">{t.chip}</span>
         </div>
     </div>
 </section>

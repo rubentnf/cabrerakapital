@@ -1,0 +1,90 @@
+---
+import Base from "../layouts/Base.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname));
+const c = t.contacto;
+const tel1 = contacto.telefonos[0].visible;
+---
+
+<Base title={c.title} description={c.description} page="contacto">
+    <HeroInterior etiqueta={c.etiqueta} titulo={c.h1} lead={c.lead} />
+    <section class="sec">
+        <div class="wrap cgrid">
+            <form
+                class="card pad"
+                id="form"
+                novalidate
+                data-demo={c.demo}
+                data-exito={c.exito}
+                data-error={`${c.error} ${tel1}.`}
+            >
+                <h2 style="font-size:36px;margin:0">{c.formTitulo}</h2>
+                <div class="f2">
+                    <label>
+                        {c.nombre}
+                        <input type="text" name="nombre" required />
+                    </label>
+                    <label>
+                        {c.telefono}
+                        <input type="tel" name="telefono" />
+                    </label>
+                </div>
+                <label>
+                    {c.correo}
+                    <input type="email" name="correo" />
+                </label>
+                <label>
+                    {c.mensaje}
+                    <textarea name="mensaje"></textarea>
+                </label>
+                <label class="chk">
+                    <input type="checkbox" name="privacidad" required />
+                    {c.privacidad}
+                </label>
+                <button
+                    class="btn navyb"
+                    type="submit"
+                    style="align-self:flex-start"
+                >
+                    {c.enviar}
+                </button>
+                <p class="ok" id="sent" hidden></p>
+            </form>
+            <div class="info" data-stag>
+                <div class="card">
+                    <span class="eyebrow dk">{c.telefonos}</span>
+                    {
+                        contacto.telefonos.map((p) => (
+                            <b>
+                                <a href={`tel:${p.tel}`}>+34 {p.visible}</a>
+                            </b>
+                        ))
+                    }
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">{c.correoCard}</span>
+                    <b>{contacto.correo} [pendiente: correo corporativo]</b>
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">{c.direccion}</span>
+                    <b>{contacto.direccion}</b>
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">{c.horario}</span>
+                    <b>
+                        {c.horarioLv}: {contacto.horarioLaborable}
+                    </b>
+                    <b>
+                        {c.horarioFin}: {c.cerrado}
+                    </b>
+                </div>
+                <div class="ph map">
+                    {c.mapa}
+                    <small>{c.mapaNota}</small>
+                </div>
+            </div>
+        </div>
+    </section>
+</Base>

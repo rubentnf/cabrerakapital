@@ -1,0 +1,94 @@
+---
+import Base from "../layouts/Base.astro";
+import Foto from "../components/Foto.astro";
+import Cta from "../components/Cta.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname));
+const e = t.equipo;
+const socios = [
+    { foto: "olegario", d: e.olegario },
+    { foto: "alejandro", d: e.alejandro },
+];
+---
+
+<Base title={e.title} description={e.description} page="equipo">
+    <HeroInterior etiqueta={e.etiqueta} titulo={e.h1} lead={e.lead} />
+    <section class="sec" style="padding-block:24px">
+        <div class="wrap">
+            {
+                socios.map((s) => (
+                    <article class="person" data-person>
+                        <div class="ph" data-par>
+                            <Foto
+                                name={s.foto}
+                                alt={s.d.alt}
+                                widths={[400, 700, 1000]}
+                                sizes="(min-width: 900px) 40vw, 90vw"
+                            >
+                                {s.d.fallback}
+                                <small>{e.fotoNota}</small>
+                            </Foto>
+                        </div>
+                        <div>
+                            <span class="eyebrow dk">{s.d.rol}</span>
+                            <h2>
+                                {s.foto === "olegario"
+                                    ? "Olegario Cabrera García"
+                                    : "Alejandro Cabrera Martín"}
+                            </h2>
+                            <span class="pill">{s.d.pill}</span>
+                            {s.d.parrafos.map((p) => (
+                                <p>{p}</p>
+                            ))}
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </section>
+    <section class="sec alt">
+        <div class="wrap">
+            <h2 data-rise style="margin-bottom:28px">
+                {e.sociosTitulo}
+            </h2>
+            <div class="ph teamph" data-clip>
+                <Foto
+                    name="equipo"
+                    alt={e.equipoAlt}
+                    widths={[800, 1200, 1800]}
+                    sizes="100vw"
+                >
+                    {e.equipoFallback}
+                    <small>{e.equipoNota}</small>
+                </Foto>
+            </div>
+        </div>
+    </section>
+    <section class="sec">
+        <div class="wrap">
+            <span class="eyebrow dk">{e.regEtiqueta}</span>
+            <h2 data-rise style="margin-bottom:32px">
+                {e.regTitulo}
+            </h2>
+            <div class="grid3" data-stag>
+                {
+                    e.regs.map(([h, p]) => (
+                        <article class="card">
+                            <h3>{h}</h3>
+                            <p>{p}</p>
+                        </article>
+                    ))
+                }
+            </div>
+            <p class="note">{e.regNota}</p>
+        </div>
+    </section>
+    <Cta
+        title={e.ctaTitulo}
+        text={e.ctaTexto}
+        cta={e.ctaBoton}
+        phone={`${t.cta.llamar} ${contacto.telefonos[0].visible}`}
+    />
+</Base>

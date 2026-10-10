@@ -6,8 +6,11 @@ export interface Fila {
     foto?: string;
 }
 
+// Ilustración de cada fila (s1 Teide, s2 catedral, s3 ciudad). Los textos viven en src/i18n/*.ts (clave "filas", mismo orden).
+export const escenas: ('s1' | 's2' | 's3')[] = ['s2', 's3', 's1', 's2', 's3'];
+
 // escena: ilustración de reserva (s1 Teide, s2 catedral, s3 ciudad). foto: nombre de archivo en src/assets/photos (opcional)
-export const filas: Fila[] = [
+/* export const filas: Fila[] = [
     {
         verbo: 'Comprar',
         resto: 'su vivienda',
@@ -38,4 +41,4 @@ export const filas: Fila[] = [
         texto: 'Mortgages for non-resident buyers, explained in English from the first call.',
         escena: 's3',
     },
-];
+]; */

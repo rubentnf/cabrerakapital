@@ -1,13 +1,16 @@
 ---
 import Entidades from "./Entidades.astro";
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio.entidades;
 ---
 
 <section class="sec alt">
     <div class="wrap center-ents">
-        <span class="eyebrow dk">Entidades con las que trabajamos</span>
+        <span class="eyebrow dk">{t.etiqueta}</span>
         <h2 data-rise style="margin-bottom:32px">
-            Trabajamos con 19 entidades financieras.
+            {t.titulo}
         </h2>
         <Entidades />
+        <p class="note">{t.nota}</p>
     </div>
 </section>

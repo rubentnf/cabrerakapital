@@ -1,9 +1,9 @@
 import { $ } from './utils';
 
 /**
- * Formulario de contacto
+ * Formulario de contacto.
  * - Con PUBLIC_FORMSPREE_URL definida en .env, envía los datos a Formspree.
- * - Sin ella, solo muestra el aviso de demostración
+ * - Sin ella, solo muestra el aviso de demostración (útil mientras se prueba en local).
  */
 const ENDPOINT = import.meta.env.PUBLIC_FORMSPREE_URL as string | undefined;
 
@@ -23,7 +23,7 @@ export function initFormulario() {
         if (!form.reportValidity()) return;
 
         if (!ENDPOINT) {
-            mostrar('Modo demostración: el formulario todavía no envía nada.');
+            mostrar(form.dataset.demo ?? '');
             return;
         }
 
@@ -37,14 +37,9 @@ export function initFormulario() {
             });
             if (!respuesta.ok) throw new Error(String(respuesta.status));
             form.reset();
-            mostrar(
-                'Gracias. Hemos recibido su solicitud y le responderemos en 24-48 horas laborales.',
-            );
+            mostrar(form.dataset.exito ?? '');
         } catch {
-            mostrar(
-                'No hemos podido enviar el formulario. Inténtelo de nuevo o llámenos al 606 395 427.',
-                false,
-            );
+            mostrar(form.dataset.error ?? '', false);
         } finally {
             if (boton) boton.disabled = false;
         }

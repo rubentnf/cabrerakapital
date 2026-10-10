@@ -1,5 +1,8 @@
 ---
-
+import { langDe, ruta, useT } from "../i18n";
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang).inicio.hero;
+const m = useT(lang).inicio.manifiesto;
 ---
 
 <section class="tdhero scene" aria-labelledby="hero-title">
@@ -225,28 +228,31 @@
     </div>
     <div class="hero-copy">
         <span class="eyebrow" data-fade>
-            Broker hipotecario · Financiación para pymes · Tenerife
+            {t.eyebrow}
         </span>
         <h1 id="hero-title">
             <span class="line">
-                <span>Conocemos la banca</span>
+                <span>{t.l1}</span>
             </span>
             <span class="line">
                 <span>
-                    <em>por dentro.</em>
+                    <em>{t.l2}</em>
                 </span>
             </span>
             <span class="line">
-                <span>Ahora negociamos por usted.</span>
+                <span>{t.l3}</span>
             </span>
         </h1>
         <p class="sub" data-fade>
-            Más de 20 años en la banca canaria, ahora de su lado de la mesa.
-            Estudio gratuito: solo cobramos si la operación se firma.
+            {t.sub}
         </p>
         <div class="btns" data-fade style="margin-top:6px">
-            <a class="btn gold" href="/contacto/"> Pedir estudio gratuito </a>
-            <a class="btn line" href="/servicios/"> Ver servicios </a>
+            <a class="btn gold" href={ruta("contacto", lang)}>
+                {t.pedir}
+            </a>
+            <a class="btn line" href={ruta("servicios", lang)}>
+                {t.servicios}
+            </a>
         </div>
     </div>
     <div
@@ -359,20 +365,17 @@
             <br />
             KAPITAL
         </b>
-        <small>Intermediación financiera · Tenerife</small>
+        <small>{t.lema}</small>
     </div>
     <div class="sky">
         <div class="sky-in">
-            <span class="eyebrow dk">Por qué Cabrera Kapital</span>
+            <span class="eyebrow dk">{m.etiqueta}</span>
             <p class="manif-t" data-skywords>
-                Durante más de veinte años estuvimos al otro lado de la mesa:
-                dirigiendo oficinas, analizando riesgos y decidiendo qué
-                operaciones salían adelante. Hoy ponemos todo ese conocimiento a
-                su favor.
+                {m.texto}
             </p>
         </div>
     </div>
     <div class="scroll-cue" aria-hidden="true">
-        Desliza<i></i>
+        {t.desliza}<i></i>
     </div>
 </section>

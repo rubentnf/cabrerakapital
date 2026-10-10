@@ -1,44 +1,32 @@
+---
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio.pasos;
+const imgs = ["s2", "s3", "s1"];
+---
+
 <section class="chev" id="chev">
     <div class="wrap">
-        <span class="eyebrow dk">Cómo trabajamos</span>
-        <h2 class="serif">Tres pasos, sin letra pequeña.</h2>
+        <span class="eyebrow dk">{t.etiqueta}</span>
+        <h2 class="serif">{t.titulo}</h2>
         <div class="chevs" aria-hidden="true">
-            <i class="cv" style="--img:var(--s2)">
-                <b>1</b>
-            </i>
-            <i class="cv" style="--img:var(--s3)">
-                <b>2</b>
-            </i>
-            <i class="cv" style="--img:var(--s1)">
-                <b>3</b>
-            </i>
+            {
+                imgs.map((s, i) => (
+                    <i class="cv" style={`--img:var(--${s})`}>
+                        <b>{i + 1}</b>
+                    </i>
+                ))
+            }
         </div>
         <div class="csteps">
-            <div class="cs">
-                <h3>Estudio gratuito</h3>
-                <p>
-                    Analizamos sus ingresos, su capacidad de endeudamiento o las
-                    cuentas de su empresa. Sabrá qué es viable desde el primer
-                    día.
-                </p>
-                <span class="pill">Primera respuesta en 24-48h</span>
-            </div>
-            <div class="cs">
-                <h3>Negociamos con entidades</h3>
-                <p>
-                    Presentamos su operación a varios bancos y alternativas
-                    privadas, y comparamos las ofertas formales con usted.
-                </p>
-                <span class="pill">Ofertas formales en 48h hábiles</span>
-            </div>
-            <div class="cs">
-                <h3>Firma ante notario</h3>
-                <p>
-                    Gestionamos la documentación y le acompañamos hasta la
-                    firma. Si más adelante aparece una mejora, le avisamos.
-                </p>
-                <span class="pill">Solo cobramos si se firma</span>
-            </div>
+            {
+                t.lista.map((p) => (
+                    <div class="cs">
+                        <h3>{p.t}</h3>
+                        <p>{p.d}</p>
+                        <span class="pill">{p.p}</span>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>

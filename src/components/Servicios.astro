@@ -1,28 +1,28 @@
 ---
 import Rows from "./Rows.astro";
+import { langDe, ruta, useT } from "../i18n";
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang).inicio.servicios;
 ---
 
 <section class="dsec" id="servicios-dk">
     <div class="wrap">
         <div class="dk-head">
             <div>
-                <span class="eyebrow">Qué hacemos</span>
+                <span class="eyebrow">{t.etiqueta}</span>
                 <h2>
-                    Una operación,
+                    {t.t1}
                     <br />
-                    muchas puertas de banco.
+                    {t.t2}
                 </h2>
             </div>
-            <p>
-                Presentamos su caso a varias entidades y comparamos ofertas
-                formales. Usted elige con los números delante.
-            </p>
+            <p>{t.texto}</p>
         </div>
         <Rows />
         <p style="margin-top:28px">
-            <a class="btn gold" href="/simulador/">
-                Probar el simulador de cuota</a
-            >
+            <a class="btn gold" href={ruta("simulador", lang)}>
+                {t.simulador}
+            </a>
         </p>
     </div>
 </section>

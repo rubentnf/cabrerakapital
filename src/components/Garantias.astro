@@ -1,27 +1,24 @@
+---
+import { langDe, useT } from "../i18n";
+const t = useT(langDe(Astro.url.pathname)).inicio.garantias;
+---
+
 <section class="sec">
     <div class="wrap garant">
         <div>
-            <span class="eyebrow dk">Garantías y acreditaciones</span>
-            <h2 data-rise>Regulados, certificados y a la vista.</h2>
-            <p data-rise>
-                Agencia intermediadora de crédito inmobiliario inscrita en el
-                Banco de España (E593). Asesores con acreditación LCCI (Ley
-                5/2019) y certificación EIP de EFPA.
-            </p>
+            <span class="eyebrow dk">{t.etiqueta}</span>
+            <h2 data-rise>{t.titulo}</h2>
+            <p data-rise>{t.texto}</p>
         </div>
         <div class="seals" data-stag>
-            <div class="seal">
-                <b>Banco de España</b>
-                <span>Registro E593</span>
-            </div>
-            <div class="seal">
-                <b>EFPA España</b>
-                <span>Certificación EIP</span>
-            </div>
-            <div class="seal">
-                <b>LCCI</b>
-                <span>Ley 5/2019</span>
-            </div>
+            {
+                t.sellos.map(([b, s]) => (
+                    <div class="seal">
+                        <b>{b}</b>
+                        <span>{s}</span>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>
