@@ -110,7 +110,6 @@ export const en: Dict = {
         oficina: {
             alt: 'Front of the Cabrera Kapital office in La Laguna',
             titulo: 'A real office, in the heart of La Laguna.',
-            chip: 'The real team photo will go here · C/ Santa Eulalia 9',
         },
         pasos: {
             etiqueta: 'How we work',
@@ -151,7 +150,6 @@ export const en: Dict = {
         entidades: {
             etiqueta: 'Lenders we work with',
             titulo: 'We work with 19 financial institutions.',
-            nota: '[The original logo of each lender will go here, with their permission]',
         },
         garantias: {
             etiqueta: 'Guarantees and accreditations',

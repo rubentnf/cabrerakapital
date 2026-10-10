@@ -108,7 +108,6 @@ export const es = {
         oficina: {
             alt: 'Fachada de la oficina de Cabrera Kapital en La Laguna',
             titulo: 'Una oficina real, en el centro de La Laguna.',
-            chip: 'Aquí irá la foto real del equipo · C/ Santa Eulalia 9',
         },
         pasos: {
             etiqueta: 'Cómo trabajamos',
@@ -149,7 +148,6 @@ export const es = {
         entidades: {
             etiqueta: 'Entidades con las que trabajamos',
             titulo: 'Trabajamos con 19 entidades financieras.',
-            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
         },
         garantias: {
             etiqueta: 'Garantías y acreditaciones',

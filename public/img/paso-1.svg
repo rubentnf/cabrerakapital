@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10325a"/><stop offset="1" stop-color="#0a2240"/></linearGradient>
+  </defs>
+  <rect width="1050" height="1000" fill="url(#bg1)"/>
+  <circle cx="860" cy="170" r="210" fill="#d8a858" opacity=".1"/>
+  <g transform="translate(170 150) scale(.8)">
+  <!-- mesa -->
+  <rect x="-400" y="760" width="1850" height="700" fill="#07182e"/>
+  <rect x="-400" y="752" width="1850" height="14" fill="#d8a858" opacity=".55"/>
+  <!-- informe con gráfico -->
+  <g transform="rotate(-4 560 470)">
+    <rect x="360" y="190" width="460" height="580" rx="14" fill="#f7f3ea"/>
+    <rect x="400" y="236" width="230" height="22" rx="6" fill="#0a2240"/>
+    <rect x="400" y="278" width="150" height="12" rx="6" fill="#bdb29c"/>
+    <rect x="410" y="520" width="56" height="110" rx="5" fill="#bdb29c"/>
+    <rect x="490" y="470" width="56" height="160" rx="5" fill="#bdb29c"/>
+    <rect x="570" y="410" width="56" height="220" rx="5" fill="#d8a858"/>
+    <rect x="650" y="350" width="56" height="280" rx="5" fill="#0a2240"/>
+    <rect x="400" y="642" width="330" height="4" fill="#0a2240" opacity=".4"/>
+    <rect x="400" y="676" width="250" height="12" rx="6" fill="#bdb29c"/>
+    <rect x="400" y="704" width="190" height="12" rx="6" fill="#bdb29c"/>
+  </g>
+  <!-- calculadora -->
+  <g transform="rotate(7 220 640)">
+    <rect x="110" y="480" width="230" height="290" rx="22" fill="#d8a858"/>
+    <rect x="136" y="506" width="178" height="62" rx="10" fill="#0a2240"/>
+    <rect x="236" y="522" width="60" height="12" rx="6" fill="#e8b868"/>
+    <g fill="#f7f3ea" opacity=".9">
+      <rect x="138" y="592" width="46" height="36" rx="8"/><rect x="196" y="592" width="46" height="36" rx="8"/><rect x="254" y="592" width="46" height="36" rx="8"/>
+      <rect x="138" y="642" width="46" height="36" rx="8"/><rect x="196" y="642" width="46" height="36" rx="8"/><rect x="254" y="642" width="46" height="36" rx="8"/>
+      <rect x="138" y="692" width="46" height="36" rx="8"/><rect x="196" y="692" width="46" height="36" rx="8"/>
+    </g>
+    <rect x="254" y="692" width="46" height="36" rx="8" fill="#0a2240"/>
+  </g>
+  <!-- lupa -->
+  <g>
+    <circle cx="760" cy="420" r="118" fill="#f7f3ea" fill-opacity=".14" stroke="#e8b868" stroke-width="22"/>
+    <path d="M702 424 l42 44 l84 -96" fill="none" stroke="#e8b868" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="846" y1="506" x2="940" y2="610" stroke="#e8b868" stroke-width="34" stroke-linecap="round"/>
+  </g>
+  </g>
+</svg>

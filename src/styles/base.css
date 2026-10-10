@@ -1366,11 +1366,18 @@ textarea {
     }
 }
 
-:root {
+/* :root {
     --s1: url('/img/scene-teide.svg');
     --s2: url('/img/scene-catedral.svg');
     --s3: url('/img/scene-ciudad.svg');
+} */
+
+:root {
+    --p1: url('/img/paso-1.svg');
+    --p2: url('/img/paso-2.svg');
+    --p3: url('/img/paso-3.svg');
 }
+
 
 /* ===== Parte 3: mapa, reseñas, caminos, tipo de cliente ===== */
 [hidden] {
