@@ -8,7 +8,7 @@
     --iv2: #eee7d8;
     --line: #ddd3bf;
     --muted: #55606e;
-    --dk: #8a6424;
+    --dk: #835f21; /* dorado oscuro para texto: 4,7:1 sobre --iv2 */
     --serif: var(--font-newsreader);
     --sans: var(--font-manrope);
     --g: clamp(18px, 5vw, 72px);

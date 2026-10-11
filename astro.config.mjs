@@ -20,24 +20,32 @@ export default defineConfig({
         prefetchAll: true,
         defaultStrategy: 'hover',
     },
+    // Fuentes variables servidas desde src/assets/fonts (Fontsource, licencia SIL OFL 1.1).
+    // Solo el eje de grosor (wght) y el subconjunto latino: el proveedor `fontsource` descarga la versión
+    // con tamaño óptico (opsz) de Newsreader, que pesa más del doble y la web no usa.
     fonts: [
         {
-            provider: fontProviders.fontsource(),
+            provider: fontProviders.local(),
             name: 'Manrope',
             cssVariable: '--font-manrope',
-            weights: ['200 800'], // fuente variable: todo el rango en un archivo
-            styles: ['normal'],
-            subsets: ['latin', 'latin-ext'],
             fallbacks: ['Helvetica Neue', 'Arial', 'sans-serif'],
+            options: {
+                variants: [
+                    { src: ['./src/assets/fonts/manrope-latin-wght-normal.woff2'], weight: '200 800', style: 'normal' },
+                ],
+            },
         },
         {
-            provider: fontProviders.fontsource(),
+            provider: fontProviders.local(),
             name: 'Newsreader',
             cssVariable: '--font-newsreader',
-            weights: ['200 800'],
-            styles: ['normal', 'italic'],
-            subsets: ['latin', 'latin-ext'],
             fallbacks: ['Georgia', 'serif'],
+            options: {
+                variants: [
+                    { src: ['./src/assets/fonts/newsreader-latin-wght-normal.woff2'], weight: '200 800', style: 'normal' },
+                    { src: ['./src/assets/fonts/newsreader-latin-wght-italic.woff2'], weight: '200 800', style: 'italic' },
+                ],
+            },
         },
     ],
     integrations: [
