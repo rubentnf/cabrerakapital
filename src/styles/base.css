@@ -9,8 +9,8 @@
     --line: #ddd3bf;
     --muted: #55606e;
     --dk: #8a6424;
-    --serif: 'Newsreader Variable', 'Newsreader', Georgia, serif;
-    --sans: 'Manrope Variable', 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    --serif: var(--font-newsreader);
+    --sans: var(--font-manrope);
     --g: clamp(18px, 5vw, 72px);
 }
 
@@ -27,7 +27,7 @@ body {
     font: 400 17px/1.6 var(--sans);
     color: var(--ink);
     background: var(--iv);
-    -webkit-font-smoothing: antialised;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
@@ -664,10 +664,10 @@ p {
     gap: 32px;
 }
 
-.foot h4 {
+.foot h2 {
     margin: 0 0 12px;
     color: var(--gold);
-    font-size: 12px;
+    font: 700 12px/1.4 var(--sans);
     letter-spacing: 0.14em;
     text-transform: uppercase;
 }
@@ -1561,7 +1561,7 @@ select {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin: 0 0 12px;
-    opacity: 0.6;
+    opacity: 0.75;
 }
 
 .legal-toc ol {
@@ -1752,7 +1752,7 @@ html {
     padding-bottom: 0.12em;
 }
 
-.split-mask > .w {
+.split-mask>.w {
     display: inline-block;
 }
 

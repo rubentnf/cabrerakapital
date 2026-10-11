@@ -16,7 +16,6 @@ export const en: Dict = {
         contacto: 'Contact',
     },
     header: {
-        inicio: 'Cabrera Kapital, home',
         principal: 'Main',
         abrirMenu: 'Open menu',
         cerrarMenu: 'Close menu',
@@ -51,7 +50,7 @@ export const en: Dict = {
             '{titulo} of Cabrera Kapital, real-estate credit intermediary registered with the Bank of Spain (E593).',
     },
     faq: {
-        title: 'FAQ · Cabrera Kapital',
+        title: 'Mortgage FAQ · Cabrera Kapital',
         description:
             'Answers to the most common questions about business financing and mortgages: cost, process and timing.',
         etiqueta: 'FAQ',
@@ -89,7 +88,7 @@ export const en: Dict = {
     },
     cta: { llamar: 'Call' },
     inicio: {
-        title: 'Cabrera Kapital · Mortgage brokerage and business financing in the Canary Islands',
+        title: 'Mortgage broker in Tenerife · Cabrera Kapital',
         description:
             'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed. La Laguna, Tenerife.',
         hero: {
@@ -278,7 +277,7 @@ export const en: Dict = {
         },
     ],
     servicios: {
-        title: 'Services · Cabrera Kapital',
+        title: 'Mortgages and business financing · Cabrera Kapital',
         description:
             'Mortgages, mortgage improvement, SME financing, property investment and non-resident buyers in Tenerife.',
         etiqueta: 'Services',
@@ -291,7 +290,7 @@ export const en: Dict = {
         ctaBoton: 'Request a free assessment',
     },
     equipo: {
-        title: 'Team · Cabrera Kapital',
+        title: 'Team: mortgage advisers in La Laguna · Cabrera Kapital',
         description:
             'Olegario Cabrera García and Alejandro Cabrera Martín: over twenty years in Canarian banking at the service of every deal.',
         etiqueta: 'Team',
@@ -336,7 +335,7 @@ export const en: Dict = {
         ctaBoton: 'Request a free assessment',
     },
     porque: {
-        title: 'Why us · Cabrera Kapital',
+        title: 'Why choose Cabrera Kapital as your broker',
         description:
             `We know banking from the inside, we only charge if it is signed and we work with ${nEntidades} financial institutions.`,
         etiqueta: 'Why Cabrera Kapital',
@@ -350,8 +349,8 @@ export const en: Dict = {
         ctaBoton: 'Request a free assessment',
     },
     simulador: {
-        title: 'Repayment calculator · Cabrera Kapital',
-        description: 'Calculate the estimated monthly payment of your mortgage or loan.',
+        title: 'Mortgage calculator: estimate your payment · Cabrera Kapital',
+        description: 'Work out the estimated monthly payment of your mortgage or loan by amount, term and interest rate, free of charge. Then we help you improve it.',
         etiqueta: 'Calculator',
         h1: 'Work out your payment in seconds.',
         lead: 'An indicative estimate. The real assessment uses your data and each lender’s conditions.',
@@ -369,8 +368,8 @@ export const en: Dict = {
         ctaBoton: 'Request a free assessment',
     },
     contacto: {
-        title: 'Contact · Cabrera Kapital',
-        description: 'Request your free assessment. We reply within 24–48 working hours.',
+        title: 'Contact us in La Laguna · Cabrera Kapital',
+        description: 'Request your free assessment from Cabrera Kapital, C/Santa Eulalia 9, La Laguna. Call or write to us: we reply within 24-48 working hours.',
         etiqueta: 'Contact',
         h1: 'Tell us about your case.',
         lead: 'We reply within 24–48 working hours.',
@@ -413,5 +412,14 @@ export const en: Dict = {
         cerrado: 'closed',
         mapa: 'Map · La Laguna',
         mapaNota: 'Embed map here',
+    },
+    noEncontrada: {
+        title: 'Page not found · Cabrera Kapital',
+        description: 'The page you are looking for does not exist or has moved.',
+        etiqueta: 'Error 404',
+        h1: 'This page does not exist.',
+        lead: 'The address may have changed or the link may contain an error.',
+        inicio: 'Go to the home page',
+        contacto: 'Contact us',
     },
 };

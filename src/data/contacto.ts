@@ -16,4 +16,17 @@ export const contacto = {
     mapaEnlace:
         'https://www.google.com/maps/search/?api=1&query=C%2F+Santa+Eulalia+9%2C+38320+San+Crist%C3%B3bal+de+La+Laguna',
     direccionCorta: 'C/ Santa Eulalia 9, Local · La Laguna',
+    // Dirección por partes (datos estructurados para Google)
+    direccionPostal: {
+        calle: 'C/ Santa Eulalia, 9, Local',
+        cp: '38320',
+        localidad: 'San Cristóbal de La Laguna',
+        provincia: 'Santa Cruz de Tenerife',
+    },
+    // Coordenadas de la oficina (C/ Santa Eulalia 9, La Cuesta). Fuente: CartoCiudad (IGN). El portal 9 no figura
+    // en su registro: es el punto medio entre el 7 y el 11 de la misma acera (margen ~30 m).
+    // Para afinarlas: en Google Maps, clic derecho sobre el local → la primera línea del menú.
+    geo: { lat: 28.46882, lng: -16.28407 },
+    // Horario de lunes a viernes, en formato 24 h
+    horario: { abre: '08:30', cierra: '18:30' },
 };

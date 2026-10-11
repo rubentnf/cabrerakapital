@@ -37,6 +37,8 @@ const pdf = existsSync(
     description={t.documentos.descripcion.replace("{titulo}", titulo)}
     alt={{ es: rutaLegal(id, "es"), en: rutaLegal(id, "en") }}
     animaciones={false}
+    canonical={rutaLegal(id, "es")}
+    hreflang={false}
 >
     <section class="sec legal">
         <div class="wrap">
@@ -76,7 +78,7 @@ const pdf = existsSync(
                         </nav>
                     )
                 }
-                <article class="legal-texto">
+                <article class="legal-texto" lang="es">
                     <Content />
                 </article>
             </div>

@@ -37,7 +37,7 @@ const t = useT(langDe(Astro.url.pathname)).inicio.editorial;
                     src={entidades}
                     alt={t.altEntidades}
                     widths={[480, 800, 1200]}
-                    sizes="(max-width: 767px) 100vw, 40vw"
+                    sizes="(max-width: 767px) calc(100vw - 36px), 31vw"
                     loading="lazy"
                 />
             </div>

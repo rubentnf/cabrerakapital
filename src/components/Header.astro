@@ -22,12 +22,8 @@ const nav = ids.map((id) => ({ id, label: t.nav[id], href: ruta(id, lang) }));
 
 <header class="nav" id="nav">
     <div class="wrap">
-        <a
-            class="brand"
-            href={ruta("inicio", lang)}
-            aria-label={t.header.inicio}
-        >
-            <span class="logo">CK</span>Cabrera Kapital
+        <a class="brand" href={ruta("inicio", lang)}>
+            <span class="logo" aria-hidden="true">CK</span>Cabrera Kapital
         </a>
         <nav class="links" aria-label={t.header.principal}>
             {

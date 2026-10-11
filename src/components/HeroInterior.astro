@@ -13,7 +13,13 @@ const { etiqueta, titulo, lead, ilustracion } = Astro.props;
     {
         ilustracion ? (
             <div class="hero-ilus" aria-hidden="true">
-                <img src={ilustracion} alt="" width="600" height="500" decoding="async" />
+                <img
+                    src={ilustracion}
+                    alt=""
+                    width="600"
+                    height="500"
+                    decoding="async"
+                />
             </div>
         ) : (
             <div class="deco" aria-hidden="true">
@@ -31,5 +37,6 @@ const { etiqueta, titulo, lead, ilustracion } = Astro.props;
         <p class="lead" data-fade>
             {lead}
         </p>
+        <slot />
     </div>
 </section>

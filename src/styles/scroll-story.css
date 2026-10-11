@@ -173,7 +173,7 @@
 
 .edit-list li {
     padding: 5px 0;
-    opacity: 0.5;
+    opacity: 0.75;
     transition: opacity 0.3s;
 }
 
@@ -195,7 +195,7 @@
 
 .edit h2 em {
     font-style: italic;
-    color: #8a9bb2;
+    color: #5d7390;
 }
 
 .edit h2 .ln {

@@ -1,0 +1,70 @@
+---
+// Datos estructurados del negocio (schema.org) para Google: ficha local, horario, teléfonos, registro…
+// Comprobar con https://search.google.com/test/rich-results
+import { contacto } from "../data/contacto";
+import { langDe, useT } from "../i18n";
+
+interface Props {
+    /** URL absoluta de la imagen del negocio (la misma de og:image) */
+    imagen: string;
+}
+const { imagen } = Astro.props;
+const site = Astro.site!;
+const t = useT(langDe(Astro.url.pathname));
+const { direccionPostal: d, geo, horario } = contacto;
+
+const negocio = {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "@id": new URL("/#negocio", site).href,
+    name: "Cabrera Kapital",
+    description: t.inicio.description,
+    url: site.href,
+    logo: new URL("/favicon.svg", site).href,
+    image: imagen,
+    telephone: contacto.telefonos[0].tel,
+    email: contacto.correo,
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: d.calle,
+        postalCode: d.cp,
+        addressLocality: d.localidad,
+        addressRegion: d.provincia,
+        addressCountry: "ES",
+    },
+    ...(geo.lat && geo.lng
+        ? {
+              geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: geo.lat,
+                  longitude: geo.lng,
+              },
+          }
+        : {}),
+    openingHoursSpecification: [
+        {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: horario.abre,
+            closes: horario.cierra,
+        },
+    ],
+    hasMap: contacto.mapaEnlace,
+    areaServed: { "@type": "AdministrativeArea", name: "Canarias" },
+    knowsLanguage: ["es", "en"],
+    identifier: {
+        "@type": "PropertyValue",
+        propertyID:
+            "Registro de intermediarios de crédito inmobiliario del Banco de España",
+        value: "E593",
+    },
+    founder: [
+        { "@type": "Person", name: "Olegario Cabrera García" },
+        { "@type": "Person", name: "Alejandro Cabrera Martín" },
+    ],
+    // Cuando tengáis la ficha de Google Business Profile o redes sociales, añadid aquí sus enlaces:
+    // sameAs: ["https://g.page/…", "https://www.linkedin.com/company/…"],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(negocio)} />

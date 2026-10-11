@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import HeroInterior from "../components/HeroInterior.astro";
+import { langDe, ruta, useT } from "../i18n";
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang).noEncontrada;
+---
+
+<Base
+    title={t.title}
+    description={t.description}
+    indexable={false}
+    hreflang={false}
+>
+    {
+        /* El hosting sirve la 404 española para cualquier dirección que no exista.
+           Si la dirección era de la parte inglesa, se pasa a la 404 en inglés. */
+        lang === "es" && (
+            <script slot="head" is:inline>
+                if (location.pathname.startsWith("/en/"))
+                location.replace("/en/404/");
+            </script>
+        )
+    }
+    <HeroInterior etiqueta={t.etiqueta} titulo={t.h1} lead={t.lead}>
+        <div class="btns" data-fade>
+            <a class="btn gold" href={ruta("inicio", lang)}>{t.inicio}</a>
+            <a class="btn line" href={ruta("contacto", lang)}>{t.contacto}</a>
+        </div>
+    </HeroInterior>
+</Base>

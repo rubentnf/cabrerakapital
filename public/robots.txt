@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: /
-# Cuando se publique la web definitiva: cambiar a Allow: / y añadir Sitemap: https://cabrerakapital.es/sitemap-index.xml

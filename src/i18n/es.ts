@@ -15,7 +15,6 @@ export const es = {
         contacto: 'Contacto',
     },
     header: {
-        inicio: 'Cabrera Kapital, inicio',
         principal: 'Principal',
         abrirMenu: 'Abrir menú',
         cerrarMenu: 'Cerrar menú',
@@ -50,7 +49,7 @@ export const es = {
             '{titulo} de Cabrera Kapital, intermediario de crédito inmobiliario inscrito en el Banco de España (E593).',
     },
     faq: {
-        title: 'Preguntas frecuentes · Cabrera Kapital',
+        title: 'Preguntas frecuentes sobre hipotecas · Cabrera Kapital',
         description:
             'Respuestas a las dudas más habituales sobre financiación para empresas e hipotecas: coste, proceso y plazos.',
         etiqueta: 'Preguntas frecuentes',
@@ -88,14 +87,14 @@ export const es = {
     },
     cta: { llamar: 'Llamar' },
     inicio: {
-        title: 'Cabrera Kapital · Intermediación hipotecaria y financiación para empresas en Canarias',
+        title: 'Intermediario hipotecario en Tenerife · Cabrera Kapital',
         description:
             'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma. La Laguna, Tenerife.',
         hero: {
             eyebrow: 'Broker hipotecario · Financiación para pymes · Tenerife',
             l1: 'Conocemos la banca',
             l2: 'por dentro.',
-            l3: 'Ahora negociamos por ustedes.',
+            l3: 'Ahora negociamos por usted.',
             sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
             lema: 'Intermediación financiera · Tenerife',
             desliza: 'Desliza',
@@ -284,7 +283,7 @@ export const es = {
         },
     ],
     servicios: {
-        title: 'Servicios · Cabrera Kapital',
+        title: 'Hipotecas y financiación para empresas · Cabrera Kapital',
         description:
             'Hipotecas, mejora de hipoteca, financiación para pymes, inversión inmobiliaria y compradores no residentes en Tenerife.',
         etiqueta: 'Servicios',
@@ -297,7 +296,7 @@ export const es = {
         ctaBoton: 'Pedir estudio gratuito',
     },
     equipo: {
-        title: 'Equipo · Cabrera Kapital',
+        title: 'Equipo: asesores hipotecarios en La Laguna · Cabrera Kapital',
         description:
             'Olegario Cabrera García y Alejandro Cabrera Martín: más de veinte años en la banca canaria al servicio de cada operación.',
         etiqueta: 'Equipo',
@@ -342,7 +341,7 @@ export const es = {
         ctaBoton: 'Solicitar estudio gratuito',
     },
     porque: {
-        title: 'Por qué nosotros · Cabrera Kapital',
+        title: 'Por qué elegir Cabrera Kapital como intermediario',
         description:
             `Conocemos la banca por dentro, solo cobramos si se firma y trabajamos con ${nEntidades} entidades financieras.`,
         etiqueta: 'Por qué Cabrera Kapital',
@@ -356,8 +355,8 @@ export const es = {
         ctaBoton: 'Solicitar estudio gratuito',
     },
     simulador: {
-        title: 'Simulador de cuota · Cabrera Kapital',
-        description: 'Calcule la cuota mensual orientativa de su hipoteca o préstamo.',
+        title: 'Simulador de hipoteca: calcule su cuota · Cabrera Kapital',
+        description: 'Calcule gratis la cuota mensual orientativa de su hipoteca o préstamo según importe, plazo e interés. Después, le ayudamos a mejorarla.',
         etiqueta: 'Simulador',
         h1: 'Calculen su cuota en segundos.',
         lead: 'Una estimación orientativa. El estudio real lo hacemos con sus datos y las condiciones de cada entidad.',
@@ -375,8 +374,8 @@ export const es = {
         ctaBoton: 'Solicitar estudio gratuito',
     },
     contacto: {
-        title: 'Contacto · Cabrera Kapital',
-        description: 'Solicite su estudio gratuito. Respondemos en 24–48 horas laborables.',
+        title: 'Contacto en La Laguna · Cabrera Kapital',
+        description: 'Solicite su estudio gratuito en Cabrera Kapital, C/Santa Eulalia 9, La Laguna. Llámenos o escríbanos: respondemos en 24-48 horas laborales.',
         etiqueta: 'Contacto',
         h1: 'Cuéntennos su caso.',
         lead: 'Respondemos en 24–48 horas laborables.',
@@ -419,6 +418,15 @@ export const es = {
         cerrado: 'cerrado',
         mapa: 'Mapa · La Laguna',
         mapaNota: 'Incrustar mapa aquí',
+    },
+    noEncontrada: {
+        title: 'Página no encontrada · Cabrera Kapital',
+        description: 'La página que busca no existe o ha cambiado de dirección.',
+        etiqueta: 'Error 404',
+        h1: 'Esta página no existe.',
+        lead: 'Puede que la dirección haya cambiado o que el enlace tenga un error.',
+        inicio: 'Ir al inicio',
+        contacto: 'Contactar',
     },
 };
 
