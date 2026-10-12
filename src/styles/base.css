@@ -1701,6 +1701,29 @@ html {
 
 @media print {
 
+    @page {
+        margin: 18mm 16mm;
+    }
+
+    body,
+    .sec {
+        background: #fff !important;
+    }
+
+    .legal > .wrap {
+        padding: 0;
+    }
+
+    .legal-texto h2,
+    .legal-texto h3 {
+        break-after: avoid;
+    }
+
+    .legal-texto tr,
+    .legal-texto li {
+        break-inside: avoid;
+    }
+
     header,
     .foot,
     .wa,
