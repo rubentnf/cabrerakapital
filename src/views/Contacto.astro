@@ -5,45 +5,20 @@ import Mapa from "../components/Mapa.astro";
 import { rutaLegal } from "../data/legal";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
-const lang = langDe(Astro.url.pathname);
-const t = useT(lang);
+const t = useT(langDe(Astro.url.pathname));
 const c = t.contacto;
+const p = c.pyme;
+const lang = langDe(Astro.url.pathname);
 const tel1 = contacto.telefonos[0].visible;
 ---
 
 <Base title={c.title} description={c.description} page="contacto">
-    <HeroInterior
-        etiqueta={c.etiqueta}
-        titulo={c.h1}
-        lead={c.lead}
-        ilustracion="/img/portada-contacto.svg"
-    />
+    <HeroInterior etiqueta={c.etiqueta} titulo={c.h1} lead={c.lead} />
     <section class="sec">
         <div class="wrap cgrid">
-            <form
-                class="card pad"
-                id="form"
-                novalidate
-                data-demo={c.demo}
-                data-exito={c.exito}
-                data-error={`${c.error} ${tel1}.`}
-            >
+            <div class="card pad" id="formbox">
                 <h2 style="font-size:36px;margin:0">{c.formTitulo}</h2>
-                <div class="f2">
-                    <label>
-                        {c.nombre}
-                        <input type="text" name="nombre" required />
-                    </label>
-                    <label>
-                        {c.telefono}
-                        <input type="tel" name="telefono" />
-                    </label>
-                </div>
-                <label>
-                    {c.correo}
-                    <input type="email" name="correo" required />
-                </label>
-                <fieldset class="seg">
+                <fieldset class="seg" id="tipo">
                     <legend>{c.soy}</legend>
                     <label>
                         <input
@@ -59,7 +34,35 @@ const tel1 = contacto.telefonos[0].visible;
                         {c.tipoPyme}
                     </label>
                 </fieldset>
-                <div class="grupo" data-grupo="particular">
+
+                <!-- Particulares: formulario corto -->
+                <form
+                    class="fcont"
+                    id="form"
+                    novalidate
+                    data-demo={c.demo}
+                    data-exito={c.exito}
+                    data-error={`${c.error} ${tel1}.`}
+                >
+                    <input
+                        type="hidden"
+                        name="tipo_cliente"
+                        value="particular"
+                    />
+                    <div class="f2">
+                        <label>
+                            {c.nombre}
+                            <input type="text" name="nombre" required />
+                        </label>
+                        <label>
+                            {c.telefono}
+                            <input type="tel" name="telefono" />
+                        </label>
+                    </div>
+                    <label>
+                        {c.correo}
+                        <input type="email" name="correo" required />
+                    </label>
                     <label>
                         {c.necesidad}
                         <select name="necesidad">
@@ -71,52 +74,152 @@ const tel1 = contacto.telefonos[0].visible;
                             }
                         </select>
                     </label>
-                </div>
-                <div class="grupo" data-grupo="pyme" hidden>
                     <label>
-                        {c.empresa}
-                        <input type="text" name="empresa" />
+                        {c.mensaje}
+                        <textarea name="mensaje"></textarea>
                     </label>
-                    <label>
-                        {c.necesidad}
-                        <select name="necesidad">
-                            <option value="">{c.elegir}</option>
-                            {
-                                c.opcionesPyme.map((o) => (
-                                    <option value={o.v}>{o.t}</option>
-                                ))
-                            }
-                        </select>
+                    <label class="chk">
+                        <input type="checkbox" name="privacidad" required />
+                        <span>
+                            {c.privacidadA}
+                            <a
+                                href={rutaLegal("privacidad", lang)}
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                {c.privacidadB}
+                            </a>
+                        </span>
                     </label>
-                </div>
-                <label>
-                    {c.mensaje}
-                    <textarea name="mensaje"></textarea>
-                </label>
-                <label class="chk">
-                    <input type="checkbox" name="privacidad" required />
-                    {c.privacidadA}
-                    <a
-                        href={rutaLegal("privacidad", lang)}
-                        target="_blank"
-                        rel="noopener"
+                    <button
+                        class="btn navyb"
+                        type="submit"
+                        style="align-self:flex-start"
                     >
-                        {c.privacidadB}
-                    </a>
-                </label>
-                <input
-                    class="trampa"
-                    type="text"
-                    name="_gotcha"
-                    tabindex="-1"
-                    autocomplete="off"
-                    aria-hidden="true"
-                />
-                <button class="btn navyb self-start" type="submit">
-                    {c.enviar}
-                </button>
-                <p class="ok" id="sent" hidden></p>
-            </form>
+                        {c.enviar}
+                    </button>
+                    <p class="ok" data-aviso hidden></p>
+                </form>
+
+                <!-- Empresas y autónomos: formulario por pasos -->
+                <form
+                    class="wiz"
+                    id="form-pyme"
+                    hidden
+                    novalidate
+                    data-demo={c.demo}
+                    data-exito={c.exito}
+                    data-error={`${c.error} ${tel1}.`}
+                >
+                    <input type="hidden" name="tipo_cliente" value="pyme" />
+                    <div class="wiz-bar" aria-hidden="true">
+                        {[0, 1, 2, 3, 4].map(() => <i />)}
+                    </div>
+                    <p class="wiz-n" aria-live="polite">
+                        {p.paso}
+                        <span data-wiz-n>1</span>
+                        {p.de} 5
+                    </p>
+                    <div class="wiz-body">
+                        {
+                            p.pasos.map((paso, i) => (
+                                <fieldset
+                                    class="wiz-step"
+                                    data-step={i}
+                                    hidden={i > 0}
+                                    tabindex="-1"
+                                >
+                                    <legend>{paso.t}</legend>
+                                    {paso.opciones.map((o) => (
+                                        <label class="opt">
+                                            <input
+                                                type="radio"
+                                                name={paso.name}
+                                                value={o.v}
+                                            />
+                                            <span>{o.t}</span>
+                                        </label>
+                                    ))}
+                                </fieldset>
+                            ))
+                        }
+                        <fieldset
+                            class="wiz-step"
+                            data-step="4"
+                            hidden
+                            tabindex="-1"
+                        >
+                            <legend>{p.contactoT}</legend>
+                            <p class="wiz-d">{p.contactoD}</p>
+                            <label>
+                                {c.nombre}
+                                <input
+                                    type="text"
+                                    name="nombre"
+                                    required
+                                    autocomplete="name"
+                                />
+                            </label>
+                            <label>
+                                {c.telefono}
+                                <input
+                                    type="tel"
+                                    name="telefono"
+                                    required
+                                    autocomplete="tel"
+                                />
+                            </label>
+                            <label>
+                                {c.correo}
+                                <input
+                                    type="email"
+                                    name="correo"
+                                    required
+                                    autocomplete="email"
+                                />
+                            </label>
+                            <label class="chk">
+                                <input
+                                    type="checkbox"
+                                    name="privacidad"
+                                    required
+                                />
+                                <span>
+                                    {c.privacidadA}
+                                    <a
+                                        href={rutaLegal("privacidad", lang)}
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        {c.privacidadB}
+                                    </a>
+                                </span>
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div class="wiz-nav">
+                        <button
+                            class="btn line"
+                            type="button"
+                            data-wiz-back
+                            hidden>{p.atras}</button
+                        >
+                        <button
+                            class="btn navyb"
+                            type="button"
+                            data-wiz-next
+                            disabled>{p.continuar}</button
+                        >
+                        <button
+                            class="btn navyb"
+                            type="submit"
+                            data-wiz-send
+                            hidden>{p.enviar}</button
+                        >
+                    </div>
+                    <p class="ok" data-aviso hidden></p>
+                </form>
+            </div>
             <div class="info" data-stag>
                 <div class="card">
                     <span class="eyebrow dk">{c.telefonos}</span>
@@ -130,11 +233,7 @@ const tel1 = contacto.telefonos[0].visible;
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.correoCard}</span>
-                    <b
-                        ><a href={`mailto:${contacto.correo}`}
-                            >{contacto.correo}</a
-                        ></b
-                    >
+                    <b>{contacto.correo}</b>
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.direccion}</span>

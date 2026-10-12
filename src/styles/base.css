@@ -8,7 +8,8 @@
     --iv2: #eee7d8;
     --line: #ddd3bf;
     --muted: #55606e;
-    --dk: #835f21; /* dorado oscuro para texto: 4,7:1 sobre --iv2 */
+    --dk: #835f21;
+    /* dorado oscuro para texto: 4,7:1 sobre --iv2 */
     --serif: var(--font-newsreader);
     --sans: var(--font-manrope);
     --g: clamp(18px, 5vw, 72px);
@@ -1798,4 +1799,149 @@ html {
         height: 48%;
         opacity: 0.22;
     }
+}
+
+/* Formulario por pasos para empresas */
+.fcont {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.wiz {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.wiz-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+}
+
+.wiz-bar i {
+    height: 5px;
+    border-radius: 3px;
+    background: var(--line);
+    transition: background 0.3s;
+}
+
+.wiz-bar i.on {
+    background: linear-gradient(90deg, var(--gold), var(--goldl));
+}
+
+.wiz-n {
+    margin: -8px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.wiz-step {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    outline: none;
+}
+
+.wiz-step legend {
+    font: 500 clamp(24px, 2.6vw, 30px) / 1.2 var(--serif);
+    color: var(--navy);
+    padding: 0;
+    margin-bottom: 14px;
+}
+
+.wiz-d {
+    margin: -6px 0 6px;
+    color: var(--muted);
+}
+
+.opt {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--iv);
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.opt:hover {
+    border-color: var(--gold);
+}
+
+.opt input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.opt::after {
+    content: '';
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--muted);
+    border-radius: 50%;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.opt:has(input:checked) {
+    border-color: var(--navy);
+    background: #fff;
+}
+
+.opt:has(input:checked)::after {
+    border-color: var(--navy);
+    background: var(--gold);
+    box-shadow: inset 0 0 0 4px #fff;
+}
+
+.opt:has(input:focus-visible) {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.wiz-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.wiz-nav .btn.line {
+    border-color: var(--line);
+    color: var(--navy);
+}
+
+.wiz-nav .btn:disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.wiz.hecho> :not(.ok) {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .opt {
+        padding: 15px 16px;
+    }
+}
+
+.wiz-nav .btn.line:hover {
+    background: rgba(10, 34, 64, 0.06);
 }
