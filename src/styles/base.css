@@ -92,11 +92,7 @@ p {
     border-radius: 999px;
     font: 700 15px var(--sans);
     border: 1px solid transparent;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .gold {
@@ -2066,9 +2062,4 @@ html {
     .exito.anima .exito-svg {
         animation: none;
     }
-}
-
-/* Los botones del bloque final no se desplazan al pasar el ratón */
-.cta .btn:hover {
-    transform: none;
 }

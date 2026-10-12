@@ -17,6 +17,7 @@ export const en: Dict = {
         inicio: 'Cabrera Kapital, home',
         principal: 'Main',
         abrirMenu: 'Open menu',
+        cerrarMenu: 'Close menu',
         cta: 'Free assessment',
     },
     whatsapp: {
@@ -110,7 +111,7 @@ export const en: Dict = {
         },
         oficina: {
             alt: 'Front of the Cabrera Kapital office in La Laguna',
-            titulo: 'A real office, in the heart of La Laguna.',
+            titulo: 'A real office, in La Laguna.',
             chip: 'The real team photo will go here · C/ Santa Eulalia 9',
         },
         pasos: {
@@ -176,6 +177,7 @@ export const en: Dict = {
     mapa: {
         titulo: 'Map of the office in La Laguna',
         cargar: 'Show map',
+        nota: 'Loading the map connects to Google’s servers.',
         abrir: 'Open in Google Maps',
         comoLlegar: 'Get directions',
     },

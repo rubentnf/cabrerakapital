@@ -5,7 +5,6 @@ import { initEditorial } from './anim/editorial';
 import { initRows } from './anim/rows';
 import { initFooter } from './anim/footer';
 import { initReveals } from './anim/reveals';
-import { initMagnet } from './anim/magnet';
 
 /** Todo lo que usa GSAP. main.ts lo carga aparte, solo en las páginas que tienen animaciones. */
 gsap.registerPlugin(ScrollTrigger);
@@ -21,4 +20,3 @@ initEditorial();
 initRows();
 initFooter();
 initReveals();
-initMagnet();

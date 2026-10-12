@@ -1,8 +1,8 @@
 import { $$ } from './utils';
 
-/** Botones y enlaces del menú con texto que "rueda" al pasar el ratón (CSS .rl). */
+/** Enlaces del menú con texto que "rueda" al pasar el ratón (CSS .rl). Los botones no se animan. */
 export function rollify() {
-    $$('.btn, .links a').forEach((el) => {
+    $$('.links a').forEach((el) => {
         if (el.children.length) return;
         const texto = (el.textContent ?? '').trim();
         const a = document.createElement('span');

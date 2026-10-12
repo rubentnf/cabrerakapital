@@ -15,6 +15,7 @@ export const es = {
         inicio: 'Cabrera Kapital, inicio',
         principal: 'Principal',
         abrirMenu: 'Abrir menú',
+        cerrarMenu: 'Cerrar menú',
         cta: 'Estudio gratuito',
     },
     whatsapp: {
@@ -50,11 +51,11 @@ export const es = {
             'Respuestas a las dudas más habituales sobre financiación para empresas e hipotecas: coste, proceso y plazos.',
         etiqueta: 'Preguntas frecuentes',
         h1: 'Las dudas más habituales, resueltas.',
-        lead: 'Si no encuentran su pregunta, escríbannos o llámennos: les respondemos en 24–48 horas laborables.',
+        lead: 'Si no encuentra su pregunta, escríbanos o llámenos: le respondemos en 24–48 horas laborables.',
         items: [
             {
                 q: '¿Qué tipo de empresas pueden solicitar financiación con Cabrera Kapital?',
-                a: 'Trabajamos con pymes, autónomos y empresas consolidadas de distintos sectores. Les ayudamos a financiar su crecimiento, su circulante o sus inversiones, a reorganizar su deuda y a conseguir mejores condiciones con sus bancos.',
+                a: 'Trabajamos con pymes, autónomos y empresas consolidadas de distintos sectores. Le ayudamos a financiar su crecimiento, su circulante o sus inversiones, a reorganizar su deuda y a conseguir mejores condiciones con sus bancos.',
             },
             {
                 q: '¿Qué tipo de financiación gestionan?',
@@ -66,7 +67,7 @@ export const es = {
             },
             {
                 q: '¿Cómo es el proceso de trabajo?',
-                a: 'Empezamos con un estudio gratuito y personalizado. Después analizamos la viabilidad real de la operación, buscamos y negociamos con las entidades, les presentamos las mejores opciones y les acompañamos hasta la firma ante notario. Todo el proceso es transparente.',
+                a: 'Empezamos con un estudio gratuito y personalizado. Después analizamos la viabilidad real de la operación, buscamos y negociamos con las entidades, le presentamos las mejores opciones y le acompañamos hasta la firma ante notario. Todo el proceso es transparente.',
             },
             {
                 q: '¿Tiene coste el estudio inicial?',
@@ -77,7 +78,7 @@ export const es = {
                 a: 'Depende del tipo de financiación, pero en muchos casos podemos presentar opciones viables en pocos días. Nuestro objetivo es agilizar el proceso y evitar retrasos innecesarios.',
             },
         ],
-        ctaTitulo: '¿Les queda alguna duda?',
+        ctaTitulo: '¿Le queda alguna duda?',
         ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
@@ -90,10 +91,10 @@ export const es = {
             eyebrow: 'Bróker hipotecario · Financiación para pymes · Tenerife',
             l1: 'Conocemos la banca',
             l2: 'por dentro.',
-            l3: 'Ahora negociamos por ustedes.',
+            l3: 'Ahora negociamos por usted.',
             sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
             lema: 'Intermediación financiera · Tenerife',
-            desliza: 'Desliza',
+            desliza: 'Deslice',
             pedir: 'Pedir estudio gratuito',
             servicios: 'Ver servicios',
         },
@@ -103,12 +104,12 @@ export const es = {
                 'Durante más de veinte años estuvimos al otro lado de la mesa: dirigiendo oficinas, analizando riesgos y decidiendo qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
             anios: 'años en la banca canaria',
             registro: 'Registro del Banco de España',
-            respuesta: 'para darles una primera respuesta',
+            respuesta: 'para darle una primera respuesta',
             coste: 'cuesta el estudio inicial',
         },
         oficina: {
             alt: 'Fachada de la oficina de Cabrera Kapital en La Laguna',
-            titulo: 'Una oficina real, en el centro de La Laguna.',
+            titulo: 'Una oficina real, en La Laguna.',
             chip: 'Aquí irá la foto real del equipo · C/ Santa Eulalia 9',
         },
         pasos: {
@@ -117,17 +118,17 @@ export const es = {
             lista: [
                 {
                     t: 'Estudio gratuito',
-                    d: 'Analizamos sus ingresos, su capacidad de endeudamiento o las cuentas de su empresa. Sabrán qué es viable desde el primer día.',
+                    d: 'Analizamos sus ingresos, su capacidad de endeudamiento o las cuentas de su empresa. Sabrá qué es viable desde el primer día.',
                     p: 'Primera respuesta en 24–48 h',
                 },
                 {
                     t: 'Negociación con entidades',
-                    d: 'Presentamos su operación a varios bancos y alternativas privadas, y comparamos las ofertas formales con ustedes.',
+                    d: 'Presentamos su operación a varios bancos y alternativas privadas, y comparamos las ofertas formales con usted.',
                     p: 'Ofertas formales en 48 h hábiles',
                 },
                 {
                     t: 'Firma ante notario',
-                    d: 'Gestionamos la documentación y les acompañamos hasta la firma. Si más adelante aparece una mejora, les avisamos.',
+                    d: 'Gestionamos la documentación y le acompañamos hasta la firma. Si más adelante aparece una mejora, le avisamos.',
                     p: 'Solo cobramos si se firma',
                 },
             ],
@@ -139,14 +140,14 @@ export const es = {
             l1: 'No firme',
             l2: 'a ciegas.',
             l3: 'Compare.',
-            sub: 'Con las ofertas formales delante, decidan con números y no con prisas. Solo cobramos si la operación se firma.',
+            sub: 'Con las ofertas formales delante, decida con números y no con prisas. Solo cobramos si la operación se firma.',
         },
         servicios: {
             etiqueta: 'Qué hacemos',
             t1: 'Una operación,',
             t2: 'muchas puertas de banco.',
             texto:
-                'Presentamos su caso a varias entidades y comparamos ofertas formales. Ustedes eligen con los números delante.',
+                'Presentamos su caso a varias entidades y comparamos ofertas formales. Usted elige con los números delante.',
             simulador: 'Probar el simulador de cuota',
         },
         entidades: {
@@ -174,6 +175,7 @@ export const es = {
     mapa: {
         titulo: 'Mapa de la oficina en La Laguna',
         cargar: 'Ver mapa',
+        nota: 'Al cargar el mapa se conecta con los servidores de Google.',
         abrir: 'Abrir en Google Maps',
         comoLlegar: 'Cómo llegar',
     },
@@ -187,11 +189,11 @@ export const es = {
         valoracion: 'valoración en Google',
     },
     caminos: {
-        etiqueta: 'Cómo podemos ayudarles',
+        etiqueta: 'Cómo podemos ayudarle',
         titulo: 'Hipotecas y financiación para pymes',
         particulares: {
             t: 'Hipotecas para particulares',
-            d: 'Comprar su vivienda, mejorar la hipoteca que ya tienen o invertir en inmuebles, con ofertas formales de varios bancos.',
+            d: 'Comprar su vivienda, mejorar la hipoteca que ya tiene o invertir en inmuebles, con ofertas formales de varios bancos.',
             lista: [
                 'Compra de vivienda habitual o segunda residencia',
                 'Mejora de hipoteca: tipo, cuota o plazo',
@@ -217,7 +219,7 @@ export const es = {
             verbo: 'Comprar',
             resto: 'su vivienda',
             texto:
-                'Les decimos cuánto pueden financiar de verdad y negociamos las condiciones con varios bancos.',
+                'Le decimos cuánto puede financiar de verdad y negociamos las condiciones con varios bancos.',
         },
         {
             verbo: 'Mejorar',
@@ -254,7 +256,7 @@ export const es = {
         },
         {
             t: 'Varias entidades, una sola gestión',
-            d: 'Presentamos su caso a 19 entidades y comparan ofertas formales con los números delante.',
+            d: 'Presentamos su caso a 19 entidades y usted compara las ofertas formales con los números delante.',
         },
         {
             t: 'Regulados e inscritos',
@@ -262,7 +264,7 @@ export const es = {
         },
         {
             t: 'Respuesta en 24–48 horas',
-            d: 'Un primer análisis rápido para que sepan qué es viable desde el primer día.',
+            d: 'Un primer análisis rápido para que sepa qué es viable desde el primer día.',
         },
         {
             t: 'Atención en español e inglés',
@@ -274,7 +276,7 @@ export const es = {
         },
         {
             t: 'Seguimiento después de firmar',
-            d: 'Si más adelante aparece una mejora para su hipoteca o su financiación, les avisamos.',
+            d: 'Si más adelante aparece una mejora para su hipoteca o su financiación, le avisamos.',
         },
     ],
     servicios: {
@@ -351,7 +353,7 @@ export const es = {
         title: 'Simulador de cuota · Cabrera Kapital',
         description: 'Calcule la cuota mensual orientativa de su hipoteca o préstamo.',
         etiqueta: 'Simulador',
-        h1: 'Calculen su cuota en segundos.',
+        h1: 'Calcule su cuota en segundos.',
         lead: 'Una estimación orientativa. El estudio real lo hacemos con sus datos y las condiciones de cada entidad.',
         importe: 'Importe del préstamo',
         plazo: 'Plazo',
@@ -362,7 +364,7 @@ export const es = {
         intereses: 'Intereses',
         aviso: 'Cálculo orientativo; no constituye una oferta vinculante.',
         boton: 'Solicitar estudio real',
-        ctaTitulo: '¿Les encaja? Lo estudiamos juntos.',
+        ctaTitulo: '¿Le encaja? Lo estudiamos juntos.',
         ctaTexto: 'Sin coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
@@ -383,8 +385,8 @@ export const es = {
         demo: 'Modo demostración: el formulario todavía no envía nada.',
         exitoT: 'Solicitud enviada',
         exitoOtra: 'Enviar otra solicitud',
-        exito: 'Gracias. Hemos recibido su solicitud y les responderemos en 24–48 horas laborables.',
-        error: 'No hemos podido enviar el formulario. Inténtenlo de nuevo o llámennos al',
+        exito: 'Gracias. Hemos recibido su solicitud y le responderemos en 24–48 horas laborables.',
+        error: 'No hemos podido enviar el formulario. Inténtelo de nuevo o llámenos al',
         soy: 'Soy…',
         tipoParticular: 'Particular',
         tipoPyme: 'Pyme o autónomo',
@@ -404,16 +406,16 @@ export const es = {
             continuar: 'Continuar',
             enviar: 'Enviar solicitud',
             contactoT: 'Información de contacto',
-            contactoD: 'Rellenen sus datos para que nos pongamos en contacto con ustedes.',
+            contactoD: 'Rellene sus datos para que nos pongamos en contacto con usted.',
             pasos: [
                 {
                     name: 'facturacion',
                     t: '¿Cuánto factura su empresa al año?',
                     opciones: [
-                        { v: 'Menos de 250.000€', t: 'Menos de 250.000€' },
-                        { v: 'Entre 250.000€ y 500.000€', t: 'Entre 250.000€ y 500.000€' },
-                        { v: 'Entre 500.000€ y 1.000.000€', t: 'Entre 500.000€ y 1.000.000€' },
-                        { v: 'Más de 1.000.000€', t: 'Más de 1.000.000€' },
+                        { v: 'Menos de 250.000 €', t: 'Menos de 250.000 €' },
+                        { v: 'Entre 250.000 € y 500.000 €', t: 'Entre 250.000 € y 500.000 €' },
+                        { v: 'Entre 500.000 € y 1.000.000 €', t: 'Entre 500.000 € y 1.000.000 €' },
+                        { v: 'Más de 1.000.000 €', t: 'Más de 1.000.000 €' },
                     ],
                 },
                 {
@@ -427,7 +429,7 @@ export const es = {
                 },
                 {
                     name: 'finalidad',
-                    t: '¿Para qué necesitan la financiación?',
+                    t: '¿Para qué necesita la financiación?',
                     opciones: [
                         { v: 'Liquidez/Tesorería', t: 'Liquidez/Tesorería' },
                         { v: 'Compra de nave/local', t: 'Compra de nave/local' },
@@ -439,12 +441,12 @@ export const es = {
                 },
                 {
                     name: 'importe',
-                    t: '¿Qué importe necesitan?',
+                    t: '¿Qué importe necesita?',
                     opciones: [
-                        { v: 'Menos de 50.000€', t: 'Menos de 50.000€' },
-                        { v: 'Entre 50.000€ y 150.000€', t: 'Entre 50.000€ y 150.000€' },
-                        { v: 'Entre 150.000€ y 500.000€', t: 'Entre 150.000€ y 500.000€' },
-                        { v: 'Más de 500.000€', t: 'Más de 500.000€' },
+                        { v: 'Menos de 50.000 €', t: 'Menos de 50.000 €' },
+                        { v: 'Entre 50.000 € y 150.000 €', t: 'Entre 50.000 € y 150.000 €' },
+                        { v: 'Entre 150.000 € y 500.000 €', t: 'Entre 150.000 € y 500.000 €' },
+                        { v: 'Más de 500.000 €', t: 'Más de 500.000 €' },
                     ],
                 },
             ],

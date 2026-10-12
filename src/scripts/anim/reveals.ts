@@ -179,7 +179,7 @@ export function initReveals() {
 
     const cta = $('.cta');
     if (cta)
-        gsap.from($$('.cta h2, .cta .btn'), {
+        gsap.from($$('.cta h2'), {
             y: 26,
             opacity: 0,
             stagger: 0.1,
