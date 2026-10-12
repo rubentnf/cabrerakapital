@@ -136,8 +136,6 @@ export const en: Dict = {
             ],
         },
         editorial: {
-            altEntidades: 'More than 19 financial institutions Cabrera Kapital works with',
-            altApreton: 'Handshake closing an agreement at the office',
             lista: ['Free assessment', 'Several lenders', 'Offers in writing', 'No small print'],
             l1: "Don't sign",
             l2: 'blindly.',
@@ -232,7 +230,7 @@ export const en: Dict = {
             verbo: 'Invest',
             resto: 'in property',
             texto:
-                'We structure the financing of your investment, even up to 100 % with additional guarantees.',
+                'We structure the financing of your investment, even up to 100% with additional guarantees.',
         },
         {
             verbo: 'Buying',

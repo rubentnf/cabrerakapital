@@ -1,8 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import { langDe, useT } from "../i18n";
-import entidades from "../assets/photos/entidades-financieras.jpg";
-import apreton from "../assets/photos/apreton-manos.jpg";
 const t = useT(langDe(Astro.url.pathname)).inicio.editorial;
 ---
 
@@ -31,30 +28,10 @@ const t = useT(langDe(Astro.url.pathname)).inicio.editorial;
             </h2>
             <p class="edit-sub">{t.sub}</p>
         </div>
-        <div class="edit-r">
-            <div class="fi b" data-speed="50">
-                <Image
-                    src={entidades}
-                    alt={t.altEntidades}
-                    widths={[480, 800, 1200]}
-                    sizes="(max-width: 767px) calc(100vw - 36px), 31vw"
-                    loading="lazy"
-                />
-            </div>
-            <div class="fi a" data-speed="-40">
-                <Image
-                    src={apreton}
-                    alt={t.altApreton}
-                    widths={[300, 480, 700]}
-                    sizes="(max-width: 767px) 0px, 18vw"
-                    loading="lazy"
-                />
-            </div>
-            <i
-                class="fi c"
-                data-speed="-70"
-                style="--img:url('/img/comparar-escudo.svg')"
-                aria-hidden="true"></i>
+        <div class="edit-r" aria-hidden="true">
+            <img class="fi b" src="/img/editorial-comparar.svg" alt="" width="800" height="600" loading="lazy" data-speed="40" />
+            <img class="fi a" src="/img/editorial-firmar.svg" alt="" width="600" height="600" loading="lazy" data-speed="-30" />
+            <img class="fi c" src="/img/editorial-balanza.svg" alt="" width="600" height="600" loading="lazy" data-speed="-60" />
         </div>
     </div>
 </section>

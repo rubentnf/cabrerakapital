@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16406f"/><stop offset="1" stop-color="#0a2240"/></linearGradient>
+    <g id="banco">
+      <polygon points="0,22 36,0 72,22"/>
+      <rect x="2" y="24" width="68" height="5"/>
+      <rect x="8" y="33" width="9" height="28"/><rect x="24" y="33" width="9" height="28"/>
+      <rect x="40" y="33" width="9" height="28"/><rect x="56" y="33" width="9" height="28"/>
+      <rect x="0" y="63" width="72" height="7"/>
+    </g>
+  </defs>
+  <rect width="800" height="600" fill="url(#fondo)"/>
+  <circle cx="120" cy="520" r="210" fill="#d8a858" opacity=".08"/>
+  <circle cx="700" cy="80" r="160" fill="#d8a858" opacity=".07"/>
+
+  <!-- oferta izquierda -->
+  <g transform="rotate(-9 225 330)">
+    <rect x="110" y="170" width="230" height="310" rx="18" fill="#f7f3ea" opacity=".9"/>
+    <use href="#banco" x="134" y="196" fill="#0a2240" opacity=".45"/>
+    <rect x="134" y="290" width="120" height="14" rx="7" fill="#0a2240" opacity=".5"/>
+    <rect x="134" y="318" width="170" height="10" rx="5" fill="#0a2240" opacity=".25"/>
+    <rect x="134" y="340" width="140" height="10" rx="5" fill="#0a2240" opacity=".25"/>
+    <rect x="134" y="374" width="182" height="52" rx="12" fill="#e4dccb"/>
+    <rect x="150" y="392" width="70" height="16" rx="8" fill="#0a2240" opacity=".35"/>
+  </g>
+
+  <!-- oferta derecha -->
+  <g transform="rotate(9 575 330)">
+    <rect x="460" y="170" width="230" height="310" rx="18" fill="#f7f3ea" opacity=".9"/>
+    <use href="#banco" x="484" y="196" fill="#0a2240" opacity=".45"/>
+    <rect x="484" y="290" width="120" height="14" rx="7" fill="#0a2240" opacity=".5"/>
+    <rect x="484" y="318" width="170" height="10" rx="5" fill="#0a2240" opacity=".25"/>
+    <rect x="484" y="340" width="140" height="10" rx="5" fill="#0a2240" opacity=".25"/>
+    <rect x="484" y="374" width="182" height="52" rx="12" fill="#e4dccb"/>
+    <rect x="500" y="392" width="96" height="16" rx="8" fill="#0a2240" opacity=".35"/>
+  </g>
+
+  <!-- la mejor oferta -->
+  <g>
+    <rect x="270" y="120" width="260" height="360" rx="22" fill="#000" opacity=".25" transform="translate(0 16)"/>
+    <rect x="270" y="120" width="260" height="360" rx="22" fill="#f7f3ea"/>
+    <path d="M270 142a22 22 0 0 1 22-22h216a22 22 0 0 1 22 22v28H270Z" fill="#d8a858"/>
+    <use href="#banco" x="364" y="190" fill="#0a2240"/>
+    <rect x="300" y="282" width="140" height="16" rx="8" fill="#0a2240"/>
+    <rect x="300" y="312" width="200" height="11" rx="5.5" fill="#0a2240" opacity=".3"/>
+    <rect x="300" y="336" width="164" height="11" rx="5.5" fill="#0a2240" opacity=".3"/>
+    <rect x="300" y="370" width="200" height="66" rx="14" fill="#d8a858"/>
+    <rect x="320" y="392" width="44" height="22" rx="11" fill="#0a2240"/>
+    <rect x="374" y="396" width="104" height="14" rx="7" fill="#0a2240" opacity=".45"/>
+  </g>
+
+  <!-- sello de aprobado -->
+  <circle cx="520" cy="128" r="42" fill="#0a2240" stroke="#e8b868" stroke-width="6"/>
+  <path d="M500 129l14 15l26-30" fill="none" stroke="#e8b868" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- lupa -->
+  <g>
+    <line x1="632" y1="478" x2="712" y2="558" stroke="#0a2240" stroke-width="34" stroke-linecap="round" opacity=".5"/>
+    <line x1="626" y1="472" x2="704" y2="550" stroke="#e8b868" stroke-width="28" stroke-linecap="round"/>
+    <circle cx="566" cy="410" r="82" fill="#f7f3ea" fill-opacity=".18" stroke="#e8b868" stroke-width="18"/>
+    <path d="M520 372a56 56 0 0 1 44-22" fill="none" stroke="#f7f3ea" stroke-width="8" stroke-linecap="round" opacity=".7"/>
+  </g>
+</svg>

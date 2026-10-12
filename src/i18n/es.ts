@@ -134,8 +134,6 @@ export const es = {
             ],
         },
         editorial: {
-            altEntidades: 'Más de 19 entidades financieras con las que trabaja Cabrera Kapital',
-            altApreton: 'Apretón de manos al cerrar un acuerdo en la oficina',
             lista: ['Estudio gratuito', 'Varias entidades', 'Ofertas por escrito', 'Sin letra pequeña'],
             l1: 'No firme',
             l2: 'a ciegas.',
@@ -237,7 +235,7 @@ export const es = {
             verbo: 'Invertir',
             resto: 'en inmuebles',
             texto:
-                'Estructuramos la financiación de su inversión, incluso hasta el 100 % con garantías adicionales.',
+                'Estructuramos la financiación de su inversión, incluso hasta el 100 % con garantías adicionales.',
         },
         {
             verbo: 'Buying',

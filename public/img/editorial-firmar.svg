@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="oro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8b868"/><stop offset="1" stop-color="#c78f38"/></linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#oro)"/>
+  <circle cx="300" cy="320" r="250" fill="#f7f3ea" opacity=".14"/>
+
+  <!-- contrato -->
+  <g transform="translate(22 -26)">
+  <rect x="128" y="138" width="300" height="390" rx="18" fill="#0a2240" opacity=".22" transform="translate(10 14)"/>
+  <rect x="128" y="138" width="300" height="390" rx="18" fill="#f7f3ea"/>
+  <rect x="160" y="176" width="150" height="18" rx="9" fill="#0a2240"/>
+  <g fill="#0a2240" opacity=".3">
+    <rect x="160" y="216" width="236" height="11" rx="5.5"/>
+    <rect x="160" y="240" width="212" height="11" rx="5.5"/>
+    <rect x="160" y="264" width="226" height="11" rx="5.5"/>
+    <rect x="160" y="288" width="180" height="11" rx="5.5"/>
+    <rect x="160" y="322" width="236" height="11" rx="5.5"/>
+    <rect x="160" y="346" width="200" height="11" rx="5.5"/>
+    <rect x="160" y="370" width="218" height="11" rx="5.5"/>
+  </g>
+  <!-- firma -->
+  <line x1="160" y1="472" x2="330" y2="472" stroke="#0a2240" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+  <path d="M168 458c14-30 26-44 32-36s-12 34-4 36s20-34 30-30s-6 26 4 28s22-18 34-16" fill="none" stroke="#0a2240" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- pluma -->
+  <g transform="rotate(38 380 400)">
+    <rect x="364" y="250" width="32" height="170" rx="16" fill="#0a2240"/>
+    <rect x="364" y="300" width="32" height="12" fill="#e8b868"/>
+    <path d="M364 418h32l-16 44Z" fill="#e8b868"/>
+    <circle cx="380" cy="440" r="4" fill="#0a2240"/>
+  </g>
+
+</g>
+</svg>
