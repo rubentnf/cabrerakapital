@@ -1,0 +1,20 @@
+---
+// Aviso de cookies. Oculto por defecto: scripts/cookies.ts lo muestra si aún no hay respuesta guardada.
+// «Aceptar» y «Rechazar» tienen el mismo peso visual, como pide la guía de cookies de la AEPD.
+import { rutaLegal } from "../data/legal";
+import { langDe, useT } from "../i18n";
+
+const lang = langDe(Astro.url.pathname);
+const t = useT(lang).cookies;
+---
+
+<div class="cookies" data-cookies hidden role="region" aria-label={t.titulo}>
+    <p>
+        {t.texto}
+        <a href={rutaLegal("cookies", lang)}>{t.mas}</a>
+    </p>
+    <div class="cookies-btns">
+        <button class="btn navyb" type="button" data-cookies-no>{t.rechazar}</button>
+        <button class="btn navyb" type="button" data-cookies-si>{t.aceptar}</button>
+    </div>
+</div>

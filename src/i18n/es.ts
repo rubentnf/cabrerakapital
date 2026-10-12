@@ -18,6 +18,14 @@ export const es = {
         cerrarMenu: 'Cerrar menú',
         cta: 'Estudio gratuito',
     },
+    cookies: {
+        titulo: 'Aviso de cookies',
+        texto: 'Solo usamos cookies de Google para mostrarle el mapa de la oficina. Las estadísticas de visitas no usan cookies.',
+        mas: 'Más información',
+        aceptar: 'Aceptar',
+        rechazar: 'Rechazar',
+        configurar: 'Configurar cookies',
+    },
     whatsapp: {
         etiqueta: 'Escribir por WhatsApp',
         mensaje: 'Hola, me gustaría solicitar un estudio gratuito.',
@@ -40,6 +48,7 @@ export const es = {
         aviso: 'Aviso legal',
         remuneracion: 'Información sobre remuneración',
         privacidad: 'Política de privacidad',
+        cookies: 'Política de cookies',
         exencion: 'Cláusula de exención de responsabilidad',
         soloEs: 'Este documento legal solo está disponible en español.',
         volver: 'Volver al inicio',
@@ -173,8 +182,7 @@ export const es = {
     mapa: {
         titulo: 'Mapa de la oficina en La Laguna',
         cargar: 'Ver mapa',
-        nota: 'Al cargar el mapa se conecta con los servidores de Google.',
-        abrir: 'Abrir en Google Maps',
+        nota: 'Al cargar el mapa, Google puede instalar cookies en su navegador.',
         comoLlegar: 'Cómo llegar',
     },
     resenas: {

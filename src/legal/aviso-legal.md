@@ -6,7 +6,7 @@ En cumplimiento con el deber de información recogido en la normativa vigente, s
 - **Titular:** Olegario Cabrera García
 - **NIF:** 43771516D
 - **Domicilio:** Calle Sta. Eulalia, 9, Local, 38320 La Laguna, Santa Cruz de Tenerife, España
-- **Correo electrónico:** cabrerakapital@gmail.com
+- **Correo electrónico:** financiacion@cabrerakapital.com
 - **Sitio web:** www.cabrerakapital.es
 
 ## 2. Objeto
@@ -42,6 +42,8 @@ La información mostrada tiene carácter meramente informativo y no constituye u
 ## 6. Propiedad intelectual
 
 Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño, etc.) son propiedad de Cabrera Kapital o cuentan con licencia para su uso, quedando prohibida su reproducción sin autorización expresa.
+
+Los nombres y logotipos de las entidades financieras que aparecen en la web son marcas de sus respectivos titulares y se muestran con su autorización, con el único fin de identificar a las entidades con las que trabaja Cabrera Kapital. Su uso no implica que dichas entidades patrocinen o respalden este sitio web.
 
 ## 7. Protección de datos
 

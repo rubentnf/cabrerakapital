@@ -263,6 +263,50 @@ p {
     transform: scale(1.08);
 }
 
+/* Aviso de cookies: tarjeta fija abajo a la izquierda (a lo ancho en móvil), por encima del botón de WhatsApp */
+.cookies {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 70;
+    width: min(440px, calc(100% - 36px));
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 22px;
+    border-radius: 18px;
+    background: var(--iv);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 40px -12px rgba(10, 34, 64, 0.35);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.cookies[hidden] {
+    display: none;
+}
+
+.cookies p {
+    margin: 0;
+}
+
+.cookies a {
+    color: var(--dk);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cookies-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.cookies-btns .btn {
+    flex: 1;
+}
+
+
 
 .burger {
     display: none;
@@ -1660,6 +1704,7 @@ html {
     header,
     .foot,
     .wa,
+    .cookies,
     .prog,
     .legal-toc,
     .legal-pdf,

@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import DatosNegocio from "../components/DatosNegocio.astro";
+import AvisoCookies from "../components/AvisoCookies.astro";
 import { Font, getImage } from "astro:assets";
 import { fotos } from "../utils/assets";
 import { langDe, langs, ruta, useT, type PaginaId } from "../i18n";
@@ -44,6 +45,11 @@ const alts = alt ?? {
     en: ruta(page ?? "inicio", "en"),
 };
 const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
+
+// Estadísticas con Umami (sin cookies): solo se cargan si está definido PUBLIC_UMAMI_ID.
+// PUBLIC_UMAMI_SRC permite usar un Umami propio en lugar de Umami Cloud.
+const umamiId = import.meta.env.PUBLIC_UMAMI_ID;
+const umamiSrc = import.meta.env.PUBLIC_UMAMI_SRC || "https://cloud.umami.is/script.js";
 
 // Imagen al compartir en redes y WhatsApp: la foto de la oficina recortada a 1200×630.
 // Para usar un diseño propio, sustituirla por una imagen en public/ (por ejemplo "/og.jpg").
@@ -108,6 +114,17 @@ const og = await getImage({
         <meta property="og:image:alt" content={t.inicio.oficina.alt} />
         <DatosNegocio imagen={new URL(og.src, site).href} />
         <meta name="twitter:card" content="summary_large_image" />
+        {
+            umamiId && (
+                <script
+                    is:inline
+                    defer
+                    src={umamiSrc}
+                    data-website-id={umamiId}
+                    data-domains="cabrerakapital.es,www.cabrerakapital.es"
+                />
+            )
+        }
         <slot name="head" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script is:inline>
@@ -123,6 +140,7 @@ const og = await getImage({
         </main>
         <Footer />
         <Whatsapp />
+        <AvisoCookies />
         <script>
             import "../scripts/main";
         </script>

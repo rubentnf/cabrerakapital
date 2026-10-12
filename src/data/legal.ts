@@ -5,7 +5,7 @@ import type { Lang } from '../i18n';
  * Los textos de los enlaces están en src/i18n (clave "documentos").
  */
 export type DocumentoId =
-    'previa' | 'independencia' | 'aviso' | 'remuneracion' | 'privacidad' | 'exencion';
+    'previa' | 'independencia' | 'aviso' | 'remuneracion' | 'privacidad' | 'cookies' | 'exencion';
 
 export const slugs: Record<DocumentoId, string> = {
     previa: 'informacion-previa-al-cliente',
@@ -13,6 +13,7 @@ export const slugs: Record<DocumentoId, string> = {
     aviso: 'aviso-legal',
     remuneracion: 'informacion-sobre-remuneracion',
     privacidad: 'politica-de-privacidad',
+    cookies: 'politica-de-cookies',
     exencion: 'clausula-de-exencion-de-responsabilidad',
 };
 
@@ -26,4 +27,4 @@ export const rutaLegal = (id: DocumentoId, lang: Lang) =>
 export const grupoInformacion: DocumentoId[] = ['previa', 'independencia', 'aviso', 'remuneracion'];
 
 /** Columna «Legal» del pie. */
-export const grupoLegal: DocumentoId[] = ['privacidad', 'exencion'];
+export const grupoLegal: DocumentoId[] = ['privacidad', 'cookies', 'exencion'];

@@ -4,7 +4,7 @@
 
 - **Denominación comercial:** Cabrera Kapital
 - **Domicilio profesional:** Calle Sta. Eulalia 9, La Cuesta, San Cristóbal de La Laguna, España
-- **Correo electrónico:** cabrerakapital@gmail.com
+- **Correo electrónico:** financiacion@cabrerakapital.com
 
 Cabrera Kapital actúa como Intermediario de Crédito Inmobiliario independiente, conforme a lo establecido en la normativa vigente.
 

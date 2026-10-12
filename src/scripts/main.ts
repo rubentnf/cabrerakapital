@@ -6,6 +6,7 @@ import { initSimulador } from './simulador';
 import { initFormulario } from './formulario';
 import { initCarruselEntidades } from './carrusel-entidades';
 import { initMapa } from './mapa';
+import { initCookies } from './cookies';
 import { initCarrusel } from './carrusel';
 
 // Funciones que no dependen del movimiento
@@ -14,6 +15,7 @@ rollify();
 fitWordmark();
 initSimulador();
 initFormulario();
+initCookies();
 initMapa();
 initCarruselEntidades();
 initCarrusel();

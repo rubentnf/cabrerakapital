@@ -62,13 +62,14 @@ Copia `.env.example` a `.env`. En producción se definen en el panel del hosting
 | Variable               | Para qué sirve                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------- |
 | `PUBLIC_INDEXAR`       | `true` permite indexar la web; `false` añade `noindex`. Por defecto `false`.    |
-| `PUBLIC_FORMSPREE_URL` | URL del formulario de [Formspree](https://formspree.io). Vacía = modo demostración. |
+| `PUBLIC_UMAMI_ID`      | ID del sitio en [Umami](https://umami.is) (estadísticas sin cookies). Vacía = sin estadísticas. |
+| `PUBLIC_UMAMI_SRC`     | Opcional: URL del `script.js` de un Umami propio. Por defecto, Umami Cloud.     |
 
 ## Contenido
 
 - **Textos**: los que se repiten están en `src/data/`; el resto, dentro de cada página o componente.
 - **Fotos**: se guardan en `src/assets/photos/` con el nombre `oficina`, `olegario`, `alejandro` o `equipo` (jpg, jpeg, png, webp o avif). Si el archivo existe se usa, optimizado por Astro; si no, se muestra una ilustración.
-- **Logos de entidades**: en `src/assets/logos/`, con el nombre de la entidad en minúsculas, sin tildes y con guiones (`laboral-kutxa.svg`). Si falta alguno se muestra el nombre en texto. Solo deben usarse con permiso de cada entidad.
+- **Logos de entidades**: en `src/assets/logos/`, con el nombre de la entidad en minúsculas, sin tildes y con guiones (`laboral-kutxa.svg`). Si falta alguno se muestra el nombre en texto. Se usan con permiso de cada entidad (lo indica el aviso legal).
 
 ## Accesibilidad
 
@@ -76,11 +77,11 @@ Con `prefers-reduced-motion: reduce` se desactivan las animaciones de scroll y l
 
 ## Antes de publicar
 
-- [ ] Definir `PUBLIC_INDEXAR=true` y `PUBLIC_FORMSPREE_URL` en el hosting.
+- [ ] Definir `PUBLIC_INDEXAR=true` y `PUBLIC_UMAMI_ID` en el hosting.
 - [ ] Cambiar `public/robots.txt` a `Allow: /` y añadir la línea `Sitemap: https://cabrerakapital.es/sitemap-index.xml`.
 - [ ] Rellenar los textos pendientes: `grep -rnE "pendiente|confirmar|Aquí ir" src`.
 - [ ] Crear las páginas legales (aviso legal, privacidad y cookies, información previa, independencia) y enlazarlas desde el pie.
-- [ ] Confirmar la dirección (número de portal) y el permiso de uso de logos y sellos.
+- [ ] Confirmar la dirección (número de portal).
 - [ ] Sustituir las ilustraciones por las fotos reales del equipo y la oficina.
 
 ## Despliegue

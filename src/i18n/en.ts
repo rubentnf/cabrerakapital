@@ -20,6 +20,14 @@ export const en: Dict = {
         cerrarMenu: 'Close menu',
         cta: 'Free assessment',
     },
+    cookies: {
+        titulo: 'Cookie notice',
+        texto: 'We only use Google cookies to show you the map of our office. Visit statistics do not use cookies.',
+        mas: 'Learn more',
+        aceptar: 'Accept',
+        rechazar: 'Reject',
+        configurar: 'Cookie settings',
+    },
     whatsapp: {
         etiqueta: 'Message us on WhatsApp',
         mensaje: "Hello, I'd like to request a free assessment.",
@@ -42,6 +50,7 @@ export const en: Dict = {
         aviso: 'Legal notice',
         remuneracion: 'Remuneration information',
         privacidad: 'Privacy policy',
+        cookies: 'Cookie policy',
         exencion: 'Disclaimer',
         soloEs: 'This legal document is only available in Spanish.',
         volver: 'Back to home',
@@ -175,8 +184,7 @@ export const en: Dict = {
     mapa: {
         titulo: 'Map of the office in La Laguna',
         cargar: 'Show map',
-        nota: 'Loading the map connects to Google’s servers.',
-        abrir: 'Open in Google Maps',
+        nota: 'Loading the map lets Google set cookies in your browser.',
         comoLlegar: 'Get directions',
     },
     resenas: {
