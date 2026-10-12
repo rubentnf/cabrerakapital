@@ -2,8 +2,8 @@ import { $, $$ } from './utils';
 
 /**
  * Formularios de contacto.
- * - Los datos se envían a /api/contacto (función netlify/functions/contacto.mjs), que los manda por
- *   correo con Resend. Para probar en local hay que usar `npx netlify-cli dev` en vez de `npm run dev`.
+ * - Los datos se envían a /api/contacto (worker/index.js + server/contacto.mjs), que los manda por
+ *   correo con Resend. Para probar en local hay que usar `npm run cf:dev` en vez de `npm run dev`.
  * - Con PUBLIC_FORM_ENDPOINT se puede apuntar a otro servicio (por ejemplo Formspree).
  * - Hay dos formularios: uno corto para particulares (#form) y uno por pasos para
  *   empresas y autónomos (#form-pyme). El selector «Soy…» muestra uno u otro.
@@ -20,6 +20,7 @@ async function enviar(form: HTMLFormElement): Promise<boolean> {
         aviso.hidden = false;
     };
 
+    if (aviso) aviso.hidden = true;
     const boton = $<HTMLButtonElement>('button[type="submit"]', form);
     if (boton) boton.disabled = true;
     try {
@@ -32,7 +33,7 @@ async function enviar(form: HTMLFormElement): Promise<boolean> {
         // /api/contacto responde {ok:true}; otros servicios (Formspree) también aceptan la petición
         const datos = await respuesta.json().catch(() => ({ ok: true }));
         if (datos.ok === false) throw new Error(String(datos.error));
-        mostrar(form.dataset.exito ?? '');
+        if (aviso) aviso.hidden = true;
         return true;
     } catch {
         mostrar(form.dataset.error ?? '', false);
@@ -40,6 +41,22 @@ async function enviar(form: HTMLFormElement): Promise<boolean> {
     } finally {
         if (boton) boton.disabled = false;
     }
+}
+
+/** Sustituye el formulario por la confirmación animada (tick verde) y la enfoca. */
+function mostrarExito(form: HTMLFormElement) {
+    const cuerpo = $('#fcuerpo');
+    const exito = $('#exito');
+    if (!cuerpo || !exito) return;
+    form.reset();
+    cuerpo.hidden = true;
+    exito.hidden = false;
+    // Reinicia la animación del tick por si se envía más de una vez
+    exito.classList.remove('anima');
+    void exito.offsetWidth;
+    exito.classList.add('anima');
+    exito.focus({ preventScroll: true });
+    $('#formbox')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 /** Formulario por pasos para empresas: facturación, antigüedad, finalidad, importe y contacto. */
@@ -82,11 +99,13 @@ function initPasos(form: HTMLFormElement) {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!form.reportValidity()) return;
-        if (await enviar(form)) {
-            form.reset();
-            form.classList.add('hecho');
-            ir(0, false);
-        }
+        if (await enviar(form)) mostrarExito(form);
+    });
+
+    // «Enviar otra solicitud» vuelve a empezar por el primer paso
+    form.addEventListener('reiniciar', () => {
+        form.reset();
+        ir(0, false);
     });
 
     ir(0, false);
@@ -113,7 +132,15 @@ export function initFormulario() {
     corto.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!corto.reportValidity()) return;
-        if (await enviar(corto)) corto.reset();
+        if (await enviar(corto)) mostrarExito(corto);
+    });
+
+    // «Enviar otra solicitud»: vuelve a mostrar el formulario
+    $('#exito-otra')?.addEventListener('click', () => {
+        $('#exito')!.hidden = true;
+        $('#fcuerpo')!.hidden = false;
+        pymes.dispatchEvent(new Event('reiniciar'));
+        $<HTMLElement>('#fcuerpo')?.querySelector('h2')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
     initPasos(pymes);

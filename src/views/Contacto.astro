@@ -17,224 +17,261 @@ const tel1 = contacto.telefonos[0].visible;
     <section class="sec">
         <div class="wrap cgrid">
             <div class="card pad" id="formbox">
-                <h2 style="font-size:36px;margin:0">{c.formTitulo}</h2>
-                <fieldset class="seg" id="tipo">
-                    <legend>{c.soy}</legend>
-                    <label>
+                <div class="fcuerpo" id="fcuerpo">
+                    <h2 style="font-size:36px;margin:0">{c.formTitulo}</h2>
+                    <fieldset class="seg" id="tipo">
+                        <legend>{c.soy}</legend>
+                        <label>
+                            <input
+                                type="radio"
+                                name="tipo_cliente"
+                                value="particular"
+                                checked
+                            />
+                            {c.tipoParticular}
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="tipo_cliente"
+                                value="pyme"
+                            />
+                            {c.tipoPyme}
+                        </label>
+                    </fieldset>
+
+                    <!-- Particulares: formulario corto -->
+                    <form
+                        class="fcont"
+                        id="form"
+                        novalidate
+                        data-demo={c.demo}
+                        data-error={`${c.error} ${tel1}.`}
+                    >
                         <input
-                            type="radio"
+                            type="hidden"
                             name="tipo_cliente"
                             value="particular"
-                            checked
                         />
-                        {c.tipoParticular}
-                    </label>
-                    <label>
-                        <input type="radio" name="tipo_cliente" value="pyme" />
-                        {c.tipoPyme}
-                    </label>
-                </fieldset>
-
-                <!-- Particulares: formulario corto -->
-                <form
-                    class="fcont"
-                    id="form"
-                    novalidate
-                    data-demo={c.demo}
-                    data-exito={c.exito}
-                    data-error={`${c.error} ${tel1}.`}
-                >
-                    <input
-                        type="hidden"
-                        name="tipo_cliente"
-                        value="particular"
-                    />
-                    <input
-                        type="text"
-                        name="_gotcha"
-                        class="hp"
-                        tabindex="-1"
-                        autocomplete="off"
-                        aria-hidden="true"
-                    />
-                    <div class="f2">
-                        <label>
-                            {c.nombre}
-                            <input type="text" name="nombre" required />
-                        </label>
-                        <label>
-                            {c.telefono}
-                            <input type="tel" name="telefono" />
-                        </label>
-                    </div>
-                    <label>
-                        {c.correo}
-                        <input type="email" name="correo" required />
-                    </label>
-                    <label>
-                        {c.necesidad}
-                        <select name="necesidad">
-                            <option value="">{c.elegir}</option>
-                            {
-                                c.opcionesParticular.map((o) => (
-                                    <option value={o.v}>{o.t}</option>
-                                ))
-                            }
-                        </select>
-                    </label>
-                    <label>
-                        {c.mensaje}
-                        <textarea name="mensaje"></textarea>
-                    </label>
-                    <label class="chk">
-                        <input type="checkbox" name="privacidad" required />
-                        <span>
-                            {c.privacidadA}
-                            <a
-                                href={rutaLegal("privacidad", lang)}
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                {c.privacidadB}
-                            </a>
-                        </span>
-                    </label>
-                    <button
-                        class="btn navyb"
-                        type="submit"
-                        style="align-self:flex-start"
-                    >
-                        {c.enviar}
-                    </button>
-                    <p class="ok" data-aviso hidden></p>
-                </form>
-
-                <!-- Empresas y autónomos: formulario por pasos -->
-                <form
-                    class="wiz"
-                    id="form-pyme"
-                    hidden
-                    novalidate
-                    data-demo={c.demo}
-                    data-exito={c.exito}
-                    data-error={`${c.error} ${tel1}.`}
-                >
-                    <input type="hidden" name="tipo_cliente" value="pyme" />
-                    <input
-                        type="text"
-                        name="_gotcha"
-                        class="hp"
-                        tabindex="-1"
-                        autocomplete="off"
-                        aria-hidden="true"
-                    />
-                    <div class="wiz-bar" aria-hidden="true">
-                        {[0, 1, 2, 3, 4].map(() => <i />)}
-                    </div>
-                    <p class="wiz-n" aria-live="polite">
-                        {p.paso}
-                        <span data-wiz-n>1</span>
-                        {p.de} 5
-                    </p>
-                    <div class="wiz-body">
-                        {
-                            p.pasos.map((paso, i) => (
-                                <fieldset
-                                    class="wiz-step"
-                                    data-step={i}
-                                    hidden={i > 0}
-                                    tabindex="-1"
-                                >
-                                    <legend>{paso.t}</legend>
-                                    {paso.opciones.map((o) => (
-                                        <label class="opt">
-                                            <input
-                                                type="radio"
-                                                name={paso.name}
-                                                value={o.v}
-                                            />
-                                            <span>{o.t}</span>
-                                        </label>
-                                    ))}
-                                </fieldset>
-                            ))
-                        }
-                        <fieldset
-                            class="wiz-step"
-                            data-step="4"
-                            hidden
+                        <input
+                            type="text"
+                            name="_gotcha"
+                            class="hp"
                             tabindex="-1"
-                        >
-                            <legend>{p.contactoT}</legend>
-                            <p class="wiz-d">{p.contactoD}</p>
+                            autocomplete="off"
+                            aria-hidden="true"
+                        />
+                        <div class="f2">
                             <label>
                                 {c.nombre}
-                                <input
-                                    type="text"
-                                    name="nombre"
-                                    required
-                                    autocomplete="name"
-                                />
+                                <input type="text" name="nombre" required />
                             </label>
                             <label>
                                 {c.telefono}
-                                <input
-                                    type="tel"
-                                    name="telefono"
-                                    required
-                                    autocomplete="tel"
-                                />
+                                <input type="tel" name="telefono" />
                             </label>
-                            <label>
-                                {c.correo}
-                                <input
-                                    type="email"
-                                    name="correo"
-                                    required
-                                    autocomplete="email"
-                                />
-                            </label>
-                            <label class="chk">
-                                <input
-                                    type="checkbox"
-                                    name="privacidad"
-                                    required
-                                />
-                                <span>
-                                    {c.privacidadA}
-                                    <a
-                                        href={rutaLegal("privacidad", lang)}
-                                        target="_blank"
-                                        rel="noopener"
-                                    >
-                                        {c.privacidadB}
-                                    </a>
-                                </span>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="wiz-nav">
-                        <button
-                            class="btn line"
-                            type="button"
-                            data-wiz-back
-                            hidden>{p.atras}</button
-                        >
-                        <button
-                            class="btn navyb"
-                            type="button"
-                            data-wiz-next
-                            disabled>{p.continuar}</button
-                        >
+                        </div>
+                        <label>
+                            {c.correo}
+                            <input type="email" name="correo" required />
+                        </label>
+                        <label>
+                            {c.necesidad}
+                            <select name="necesidad">
+                                <option value="">{c.elegir}</option>
+                                {
+                                    c.opcionesParticular.map((o) => (
+                                        <option value={o.v}>{o.t}</option>
+                                    ))
+                                }
+                            </select>
+                        </label>
+                        <label>
+                            {c.mensaje}
+                            <textarea name="mensaje"></textarea>
+                        </label>
+                        <label class="chk">
+                            <input type="checkbox" name="privacidad" required />
+                            <span>
+                                {c.privacidadA}
+                                <a
+                                    href={rutaLegal("privacidad", lang)}
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    {c.privacidadB}
+                                </a>
+                            </span>
+                        </label>
                         <button
                             class="btn navyb"
                             type="submit"
-                            data-wiz-send
-                            hidden>{p.enviar}</button
+                            style="align-self:flex-start"
                         >
-                    </div>
-                    <p class="ok" data-aviso hidden></p>
-                </form>
+                            {c.enviar}
+                        </button>
+                        <p class="ok" data-aviso hidden></p>
+                    </form>
+
+                    <!-- Empresas y autónomos: formulario por pasos -->
+                    <form
+                        class="wiz"
+                        id="form-pyme"
+                        hidden
+                        novalidate
+                        data-demo={c.demo}
+                        data-error={`${c.error} ${tel1}.`}
+                    >
+                        <input type="hidden" name="tipo_cliente" value="pyme" />
+                        <input
+                            type="text"
+                            name="_gotcha"
+                            class="hp"
+                            tabindex="-1"
+                            autocomplete="off"
+                            aria-hidden="true"
+                        />
+                        <div class="wiz-bar" aria-hidden="true">
+                            {[0, 1, 2, 3, 4].map(() => <i />)}
+                        </div>
+                        <p class="wiz-n" aria-live="polite">
+                            {p.paso}
+                            <span data-wiz-n>1</span>
+                            {p.de} 5
+                        </p>
+                        <div class="wiz-body">
+                            {
+                                p.pasos.map((paso, i) => (
+                                    <fieldset
+                                        class="wiz-step"
+                                        data-step={i}
+                                        hidden={i > 0}
+                                        tabindex="-1"
+                                    >
+                                        <legend>{paso.t}</legend>
+                                        {paso.opciones.map((o) => (
+                                            <label class="opt">
+                                                <input
+                                                    type="radio"
+                                                    name={paso.name}
+                                                    value={o.v}
+                                                />
+                                                <span>{o.t}</span>
+                                            </label>
+                                        ))}
+                                    </fieldset>
+                                ))
+                            }
+                            <fieldset
+                                class="wiz-step"
+                                data-step="4"
+                                hidden
+                                tabindex="-1"
+                            >
+                                <legend>{p.contactoT}</legend>
+                                <p class="wiz-d">{p.contactoD}</p>
+                                <label>
+                                    {c.nombre}
+                                    <input
+                                        type="text"
+                                        name="nombre"
+                                        required
+                                        autocomplete="name"
+                                    />
+                                </label>
+                                <label>
+                                    {c.telefono}
+                                    <input
+                                        type="tel"
+                                        name="telefono"
+                                        required
+                                        autocomplete="tel"
+                                    />
+                                </label>
+                                <label>
+                                    {c.correo}
+                                    <input
+                                        type="email"
+                                        name="correo"
+                                        required
+                                        autocomplete="email"
+                                    />
+                                </label>
+                                <label class="chk">
+                                    <input
+                                        type="checkbox"
+                                        name="privacidad"
+                                        required
+                                    />
+                                    <span>
+                                        {c.privacidadA}
+                                        <a
+                                            href={rutaLegal("privacidad", lang)}
+                                            target="_blank"
+                                            rel="noopener"
+                                        >
+                                            {c.privacidadB}
+                                        </a>
+                                    </span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="wiz-nav">
+                            <button
+                                class="btn line"
+                                type="button"
+                                data-wiz-back
+                                hidden
+                            >
+                                {p.atras}
+                            </button>
+                            <button
+                                class="btn navyb"
+                                type="button"
+                                data-wiz-next
+                                disabled
+                            >
+                                {p.continuar}
+                            </button>
+                            <button
+                                class="btn navyb"
+                                type="submit"
+                                data-wiz-send
+                                hidden
+                            >
+                                {p.enviar}
+                            </button>
+                        </div>
+                        <p class="ok" data-aviso hidden></p>
+                    </form>
+                </div>
+
+                <!-- Confirmación: sustituye al formulario cuando el envío ha ido bien -->
+                <div
+                    class="exito"
+                    id="exito"
+                    role="status"
+                    tabindex="-1"
+                    hidden
+                >
+                    <svg
+                        class="exito-svg"
+                        viewBox="0 0 120 120"
+                        width="112"
+                        height="112"
+                        aria-hidden="true"
+                    >
+                        <circle class="exito-aro" cx="60" cy="60" r="52"
+                        ></circle>
+                        <path class="exito-tick" d="M36 62 L53 79 L85 44"
+                        ></path>
+                    </svg>
+                    <h2>{c.exitoT}</h2>
+                    <p>{c.exito}</p>
+                    <button class="btn line" type="button" id="exito-otra">
+                        {c.exitoOtra}
+                    </button>
+                </div>
             </div>
             <div class="info" data-stag>
                 <div class="card">

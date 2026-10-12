@@ -1,0 +1,4 @@
+# Copia este archivo como .dev.vars (sin .example) para probar en local con `npm run cf:dev`.
+RESEND_API_KEY=
+CONTACT_TO=
+MAIL_FROM=

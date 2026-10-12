@@ -1,6 +1,4 @@
 import type { Dict } from './es';
-import { entidades } from '../data/entidades';
-const nEntidades = entidades.length;
 
 /** English texts. Same keys as es.ts (TypeScript will complain if one is missing). */
 export const en: Dict = {
@@ -16,9 +14,9 @@ export const en: Dict = {
         contacto: 'Contact',
     },
     header: {
+        inicio: 'Cabrera Kapital, home',
         principal: 'Main',
         abrirMenu: 'Open menu',
-        cerrarMenu: 'Close menu',
         cta: 'Free assessment',
     },
     whatsapp: {
@@ -37,6 +35,7 @@ export const en: Dict = {
     documentos: {
         indice: 'Contents',
         descargar: 'Download original PDF (Spanish)',
+        descripcion: 'Read the document "{titulo}" from Cabrera Kapital, a real estate credit intermediary registered with the Bank of Spain.',
         previa: 'Pre-contract information',
         independencia: 'Independence statement',
         aviso: 'Legal notice',
@@ -46,11 +45,9 @@ export const en: Dict = {
         soloEs: 'This legal document is only available in Spanish.',
         volver: 'Back to home',
         faq: 'FAQ',
-        descripcion:
-            '{titulo} of Cabrera Kapital, real-estate credit intermediary registered with the Bank of Spain (E593).',
     },
     faq: {
-        title: 'Mortgage FAQ · Cabrera Kapital',
+        title: 'FAQ · Cabrera Kapital',
         description:
             'Answers to the most common questions about business financing and mortgages: cost, process and timing.',
         etiqueta: 'FAQ',
@@ -88,7 +85,7 @@ export const en: Dict = {
     },
     cta: { llamar: 'Call' },
     inicio: {
-        title: 'Mortgage broker in Tenerife · Cabrera Kapital',
+        title: 'Cabrera Kapital · Mortgage brokerage and business financing in the Canary Islands',
         description:
             'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed. La Laguna, Tenerife.',
         hero: {
@@ -138,7 +135,7 @@ export const en: Dict = {
             ],
         },
         editorial: {
-            altEntidades: `More than ${nEntidades} financial institutions Cabrera Kapital works with`,
+            altEntidades: 'More than 19 financial institutions Cabrera Kapital works with',
             altApreton: 'Handshake closing an agreement at the office',
             lista: ['Free assessment', 'Several lenders', 'Offers in writing', 'No small print'],
             l1: "Don't sign",
@@ -156,7 +153,8 @@ export const en: Dict = {
         },
         entidades: {
             etiqueta: 'Lenders we work with',
-            titulo: `We work with ${nEntidades} financial institutions.`,
+            titulo: 'We work with 19 financial institutions.',
+            nota: '[The original logo of each lender will go here, with their permission]',
         },
         garantias: {
             etiqueta: 'Guarantees and accreditations',
@@ -253,7 +251,7 @@ export const en: Dict = {
         },
         {
             t: 'Several lenders, one process',
-            d: `We present your case to ${nEntidades} lenders and you compare formal offers with the numbers in front of you.`,
+            d: 'We present your case to 19 lenders and you compare formal offers with the numbers in front of you.',
         },
         {
             t: 'Regulated and registered',
@@ -277,7 +275,7 @@ export const en: Dict = {
         },
     ],
     servicios: {
-        title: 'Mortgages and business financing · Cabrera Kapital',
+        title: 'Services · Cabrera Kapital',
         description:
             'Mortgages, mortgage improvement, SME financing, property investment and non-resident buyers in Tenerife.',
         etiqueta: 'Services',
@@ -290,7 +288,7 @@ export const en: Dict = {
         ctaBoton: 'Request a free assessment',
     },
     equipo: {
-        title: 'Team: mortgage advisers in La Laguna · Cabrera Kapital',
+        title: 'Team · Cabrera Kapital',
         description:
             'Olegario Cabrera García and Alejandro Cabrera Martín: over twenty years in Canarian banking at the service of every deal.',
         etiqueta: 'Team',
@@ -323,6 +321,7 @@ export const en: Dict = {
         sociosTitulo: 'The two partners, in their office',
         equipoAlt: 'Olegario and Alejandro Cabrera in their office in La Laguna',
         equipoFallback: 'Team photo',
+        equipoNota: 'High-resolution original (pending from the client)',
         regEtiqueta: 'Registration and accreditations',
         regTitulo: 'Regulated and accredited',
         regs: [
@@ -330,27 +329,28 @@ export const en: Dict = {
             ['EFPA España', 'EIP accreditation'],
             ['LCCI · Law 5/2019', 'Real Estate Credit Adviser'],
         ],
+        regNota: 'Official seals: pending permission to use them.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
         ctaBoton: 'Request a free assessment',
     },
     porque: {
-        title: 'Why choose Cabrera Kapital as your broker',
+        title: 'Why us · Cabrera Kapital',
         description:
-            `We know banking from the inside, we only charge if it is signed and we work with ${nEntidades} financial institutions.`,
+            'We know banking from the inside, we only charge if it is signed and we work with 19 financial institutions.',
         etiqueta: 'Why Cabrera Kapital',
         h1: 'We sat on the other side of the table. Now we are on yours.',
         lead: 'For over twenty years we ran branches, analysed risk and decided which deals went ahead. Today we put all that knowledge to work for you.',
         entEtiqueta: 'Partner lenders',
-        entTitulo: `${nEntidades} financial institutions`,
+        entTitulo: '19 financial institutions',
         entNota: 'The official logos will replace these once we receive the originals.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
         ctaBoton: 'Request a free assessment',
     },
     simulador: {
-        title: 'Mortgage calculator: estimate your payment · Cabrera Kapital',
-        description: 'Work out the estimated monthly payment of your mortgage or loan by amount, term and interest rate, free of charge. Then we help you improve it.',
+        title: 'Repayment calculator · Cabrera Kapital',
+        description: 'Calculate the estimated monthly payment of your mortgage or loan.',
         etiqueta: 'Calculator',
         h1: 'Work out your payment in seconds.',
         lead: 'An indicative estimate. The real assessment uses your data and each lender’s conditions.',
@@ -368,8 +368,8 @@ export const en: Dict = {
         ctaBoton: 'Request a free assessment',
     },
     contacto: {
-        title: 'Contact us in La Laguna · Cabrera Kapital',
-        description: 'Request your free assessment from Cabrera Kapital, C/Santa Eulalia 9, La Laguna. Call or write to us: we reply within 24-48 working hours.',
+        title: 'Contact · Cabrera Kapital',
+        description: 'Request your free assessment. We reply within 24–48 working hours.',
         etiqueta: 'Contact',
         h1: 'Tell us about your case.',
         lead: 'We reply within 24–48 working hours.',
@@ -382,6 +382,8 @@ export const en: Dict = {
         privacidadB: 'privacy policy',
         enviar: 'Send request',
         demo: 'Demo mode: the form does not send anything yet.',
+        exitoT: 'Request sent',
+        exitoOtra: 'Send another request',
         exito: 'Thank you. We have received your request and will reply within 24–48 working hours.',
         error: 'We could not send the form. Please try again or call us on',
         soy: 'I am…',
@@ -393,14 +395,6 @@ export const en: Dict = {
             { v: 'Comprar vivienda', t: 'Buy a home' },
             { v: 'Mejorar mi hipoteca', t: 'Improve my mortgage' },
             { v: 'Invertir en inmuebles', t: 'Invest in property' },
-            { v: 'Otra consulta', t: 'Other enquiry' },
-        ],
-        empresa: 'Company or activity',
-        opcionesPyme: [
-            { v: 'Póliza de crédito', t: 'Credit line' },
-            { v: 'Préstamo de inversión', t: 'Investment loan' },
-            { v: 'Reorganizar deuda bancaria', t: 'Restructure bank debt' },
-            { v: 'Comercio exterior', t: 'Foreign trade' },
             { v: 'Otra consulta', t: 'Other enquiry' },
         ],
         pyme: {
@@ -470,9 +464,9 @@ export const en: Dict = {
         title: 'Page not found · Cabrera Kapital',
         description: 'The page you are looking for does not exist or has moved.',
         etiqueta: 'Error 404',
-        h1: 'This page does not exist.',
-        lead: 'The address may have changed or the link may contain an error.',
-        inicio: 'Go to the home page',
+        h1: 'We could not find this page',
+        lead: 'The address may be misspelled or the page may no longer exist. Go back to the home page or tell us what you need and we will help.',
+        inicio: 'Go to home page',
         contacto: 'Contact us',
     },
 };

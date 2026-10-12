@@ -70,7 +70,10 @@ const pdf = existsSync(
                                 {indice.map((h) => (
                                     <li>
                                         <a href={`#${h.slug}`}>
-                                            {h.text.replace(/^\d+\.\s*/, "")}
+                                            {String(h.text ?? h.slug).replace(
+                                                /^\d+\.\s*/,
+                                                "",
+                                            )}
                                         </a>
                                     </li>
                                 ))}

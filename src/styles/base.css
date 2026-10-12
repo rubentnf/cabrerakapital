@@ -1954,3 +1954,121 @@ html {
     height: 1px;
     opacity: 0;
 }
+
+
+/* Confirmación de envío animada */
+.fcuerpo {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.exito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: clamp(16px, 4vw, 40px) 0;
+    outline: none;
+}
+
+.exito h2 {
+    font-size: clamp(30px, 3.4vw, 40px);
+    margin: 6px 0 0;
+}
+
+.exito p {
+    max-width: 38ch;
+    color: var(--muted);
+    margin: 0 0 8px;
+}
+
+.exito-svg {
+    overflow: visible;
+}
+
+.exito-aro {
+    fill: rgba(47, 158, 99, 0.1);
+    stroke: #2f9e63;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 327;
+    stroke-dashoffset: 327;
+    transform-origin: 60px 60px;
+    transform: rotate(-90deg);
+}
+
+.exito-tick {
+    fill: none;
+    stroke: #2f9e63;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+}
+
+.exito.anima .exito-aro {
+    animation: exito-aro 0.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.exito.anima .exito-tick {
+    animation: exito-tick 0.45s 0.55s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.exito.anima .exito-svg {
+    animation: exito-pop 0.5s 0.95s ease-out;
+}
+
+.exito.anima h2,
+.exito.anima p,
+.exito.anima .btn {
+    animation: exito-sube 0.6s 1s ease-out both;
+}
+
+@keyframes exito-aro {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes exito-tick {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes exito-pop {
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes exito-sube {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .exito .exito-aro,
+    .exito .exito-tick {
+        stroke-dashoffset: 0;
+        animation: none !important;
+    }
+
+    .exito.anima h2,
+    .exito.anima p,
+    .exito.anima .btn,
+    .exito.anima .exito-svg {
+        animation: none;
+    }
+}
+
+/* Los botones del bloque final no se desplazan al pasar el ratón */
+.cta .btn:hover {
+    transform: none;
+}

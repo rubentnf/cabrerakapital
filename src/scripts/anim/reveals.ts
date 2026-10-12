@@ -1,12 +1,20 @@
 import { gsap } from 'gsap';
-import { $, $$, splitWords } from '../utils';
+import { $, $$ } from '../utils';
 
 /** Animaciones de entrada reutilizables, activadas por atributos data-* en el HTML. */
 export function initReveals() {
     // Titular de portada de páginas interiores, palabra a palabra
     const h = $('[data-split]');
-    if (h) gsap.from(splitWords(h, true), { yPercent: 110, duration: 1, ease: 'power3.out', stagger: 0.07 });
-
+    if (h) {
+        const palabras = (h.textContent ?? '').trim().split(/\s+/);
+        h.innerHTML = palabras
+            .map(
+                (x) =>
+                    `<span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em"><span class="w" style="display:inline-block">${x}</span></span>`,
+            )
+            .join(' ');
+        gsap.from($$('.w', h), { yPercent: 110, duration: 1, ease: 'power3.out', stagger: 0.07 });
+    }
     gsap.from($$('[data-fade]'), {
         y: 20,
         opacity: 0,
@@ -16,17 +24,9 @@ export function initReveals() {
         ease: 'power2.out',
     });
 
-    // Portada interior: ilustración que entra y flota, o formas decorativas que se mueven
+    // Portada interior con formas que se mueven
     const hero = $('.hero');
-    const ilus = hero && $('.hero-ilus img', hero);
-    if (hero && ilus) {
-        gsap.from(ilus, { x: 60, opacity: 0, duration: 1.2, delay: 0.25, ease: 'power3.out' });
-        gsap.to(ilus, {
-            yPercent: -10,
-            ease: 'none',
-            scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true },
-        });
-    } else if (hero) {
+    if (hero) {
         const st = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
         gsap.to($('.d1', hero), {
             yPercent: 40,
@@ -52,6 +52,7 @@ export function initReveals() {
             opacity: 0,
             duration: 0.85,
             ease: 'power2.out',
+            clearProps: 'transform,opacity',
             scrollTrigger: { trigger: e, start: 'top 90%' },
         }),
     );
@@ -62,6 +63,7 @@ export function initReveals() {
             duration: 0.8,
             stagger: 0.09,
             ease: 'power3.out',
+            clearProps: 'transform,opacity', // al terminar, el CSS (hover, etc.) vuelve a mandar
             scrollTrigger: { trigger: g, start: 'top 88%' },
         }),
     );
@@ -74,6 +76,7 @@ export function initReveals() {
                 duration: 0.9,
                 ease: 'power3.out',
                 delay: (i % 4) * 0.06,
+                clearProps: 'transform,opacity',
                 scrollTrigger: { trigger: c, start: 'top 92%' },
             }),
         ),
@@ -106,6 +109,32 @@ export function initReveals() {
             ease: 'power2.out',
             scrollTrigger: { trigger: c, start: 'top 92%', once: true },
             onUpdate: () => (c.textContent = String(Math.round(o.v))),
+        });
+    });
+    $$('[data-row]').forEach((r) => {
+        gsap.fromTo(
+            r,
+            { '--ln': 0 },
+            {
+                '--ln': 1,
+                duration: 1.1,
+                ease: 'power3.out',
+                scrollTrigger: { trigger: r, start: 'top 90%' },
+            },
+        );
+        gsap.from($('.ico', r), {
+            scale: 0,
+            rotate: -90,
+            duration: 0.8,
+            ease: 'back.out(1.6)',
+            scrollTrigger: { trigger: r, start: 'top 90%' },
+        });
+        gsap.from($('h3', r), {
+            x: -30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: r, start: 'top 90%' },
         });
     });
     $$('[data-par]').forEach((e) =>
@@ -156,6 +185,7 @@ export function initReveals() {
             stagger: 0.1,
             duration: 0.8,
             ease: 'power2.out',
+            clearProps: 'transform,opacity',
             scrollTrigger: { trigger: cta, start: 'top 80%' },
         });
 }

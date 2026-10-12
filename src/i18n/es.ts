@@ -1,6 +1,3 @@
-import { entidades } from '../data/entidades';
-const nEntidades = entidades.length;
-
 /** Textos en español. Es la fuente de verdad: en.ts debe tener exactamente las mismas claves. */
 export const es = {
     htmlLang: 'es',
@@ -15,9 +12,9 @@ export const es = {
         contacto: 'Contacto',
     },
     header: {
+        inicio: 'Cabrera Kapital, inicio',
         principal: 'Principal',
         abrirMenu: 'Abrir menú',
-        cerrarMenu: 'Cerrar menú',
         cta: 'Estudio gratuito',
     },
     whatsapp: {
@@ -36,6 +33,7 @@ export const es = {
     documentos: {
         indice: 'Contenido',
         descargar: 'Descargar PDF original',
+        descripcion: 'Consulte el documento «{titulo}» de Cabrera Kapital, intermediario de crédito inmobiliario inscrito en el Banco de España.',
         previa: 'Información previa al cliente',
         independencia: 'Declaración de independencia',
         aviso: 'Aviso legal',
@@ -45,20 +43,18 @@ export const es = {
         soloEs: 'Este documento legal solo está disponible en español.',
         volver: 'Volver al inicio',
         faq: 'Preguntas frecuentes',
-        descripcion:
-            '{titulo} de Cabrera Kapital, intermediario de crédito inmobiliario inscrito en el Banco de España (E593).',
     },
     faq: {
-        title: 'Preguntas frecuentes sobre hipotecas · Cabrera Kapital',
+        title: 'Preguntas frecuentes · Cabrera Kapital',
         description:
             'Respuestas a las dudas más habituales sobre financiación para empresas e hipotecas: coste, proceso y plazos.',
         etiqueta: 'Preguntas frecuentes',
         h1: 'Las dudas más habituales, resueltas.',
-        lead: 'Si no encuentra su pregunta, escríbanos o llámenos: le respondemos en 24–48 horas laborables.',
+        lead: 'Si no encuentran su pregunta, escríbannos o llámennos: les respondemos en 24–48 horas laborables.',
         items: [
             {
                 q: '¿Qué tipo de empresas pueden solicitar financiación con Cabrera Kapital?',
-                a: 'Trabajamos con pymes, autónomos y empresas consolidadas de distintos sectores. Le ayudamos a financiar su crecimiento, su circulante o sus inversiones, a reorganizar su deuda y a conseguir mejores condiciones con sus bancos.',
+                a: 'Trabajamos con pymes, autónomos y empresas consolidadas de distintos sectores. Les ayudamos a financiar su crecimiento, su circulante o sus inversiones, a reorganizar su deuda y a conseguir mejores condiciones con sus bancos.',
             },
             {
                 q: '¿Qué tipo de financiación gestionan?',
@@ -70,7 +66,7 @@ export const es = {
             },
             {
                 q: '¿Cómo es el proceso de trabajo?',
-                a: 'Empezamos con un estudio gratuito y personalizado. Después analizamos la viabilidad real de la operación, buscamos y negociamos con las entidades, le presentamos las mejores opciones y le acompañamos hasta la firma ante notario. Todo el proceso es transparente.',
+                a: 'Empezamos con un estudio gratuito y personalizado. Después analizamos la viabilidad real de la operación, buscamos y negociamos con las entidades, les presentamos las mejores opciones y les acompañamos hasta la firma ante notario. Todo el proceso es transparente.',
             },
             {
                 q: '¿Tiene coste el estudio inicial?',
@@ -81,20 +77,20 @@ export const es = {
                 a: 'Depende del tipo de financiación, pero en muchos casos podemos presentar opciones viables en pocos días. Nuestro objetivo es agilizar el proceso y evitar retrasos innecesarios.',
             },
         ],
-        ctaTitulo: '¿Le queda alguna duda?',
-        ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
+        ctaTitulo: '¿Les queda alguna duda?',
+        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     cta: { llamar: 'Llamar' },
     inicio: {
-        title: 'Intermediario hipotecario en Tenerife · Cabrera Kapital',
+        title: 'Cabrera Kapital · Intermediación hipotecaria y financiación para empresas en Canarias',
         description:
             'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma. La Laguna, Tenerife.',
         hero: {
             eyebrow: 'Broker hipotecario · Financiación para pymes · Tenerife',
             l1: 'Conocemos la banca',
             l2: 'por dentro.',
-            l3: 'Ahora negociamos por usted.',
+            l3: 'Ahora negociamos por ustedes.',
             sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
             lema: 'Intermediación financiera · Tenerife',
             desliza: 'Desliza',
@@ -107,7 +103,7 @@ export const es = {
                 'Durante más de veinte años estuvimos al otro lado de la mesa: dirigiendo oficinas, analizando riesgos y decidiendo qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
             anios: 'años en la banca canaria',
             registro: 'Registro del Banco de España',
-            respuesta: 'para darle una primera respuesta',
+            respuesta: 'para darles una primera respuesta',
             coste: 'cuesta el estudio inicial',
         },
         oficina: {
@@ -121,41 +117,42 @@ export const es = {
             lista: [
                 {
                     t: 'Estudio gratuito',
-                    d: 'Analizamos sus ingresos, su capacidad de endeudamiento o las cuentas de su empresa. Sabrá qué es viable desde el primer día.',
+                    d: 'Analizamos sus ingresos, su capacidad de endeudamiento o las cuentas de su empresa. Sabrán qué es viable desde el primer día.',
                     p: 'Primera respuesta en 24–48 h',
                 },
                 {
                     t: 'Negociación con entidades',
-                    d: 'Presentamos su operación a varios bancos y alternativas privadas, y comparamos las ofertas formales con usted.',
+                    d: 'Presentamos su operación a varios bancos y alternativas privadas, y comparamos las ofertas formales con ustedes.',
                     p: 'Ofertas formales en 48 h hábiles',
                 },
                 {
                     t: 'Firma ante notario',
-                    d: 'Gestionamos la documentación y le acompañamos hasta la firma. Si más adelante aparece una mejora, le avisamos.',
+                    d: 'Gestionamos la documentación y les acompañamos hasta la firma. Si más adelante aparece una mejora, les avisamos.',
                     p: 'Solo cobramos si se firma',
                 },
             ],
         },
         editorial: {
-            altEntidades: `Más de ${nEntidades} entidades financieras con las que trabaja Cabrera Kapital`,
+            altEntidades: 'Más de 19 entidades financieras con las que trabaja Cabrera Kapital',
             altApreton: 'Apretón de manos al cerrar un acuerdo en la oficina',
             lista: ['Estudio gratuito', 'Varias entidades', 'Ofertas por escrito', 'Sin letra pequeña'],
             l1: 'No firme',
             l2: 'a ciegas.',
             l3: 'Compare.',
-            sub: 'Con las ofertas formales delante, decida con números y no con prisas. Solo cobramos si la operación se firma.',
+            sub: 'Con las ofertas formales delante, decidan con números y no con prisas. Solo cobramos si la operación se firma.',
         },
         servicios: {
             etiqueta: 'Qué hacemos',
             t1: 'Una operación,',
             t2: 'muchas puertas de banco.',
             texto:
-                'Presentamos su caso a varias entidades y comparamos ofertas formales. Usted elige con los números delante.',
+                'Presentamos su caso a varias entidades y comparamos ofertas formales. Ustedes eligen con los números delante.',
             simulador: 'Probar el simulador de cuota',
         },
         entidades: {
             etiqueta: 'Entidades con las que trabajamos',
-            titulo: `Trabajamos con ${nEntidades} entidades financieras.`,
+            titulo: 'Trabajamos con 19 entidades financieras.',
+            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
         },
         garantias: {
             etiqueta: 'Garantías y acreditaciones',
@@ -192,11 +189,11 @@ export const es = {
         valoracion: 'valoración en Google',
     },
     caminos: {
-        etiqueta: 'Cómo podemos ayudarle',
+        etiqueta: 'Cómo podemos ayudarles',
         titulo: 'Hipotecas y financiación para pymes',
         particulares: {
             t: 'Hipotecas para particulares',
-            d: 'Comprar su vivienda, mejorar la hipoteca que ya tiene o invertir en inmuebles, con ofertas formales de varios bancos.',
+            d: 'Comprar su vivienda, mejorar la hipoteca que ya tienen o invertir en inmuebles, con ofertas formales de varios bancos.',
             lista: [
                 'Compra de vivienda habitual o segunda residencia',
                 'Mejora de hipoteca: tipo, cuota o plazo',
@@ -222,7 +219,7 @@ export const es = {
             verbo: 'Comprar',
             resto: 'su vivienda',
             texto:
-                'Le decimos cuánto puede financiar de verdad y negociamos las condiciones con varios bancos.',
+                'Les decimos cuánto pueden financiar de verdad y negociamos las condiciones con varios bancos.',
         },
         {
             verbo: 'Mejorar',
@@ -259,7 +256,7 @@ export const es = {
         },
         {
             t: 'Varias entidades, una sola gestión',
-            d: `Presentamos su caso a ${nEntidades} entidades y compara ofertas formales con los números delante.`,
+            d: 'Presentamos su caso a 19 entidades y comparan ofertas formales con los números delante.',
         },
         {
             t: 'Regulados e inscritos',
@@ -267,7 +264,7 @@ export const es = {
         },
         {
             t: 'Respuesta en 24–48 horas',
-            d: 'Un primer análisis rápido para que sepa qué es viable desde el primer día.',
+            d: 'Un primer análisis rápido para que sepan qué es viable desde el primer día.',
         },
         {
             t: 'Atención en español e inglés',
@@ -279,11 +276,11 @@ export const es = {
         },
         {
             t: 'Seguimiento después de firmar',
-            d: 'Si más adelante aparece una mejora para su hipoteca o su financiación, le avisamos.',
+            d: 'Si más adelante aparece una mejora para su hipoteca o su financiación, les avisamos.',
         },
     ],
     servicios: {
-        title: 'Hipotecas y financiación para empresas · Cabrera Kapital',
+        title: 'Servicios · Cabrera Kapital',
         description:
             'Hipotecas, mejora de hipoteca, financiación para pymes, inversión inmobiliaria y compradores no residentes en Tenerife.',
         etiqueta: 'Servicios',
@@ -291,12 +288,12 @@ export const es = {
         lead: 'Particulares, autónomos, empresas e inversores. Cada caso se estudia a fondo antes de tocar la puerta de ninguna entidad.',
         procesoEtiqueta: 'Cómo trabajamos',
         procesoTitulo: 'Un proceso claro de principio a fin.',
-        ctaTitulo: 'Cuéntenos su caso.',
+        ctaTitulo: 'Cuéntennos su caso.',
         ctaTexto: 'Respondemos en 24–48 h. El estudio inicial no tiene coste ni compromiso.',
         ctaBoton: 'Pedir estudio gratuito',
     },
     equipo: {
-        title: 'Equipo: asesores hipotecarios en La Laguna · Cabrera Kapital',
+        title: 'Equipo · Cabrera Kapital',
         description:
             'Olegario Cabrera García y Alejandro Cabrera Martín: más de veinte años en la banca canaria al servicio de cada operación.',
         etiqueta: 'Equipo',
@@ -329,6 +326,7 @@ export const es = {
         sociosTitulo: 'Los dos socios, en su oficina',
         equipoAlt: 'Olegario y Alejandro Cabrera en su oficina de La Laguna',
         equipoFallback: 'Foto del equipo',
+        equipoNota: 'Original en alta resolución (pendiente del cliente)',
         regEtiqueta: 'Registro y acreditaciones',
         regTitulo: 'Regulados y acreditados',
         regs: [
@@ -336,29 +334,30 @@ export const es = {
             ['EFPA España', 'Acreditación EIP'],
             ['LCCI · Ley 5/2019', 'Asesor en Crédito Inmobiliario'],
         ],
+        regNota: 'Sellos oficiales: pendiente de permiso de uso.',
         ctaTitulo: 'Empecemos por el paso uno.',
-        ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
+        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     porque: {
-        title: 'Por qué elegir Cabrera Kapital como intermediario',
+        title: 'Por qué nosotros · Cabrera Kapital',
         description:
-            `Conocemos la banca por dentro, solo cobramos si se firma y trabajamos con ${nEntidades} entidades financieras.`,
+            'Conocemos la banca por dentro, solo cobramos si se firma y trabajamos con 19 entidades financieras.',
         etiqueta: 'Por qué Cabrera Kapital',
         h1: 'Estuvimos al otro lado de la mesa. Ahora estamos del suyo.',
         lead: 'Durante más de veinte años dirigimos oficinas, analizamos riesgos y decidimos qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
         entEtiqueta: 'Entidades colaboradoras',
-        entTitulo: `${nEntidades} entidades financieras`,
+        entTitulo: '19 entidades financieras',
         entNota: 'Los logotipos oficiales se sustituirán al recibir los originales.',
         ctaTitulo: 'Empecemos por el paso uno.',
-        ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
+        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     simulador: {
-        title: 'Simulador de hipoteca: calcule su cuota · Cabrera Kapital',
-        description: 'Calcule gratis la cuota mensual orientativa de su hipoteca o préstamo según importe, plazo e interés. Después, le ayudamos a mejorarla.',
+        title: 'Simulador de cuota · Cabrera Kapital',
+        description: 'Calcule la cuota mensual orientativa de su hipoteca o préstamo.',
         etiqueta: 'Simulador',
-        h1: 'Calcule su cuota en segundos.',
+        h1: 'Calculen su cuota en segundos.',
         lead: 'Una estimación orientativa. El estudio real lo hacemos con sus datos y las condiciones de cada entidad.',
         importe: 'Importe del préstamo',
         plazo: 'Plazo',
@@ -369,27 +368,29 @@ export const es = {
         intereses: 'Intereses',
         aviso: 'Cálculo orientativo; no constituye una oferta vinculante.',
         boton: 'Solicitar estudio real',
-        ctaTitulo: '¿Le encaja? Lo estudiamos juntos.',
+        ctaTitulo: '¿Les encaja? Lo estudiamos juntos.',
         ctaTexto: 'Sin coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     contacto: {
-        title: 'Contacto en La Laguna · Cabrera Kapital',
-        description: 'Solicite su estudio gratuito en Cabrera Kapital, C/Santa Eulalia 9, La Laguna. Llámenos o escríbanos: respondemos en 24-48 horas laborales.',
+        title: 'Contacto · Cabrera Kapital',
+        description: 'Solicite su estudio gratuito. Respondemos en 24–48 horas laborables.',
         etiqueta: 'Contacto',
-        h1: 'Cuéntenos su caso.',
+        h1: 'Cuéntennos su caso.',
         lead: 'Respondemos en 24–48 horas laborables.',
         formTitulo: 'Solicitar estudio gratuito',
         nombre: 'Nombre',
         telefono: 'Teléfono',
         correo: 'Correo electrónico',
-        mensaje: 'Cuéntenos su caso',
+        mensaje: 'Cuéntennos su caso',
         privacidadA: 'He leído y acepto la',
         privacidadB: 'política de privacidad',
         enviar: 'Enviar solicitud',
         demo: 'Modo demostración: el formulario todavía no envía nada.',
-        exito: 'Gracias. Hemos recibido su solicitud y le responderemos en 24–48 horas laborables.',
-        error: 'No hemos podido enviar el formulario. Inténtelo de nuevo o llámenos al',
+        exitoT: 'Solicitud enviada',
+        exitoOtra: 'Enviar otra solicitud',
+        exito: 'Gracias. Hemos recibido su solicitud y les responderemos en 24–48 horas laborables.',
+        error: 'No hemos podido enviar el formulario. Inténtenlo de nuevo o llámennos al',
         soy: 'Soy…',
         tipoParticular: 'Particular',
         tipoPyme: 'Pyme o autónomo',
@@ -401,23 +402,15 @@ export const es = {
             { v: 'Invertir en inmuebles', t: 'Invertir en inmuebles' },
             { v: 'Otra consulta', t: 'Otra consulta' },
         ],
-        empresa: 'Empresa o actividad',
-        opcionesPyme: [
-            { v: 'Póliza de crédito', t: 'Póliza de crédito' },
-            { v: 'Préstamo de inversión', t: 'Préstamo de inversión' },
-            { v: 'Reorganizar deuda bancaria', t: 'Reorganizar deuda bancaria' },
-            { v: 'Comercio exterior', t: 'Comercio exterior' },
-            { v: 'Otra consulta', t: 'Otra consulta' },
-        ],
         pyme: {
-            titulo: 'Cuéntenos sobre su empresa',
+            titulo: 'Cuéntennos sobre su empresa',
             paso: 'Paso',
             de: 'de',
             atras: 'Atrás',
             continuar: 'Continuar',
             enviar: 'Enviar solicitud',
             contactoT: 'Información de contacto',
-            contactoD: 'Rellene sus datos para que nos pongamos en contacto con usted.',
+            contactoD: 'Rellenen sus datos para que nos pongamos en contacto con ustedes.',
             pasos: [
                 {
                     name: 'facturacion',
@@ -431,7 +424,7 @@ export const es = {
                 },
                 {
                     name: 'antiguedad',
-                    t: '¿Cuántos años lleva su empresa en funcionamiento?',
+                    t: '¿Cuántos años lleva en funcionamiento?',
                     opciones: [
                         { v: 'Menos de 1 año', t: 'Menos de 1 año' },
                         { v: 'Entre 1 y 2 años', t: 'Entre 1 y 2 años' },
@@ -440,7 +433,7 @@ export const es = {
                 },
                 {
                     name: 'finalidad',
-                    t: '¿Para qué necesita la financiación?',
+                    t: '¿Para qué necesitan la financiación?',
                     opciones: [
                         { v: 'Liquidez/Tesorería', t: 'Liquidez/Tesorería' },
                         { v: 'Compra de nave/local', t: 'Compra de nave/local' },
@@ -452,7 +445,7 @@ export const es = {
                 },
                 {
                     name: 'importe',
-                    t: '¿Qué importe necesita?',
+                    t: '¿Qué importe necesitan?',
                     opciones: [
                         { v: 'Menos de 50.000€', t: 'Menos de 50.000€' },
                         { v: 'Entre 50.000€ y 150.000€', t: 'Entre 50.000€ y 150.000€' },
@@ -476,8 +469,8 @@ export const es = {
         title: 'Página no encontrada · Cabrera Kapital',
         description: 'La página que busca no existe o ha cambiado de dirección.',
         etiqueta: 'Error 404',
-        h1: 'Esta página no existe.',
-        lead: 'Puede que la dirección haya cambiado o que el enlace tenga un error.',
+        h1: 'No hemos encontrado esta página',
+        lead: 'Puede que la dirección esté mal escrita o que la página ya no exista. Vuelva al inicio o cuéntenos qué necesita y le ayudamos.',
         inicio: 'Ir al inicio',
         contacto: 'Contactar',
     },
