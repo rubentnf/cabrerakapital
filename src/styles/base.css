@@ -2080,3 +2080,30 @@ html {
         animation: none;
     }
 }
+
+/* ===== logotipo real ===== */
+.brand .logo-img {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    display: block;
+}
+
+.foot-logo {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 14px;
+}
+
+@media (max-width: 640px) {
+
+    /* una sola columna: el sello y su descripción van centrados */
+    .fmarca {
+        text-align: center;
+    }
+
+    .fmarca .foot-logo {
+        margin-inline: auto;
+    }
+}

@@ -1,7 +1,6 @@
 import { reducedMotion } from './utils';
 import { initNav } from './nav';
 import { rollify } from './rollify';
-import { fitWordmark } from './wordmark';
 import { initSimulador } from './simulador';
 import { initFormulario } from './formulario';
 import { initCarruselEntidades } from './carrusel-entidades';
@@ -12,7 +11,6 @@ import { initCarrusel } from './carrusel';
 // Funciones que no dependen del movimiento
 initNav();
 rollify();
-fitWordmark();
 initSimulador();
 initFormulario();
 initCookies();

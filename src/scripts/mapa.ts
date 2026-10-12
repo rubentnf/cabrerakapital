@@ -18,6 +18,8 @@ export function initMapa() {
         iframe.referrerPolicy = 'no-referrer-when-downgrade';
         iframe.allowFullscreen = true;
         caja.replaceChildren(iframe);
+        // Con el mapa a la vista, el enlace «Cómo llegar» sobra
+        caja.parentElement?.querySelector('[data-mapa-link]')?.setAttribute('hidden', '');
     };
 
     cajas.forEach((caja) => {

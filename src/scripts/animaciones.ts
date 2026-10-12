@@ -3,7 +3,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHome } from './anim/home';
 import { initEditorial } from './anim/editorial';
 import { initRows } from './anim/rows';
-import { initFooter } from './anim/footer';
 import { initReveals } from './anim/reveals';
 
 /** Todo lo que usa GSAP. main.ts lo carga aparte, solo en las páginas que tienen animaciones. */
@@ -18,5 +17,4 @@ gsap.to('.prog', {
 initHome();
 initEditorial();
 initRows();
-initFooter();
 initReveals();

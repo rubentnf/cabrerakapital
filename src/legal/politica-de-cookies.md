@@ -13,7 +13,7 @@ Esta web **no usa cookies propias de publicidad ni de seguimiento**. Solo hay do
 | ck-consentimiento | Cabrera Kapital | Recordar si ha aceptado o rechazado las cookies del mapa. Se guarda en el almacenamiento local del navegador. | 12 meses | No, es técnica |
 | NID y otras cookies de Google | Google | Mostrar el mapa de la oficina y recordar sus preferencias en Google Maps. | Hasta 6 meses (algunas, más si tiene sesión iniciada en Google) | Sí |
 
-Las cookies de Google **solo se instalan si usted las acepta** en el aviso de cookies o pulsa «Ver mapa» en la página de contacto. Si las rechaza, el mapa no se carga y puede abrir la ubicación directamente en Google Maps con el enlace que aparece debajo.
+Las cookies de Google **solo se instalan si usted las acepta** en el aviso de cookies o pulsa «Ver mapa» en la página de contacto. Si las rechaza, el mapa no se carga y puede abrir la ubicación directamente en Google Maps con el enlace «Cómo llegar» que aparece debajo.
 
 Puede consultar cómo usa Google estas cookies en [policies.google.com/technologies/cookies](https://policies.google.com/technologies/cookies).
 

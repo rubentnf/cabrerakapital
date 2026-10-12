@@ -27,4 +27,14 @@ const src = `https://www.google.com/maps?q=${encodeURIComponent(contacto.mapaCon
             <small>{t.nota}</small>
         </div>
     </div>
+    <!-- Alternativa sin cookies; scripts/mapa.ts la oculta cuando el mapa ya se ve -->
+    <a
+        class="mapa-link"
+        href={contacto.mapaEnlace}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-mapa-link
+    >
+        {t.comoLlegar} →
+    </a>
 </div>

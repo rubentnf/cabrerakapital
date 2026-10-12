@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../assets/logo/ck-simbolo.png";
 import { contacto } from "../data/contacto";
 import { grupoInformacion, grupoLegal, rutaLegal } from "../data/legal";
 import { langDe, ruta, useT } from "../i18n";
@@ -10,8 +12,14 @@ const t = useT(lang);
 <footer class="foot">
     <div class="wrap">
         <div class="fgrid">
-            <div>
-                <div class="fb">Cabrera Kapital</div>
+            <div class="fmarca">
+                <Image
+                    class="foot-logo"
+                    src={logo}
+                    alt="Cabrera Kapital"
+                    width={64}
+                    height={64}
+                />
                 <div>{t.footer.descripcion}</div>
             </div>
             <div>
@@ -62,9 +70,8 @@ const t = useT(lang);
                 <div>{t.footer.titular}</div>
             </div>
         </div>
-        <div class="bigwm" aria-hidden="true">
-            <b>CABRERA KAPITAL</b>
+        <div class="fbot">
+            <span>© Cabrera Kapital</span>
         </div>
-        <div class="fbot">© Cabrera Kapital</div>
     </div>
 </footer>

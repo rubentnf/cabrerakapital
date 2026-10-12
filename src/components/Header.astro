@@ -1,5 +1,7 @@
 ---
 import { langDe, ruta, useT, type PaginaId } from "../i18n";
+import { Image } from "astro:assets";
+import logo from "../assets/logo/ck-simbolo.png";
 import LangSwitch from "./LangSwitch.astro";
 
 interface Props {
@@ -22,8 +24,19 @@ const nav = ids.map((id) => ({ id, label: t.nav[id], href: ruta(id, lang) }));
 
 <header class="nav" id="nav">
     <div class="wrap">
-        <a class="brand" href={ruta("inicio", lang)}>
-            <span class="logo" aria-hidden="true">CK</span>Cabrera Kapital
+        <a
+            class="brand"
+            href={ruta("inicio", lang)}
+            aria-label={t.header.inicio}
+        >
+            <Image
+                class="logo-img"
+                src={logo}
+                alt=""
+                width={44}
+                height={44}
+                loading="eager"
+            />Cabrera Kapital
         </a>
         <nav class="links" aria-label={t.header.principal}>
             {

@@ -472,21 +472,6 @@
     opacity: 1;
 }
 
-.bigwm {
-    margin-top: clamp(36px, 6vw, 80px);
-    overflow: hidden;
-    line-height: 0.78;
-    user-select: none;
-}
-
-.bigwm b {
-    display: inline-block;
-    font: 800 clamp(30px, 8.6vw, 400px)/0.9 var(--sans);
-    letter-spacing: -0.05em;
-    color: var(--iv);
-    white-space: nowrap;
-}
-
 .rl {
     display: inline-block;
     overflow: hidden;

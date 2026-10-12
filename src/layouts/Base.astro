@@ -49,7 +49,8 @@ const indexar = import.meta.env.PUBLIC_INDEXAR === "true";
 // Estadísticas con Umami (sin cookies): solo se cargan si está definido PUBLIC_UMAMI_ID.
 // PUBLIC_UMAMI_SRC permite usar un Umami propio en lugar de Umami Cloud.
 const umamiId = import.meta.env.PUBLIC_UMAMI_ID;
-const umamiSrc = import.meta.env.PUBLIC_UMAMI_SRC || "https://cloud.umami.is/script.js";
+const umamiSrc =
+    import.meta.env.PUBLIC_UMAMI_SRC || "https://cloud.umami.is/script.js";
 
 // Imagen al compartir en redes y WhatsApp: la foto de la oficina recortada a 1200×630.
 // Para usar un diseño propio, sustituirla por una imagen en public/ (por ejemplo "/og.jpg").
@@ -67,14 +68,8 @@ const og = await getImage({
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Font
-            cssVariable="--font-manrope"
-            preload={[{ style: "normal" }]}
-        />
-        <Font
-            cssVariable="--font-newsreader"
-            preload={[{ style: "normal" }]}
-        />
+        <Font cssVariable="--font-manrope" preload={[{ style: "normal" }]} />
+        <Font cssVariable="--font-newsreader" preload={[{ style: "normal" }]} />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="theme-color" content="#0a2240" />
@@ -126,7 +121,7 @@ const og = await getImage({
             )
         }
         <slot name="head" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <script is:inline>
             if (matchMedia("(prefers-reduced-motion: reduce)").matches)
                 document.documentElement.classList.add("rm");
