@@ -154,7 +154,6 @@ export const en: Dict = {
         entidades: {
             etiqueta: 'Lenders we work with',
             titulo: 'We work with 19 financial institutions.',
-            nota: '[The original logo of each lender will go here, with their permission]',
         },
         garantias: {
             etiqueta: 'Guarantees and accreditations',
@@ -177,7 +176,6 @@ export const en: Dict = {
     mapa: {
         titulo: 'Map of the office in La Laguna',
         cargar: 'Show map',
-        nota: 'Loading the map connects to Google’s servers.',
         abrir: 'Open in Google Maps',
         comoLlegar: 'Get directions',
     },
@@ -317,11 +315,9 @@ export const en: Dict = {
                 'He complements his financial training with knowledge of property investment analysis and wealth planning, bringing a close, dynamic and results-oriented approach. He stands out for his negotiation skills, personal follow-up of each file and commitment to securing the best terms for his clients.',
             ],
         },
-        fotoNota: '4:5 · individual photo',
         sociosTitulo: 'The two partners, in their office',
         equipoAlt: 'Olegario and Alejandro Cabrera in their office in La Laguna',
         equipoFallback: 'Team photo',
-        equipoNota: 'High-resolution original (pending from the client)',
         regEtiqueta: 'Registration and accreditations',
         regTitulo: 'Regulated and accredited',
         regs: [
@@ -329,7 +325,6 @@ export const en: Dict = {
             ['EFPA España', 'EIP accreditation'],
             ['LCCI · Law 5/2019', 'Real Estate Credit Adviser'],
         ],
-        regNota: 'Official seals: pending permission to use them.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
         ctaBoton: 'Request a free assessment',
@@ -343,7 +338,6 @@ export const en: Dict = {
         lead: 'For over twenty years we ran branches, analysed risk and decided which deals went ahead. Today we put all that knowledge to work for you.',
         entEtiqueta: 'Partner lenders',
         entTitulo: '19 financial institutions',
-        entNota: 'The official logos will replace these once we receive the originals.',
         ctaTitulo: "Let's start with step one.",
         ctaTexto: 'Tell us about your case. The assessment is free and without obligation.',
         ctaBoton: 'Request a free assessment',
@@ -411,10 +405,10 @@ export const en: Dict = {
                     name: 'facturacion',
                     t: 'What is your annual turnover?',
                     opciones: [
-                        { v: 'Menos de 250.000€', t: 'Under €250,000' },
-                        { v: 'Entre 250.000€ y 500.000€', t: 'Between €250,000 and €500,000' },
-                        { v: 'Entre 500.000€ y 1.000.000€', t: 'Between €500,000 and €1,000,000' },
-                        { v: 'Más de 1.000.000€', t: 'Over €1,000,000' },
+                        { v: 'Menos de 250.000 €', t: 'Under €250,000' },
+                        { v: 'Entre 250.000 € y 500.000 €', t: 'Between €250,000 and €500,000' },
+                        { v: 'Entre 500.000 € y 1.000.000 €', t: 'Between €500,000 and €1,000,000' },
+                        { v: 'Más de 1.000.000 €', t: 'Over €1,000,000' },
                     ],
                 },
                 {
@@ -442,10 +436,10 @@ export const en: Dict = {
                     name: 'importe',
                     t: 'How much do you need?',
                     opciones: [
-                        { v: 'Menos de 50.000€', t: 'Under €50,000' },
-                        { v: 'Entre 50.000€ y 150.000€', t: 'Between €50,000 and €150,000' },
-                        { v: 'Entre 150.000€ y 500.000€', t: 'Between €150,000 and €500,000' },
-                        { v: 'Más de 500.000€', t: 'Over €500,000' },
+                        { v: 'Menos de 50.000 €', t: 'Under €50,000' },
+                        { v: 'Entre 50.000 € y 150.000 €', t: 'Between €50,000 and €150,000' },
+                        { v: 'Entre 150.000 € y 500.000 €', t: 'Between €150,000 and €500,000' },
+                        { v: 'Más de 500.000 €', t: 'Over €500,000' },
                     ],
                 },
             ],
@@ -458,7 +452,6 @@ export const en: Dict = {
         horarioFin: 'Saturday and Sunday',
         cerrado: 'closed',
         mapa: 'Map · La Laguna',
-        mapaNota: 'Embed map here',
     },
     noEncontrada: {
         title: 'Page not found · Cabrera Kapital',

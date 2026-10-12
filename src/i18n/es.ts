@@ -78,7 +78,7 @@ export const es = {
             },
         ],
         ctaTitulo: '¿Les queda alguna duda?',
-        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
+        ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     cta: { llamar: 'Llamar' },
@@ -87,7 +87,7 @@ export const es = {
         description:
             'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma. La Laguna, Tenerife.',
         hero: {
-            eyebrow: 'Broker hipotecario · Financiación para pymes · Tenerife',
+            eyebrow: 'Bróker hipotecario · Financiación para pymes · Tenerife',
             l1: 'Conocemos la banca',
             l2: 'por dentro.',
             l3: 'Ahora negociamos por ustedes.',
@@ -152,7 +152,6 @@ export const es = {
         entidades: {
             etiqueta: 'Entidades con las que trabajamos',
             titulo: 'Trabajamos con 19 entidades financieras.',
-            nota: '[Aquí irán los logos originales de cada entidad, con permiso]',
         },
         garantias: {
             etiqueta: 'Garantías y acreditaciones',
@@ -175,7 +174,6 @@ export const es = {
     mapa: {
         titulo: 'Mapa de la oficina en La Laguna',
         cargar: 'Ver mapa',
-        nota: 'Al cargar el mapa se conecta con los servidores de Google.',
         abrir: 'Abrir en Google Maps',
         comoLlegar: 'Cómo llegar',
     },
@@ -288,7 +286,7 @@ export const es = {
         lead: 'Particulares, autónomos, empresas e inversores. Cada caso se estudia a fondo antes de tocar la puerta de ninguna entidad.',
         procesoEtiqueta: 'Cómo trabajamos',
         procesoTitulo: 'Un proceso claro de principio a fin.',
-        ctaTitulo: 'Cuéntennos su caso.',
+        ctaTitulo: 'Cuéntenos su caso.',
         ctaTexto: 'Respondemos en 24–48 h. El estudio inicial no tiene coste ni compromiso.',
         ctaBoton: 'Pedir estudio gratuito',
     },
@@ -305,7 +303,7 @@ export const es = {
             rol: 'Socio fundador',
             pill: 'Licenciado en ADE · EIP (EFPA) · LCCI',
             parrafos: [
-                'Especialista en banca y financiación, Licenciado en Administración y Dirección de Empresas, con más de 20 años de experiencia en el sector bancario y financiero en Canarias, desarrollada en entidades de primer nivel donde ha ocupado posiciones de responsabilidad como director de oficina y especialista en clientes residentes y no residentes.',
+                'Especialista en banca y financiación, licenciado en Administración y Dirección de Empresas, con más de 20 años de experiencia en el sector bancario y financiero en Canarias, desarrollada en entidades de primer nivel donde ha ocupado posiciones de responsabilidad como director de oficina y especialista en clientes residentes y no residentes.',
                 'A lo largo de su trayectoria profesional ha liderado operaciones de financiación para particulares, autónomos y empresas, especializándose en análisis de riesgos, planificación financiera, estructuración de operaciones de crédito y negociación con entidades financieras. Su profundo conocimiento del funcionamiento interno de la banca le permite identificar las mejores alternativas de financiación y diseñar soluciones adaptadas a las necesidades específicas de cada cliente.',
                 'Cuenta con certificaciones profesionales de reconocido prestigio como EIP (EFPA) y la acreditación LCCI – Asesor en Crédito Inmobiliario, que avalan su especialización en asesoramiento financiero, normativa bancaria y crédito hipotecario.',
                 'Su experiencia, capacidad analítica y amplio conocimiento del mercado financiero lo convierten en una figura de referencia para la planificación y gestión de operaciones complejas de financiación e inversión.',
@@ -322,11 +320,9 @@ export const es = {
                 'Complementa su formación financiera con conocimientos en análisis de inversiones inmobiliarias y planificación patrimonial, aportando una visión cercana, dinámica y orientada a resultados. Destaca por su capacidad de negociación, seguimiento personalizado de cada expediente y compromiso con la consecución de las mejores condiciones para sus clientes.',
             ],
         },
-        fotoNota: '4:5 · foto individual',
         sociosTitulo: 'Los dos socios, en su oficina',
         equipoAlt: 'Olegario y Alejandro Cabrera en su oficina de La Laguna',
         equipoFallback: 'Foto del equipo',
-        equipoNota: 'Original en alta resolución (pendiente del cliente)',
         regEtiqueta: 'Registro y acreditaciones',
         regTitulo: 'Regulados y acreditados',
         regs: [
@@ -334,9 +330,8 @@ export const es = {
             ['EFPA España', 'Acreditación EIP'],
             ['LCCI · Ley 5/2019', 'Asesor en Crédito Inmobiliario'],
         ],
-        regNota: 'Sellos oficiales: pendiente de permiso de uso.',
         ctaTitulo: 'Empecemos por el paso uno.',
-        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
+        ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     porque: {
@@ -348,9 +343,8 @@ export const es = {
         lead: 'Durante más de veinte años dirigimos oficinas, analizamos riesgos y decidimos qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
         entEtiqueta: 'Entidades colaboradoras',
         entTitulo: '19 entidades financieras',
-        entNota: 'Los logotipos oficiales se sustituirán al recibir los originales.',
         ctaTitulo: 'Empecemos por el paso uno.',
-        ctaTexto: 'Cuéntennos su caso. El estudio no tiene coste ni compromiso.',
+        ctaTexto: 'Cuéntenos su caso. El estudio no tiene coste ni compromiso.',
         ctaBoton: 'Solicitar estudio gratuito',
     },
     simulador: {
@@ -376,13 +370,13 @@ export const es = {
         title: 'Contacto · Cabrera Kapital',
         description: 'Solicite su estudio gratuito. Respondemos en 24–48 horas laborables.',
         etiqueta: 'Contacto',
-        h1: 'Cuéntennos su caso.',
+        h1: 'Cuéntenos su caso.',
         lead: 'Respondemos en 24–48 horas laborables.',
         formTitulo: 'Solicitar estudio gratuito',
         nombre: 'Nombre',
         telefono: 'Teléfono',
         correo: 'Correo electrónico',
-        mensaje: 'Cuéntennos su caso',
+        mensaje: 'Cuéntenos su caso',
         privacidadA: 'He leído y acepto la',
         privacidadB: 'política de privacidad',
         enviar: 'Enviar solicitud',
@@ -403,7 +397,7 @@ export const es = {
             { v: 'Otra consulta', t: 'Otra consulta' },
         ],
         pyme: {
-            titulo: 'Cuéntennos sobre su empresa',
+            titulo: 'Cuéntenos sobre su empresa',
             paso: 'Paso',
             de: 'de',
             atras: 'Atrás',
@@ -463,7 +457,6 @@ export const es = {
         horarioFin: 'Sábado y domingo',
         cerrado: 'cerrado',
         mapa: 'Mapa · La Laguna',
-        mapaNota: 'Incrustar mapa aquí',
     },
     noEncontrada: {
         title: 'Página no encontrada · Cabrera Kapital',
