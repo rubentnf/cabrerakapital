@@ -13,7 +13,12 @@ const tel1 = contacto.telefonos[0].visible;
 ---
 
 <Base title={c.title} description={c.description} page="contacto">
-    <HeroInterior etiqueta={c.etiqueta} titulo={c.h1} lead={c.lead} />
+    <HeroInterior
+        etiqueta={c.etiqueta}
+        titulo={c.h1}
+        lead={c.lead}
+        ilustracion="/img/portada-contacto.svg"
+    />
     <section class="sec">
         <div class="wrap cgrid">
             <div class="card pad" id="formbox">
@@ -286,7 +291,7 @@ const tel1 = contacto.telefonos[0].visible;
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.correoCard}</span>
-                    <b>{contacto.correo} [pendiente: correo corporativo]</b>
+                    <b>{contacto.correo}</b>
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.direccion}</span>
