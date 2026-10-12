@@ -1,7 +1,6 @@
 ---
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import type { MarkdownInstance } from "astro";
 import Base from "../layouts/Base.astro";
 import { rutaLegal, slugs, type DocumentoId } from "../data/legal";
 import { langDe, ruta, useT } from "../i18n";
@@ -15,10 +14,10 @@ const t = useT(lang);
 const titulo = t.documentos[id];
 
 // El texto de cada documento está en src/legal/<slug>.md
-const archivos = import.meta.glob<MarkdownInstance<Record<string, unknown>>>(
-    "../legal/*.md",
-    { eager: true },
-);
+const archivos = import.meta.glob<{
+    Content: any;
+    getHeadings: () => { depth: number; slug: string; text: string }[];
+}>("../legal/*.md", { eager: true });
 const { Content, getHeadings } = archivos[`../legal/${slugs[id]}.md`];
 
 // Índice lateral: los títulos de apartado (## …) del documento
@@ -32,13 +31,12 @@ const pdf = existsSync(
     : null;
 ---
 
+<!-- page="faq": ninguna pestaña del menú queda marcada en las páginas legales -->
 <Base
     title={`${titulo} · Cabrera Kapital`}
     description={t.documentos.descripcion.replace("{titulo}", titulo)}
+    page="faq"
     alt={{ es: rutaLegal(id, "es"), en: rutaLegal(id, "en") }}
-    animaciones={false}
-    canonical={rutaLegal(id, "es")}
-    hreflang={false}
 >
     <section class="sec legal">
         <div class="wrap">
@@ -70,10 +68,7 @@ const pdf = existsSync(
                                 {indice.map((h) => (
                                     <li>
                                         <a href={`#${h.slug}`}>
-                                            {String(h.text ?? h.slug).replace(
-                                                /^\d+\.\s*/,
-                                                "",
-                                            )}
+                                            {h.text.replace(/^\d+\.\s*/, "")}
                                         </a>
                                     </li>
                                 ))}
@@ -81,7 +76,7 @@ const pdf = existsSync(
                         </nav>
                     )
                 }
-                <article class="legal-texto" lang="es">
+                <article class="legal-texto">
                     <Content />
                 </article>
             </div>
