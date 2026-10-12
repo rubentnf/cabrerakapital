@@ -1945,3 +1945,12 @@ html {
 .wiz-nav .btn.line:hover {
     background: rgba(10, 34, 64, 0.06);
 }
+
+/* Campo trampa contra bots (invisible para las personas) */
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}

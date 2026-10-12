@@ -2,12 +2,13 @@ import { $, $$ } from './utils';
 
 /**
  * Formularios de contacto.
- * - Con PUBLIC_FORMSPREE_URL definida en .env, envía los datos a Formspree.
- * - Sin ella, solo muestra el aviso de demostración (útil mientras se prueba en local).
+ * - Los datos se envían a /api/contacto (función netlify/functions/contacto.mjs), que los manda por
+ *   correo con Resend. Para probar en local hay que usar `npx netlify-cli dev` en vez de `npm run dev`.
+ * - Con PUBLIC_FORM_ENDPOINT se puede apuntar a otro servicio (por ejemplo Formspree).
  * - Hay dos formularios: uno corto para particulares (#form) y uno por pasos para
  *   empresas y autónomos (#form-pyme). El selector «Soy…» muestra uno u otro.
  */
-const ENDPOINT = import.meta.env.PUBLIC_FORMSPREE_URL as string | undefined;
+const ENDPOINT = (import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined) || '/api/contacto';
 
 /** Envío común a los dos formularios. Devuelve true si se envió (o se simuló) bien. */
 async function enviar(form: HTMLFormElement): Promise<boolean> {
@@ -19,11 +20,6 @@ async function enviar(form: HTMLFormElement): Promise<boolean> {
         aviso.hidden = false;
     };
 
-    if (!ENDPOINT) {
-        mostrar(form.dataset.demo ?? '');
-        return false;
-    }
-
     const boton = $<HTMLButtonElement>('button[type="submit"]', form);
     if (boton) boton.disabled = true;
     try {
@@ -33,6 +29,9 @@ async function enviar(form: HTMLFormElement): Promise<boolean> {
             body: new FormData(form),
         });
         if (!respuesta.ok) throw new Error(String(respuesta.status));
+        // /api/contacto responde {ok:true}; otros servicios (Formspree) también aceptan la petición
+        const datos = await respuesta.json().catch(() => ({ ok: true }));
+        if (datos.ok === false) throw new Error(String(datos.error));
         mostrar(form.dataset.exito ?? '');
         return true;
     } catch {

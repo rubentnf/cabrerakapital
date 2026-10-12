@@ -49,6 +49,14 @@ const tel1 = contacto.telefonos[0].visible;
                         name="tipo_cliente"
                         value="particular"
                     />
+                    <input
+                        type="text"
+                        name="_gotcha"
+                        class="hp"
+                        tabindex="-1"
+                        autocomplete="off"
+                        aria-hidden="true"
+                    />
                     <div class="f2">
                         <label>
                             {c.nombre}
@@ -112,6 +120,14 @@ const tel1 = contacto.telefonos[0].visible;
                     data-error={`${c.error} ${tel1}.`}
                 >
                     <input type="hidden" name="tipo_cliente" value="pyme" />
+                    <input
+                        type="text"
+                        name="_gotcha"
+                        class="hp"
+                        tabindex="-1"
+                        autocomplete="off"
+                        aria-hidden="true"
+                    />
                     <div class="wiz-bar" aria-hidden="true">
                         {[0, 1, 2, 3, 4].map(() => <i />)}
                     </div>
@@ -233,7 +249,7 @@ const tel1 = contacto.telefonos[0].visible;
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.correoCard}</span>
-                    <b>{contacto.correo}</b>
+                    <b>{contacto.correo} [pendiente: correo corporativo]</b>
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.direccion}</span>
