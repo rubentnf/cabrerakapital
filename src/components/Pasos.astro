@@ -1,6 +1,7 @@
 ---
 import { langDe, useT } from "../i18n";
-const t = useT(langDe(Astro.url.pathname)).inicio.pasos;
+const i18n = useT(langDe(Astro.url.pathname)).inicio;
+const t = i18n.pasos;
 /* const imgs = ["s2", "s3", "s1"]; */
 const imgs = ["p1", "p2", "p3"];
 ---
@@ -29,5 +30,9 @@ const imgs = ["p1", "p2", "p3"];
                 ))
             }
         </div>
+    </div>
+    <!-- Indicador mientras la sección está fijada (lo oculta home.ts al llegar al último paso) -->
+    <div class="scroll-cue" aria-hidden="true">
+        {i18n.hero.desliza}<i></i>
     </div>
 </section>

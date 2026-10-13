@@ -763,8 +763,20 @@ p {
     padding: 7px 13px;
 }
 
+/* Foto del equipo: proporción fija (no altura fija) para que en pantallas anchas no recorte
+   las cabezas; el encuadre se desplaza hacia arriba, donde están las caras */
 .teamph {
-    height: 420px;
+    aspect-ratio: 2 / 1;
+}
+
+.teamph .foto {
+    object-position: 50% 25%;
+}
+
+@media (max-width: 620px) {
+    .teamph {
+        aspect-ratio: 4 / 3;
+    }
 }
 
 /* simulador */
@@ -956,7 +968,13 @@ textarea {
     }
 
     .btns .btn {
-        flex: 1;
+        flex: 1 1 auto;
+        white-space: nowrap;
+    }
+
+    /* Llamada final: el botón principal en su fila y los dos teléfonos debajo */
+    .cta .btns .btn.gold {
+        flex-basis: 100%;
     }
 }
 
@@ -1095,7 +1113,8 @@ textarea {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 6;
+    /* por encima del logotipo gigante y del panel de la frase: sigue visible toda la escena */
+    z-index: 9;
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;

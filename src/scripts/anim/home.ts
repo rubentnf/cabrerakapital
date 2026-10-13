@@ -23,13 +23,15 @@ export function initHome() {
         const movil = ctx.conditions?.movil;
 
         // ---------- 1) Hero fijado ----------
+        // Recorrido ajustado a la duración de la secuencia (≈9 unidades) para que no haya tramos sin
+        // cambios: si se alarga la secuencia, alargar también `end` en la misma proporción.
         gsap.set('.sky', { yPercent: 105, opacity: 1 });
         const tl = gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: {
                 trigger: '.scene',
                 start: 'top top+=70',
-                end: movil ? '+=380%' : '+=480%',
+                end: movil ? '+=240%' : '+=300%',
                 scrub: 0.6,
                 pin: true,
                 pinSpacing: true,
@@ -37,7 +39,11 @@ export function initHome() {
             },
         });
         tl.to('.hero-copy', { opacity: 0, y: -60, filter: 'blur(10px)', duration: 2 }, 0)
-            .to('.scroll-cue', { opacity: 0, duration: 0.6 }, 0)
+            // «Deslice»: sale con el texto de la portada y vuelve más abajo mientras la escena sigue fijada
+            .to('.scene .scroll-cue', { opacity: 0, duration: 0.4 }, 0)
+            .set('.scene .scroll-cue', { bottom: '5%' }, 0.5)
+            .to('.scene .scroll-cue', { opacity: 1, duration: 0.5 }, 1.2)
+            .to('.scene .scroll-cue', { opacity: 0, duration: 0.4 }, 8.6)
             .to('[data-depth="city"]', { yPercent: 40, opacity: 0, duration: 2.5 }, 0.5)
             .to('.skybg', { opacity: 1, duration: 2.5 }, 1)
             .to('[data-depth="sun"]', { opacity: 0, duration: 1.5 }, 1)
@@ -52,17 +58,18 @@ export function initHome() {
             .fromTo(
                 '.wm',
                 { opacity: 0, scale: 0.9, filter: 'blur(16px)' },
-                { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 2 },
+                { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.6 },
                 3,
             )
-            .fromTo('.wm small', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, 4)
-            .to('.wm', { scale: 1.04, duration: 1.5 }, 5)
-            .to('.wm', { scale: 1.25, opacity: 0, y: -80, filter: 'blur(10px)', duration: 1.8 }, 6.6)
-            .to('.sky', { yPercent: 0, duration: 2 }, 6.4)
-            .fromTo('.sky-in', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2 }, 8);
+            .fromTo('.wm small', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 3.8)
+            // Logotipo completo un instante y sale mientras el panel ya está subiendo (sin huecos vacíos)
+            .to('.wm', { scale: 1.25, opacity: 0, y: -80, filter: 'blur(10px)', duration: 1.4 }, 5)
+            .to('.sky', { yPercent: 0, duration: 1.6 }, 4.9)
+            .fromTo('.sky-in', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, 5.9);
 
         const frase = $('[data-skywords]');
-        if (frase) tl.to(splitWords(frase), { color: '#0a2240', stagger: 0.09, duration: 0.5 }, 9);
+        // `amount` reparte el encendido en un tramo fijo, sea cual sea el número de palabras
+        if (frase) tl.to(splitWords(frase), { color: '#0a2240', stagger: { amount: 2.4 }, duration: 0.4 }, 6.3);
 
         // ---------- 2) Tres pasos fijados ----------
         const cvs = $$('.cv'),
@@ -77,21 +84,23 @@ export function initHome() {
                 scrollTrigger: {
                     trigger: '#chev',
                     start: 'top top+=70',
-                    end: '+=200%',
+                    end: '+=160%',
                     scrub: 0.6,
                     pin: true,
                     pinSpacing: true,
                     anticipatePin: 1,
                 },
             });
-            ct.to({}, { duration: 0.6 });
+            // Pausas cortas al principio y al final: lo justo para leer el primer y el último paso
+            ct.to({}, { duration: 0.25 });
             for (let k = 1; k < 3; k++) {
-                const at = 0.6 + (k - 1) * 1.4;
+                const at = 0.25 + (k - 1) * 1.3;
                 ct.to(cst[k - 1], { opacity: 0, y: -24, duration: 0.5 }, at)
                     .to(cvs[k], { opacity: 1, scale: 1, filter: 'grayscale(0)', duration: 0.7 }, at)
                     .fromTo(cst[k], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, at + 0.4);
             }
-            ct.to({}, { duration: 0.6 });
+            // El indicador desaparece en la pausa final, justo antes de soltar la sección
+            ct.to('.chev .scroll-cue', { opacity: 0, duration: 0.25 });
         }
     });
 

@@ -9,7 +9,8 @@ const t = useT(langDe(Astro.url.pathname));
 const c = t.contacto;
 const p = c.pyme;
 const lang = langDe(Astro.url.pathname);
-const tel1 = contacto.telefonos[0].visible;
+// «606 395 427 o al 609 202 515»: todos los teléfonos, para el mensaje de error del formulario
+const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
 ---
 
 <Base title={c.title} description={c.description} page="contacto">
@@ -51,7 +52,7 @@ const tel1 = contacto.telefonos[0].visible;
                         id="form"
                         novalidate
                         data-demo={c.demo}
-                        data-error={`${c.error} ${tel1}.`}
+                        data-error={`${c.error} ${tels}.`}
                     >
                         <input
                             type="hidden"
@@ -125,7 +126,7 @@ const tel1 = contacto.telefonos[0].visible;
                         hidden
                         novalidate
                         data-demo={c.demo}
-                        data-error={`${c.error} ${tel1}.`}
+                        data-error={`${c.error} ${tels}.`}
                     >
                         <input type="hidden" name="tipo_cliente" value="pyme" />
                         <input

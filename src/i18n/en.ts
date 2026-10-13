@@ -99,12 +99,12 @@ export const en: Dict = {
         description:
             'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed. La Laguna, Tenerife.',
         hero: {
-            eyebrow: 'Mortgage broker · SME financing · Tenerife',
+            eyebrow: 'Mortgage broker · SME financing · Canarias',
             l1: 'We know banking',
             l2: 'from the inside.',
             l3: 'Now we negotiate for you.',
             sub: 'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
-            lema: 'Financial brokerage · Tenerife',
+            lema: 'Financial brokerage · Canarias',
             desliza: 'Scroll',
             pedir: 'Request a free assessment',
             servicios: 'See our services',
@@ -388,6 +388,7 @@ export const en: Dict = {
         exitoOtra: 'Send another request',
         exito: 'Thank you. We have received your request and will reply within 24–48 working hours.',
         error: 'We could not send the form. Please try again or call us on',
+        errorO: 'or',
         soy: 'I am…',
         tipoParticular: 'An individual',
         tipoPyme: 'A business or self-employed',

@@ -152,7 +152,7 @@
 .edit {
     position: relative;
     background: #eaf2f9;
-    padding-block: clamp(80px, 12vw, 170px);
+    padding-block: clamp(64px, 8vw, 112px);
     overflow: hidden;
 }
 
@@ -353,7 +353,7 @@
     background: #06142a;
     color: var(--iv);
     border-radius: 44px 44px 0 0;
-    padding-block: clamp(72px, 10vw, 140px) clamp(48px, 7vw, 96px);
+    padding-block: clamp(64px, 8vw, 112px) clamp(48px, 7vw, 96px);
 }
 
 .dk-head {
@@ -488,6 +488,49 @@
 a:hover .rl>span,
 button:hover .rl>span {
     transform: translateY(-100%);
+}
+
+/* «Deslice» de los tres pasos: debajo del contenido mientras la sección está fijada */
+.chev .scroll-cue {
+    bottom: 14px;
+    gap: 6px;
+}
+
+.chev .scroll-cue i {
+    height: 26px;
+}
+
+/* Escritorio: la sección se fija a 70 px del borde superior, así que debe caber en la altura que
+   queda (100vh - 70px) para que se lean el texto de cada paso y el indicador. Las flechas se
+   encogen con la altura de la pantalla (410px ≈ titular + texto del paso + márgenes + indicador)
+   y su solapamiento y su número se calculan sobre su propio ancho para mantener las proporciones */
+@media (min-width: 901px) {
+    .chev {
+        min-height: calc(100vh - 70px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-block: clamp(20px, 3vh, 40px) 64px;
+    }
+
+    .chevs {
+        margin: clamp(14px, 2.5vh, 32px) 0 clamp(10px, 2vh, 24px);
+    }
+
+    .cv {
+        --cvw: min(30vw, 420px, calc((100vh - 70px - 410px) * 1.05));
+        width: var(--cvw);
+        margin-left: calc(var(--cvw) * -0.233);
+    }
+
+    .cv b {
+        font-size: calc(var(--cvw) * 0.24);
+    }
+}
+
+/* Con movimiento reducido no hay fijados: el indicador sobra */
+.rm .chev .scroll-cue {
+    display: none;
 }
 
 @media (max-width: 900px) {

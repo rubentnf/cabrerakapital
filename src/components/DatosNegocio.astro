@@ -22,7 +22,7 @@ const negocio = {
     url: site.href,
     logo: new URL("/favicon.png", site).href,
     image: imagen,
-    telephone: contacto.telefonos[0].tel,
+    telephone: contacto.telefonos.map((p) => p.tel),
     email: contacto.correo,
     address: {
         "@type": "PostalAddress",

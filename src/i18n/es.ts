@@ -97,12 +97,12 @@ export const es = {
         description:
             'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma. La Laguna, Tenerife.',
         hero: {
-            eyebrow: 'Bróker hipotecario · Financiación para pymes · Tenerife',
+            eyebrow: 'Bróker hipotecario · Financiación para pymes · Canarias',
             l1: 'Conocemos la banca',
             l2: 'por dentro.',
             l3: 'Ahora negociamos por usted.',
             sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
-            lema: 'Intermediación financiera · Tenerife',
+            lema: 'Intermediación financiera · Canarias',
             desliza: 'Deslice',
             pedir: 'Pedir estudio gratuito',
             servicios: 'Ver servicios',
@@ -393,6 +393,7 @@ export const es = {
         exitoOtra: 'Enviar otra solicitud',
         exito: 'Gracias. Hemos recibido su solicitud y le responderemos en 24–48 horas laborables.',
         error: 'No hemos podido enviar el formulario. Inténtelo de nuevo o llámenos al',
+        errorO: 'o al',
         soy: 'Soy…',
         tipoParticular: 'Particular',
         tipoPyme: 'Pyme o autónomo',
