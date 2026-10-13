@@ -1279,46 +1279,87 @@ textarea {
     color: #e4dfd3;
 }
 
+/* «Siga bajando» (components/Desliza.astro). Pensado también para personas mayores: dice la acción,
+   la flecha dorada rebota hacia abajo con un pulso alrededor y se puede pulsar para bajar */
 .scroll-cue {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     /* por encima del logotipo gigante y del panel de la frase: sigue visible toda la escena */
     z-index: 9;
-    /* 13 px en negrita: con 11 px y peso normal casi no se veía en Chrome */
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--cue);
     bottom: 21%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding: 4px 8px;
+    border: 0;
+    border-radius: 14px;
+    background: none;
+    color: var(--cue);
+    font: 800 14px/1.2 var(--sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
-.scroll-cue i {
-    width: 2px;
-    height: 38px;
-    border-radius: 1px;
-    background: var(--cue);
-    transform-origin: top;
-    animation: cue 1.8s infinite;
+.cue-c {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    box-shadow: 0 6px 18px rgba(6, 20, 42, 0.35);
+    animation: cue-bota 1.6s ease-in-out infinite;
+    transition: background 0.2s;
 }
 
-@keyframes cue {
-    0% {
-        transform: scaleY(0);
+/* Pulso que se expande desde el círculo: llama la atención sin texto */
+.cue-c::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    animation: cue-pulso 1.6s ease-out infinite;
+}
+
+.scroll-cue:hover .cue-c,
+.scroll-cue:focus-visible .cue-c {
+    background: var(--goldl);
+}
+
+@keyframes cue-bota {
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    60% {
-        transform: scaleY(1);
+    50% {
+        transform: translateY(9px);
+    }
+}
+
+@keyframes cue-pulso {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
     }
 
     100% {
-        transform: scaleY(1);
+        transform: scale(1.7);
         opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cue-c,
+    .cue-c::after {
+        animation: none;
     }
 }
 

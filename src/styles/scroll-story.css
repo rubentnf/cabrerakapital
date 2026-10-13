@@ -490,19 +490,20 @@ button:hover .rl>span {
     transform: translateY(-100%);
 }
 
-/* «Deslice» de los tres pasos: debajo del contenido mientras la sección está fijada */
+/* «Siga bajando» de los tres pasos: debajo del contenido mientras la sección está fijada */
 .chev .scroll-cue {
-    bottom: 14px;
+    bottom: 12px;
     gap: 6px;
 }
 
-.chev .scroll-cue i {
-    height: 26px;
+.chev .cue-c {
+    width: 42px;
+    height: 42px;
 }
 
 /* Escritorio: la sección se fija a 70 px del borde superior, así que debe caber en la altura que
    queda (100vh - 70px) para que se lean el texto de cada paso y el indicador. Las flechas se
-   encogen con la altura de la pantalla (410px ≈ titular + texto del paso + márgenes + indicador)
+   encogen con la altura de la pantalla (442px ≈ titular + texto del paso + márgenes + indicador)
    y su solapamiento y su número se calculan sobre su propio ancho para mantener las proporciones */
 @media (min-width: 901px) {
     .chev {
@@ -510,7 +511,7 @@ button:hover .rl>span {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-block: clamp(20px, 3vh, 40px) 64px;
+        padding-block: clamp(20px, 3vh, 40px) 96px;
     }
 
     .chevs {
@@ -518,7 +519,7 @@ button:hover .rl>span {
     }
 
     .cv {
-        --cvw: min(30vw, 420px, calc((100vh - 70px - 410px) * 1.05));
+        --cvw: min(30vw, 420px, calc((100vh - 70px - 442px) * 1.05));
         width: var(--cvw);
         margin-left: calc(var(--cvw) * -0.233);
     }
@@ -561,9 +562,9 @@ button:hover .rl>span {
     }
 
     /* Sin altura mínima: al soltar la sección, la siguiente aparece justo después del último paso.
-       Abajo queda sitio para el «Deslice» de la sección (bottom: 14px; ~50px de alto) */
+       Abajo queda sitio para el «Siga bajando» de la sección (bottom: 12px; ~80px de alto) */
     .chev {
-        padding-block: 40px 84px;
+        padding-block: 40px 104px;
     }
 
     .cv {
@@ -600,7 +601,7 @@ button:hover .rl>span {
 /* «Desliza» tiene el mismo aspecto en todos los dispositivos. En móvil, scripts/desliza.ts lo coloca
    justo debajo del botón de la portada; si no cabe sin tapar nada, no se muestra (.tapa) */
 .scene .scroll-cue.tapa {
-    visibility: hidden;
+    visibility: hidden !important;
 }
 
 /* Portátiles bajos (1366×768…): el aviso cae sobre la silueta oscura de la ciudad, así que pasa a
@@ -610,9 +611,6 @@ button:hover .rl>span {
     text-shadow: 0 1px 6px rgba(6, 20, 42, 0.6);
 }
 
-.scene .scroll-cue.claro i {
-    background: var(--iv);
-}
 
 @media (prefers-reduced-motion: reduce) {
     * {

@@ -1,4 +1,4 @@
-import { $ } from './utils';
+import { $, $$, reducedMotion } from './utils';
 
 /**
  * Coloca el aviso «Desliza» de la portada para que se vea siempre y nunca tape los botones.
@@ -13,6 +13,15 @@ import { $ } from './utils';
 const SEPARACION = 24; // px entre los botones y el aviso
 
 export function initDesliza() {
+    // Quien lo pulsa como si fuera un «siguiente» (habitual en personas mayores): la página baja sola
+    for (const boton of $$<HTMLButtonElement>('[data-desliza]'))
+        boton.addEventListener('click', () =>
+            window.scrollBy({
+                top: Math.round(window.innerHeight * 0.8),
+                behavior: reducedMotion() ? 'auto' : 'smooth',
+            }),
+        );
+
     const escena = $('.scene');
     const aviso = $('.scene .scroll-cue');
     const botones = $('.scene .hero-copy .btns');

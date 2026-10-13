@@ -40,10 +40,10 @@ export function initHome() {
         });
         tl.to('.hero-copy', { opacity: 0, y: -60, filter: 'blur(10px)', duration: 2 }, 0)
             // «Deslice»: sale con el texto de la portada y vuelve más abajo mientras la escena sigue fijada
-            .to('.scene .scroll-cue', { opacity: 0, duration: 0.4 }, 0)
+            .to('.scene .scroll-cue', { autoAlpha: 0, duration: 0.4 }, 0)
             .set('.scene .scroll-cue', { bottom: '5%' }, 0.5)
-            .to('.scene .scroll-cue', { opacity: 1, duration: 0.5 }, 1.2)
-            .to('.scene .scroll-cue', { opacity: 0, duration: 0.4 }, 8.6)
+            .to('.scene .scroll-cue', { autoAlpha: 1, duration: 0.5 }, 1.2)
+            .to('.scene .scroll-cue', { autoAlpha: 0, duration: 0.4 }, 8.6)
             .to('[data-depth="city"]', { yPercent: 40, opacity: 0, duration: 2.5 }, 0.5)
             .to('.skybg', { opacity: 1, duration: 2.5 }, 1)
             .to('[data-depth="sun"]', { opacity: 0, duration: 1.5 }, 1)
@@ -102,7 +102,7 @@ export function initHome() {
                     .fromTo(cst[k], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, at + 0.4);
             }
             // El indicador desaparece en la pausa final, justo antes de soltar la sección
-            ct.to('.chev .scroll-cue', { opacity: 0, duration: 0.25 });
+            ct.to('.chev .scroll-cue', { autoAlpha: 0, duration: 0.25 });
         }
     });
 

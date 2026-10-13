@@ -1,4 +1,5 @@
 ---
+import Desliza from "./Desliza.astro";
 import { langDe, ruta, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang).inicio.hero;
@@ -263,7 +264,5 @@ const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
             </p>
         </div>
     </div>
-    <div class="scroll-cue" aria-hidden="true">
-        {t.desliza}<i></i>
-    </div>
+    <Desliza />
 </section>

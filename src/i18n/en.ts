@@ -109,7 +109,7 @@ export const en: Dict = {
             l3: 'Now we negotiate for you.',
             sub: 'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
             lema: 'Financial brokerage · Canarias',
-            desliza: 'Scroll',
+            desliza: 'Keep scrolling',
             pedir: 'Request a free assessment',
             servicios: 'See our services',
         },

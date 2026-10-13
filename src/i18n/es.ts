@@ -107,7 +107,7 @@ export const es = {
             l3: 'Ahora negociamos por usted.',
             sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
             lema: 'Intermediación financiera · Canarias',
-            desliza: 'Deslice',
+            desliza: 'Siga bajando',
             pedir: 'Pedir estudio gratuito',
             servicios: 'Ver servicios',
         },
