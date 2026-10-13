@@ -73,6 +73,21 @@ const og = await getImage({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="theme-color" content="#0a2240" />
+        <script is:inline>
+            // Modo claro/oscuro antes de pintar (evita el destello): elección guardada o la del sistema.
+            // El botón y los cambios posteriores están en src/scripts/tema.ts.
+            (function () {
+                var t = null;
+                try {
+                    t = localStorage.getItem("tema");
+                } catch (e) {}
+                if (t !== "light" && t !== "dark")
+                    t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                document.documentElement.dataset.theme = t;
+                if (t === "dark")
+                    document.querySelector('meta[name="theme-color"]').content = "#08142a";
+            })();
+        </script>
         <link rel="canonical" href={canonical} />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {

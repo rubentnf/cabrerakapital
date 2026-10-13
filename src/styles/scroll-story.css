@@ -37,7 +37,7 @@
 
 .scene .wm small {
     font: 500 clamp(18px, 2.6vw, 36px) var(--serif);
-    color: var(--navy);
+    color: var(--heading);
     margin-top: 1.6vw;
     letter-spacing: -0.01em;
 }
@@ -48,15 +48,15 @@
     inset: -2px;
     z-index: 8;
     background:
-        radial-gradient(40% 12% at 10% 0, #eaf2f9 60%, transparent 100%),
-        radial-gradient(34% 10% at 36% 0, #eaf2f9 60%, transparent 100%),
-        radial-gradient(40% 12% at 64% 0, #eaf2f9 60%, transparent 100%),
-        radial-gradient(34% 10% at 92% 0, #eaf2f9 60%, transparent 100%),
-        linear-gradient(#eaf2f9, #eaf2f9) 0 6%/100% 100% no-repeat;
+        radial-gradient(40% 12% at 10% 0, var(--sky) 60%, transparent 100%),
+        radial-gradient(34% 10% at 36% 0, var(--sky) 60%, transparent 100%),
+        radial-gradient(40% 12% at 64% 0, var(--sky) 60%, transparent 100%),
+        radial-gradient(34% 10% at 92% 0, var(--sky) 60%, transparent 100%),
+        linear-gradient(var(--sky), var(--sky)) 0 6%/100% 100% no-repeat;
 }
 
 .manif {
-    background: #eaf2f9;
+    background: var(--sky);
     padding-block: clamp(40px, 6vw, 72px) clamp(56px, 8vw, 100px);
 }
 
@@ -96,8 +96,9 @@
     max-width: 22ch;
 }
 
+/* --k (0 → 1) lo anima src/scripts/anim/home.ts: la palabra pasa de apagada a encendida en cualquier modo */
 .manif-t .w {
-    color: #b9c4d2;
+    color: color-mix(in srgb, var(--heading) calc(var(--k, 0) * 100%), var(--word-off));
 }
 
 .mstats {
@@ -106,13 +107,13 @@
     gap: 24px;
     margin-top: clamp(48px, 7vw, 96px);
     padding-top: 28px;
-    border-top: 1px solid #c7d4e3;
+    border-top: 1px solid var(--sky-line);
 }
 
 .mstats b {
     display: block;
     font: 500 clamp(36px, 4.4vw, 60px)/1 var(--serif);
-    color: var(--navy);
+    color: var(--heading);
 }
 
 .mstats>div>span {
@@ -123,7 +124,7 @@
 }
 
 .revimg {
-    background: #eaf2f9;
+    background: var(--sky);
 }
 
 @media (min-width: 768px) {
@@ -151,7 +152,7 @@
 
 .edit {
     position: relative;
-    background: #eaf2f9;
+    background: var(--sky);
     padding-block: clamp(64px, 8vw, 112px);
     overflow: hidden;
 }
@@ -168,7 +169,7 @@
     margin: 0 0 clamp(20px, 3vw, 40px);
     padding: 0;
     font-size: 14px;
-    color: var(--navy);
+    color: var(--heading);
 }
 
 .edit-list li {
@@ -189,13 +190,13 @@
 .edit h2 {
     font: 500 clamp(44px, 8vw, 128px)/0.96 var(--serif);
     letter-spacing: -0.035em;
-    color: var(--navy);
+    color: var(--heading);
     margin: 0;
 }
 
 .edit h2 em {
     font-style: italic;
-    color: #5d7390;
+    color: var(--edit-em);
 }
 
 .edit h2 .ln {
@@ -227,7 +228,7 @@
     display: block;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 34px 70px -34px rgba(10, 34, 64, 0.55);
+    box-shadow: 0 34px 70px -34px rgb(var(--sh) / 0.55);
 }
 
 .fi.b {
@@ -268,7 +269,7 @@
 
 .chev {
     position: relative;
-    background: var(--iv);
+    background: var(--bg);
     padding-block: clamp(56px, 8vw, 96px);
 }
 
@@ -602,6 +603,17 @@ button:hover .rl>span {
     visibility: hidden;
 }
 
+/* Portátiles bajos (1366×768…): el aviso cae sobre la silueta oscura de la ciudad, así que pasa a
+   marfil para leerse. Al empezar a bajar vuelve a su color (scripts/desliza.ts) */
+.scene .scroll-cue.claro {
+    color: var(--iv);
+    text-shadow: 0 1px 6px rgba(6, 20, 42, 0.6);
+}
+
+.scene .scroll-cue.claro i {
+    background: var(--iv);
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
@@ -651,4 +663,106 @@ button:hover .rl>span {
     padding: 0;
     overflow: hidden;
     background: none;
+}
+/* ===== Modo oscuro: la portada se convierte en una escena de noche ===== */
+@media screen {
+    :root[data-theme='dark'] .scene.tdhero {
+        background: linear-gradient(180deg, #040b19 0%, #0b1d3a 40%, #213459 70%, #34406a 100%);
+    }
+
+    /* Estrellas: puntos fijos en la mitad superior del cielo */
+    :root[data-theme='dark'] .scene.tdhero::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 45% 0;
+        pointer-events: none;
+        background:
+            radial-gradient(1.5px 1.5px at 8% 18%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 17% 42%, #fff 50%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 26% 9%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 34% 30%, #fff 50%, transparent 100%),
+            radial-gradient(2px 2px at 43% 14%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 51% 38%, #fff 50%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 58% 6%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 73% 26%, #fff 50%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 81% 12%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 88% 40%, #fff 50%, transparent 100%),
+            radial-gradient(2px 2px at 94% 20%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 12% 60%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 66% 52%, #fff 50%, transparent 100%),
+            radial-gradient(1px 1px at 38% 58%, #fff 50%, transparent 100%);
+        opacity: 0.75;
+    }
+
+    /* Luna en lugar del sol */
+    :root[data-theme='dark'] .scene .sun {
+        width: 32vmin;
+        height: 32vmin;
+        left: 66%;
+        top: 10%;
+        background: radial-gradient(circle,
+                #f4efe2 0 15%,
+                rgba(214, 224, 242, 0.32) 21%,
+                rgba(214, 224, 242, 0.08) 42%,
+                rgba(214, 224, 242, 0) 68%);
+    }
+
+    /* En móvil el titular ocupa todo el ancho: la luna baja al hueco sobre el Teide */
+    @media (max-width: 767px) {
+        :root[data-theme='dark'] .scene .sun {
+            width: 30vmin;
+            height: 30vmin;
+            left: 62%;
+            top: 56%;
+        }
+    }
+
+    :root[data-theme='dark'] .scene .teide svg {
+        filter: brightness(0.5) saturate(0.8);
+    }
+
+    :root[data-theme='dark'] .scene .clouds-back {
+        opacity: 0.8;
+        background:
+            radial-gradient(38% 60% at 12% 70%, #1d2d4a 0 40%, transparent 72%),
+            radial-gradient(30% 55% at 36% 78%, #22324f 0 42%, transparent 74%),
+            radial-gradient(34% 62% at 62% 72%, #1d2d4a 0 40%, transparent 72%),
+            radial-gradient(30% 50% at 88% 78%, #253655 0 42%, transparent 74%);
+    }
+
+    :root[data-theme='dark'] .scene .clouds-front {
+        background:
+            radial-gradient(30% 58% at 4% 64%, #16243c 0 44%, transparent 76%),
+            radial-gradient(28% 60% at 28% 70%, #1a2943 0 44%, transparent 76%),
+            radial-gradient(32% 64% at 54% 62%, #16243c 0 42%, transparent 76%),
+            radial-gradient(28% 56% at 78% 70%, #1c2b46 0 44%, transparent 76%),
+            radial-gradient(26% 60% at 98% 64%, #16243c 0 44%, transparent 76%),
+            linear-gradient(180deg, transparent 55%, var(--bg) 88%);
+    }
+
+    /* Ciudad: siluetas casi negras y ventanas encendidas */
+    :root[data-theme='dark'] .scene .city [fill='#0a2240'] {
+        fill: #040a16;
+    }
+
+    :root[data-theme='dark'] .scene .city [stroke='#0a2240'] {
+        stroke: #040a16;
+    }
+
+    :root[data-theme='dark'] .scene .city [fill='#f3e0b8'] {
+        fill: #ffcf73;
+        opacity: 0.9;
+    }
+
+    /* Cielo de la segunda parte de la escena (logotipo gigante) */
+    :root[data-theme='dark'] .scene .skybg {
+        background:
+            radial-gradient(60% 40% at 20% 85%, rgba(38, 56, 90, 0.9), transparent 70%),
+            radial-gradient(50% 36% at 80% 90%, rgba(38, 56, 90, 0.85), transparent 70%),
+            linear-gradient(180deg, #050d1c 0%, #0c1f3d 55%, var(--sky) 100%);
+    }
+
+    :root[data-theme='dark'] .scene .hero-copy p {
+        text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+    }
 }

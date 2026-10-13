@@ -19,6 +19,7 @@ export const en: Dict = {
         abrirMenu: 'Open menu',
         cerrarMenu: 'Close menu',
         cta: 'Free assessment',
+        tema: 'Dark mode',
     },
     cookies: {
         titulo: 'Cookie notice',

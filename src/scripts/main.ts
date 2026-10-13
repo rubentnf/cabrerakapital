@@ -8,8 +8,10 @@ import { initMapa } from './mapa';
 import { initCookies } from './cookies';
 import { initCarrusel } from './carrusel';
 import { initDesliza } from './desliza';
+import { initTema } from './tema';
 
 // Funciones que no dependen del movimiento
+initTema();
 initNav();
 rollify();
 initSimulador();

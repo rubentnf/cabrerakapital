@@ -68,8 +68,10 @@ export function initHome() {
             .fromTo('.sky-in', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, 5.9);
 
         const frase = $('[data-skywords]');
+        // --k enciende cada palabra (color en scroll-story.css, válido en modo claro y oscuro).
         // `amount` reparte el encendido en un tramo fijo, sea cual sea el número de palabras
-        if (frase) tl.to(splitWords(frase), { color: '#0a2240', stagger: { amount: 2.4 }, duration: 0.4 }, 6.3);
+        if (frase)
+            tl.fromTo(splitWords(frase), { '--k': 0 }, { '--k': 1, stagger: { amount: 2.4 }, duration: 0.4 }, 6.3);
 
         // ---------- 2) Tres pasos fijados ----------
         const cvs = $$('.cv'),
@@ -142,9 +144,9 @@ export function initHome() {
     if (mt) {
         gsap.fromTo(
             splitWords(mt),
-            { color: '#b9c4d2' },
+            { '--k': 0 },
             {
-                color: '#0a2240',
+                '--k': 1,
                 stagger: 0.1,
                 ease: 'none',
                 scrollTrigger: { trigger: mt, start: 'top 78%', end: 'bottom 45%', scrub: true },

@@ -17,6 +17,7 @@ export const es = {
         abrirMenu: 'Abrir menú',
         cerrarMenu: 'Cerrar menú',
         cta: 'Estudio gratuito',
+        tema: 'Modo oscuro',
     },
     cookies: {
         titulo: 'Aviso de cookies',
