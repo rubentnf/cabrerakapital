@@ -1242,9 +1242,10 @@ textarea {
         display: none;
     }
 
+    /* Apaisado para que la foto (16:9) no se recorte hasta dejar fuera a los socios */
     .frame {
-        height: 64svh;
-        min-height: 420px;
+        height: auto;
+        aspect-ratio: 3 / 2;
     }
 }
 

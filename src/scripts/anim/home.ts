@@ -115,9 +115,11 @@ export function initHome() {
                 scrollTrigger: { trigger: '#frame', start: 'top 90%', end: 'center 50%', scrub: true },
             },
         );
+        // En móvil el marco es más estrecho: con menos zoom se ve a los dos socios
+        const zoom = window.matchMedia('(max-width: 767px)').matches ? 1.08 : 1.25;
         gsap.fromTo(
             '.frame-inner',
-            { scale: 1.25, yPercent: -4 },
+            { scale: zoom, yPercent: -4 },
             {
                 scale: 1,
                 yPercent: 4,
