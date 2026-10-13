@@ -95,7 +95,7 @@ export const es = {
     inicio: {
         title: 'Cabrera Kapital · Intermediación hipotecaria y financiación para empresas en Canarias',
         description:
-            'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma. La Laguna, Tenerife.',
+            'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
         hero: {
             eyebrow: 'Bróker hipotecario · Financiación para pymes · Canarias',
             l1: 'Conocemos la banca',
@@ -117,8 +117,8 @@ export const es = {
             coste: 'cuesta el estudio inicial',
         },
         oficina: {
-            alt: 'Fachada de la oficina de Cabrera Kapital en La Laguna',
-            titulo: 'Una oficina real, en La Laguna.',
+            alt: 'Fachada de la oficina de Cabrera Kapital en Canarias',
+            titulo: 'Una oficina real, en Canarias.',
             chip: 'Aquí irá la foto real del equipo · C/ Santa Eulalia 9',
         },
         pasos: {

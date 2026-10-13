@@ -7,7 +7,14 @@ const t = useT(langDe(Astro.url.pathname)).inicio.oficina;
 <section class="revimg" aria-labelledby="office-title">
     <div class="frame" id="frame">
         <div class="frame-inner" id="frame-inner">
-            <Foto name="oficina" alt={t.alt}>
+            <!-- Ocupa más que el ancho de pantalla: object-fit: cover en un marco alto (en móvil, ~160vh de ancho)
+                 y la animación la amplía hasta un 125 % -->
+            <Foto
+                name="oficina"
+                alt={t.alt}
+                widths={[800, 1200, 1600, 2000, 2400, 3200]}
+                sizes="(max-width: 767px) 160vh, 125vw"
+            >
                 <img
                     class="foto"
                     src="/img/scene-catedral.svg"

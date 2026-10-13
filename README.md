@@ -1,6 +1,6 @@
 # Cabrera Kapital · cabrerakapital.es
 
-Rediseño de la web de **Cabrera Kapital**, agencia de intermediación de crédito inmobiliario y financiación para empresas en La Laguna (Tenerife), inscrita en el Banco de España con el número E593.
+Rediseño de la web de **Cabrera Kapital**, agencia de intermediación de crédito inmobiliario y financiación para empresas en Canarias, inscrita en el Banco de España con el número E593.
 
 Es un sitio estático de 6 páginas con animaciones de scroll. El texto de la web está redactado en «ustedes».
 

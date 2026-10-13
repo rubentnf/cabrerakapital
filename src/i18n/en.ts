@@ -97,7 +97,7 @@ export const en: Dict = {
     inicio: {
         title: 'Cabrera Kapital · Mortgage brokerage and business financing in the Canary Islands',
         description:
-            'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed. La Laguna, Tenerife.',
+            'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
         hero: {
             eyebrow: 'Mortgage broker · SME financing · Canarias',
             l1: 'We know banking',
@@ -120,7 +120,7 @@ export const en: Dict = {
         },
         oficina: {
             alt: 'Front of the Cabrera Kapital office in La Laguna',
-            titulo: 'A real office, in La Laguna.',
+            titulo: 'A real office, in Canarias.',
             chip: 'The real team photo will go here · C/ Santa Eulalia 9',
         },
         pasos: {
