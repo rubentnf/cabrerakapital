@@ -10,8 +10,8 @@ import { $, $$ } from './utils';
  */
 const ENDPOINT = (import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined) || '/api/contacto';
 
-/** Envío común a los dos formularios. Devuelve true si se envió (o se simuló) bien. */
-async function enviar(form: HTMLFormElement): Promise<boolean> {
+/** Envío común a los formularios (también el simulador). Devuelve true si se envió (o se simuló) bien. */
+export async function enviar(form: HTMLFormElement): Promise<boolean> {
     const aviso = $('[data-aviso]', form);
     const mostrar = (texto: string, ok = true) => {
         if (!aviso) return;

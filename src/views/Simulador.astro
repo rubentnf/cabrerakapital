@@ -1,84 +1,186 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Cta from "../components/Cta.astro";
-import HeroInterior from "../components/HeroInterior.astro";
-import { langDe, ruta, useT } from "../i18n";
+import Recorrido from "../components/simulador/Recorrido.astro";
+import Paso from "../components/simulador/Paso.astro";
+import Campo from "../components/simulador/Campo.astro";
+import Opciones from "../components/simulador/Opciones.astro";
+import Desplegable from "../components/simulador/Desplegable.astro";
+import Solicitante from "../components/simulador/Solicitante.astro";
+import Contacto from "../components/simulador/Contacto.astro";
+import Prototipos from "../components/prototipos/Prototipos.astro";
+import bde from "../assets/sellos/banco-de-espana.png";
+import { entidades } from "../data/entidades";
+import { langDe, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 const s = t.simulador;
+const { c, m, ud } = s;
+const listaEntidades = [
+    ...[...entidades].sort((a, b) => a.localeCompare(b, "es")).map((e) => ({ v: e, t: e })),
+    { v: "Otra", t: m.p2.otraEntidad },
+];
+// Año de fin de la hipoteca: desde el año en que se publica la web
+const anio = new Date().getFullYear();
+// Iconos de las ventajas (mismo orden que s.ventajas): años de banca, asesor, estudio gratuito
+const iconos = [
+    "M3 21h18M5 21V10m4 11V10m6 11V10m4 11V10M2 10l10-6 10 6",
+    "M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z",
+    "M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3Zm-3.5 9 2.5 2.5 4.5-5",
+];
 ---
 
 <Base title={s.title} description={s.description} page="simulador">
-    <HeroInterior
-        etiqueta={s.etiqueta}
-        titulo={s.h1}
-        lead={s.lead}
-        ilustracion="/img/portada-simulador.svg"
-    />
-    <section class="sec">
-        <div class="wrap simg" data-simulador data-stag data-lang={lang} data-anios={s.anios}>
-            <div class="card pad">
-                <label>
-                    {s.importe}
-                    <b data-out="importe"></b>
-                    <input
-                        type="range"
-                        data-sim="importe"
-                        min="30000"
-                        max="800000"
-                        step="5000"
-                        value="200000"
-                    />
-                </label>
-                <label>
-                    {s.plazo}
-                    <b data-out="plazo"></b>
-                    <input
-                        type="range"
-                        data-sim="plazo"
-                        min="5"
-                        max="40"
-                        step="1"
-                        value="25"
-                    />
-                </label>
-                <label>
-                    {s.interes}
-                    <b data-out="tipo"></b>
-                    <input
-                        type="range"
-                        data-sim="tipo"
-                        min="0.5"
-                        max="8"
-                        step="0.1"
-                        value="3"
-                    />
-                </label>
+    <section class="hero inner simhero">
+        <div class="wrap simhero-g">
+            <div class="simhero-copy">
+                <span class="eyebrow" data-fade>{s.etiqueta}</span>
+                <h1 data-split>{s.h1}</h1>
+                <p class="lead" data-fade>{s.lead}</p>
             </div>
-            <div class="card pad res">
-                <span class="eyebrow">{s.cuota}</span>
-                <div class="huge" data-out="cuota">0 €</div>
-                <div class="row2">
-                    <span>{s.total}</span>
-                    <b data-out="total"></b>
+
+            <div class="simcard" id="simbox" data-lang={lang} data-rango={s.rango} data-completado={s.completado} data-casi={s.casi}>
+                <!-- Elección del recorrido -->
+                <div class="sim-inicio" id="sim-inicio">
+                    <h2 tabindex="-1">{s.inicioT}</h2>
+                    <p>{s.inicioD}</p>
+                    <div class="sim-elige">
+                        <button class="sim-op" type="button" data-elige="comprar">
+                            <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 10.5 12 3l9 7.5M5 9v12h14V9M10 21v-6h4v6"></path>
+                            </svg>
+                            <span>{s.comprar}</span>
+                            <span class="flecha" aria-hidden="true">→</span>
+                        </button>
+                        <button class="sim-op" type="button" data-elige="mejorar">
+                            <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 8h15m0 0-4-4m4 4-4 4M20 16H5m0 0 4-4m-4 4 4 4"></path>
+                            </svg>
+                            <span>{s.mejorar}</span>
+                            <span class="flecha" aria-hidden="true">→</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="row2">
-                    <span>{s.intereses}</span>
-                    <b data-out="intereses"></b>
+
+                <!-- Encontrar la mejor hipoteca -->
+                <Recorrido flujo="comprar" valor="Comprar vivienda">
+                    <Paso titulo={c.p1.t}>
+                        <Campo name="precio" label={c.p1.precio} unidad={ud.eur} ayuda={c.p1.precioAyuda} min={50000} max={5000000} placeholder="180.000" />
+                        <Opciones name="plazo_compra" legend={c.p1.cuando} opciones={c.p1.cuandoOps} />
+                    </Paso>
+                    <Paso titulo={c.p2.t}>
+                        <Desplegable name="ubicacion" label={c.p2.ubicacion} opciones={s.ubicaciones} />
+                        <Opciones name="tipo_vivienda" legend={c.p2.tipo} opciones={c.p2.tipoOps} columnas={2} />
+                    </Paso>
+                    <Paso titulo={c.p3.t}>
+                        <Opciones name="uso" legend={c.p3.uso} opciones={c.p3.usoOps} />
+                        <Campo name="ahorros" label={c.p3.ahorros} unidad={ud.eur} ayuda={c.p3.ahorrosAyuda} min={0} max={5000000} placeholder="40.000" />
+                    </Paso>
+                    <Paso titulo={c.p4.t}>
+                        <Campo name="edad" label={c.p4.edad} unidad={ud.anios} min={18} max={80} placeholder="35" />
+                    </Paso>
+                    <Paso titulo={c.p5.t}>
+                        <Opciones name="titulares" legend={c.p5.titulares} opciones={c.p5.titularesOps} columnas={2} />
+                        <Solicitante n={1} completo />
+                        <fieldset class="sim-si" data-si="titulares:Con otra persona" hidden disabled>
+                            <Solicitante n={2} completo />
+                        </fieldset>
+                    </Paso>
+                    <Paso titulo={s.contactoT}>
+                        <Contacto />
+                    </Paso>
+                </Recorrido>
+
+                <!-- Mejorar mi hipoteca actual -->
+                <Recorrido flujo="mejorar" valor="Mejorar mi hipoteca">
+                    <Paso titulo={m.p1.t}>
+                        <Opciones name="motivo" legend={m.p1.motivo} opciones={m.p1.motivoOps} />
+                    </Paso>
+                    <Paso titulo={m.p2.t}>
+                        <Desplegable name="entidad" label={m.p2.entidad} opciones={listaEntidades} />
+                        <Campo name="precio" label={m.p2.precio} unidad={ud.eur} min={10000} max={5000000} placeholder="180.000" />
+                        <Desplegable name="ubicacion" label={m.p2.ubicacion} opciones={s.ubicaciones} />
+                        <Opciones name="firma" legend={m.p2.firma} opciones={m.p2.firmaOps} columnas={2} />
+                    </Paso>
+                    <Paso titulo={m.p3.t}>
+                        <Campo name="pendiente" label={m.p3.pendiente} unidad={ud.eur} min={1000} max={5000000} placeholder="120.000" />
+                        <Campo name="fin" label={m.p3.fin} min={anio} max={anio + 50} miles={false} placeholder={String(anio + 20)} />
+                    </Paso>
+                    <Paso titulo={m.p4.t}>
+                        <Opciones name="tipo_hipoteca" legend={m.p4.tipo} opciones={m.p4.tipoOps} columnas={3} />
+                        <fieldset class="sim-si" data-si="tipo_hipoteca:Fijo" hidden disabled>
+                            <Campo name="tin" label={m.p4.tin} unidad={ud.pct} decimales={2} min={0} max={15} placeholder="1,90" />
+                        </fieldset>
+                        <fieldset class="sim-si" data-si="tipo_hipoteca:Mixto" hidden disabled>
+                            <span class="sim-sub">{m.p4.tramoFijo}</span>
+                            <div class="f2">
+                                <Campo name="tramo_fijo_anios" label={m.p4.tramoAnios} unidad={ud.anios} min={1} max={40} placeholder="5" />
+                                <Campo name="tin" label={m.p4.tramoTin} unidad={ud.pct} decimales={2} min={0} max={15} placeholder="1,90" />
+                            </div>
+                            <span class="sim-sub">{m.p4.tramoVariable}</span>
+                        </fieldset>
+                        <fieldset class="sim-si" data-si="tipo_hipoteca:Mixto,Variable" hidden disabled>
+                            <Campo name="diferencial" label={m.p4.diferencial} unidad={ud.pct} ayuda={m.p4.diferencialAyuda} decimales={2} min={0} max={10} placeholder="0,99" />
+                        </fieldset>
+                        <fieldset class="sim-si" data-si="tipo_hipoteca:Fijo,Mixto,Variable" hidden disabled>
+                            <Campo name="vinculados" label={m.p4.vinculados} unidad={ud.eurAnio} ayuda={m.p4.vinculadosAyuda} min={0} max={100000} placeholder="0" />
+                        </fieldset>
+                    </Paso>
+                    <Paso titulo={m.p5.t}>
+                        <Opciones name="titulares" legend={m.p5.titulares} opciones={m.p5.titularesOps} columnas={2} />
+                        <Solicitante n={1} />
+                        <fieldset class="sim-si" data-si="titulares:Con otra persona" hidden disabled>
+                            <Solicitante n={2} />
+                        </fieldset>
+                    </Paso>
+                    <Paso titulo={s.contactoT}>
+                        <Contacto />
+                    </Paso>
+                </Recorrido>
+
+                <!-- Confirmación: sustituye al recorrido cuando el envío ha ido bien -->
+                <div class="exito" id="sim-exito" role="status" tabindex="-1" hidden>
+                    <svg class="exito-svg" viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+                        <circle class="exito-aro" cx="60" cy="60" r="52"></circle>
+                        <path class="exito-tick" d="M36 62 L53 79 L85 44"></path>
+                    </svg>
+                    <h2>{s.exitoT}</h2>
+                    <p>{s.exito}</p>
+                    <button class="btn line" type="button" id="sim-otra">{s.exitoOtra}</button>
                 </div>
-                <p class="small">{s.aviso}</p>
-                <a
-                    class="btn gold self-start"
-                    href={ruta("contacto", lang)}
-                >
-                    {s.boton}
-                </a>
+
+                <p class="sim-nota">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                        <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+                    </svg>
+                    {s.nota}
+                </p>
+            </div>
+
+            <div class="simhero-extra" data-fade>
+                <ul class="sim-ventajas">
+                    {
+                        s.ventajas.map((v, i) => (
+                            <li>
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d={iconos[i]} />
+                                </svg>
+                                <b>{v.t}</b>
+                                <span>{v.d}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+                <div class="sim-sello">
+                    <Image src={bde} alt={s.selloAlt} widths={[140, 280]} sizes="140px" />
+                    <p>{s.sello}</p>
+                </div>
             </div>
         </div>
     </section>
-    <Cta
-        title={s.ctaTitulo}
-        text={s.ctaTexto}
-        cta={s.ctaBoton}
-    />
+    {/* PROTOTIPOS para el cliente: quitar esta línea (y components/prototipos) cuando elija variante */}
+    {lang === "es" && <Prototipos />}
+    <Cta title={s.ctaTitulo} text={s.ctaTexto} cta={s.ctaBoton} />
 </Base>

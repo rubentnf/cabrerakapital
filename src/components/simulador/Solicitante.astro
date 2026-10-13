@@ -1,0 +1,53 @@
+---
+// Datos de un titular. Comprar pide también antigüedad, ingresos y otros préstamos (`completo`);
+// mejorar la hipoteca, solo la situación laboral.
+import Campo from "./Campo.astro";
+import Desplegable from "./Desplegable.astro";
+import { langDe, useT } from "../../i18n";
+
+interface Props {
+    n: 1 | 2;
+    completo?: boolean;
+}
+const { n, completo = false } = Astro.props;
+const s = useT(langDe(Astro.url.pathname)).simulador;
+const p = `s${n}_`;
+---
+
+<div class="sim-sol">
+    <span class="sim-sub">{s.solicitante} {n}</span>
+    <Desplegable name={`${p}situacion`} label={s.situacion} opciones={s.situaciones} />
+    {
+        completo && (
+            <>
+                <div class="f2">
+                    <Campo
+                        name={`${p}antiguedad`}
+                        label={s.antiguedad}
+                        unidad={s.ud.anios}
+                        min={0}
+                        max={60}
+                        placeholder="3"
+                    />
+                    <Campo
+                        name={`${p}ingresos`}
+                        label={s.ingresos}
+                        unidad={s.ud.eurMes}
+                        min={0}
+                        max={1000000}
+                        placeholder="1.800"
+                    />
+                </div>
+                <Campo
+                    name={`${p}prestamos`}
+                    label={s.prestamos}
+                    unidad={s.ud.eurMes}
+                    min={0}
+                    max={1000000}
+                    placeholder="0"
+                    opcional
+                />
+            </>
+        )
+    }
+</div>

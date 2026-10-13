@@ -12,7 +12,9 @@ const TIPOS = ['particular', 'pyme'];
 // Campos admitidos y su etiqueta en el correo (el resto se ignora)
 const ETIQUETAS = {
     tipo_cliente: 'Tipo de cliente',
+    flujo: 'Simulador',
     nombre: 'Nombre',
+    apellidos: 'Apellidos',
     telefono: 'Teléfono',
     correo: 'Correo',
     necesidad: 'Qué necesita',
@@ -21,6 +23,33 @@ const ETIQUETAS = {
     finalidad: 'Finalidad de la financiación',
     importe: 'Importe necesario',
     mensaje: 'Mensaje',
+    // Simulador de hipoteca (views/Simulador.astro)
+    motivo: 'Motivo del cambio',
+    entidad: 'Entidad actual',
+    precio: 'Precio de la vivienda (€)',
+    plazo_compra: 'Cuándo quiere comprar',
+    ubicacion: 'Ubicación de la vivienda',
+    tipo_vivienda: 'Tipo de vivienda',
+    uso: 'Uso de la vivienda',
+    ahorros: 'Ahorros disponibles (€)',
+    edad: 'Edad',
+    firma: 'Firma de la hipoteca',
+    pendiente: 'Capital pendiente (€)',
+    fin: 'Año de fin de la hipoteca',
+    tipo_hipoteca: 'Tipo de hipoteca',
+    tramo_fijo_anios: 'Años a tipo fijo',
+    tin: 'TIN (%)',
+    diferencial: 'Diferencial sobre el euríbor (%)',
+    vinculados: 'Productos vinculados (€/año)',
+    titulares: 'Titulares',
+    s1_situacion: 'Solicitante 1 · Situación laboral',
+    s1_antiguedad: 'Solicitante 1 · Antigüedad laboral (años)',
+    s1_ingresos: 'Solicitante 1 · Ingresos netos (€/mes)',
+    s1_prestamos: 'Solicitante 1 · Otros préstamos (€/mes)',
+    s2_situacion: 'Solicitante 2 · Situación laboral',
+    s2_antiguedad: 'Solicitante 2 · Antigüedad laboral (años)',
+    s2_ingresos: 'Solicitante 2 · Ingresos netos (€/mes)',
+    s2_prestamos: 'Solicitante 2 · Otros préstamos (€/mes)',
 };
 
 const json = (datos, status = 200) =>
@@ -70,7 +99,8 @@ export async function manejar(req, env = {}) {
     d.tipo_cliente = tipo === 'pyme' ? 'Empresa o autónomo' : 'Particular';
 
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.correo ?? '');
-    const telOk = tipo === 'pyme' ? (d.telefono ?? '').replace(/\D/g, '').length >= 9 : true;
+    // El teléfono es obligatorio en el formulario de empresas y en el simulador
+    const telOk = tipo === 'pyme' || d.flujo ? (d.telefono ?? '').replace(/\D/g, '').length >= 9 : true;
     if (!d.nombre || !emailOk || !telOk || form.get('privacidad') !== 'on') {
         return json({ ok: false, error: 'datos' }, 400);
     }
@@ -102,7 +132,7 @@ export async function manejar(req, env = {}) {
                 from: env.MAIL_FROM || 'Cabrera Kapital Web <onboarding@resend.dev>',
                 to: para,
                 reply_to: d.correo,
-                subject: `Nueva solicitud (${d.tipo_cliente}) · ${d.nombre.replace(/[\r\n]+/g, ' ')}`,
+                subject: `Nueva solicitud (${d.flujo ? `Simulador · ${d.flujo}` : d.tipo_cliente}) · ${[d.nombre, d.apellidos].filter(Boolean).join(' ').replace(/[\r\n]+/g, ' ')}`,
                 text: texto,
                 html,
             }),

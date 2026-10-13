@@ -1,0 +1,26 @@
+---
+// Pregunta de respuesta única: opciones grandes (radio) en una, dos o tres columnas.
+interface Props {
+    name: string;
+    legend: string;
+    opciones: { v: string; t: string }[];
+    columnas?: 1 | 2 | 3;
+}
+const { name, legend, opciones, columnas = 1 } = Astro.props;
+---
+
+<fieldset class="sim-ops">
+    <legend class="campo-t">
+        {legend}<span class="req" aria-hidden="true"> *</span>
+    </legend>
+    <div class="sim-ops-g" data-cols={columnas}>
+        {
+            opciones.map((o) => (
+                <label class="opt">
+                    <input type="radio" name={name} value={o.v} required />
+                    <span>{o.t}</span>
+                </label>
+            ))
+        }
+    </div>
+</fieldset>

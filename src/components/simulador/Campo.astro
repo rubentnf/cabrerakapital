@@ -1,0 +1,61 @@
+---
+// Campo de texto del simulador. Con `cifra`, admite solo números: se valida entre `min` y `max`
+// y se formatea con separador de miles al salir del campo (scripts/simulador.ts).
+interface Props {
+    name: string;
+    label: string;
+    tipo?: "cifra" | "text" | "tel" | "email";
+    unidad?: string;
+    ayuda?: string;
+    min?: number;
+    max?: number;
+    decimales?: number;
+    /** false para años (2045, no 2.045) */
+    miles?: boolean;
+    opcional?: boolean;
+    placeholder?: string;
+    autocomplete?: string;
+    pattern?: string;
+}
+const {
+    name,
+    label,
+    tipo = "cifra",
+    unidad,
+    ayuda,
+    min,
+    max,
+    decimales = 0,
+    miles = true,
+    opcional = false,
+    placeholder,
+    autocomplete,
+    pattern,
+} = Astro.props;
+const cifra = tipo === "cifra";
+---
+
+<label class="campo">
+    <span class="campo-t">
+        {label}{!opcional && <span class="req" aria-hidden="true"> *</span>}
+    </span>
+    <span class="campo-in">
+        <input
+            type={cifra ? "text" : tipo}
+            name={name}
+            required={!opcional}
+            placeholder={placeholder}
+            pattern={pattern}
+            autocomplete={autocomplete ?? (cifra ? "off" : undefined)}
+            inputmode={cifra ? (decimales ? "decimal" : "numeric") : undefined}
+            data-cifra={cifra ? "" : undefined}
+            data-min={min}
+            data-max={max}
+            data-dec={cifra ? decimales : undefined}
+            data-miles={cifra && !miles ? "no" : undefined}
+            class={unidad ? "con-ud" : undefined}
+        />
+        {unidad && <span class="campo-ud" aria-hidden="true">{unidad}</span>}
+    </span>
+    {ayuda && <small class="campo-ayuda">{ayuda}</small>}
+</label>

@@ -1,0 +1,11 @@
+---
+interface Props {
+    titulo: string;
+}
+const { titulo } = Astro.props;
+---
+
+<div class="sim-paso" data-paso hidden>
+    <h3 class="sim-paso-t" tabindex="-1">{titulo}</h3>
+    <slot />
+</div>

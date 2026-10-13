@@ -1,0 +1,21 @@
+---
+import { langDe, useT } from "../../i18n";
+
+interface Props {
+    name: string;
+    label: string;
+    opciones: { v: string; t: string }[];
+}
+const { name, label, opciones } = Astro.props;
+const s = useT(langDe(Astro.url.pathname)).simulador;
+---
+
+<label class="campo">
+    <span class="campo-t">
+        {label}<span class="req" aria-hidden="true"> *</span>
+    </span>
+    <select name={name} required>
+        <option value="">{s.elegir}</option>
+        {opciones.map((o) => <option value={o.v}>{o.t}</option>)}
+    </select>
+</label>

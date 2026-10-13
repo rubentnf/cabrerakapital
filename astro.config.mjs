@@ -20,6 +20,14 @@ export default defineConfig({
         prefetchAll: true,
         defaultStrategy: 'hover',
     },
+    vite: {
+        // Solo afecta al servidor de desarrollo: GSAP se prepara al arrancar. Si Vite lo descubre más
+        // tarde (se carga con import() dinámico), lo vuelve a preparar a mitad de sesión y las pestañas
+        // abiertas piden la versión anterior: error 504 y la página se queda sin animaciones.
+        optimizeDeps: {
+            include: ['gsap', 'gsap/ScrollTrigger'],
+        },
+    },
     // Fuentes variables servidas desde src/assets/fonts (Fontsource, licencia SIL OFL 1.1).
     // Solo el eje de grosor (wght) y el subconjunto latino: el proveedor `fontsource` descarga la versión
     // con tamaño óptico (opsz) de Newsreader, que pesa más del doble y la web no usa.
@@ -50,7 +58,6 @@ export default defineConfig({
     ],
     integrations: [
         sitemap({
-            filter: (page) => !page.includes('/en/legal/'),
             serialize(item) {
                 const ruta = new URL(item.url).pathname;
                 const par = pares.find((p) => p.es === ruta || p.en === ruta);

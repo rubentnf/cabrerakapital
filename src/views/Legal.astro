@@ -13,22 +13,28 @@ const lang = langDe(Astro.url.pathname);
 const t = useT(lang);
 const titulo = t.documentos[id];
 
-// El texto de cada documento está en src/legal/<slug>.md
-const archivos = import.meta.glob<{
+// El texto de cada documento está en src/legal/<slug>.md y su traducción en src/legal/en/<slug>.md
+// (si faltara la traducción, se muestra el texto en español)
+type Documento = {
     Content: any;
     getHeadings: () => { depth: number; slug: string; text: string }[];
-}>("../legal/*.md", { eager: true });
-const { Content, getHeadings } = archivos[`../legal/${slugs[id]}.md`];
+};
+const archivos = import.meta.glob<Documento>("../legal/*.md", { eager: true });
+const traducciones = import.meta.glob<Documento>("../legal/en/*.md", { eager: true });
+const traducido = lang === "en" ? traducciones[`../legal/en/${slugs[id]}.md`] : undefined;
+const { Content, getHeadings } = traducido ?? archivos[`../legal/${slugs[id]}.md`];
 
 // Índice lateral: los títulos de apartado (## …) del documento
 const indice = getHeadings().filter((h) => h.depth === 2);
 
-// Botón «Descargar PDF original»: solo aparece si el archivo existe en public/legal/<slug>.pdf
-const pdf = existsSync(
-    join(process.cwd(), "public", "legal", `${slugs[id]}.pdf`),
-)
-    ? `/legal/${slugs[id]}.pdf`
-    : null;
+// Botón «Descargar PDF»: solo aparece si el archivo existe en public/legal/<slug>.pdf
+// (en inglés, public/legal/en/<slug>.pdf; si no existe, el PDF en español)
+const rutaPdf = (carpeta: string) =>
+    existsSync(join(process.cwd(), "public", carpeta, `${slugs[id]}.pdf`))
+        ? `/${carpeta}/${slugs[id]}.pdf`
+        : null;
+const pdfTraducido = traducido ? rutaPdf("legal/en") : null;
+const pdf = pdfTraducido ?? rutaPdf("legal");
 ---
 
 <!-- page="faq": ninguna pestaña del menú queda marcada en las páginas legales -->
@@ -44,7 +50,13 @@ const pdf = existsSync(
                 <a href={ruta("inicio", lang)}>← {t.documentos.volver}</a>
             </p>
             <h1 class="legal-titulo">{titulo}</h1>
-            {lang === "en" && <p class="note">{t.documentos.soloEs}</p>}
+            {
+                lang === "en" && (
+                    <p class="note">
+                        {traducido ? t.documentos.traduccion : t.documentos.soloEs}
+                    </p>
+                )
+            }
             {
                 pdf && (
                     <p>
@@ -54,7 +66,7 @@ const pdf = existsSync(
                             target="_blank"
                             rel="noopener"
                         >
-                            {t.documentos.descargar}
+                            {pdfTraducido || lang === "es" ? t.documentos.descargar : t.documentos.descargarEs}
                         </a>
                     </p>
                 )

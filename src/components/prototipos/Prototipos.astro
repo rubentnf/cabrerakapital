@@ -1,0 +1,96 @@
+---
+// PROTOTIPOS de diseño del simulador para enseñar al cliente (solo en español, sin envío).
+// Cuando elija una variante: borrar esta carpeta, scripts/prototipos.ts y su uso en views/Simulador.astro.
+import { Image } from "astro:assets";
+import { fotos } from "../../utils/assets";
+import "./prototipos.css";
+const oficina = fotos.get("oficina");
+// La conversación la lleva uno de los dos socios, elegido al azar cada vez (scripts/prototipos.ts)
+const asesores = [
+    { id: "alejandro", nombre: "Alejandro Cabrera", foto: fotos.get("alejandro") },
+    { id: "olegario", nombre: "Olegario Cabrera", foto: fotos.get("olegario") },
+];
+---
+
+<section class="pv-aviso">
+    <div class="wrap">
+        <span class="pv-tag">Borrador</span>
+        <p>
+            <b>Propuestas de diseño del simulador.</b> Arriba está la versión actual. Debajo, dos
+            alternativas para que no recuerde a otros comparadores. Son maquetas: recorren el caso de
+            compra con cinco preguntas y no envían nada.
+        </p>
+    </div>
+</section>
+
+<!-- A · Un asesor le guía -->
+<section class="pv" id="propuesta-a">
+    <div class="wrap pv-cab">
+        <span class="pv-tag">Propuesta A</span>
+        <h2>Un asesor real le guía</h2>
+        <p>
+            La portada usa la foto de la oficina y dos frases en lugar de botones. Después, Alejandro u
+            Olegario (al azar) hace las preguntas como en una conversación; cada respuesta se puede pulsar
+            para cambiarla.
+        </p>
+    </div>
+    <div class="pva-portada">
+        {oficina && <Image src={oficina} alt="" widths={[800, 1600, 2400]} sizes="100vw" class="pva-fondo" />}
+        <div class="wrap pva-portada-in">
+            <span class="eyebrow">Simulador de hipoteca</span>
+            <h3>¿Qué quiere hacer?</h3>
+            <button type="button" class="pva-frase" data-pva-empieza="comprar">
+                Quiero comprar una vivienda <span aria-hidden="true">→</span>
+            </button>
+            <button type="button" class="pva-frase" data-pva-empieza="mejorar">
+                Quiero pagar menos por mi hipoteca <span aria-hidden="true">→</span>
+            </button>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="pva" data-pva hidden>
+            <!-- Fotos de los dos socios: el script copia la del elegido en la cabecera y en cada mensaje -->
+            <div hidden>
+                {
+                    asesores.map((a) => (
+                        <span data-asesor={a.id} data-nombre={a.nombre}>
+                            {a.foto && <Image src={a.foto} alt="" widths={[200, 400]} sizes="192px" />}
+                        </span>
+                    ))
+                }
+            </div>
+            <div class="pva-cab">
+                <span class="pva-av"></span>
+                <div>
+                    <b class="pva-nombre"></b>
+                    <span><i class="pva-punto"></i> Asesor hipotecario · Cabrera Kapital</span>
+                </div>
+            </div>
+            <div class="pva-log" aria-live="polite"></div>
+            <div class="pva-zona"></div>
+        </div>
+    </div>
+</section>
+
+<!-- B · Su expediente -->
+<section class="pv pv-alt" id="propuesta-b">
+    <div class="wrap pv-cab">
+        <span class="pv-tag">Propuesta B</span>
+        <h2>Su expediente, en directo</h2>
+        <p>
+            Índice con nombres en vez de números y una ficha «Su caso» que se rellena mientras contesta.
+            Con el precio y los ahorros enseña el importe a financiar, sin prometer ningún resultado.
+        </p>
+    </div>
+    <div class="wrap">
+        <div class="pvb" data-pvb>
+            <ol class="pvb-indice"></ol>
+            <div class="pvb-panel"></div>
+            <aside class="pvb-ficha" aria-live="polite"></aside>
+        </div>
+    </div>
+</section>
+
+<script>
+    import "../../scripts/prototipos";
+</script>
