@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 import { $, $$, splitWords } from '../utils';
 
 /**
- * Inicio: hero fijado (Teide -> logotipo gigante -> cielo con la frase) y los tres pasos fijados.
+ * Inicio: hero fijado (islas -> logotipo gigante -> cielo con la frase) y los tres pasos fijados.
  * gsap.matchMedia permite recortar el recorrido en móvil sin duplicar código.
  */
 export function initHome() {
@@ -47,14 +47,13 @@ export function initHome() {
             .to('[data-depth="city"]', { yPercent: 40, opacity: 0, duration: 2.5 }, 0.5)
             .to('.skybg', { opacity: 1, duration: 2.5 }, 1)
             .to('[data-depth="sun"]', { opacity: 0, duration: 1.5 }, 1)
+            // Las islas se acercan, como al descender en avión, y se desvanecen
             .to(
-                '[data-depth="teide"]',
-                { yPercent: -4, scale: 1.12, transformOrigin: '50% 100%', duration: 3 },
+                '[data-depth="islas"]',
+                { yPercent: -6, scale: 1.2, transformOrigin: '50% 60%', duration: 3 },
                 0,
             )
-            .to('[data-depth="teide"]', { opacity: 0, duration: 1.2 }, 2.6)
-            .to('[data-depth="cloudsBack"]', { yPercent: -40, duration: 3 }, 0)
-            .to('[data-depth="cloudsFront"]', { yPercent: -90, scale: 1.15, duration: 3 }, 0)
+            .to('[data-depth="islas"]', { opacity: 0, duration: 1.2 }, 2.6)
             .fromTo(
                 '.wm',
                 { opacity: 0, scale: 0.9, filter: 'blur(16px)' },

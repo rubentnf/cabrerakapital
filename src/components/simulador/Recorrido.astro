@@ -1,6 +1,7 @@
 ---
-// Un recorrido del simulador (comprar o mejorar): barra de progreso, pasos (<Paso>) y navegación.
-// Se envía igual que el formulario de contacto; `valor` es lo que aparece en el correo como «Simulador».
+// Un recorrido del simulador (comprar o mejorar): sus pasos (<Paso>) con todas las preguntas.
+// Siempre oculto: scripts/simulador.ts hace las preguntas en forma de conversación, guarda aquí las
+// respuestas y lo envía igual que el formulario de contacto. `valor` aparece en el correo como «Simulador».
 import { contacto } from "../../data/contacto";
 import { langDe, useT } from "../../i18n";
 
@@ -10,7 +11,6 @@ interface Props {
 }
 const { flujo, valor } = Astro.props;
 const t = useT(langDe(Astro.url.pathname));
-const s = t.simulador;
 const c = t.contacto;
 const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
 ---
@@ -32,24 +32,5 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
         autocomplete="off"
         aria-hidden="true"
     />
-    <div>
-        <p class="sim-n" aria-live="polite">
-            <span>{s.paso} <b data-n>1</b> {s.de} <span data-total>6</span></span>
-            <span data-pct></span>
-        </p>
-        <div class="sim-prog" aria-hidden="true"><i></i></div>
-    </div>
     <slot />
-    <div class="wiz-nav">
-        <button class="btn line" type="button" data-atras>
-            <span aria-hidden="true">←</span>&nbsp;{s.atras}
-        </button>
-        <button class="btn navyb" type="button" data-siguiente>
-            {s.continuar}&nbsp;<span aria-hidden="true">→</span>
-        </button>
-        <button class="btn navyb" type="submit" data-enviar hidden>
-            {s.enviar}
-        </button>
-    </div>
-    <p class="ok" data-aviso hidden></p>
 </form>

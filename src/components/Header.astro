@@ -3,6 +3,8 @@ import { langDe, ruta, useT, type PaginaId } from "../i18n";
 import { Image } from "astro:assets";
 import logo from "../assets/logo/ck-simbolo.png";
 import LangSwitch from "./LangSwitch.astro";
+import IconoInstagram from "./IconoInstagram.astro";
+import { contacto } from "../data/contacto";
 
 interface Props {
     page?: PaginaId;
@@ -68,6 +70,17 @@ const nav = ids.map((id) => ({ id, label: t.nav[id], href: ruta(id, lang) }));
                     <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"></path>
                 </svg>
             </button>
+            <!-- Instagram a la vista en todas las páginas (en móvil va en el menú, con texto) -->
+            <a
+                class="tema ig-nav"
+                href={contacto.instagram.enlace}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t.header.instagram} ${contacto.instagram.usuario}`}
+                title={`${t.header.instagram} ${contacto.instagram.usuario}`}
+            >
+                <IconoInstagram tamano={19} />
+            </a>
             <a class="btn gold" href={ruta("contacto", lang)}>
                 {t.header.cta}
             </a>
@@ -101,5 +114,14 @@ const nav = ids.map((id) => ({ id, label: t.nav[id], href: ruta(id, lang) }));
         style="font:700 15px var(--sans);border:0;text-align:center"
     >
         {t.header.cta}
+    </a>
+    <a
+        class="menu-ig"
+        href={contacto.instagram.enlace}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <IconoInstagram tamano={22} />
+        <span>{t.header.instagram} · <b>{contacto.instagram.usuario}</b></span>
     </a>
 </div>

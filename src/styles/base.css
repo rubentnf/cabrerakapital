@@ -597,6 +597,39 @@ p {
     margin-top: 22px;
 }
 
+/* «Estudio gratuito» del menú: `.menu a` le quitaba el fondo dorado y quedaba como texto suelto */
+.menu a.gold {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+.menu a.gold:hover {
+    background: var(--goldl);
+}
+
+/* Instagram al final del menú del móvil: con texto, para que se entienda sin conocer el icono */
+.menu .menu-ig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 12px 0;
+    border: 0;
+    font: 500 16px var(--sans);
+    color: var(--iv);
+}
+
+.menu .menu-ig svg {
+    flex: none;
+    color: var(--goldl);
+}
+
+.menu .menu-ig b {
+    color: var(--goldl);
+    font-weight: 600;
+}
+
 .hero {
     background: var(--navy);
     color: var(--iv);
@@ -1082,7 +1115,8 @@ textarea {
 
     /* Las banderas se quedan en la cabecera: se cambia de idioma sin abrir el menú */
     .links,
-    .navr .btn {
+    .navr .btn,
+    .navr .ig-nav {
         display: none;
     }
 
@@ -1148,7 +1182,7 @@ textarea {
     }
 }
 
-/* ---- Hero Teide (inicio) ---- */
+/* ---- Hero del archipiélago (inicio) ---- */
 .tdhero {
     position: relative;
     height: calc(100vh - 70px);
@@ -1185,54 +1219,38 @@ textarea {
             rgba(241, 214, 160, 0) 70%);
 }
 
-.teide {
-    bottom: 0;
-    height: 74%;
+/* Las islas vistas desde arriba (public/img/islas.webp). En escritorio, bajo el titular y a la
+   derecha del texto; la altura sigue al titular (su tamaño va en vw) */
+.islas {
+    /* el titular deja de crecer hacia los 1500 px: a partir de ahí las islas no bajan más */
+    top: calc(9vh + min(19vw, 255px, 31vh)); /* 31vh: en pantallas bajas no se meten en la ciudad */
+    left: max(43%, calc(98.5% - 900px)); /* en pantallas anchas, como mucho 900 px */
+    right: 1.5%;
+    aspect-ratio: 1000 / 410;
 }
 
-@media (min-width: 768px) {
-    .teide {
-        left: 24%;
-        right: -24%;
-        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
-        mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+/* Tabletas en vertical: el texto ocupa más alto, las islas van en la franja de encima de la ciudad */
+@media (min-width: 768px) and (max-width: 1024px) and (max-aspect-ratio: 4 / 3) {
+    .islas {
+        top: auto;
+        bottom: 24%;
+        left: 4%;
+        right: 2%;
     }
 }
 
-.teide svg,
-.city svg {
+.islas img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     display: block;
 }
 
-.clouds {
-    height: 34%;
-}
-
-.clouds-back {
-    bottom: 14%;
-    opacity: 0.9;
-    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
-    background:
-        radial-gradient(38% 60% at 12% 70%, #f7efe1 0 40%, transparent 72%),
-        radial-gradient(30% 55% at 36% 78%, #f3e8d4 0 42%, transparent 74%),
-        radial-gradient(34% 62% at 62% 72%, #f7efe1 0 40%, transparent 72%),
-        radial-gradient(30% 50% at 88% 78%, #f1e4cc 0 42%, transparent 74%);
-}
-
-.clouds-front {
-    bottom: -14%;
-    height: 32%;
-    z-index: 4;
-    background:
-        radial-gradient(30% 58% at 4% 64%, #fbf6ec 0 44%, transparent 76%),
-        radial-gradient(28% 60% at 28% 70%, #f8f1e4 0 44%, transparent 76%),
-        radial-gradient(32% 64% at 54% 62%, #fbf6ec 0 42%, transparent 76%),
-        radial-gradient(28% 56% at 78% 70%, #f6eddc 0 44%, transparent 76%),
-        radial-gradient(26% 60% at 98% 64%, #fbf6ec 0 44%, transparent 76%),
-        linear-gradient(180deg, transparent 55%, var(--bg) 88%);
+.city svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .city {
@@ -1436,18 +1454,13 @@ textarea {
         gap: 16px;
     }
 
-    .teide {
-        height: 36%;
-    }
-
-    .clouds-back {
-        bottom: 6%;
-        height: 24%;
-    }
-
-    .clouds-front {
-        bottom: -10%;
-        height: 26%;
+    /* En móvil, el archipiélago completo a todo el ancho en la franja bajo los botones;
+       scripts/desliza.ts las centra, con el aviso «Siga bajando» debajo, entre los botones y la ciudad */
+    .islas {
+        top: auto;
+        bottom: 20%;
+        left: 5%;
+        right: 5%;
     }
 
     .city {
@@ -1463,11 +1476,6 @@ textarea {
         height: auto;
         aspect-ratio: 3 / 2;
     }
-}
-
-/* Ilustración del Teide: relleno del logotipo gigante de la portada (scroll-story.css) */
-:root {
-    --s1: url('/img/scene-teide.svg');
 }
 
 :root {
@@ -2390,31 +2398,89 @@ html {
 }
 
 /* ===== Simulador de hipoteca (views/Simulador.astro) ===== */
-.simhero {
-    padding-block: clamp(48px, 7vw, 96px);
-    /* .hero recorta con overflow: hidden, que impediría fijar la barra de «Continuar» en móvil */
-    overflow: clip;
+/* Portada: foto de la oficina en azul marino y dos frases para empezar */
+.sima-portada {
+    position: relative;
+    padding-block: clamp(56px, 8vw, 112px) clamp(40px, 5vw, 64px);
+    background: var(--navy);
+    color: var(--iv);
+    overflow: hidden;
 }
 
-/* Escritorio: texto y ventajas a la izquierda, tarjeta a la derecha. Móvil: texto, tarjeta, ventajas. */
-.simhero-g {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 540px);
-    grid-template-areas:
-        'copy card'
-        'extra card';
-    grid-template-rows: auto 1fr;
-    column-gap: clamp(32px, 5vw, 80px);
-    row-gap: 36px;
-    align-items: start;
+.sima-fondo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
 }
 
-.simhero-copy {
-    grid-area: copy;
+.sima-portada::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 34, 64, 0.95) 20%, rgba(10, 34, 64, 0.4));
+}
+
+.sima-portada-in {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sima-portada h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(38px, 5vw, 68px);
+    color: var(--iv);
+    outline: none;
+}
+
+.sima-frases {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.sima-frase {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 6px 0;
+    border: 0;
+    border-bottom: 2px solid rgba(232, 184, 104, 0.35);
+    background: none;
+    color: var(--iv);
+    font: 500 clamp(24px, 3.2vw, 40px) / 1.25 var(--serif);
+    text-align: left;
+    transition:
+        color 0.2s,
+        border-color 0.2s;
+}
+
+.sima-frase span {
+    color: var(--gold);
+    transition: transform 0.2s;
+}
+
+.sima-frase:hover,
+.sima-frase:focus-visible {
+    color: var(--goldl);
+    border-color: var(--gold);
+}
+
+.sima-frase:hover span {
+    transform: translateX(6px);
+}
+
+.sima-portada .simhero-extra {
+    margin-top: clamp(36px, 5vw, 56px);
 }
 
 .simhero-extra {
-    grid-area: extra;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -2478,86 +2544,332 @@ html {
     color: #c9d3df;
 }
 
-/* Tarjeta */
-.simcard {
-    grid-area: card;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    padding: clamp(24px, 3vw, 36px);
+/* Conversación con el asesor */
+.sima-sec {
+    padding-block: clamp(32px, 5vw, 64px);
+    background: var(--bg);
+    scroll-margin-top: 70px;
+}
+
+.sima {
+    max-width: 760px;
+    margin-inline: auto;
+    border: 1px solid var(--line);
     border-radius: 24px;
     background: var(--surface);
     color: var(--text);
-    box-shadow: 0 30px 60px rgba(4, 16, 34, 0.35);
-    /* clip (no hidden): recorta igual pero deja que la barra de «Continuar» se quede fija en móvil */
+    box-shadow: 0 24px 50px rgb(var(--sh) / 0.1);
     overflow: hidden;
-    overflow: clip;
-    scroll-margin-top: 96px;
-}
-
-.simcard::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto;
-    height: 5px;
-    background: linear-gradient(90deg, var(--gold), var(--goldl));
-}
-
-.simcard h2 {
-    font-size: clamp(26px, 2.6vw, 32px);
-    color: var(--heading);
-    outline: none;
-}
-
-.sim-inicio {
+    scroll-margin-top: 90px;
+    /* Ventana fija, como WhatsApp: la conversación se desplaza dentro y la respuesta queda abajo */
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    height: min(680px, calc(100svh - 120px));
+    min-height: 460px;
 }
 
-.sim-inicio p {
+.sima-cab {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line);
+    background: var(--field);
+}
+
+.sima-cab b {
+    display: block;
+    color: var(--heading);
+}
+
+.sima-cab span {
+    font-size: 13px;
     color: var(--muted);
 }
 
-.sim-elige {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-top: 8px;
+.sima-punto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background: #2f9e63;
 }
 
-.sim-op {
+.sima-av,
+.sima-mini {
+    position: relative;
+    flex: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-alt);
+}
+
+/* Las fotos son de cuerpo entero: se amplían 4 veces y se centran en la cara de cada uno */
+.sima-av img,
+.sima-mini img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    max-width: none;
+    height: auto;
+}
+
+/* alejandro.jpg: cara al 37 % / 41 % de la foto */
+.sima [data-asesor='alejandro'] img {
+    transform: translate(-24.5%, -34%);
+}
+
+/* olegario.jpeg: cara al 34 % / 39 % de la foto */
+.sima [data-asesor='olegario'] img {
+    transform: translate(-21.2%, -32.3%);
+}
+
+.sima-mini {
+    width: 34px;
+    height: 34px;
+}
+
+/* La conversación crece con la página (sin barra de desplazamiento propia) */
+.sima-log {
+    flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: 12px;
+    padding: 24px 24px 12px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+/* Los primeros mensajes empiezan abajo, junto a la respuesta, como en un chat */
+.sima-log > :first-child {
+    margin-top: auto;
+}
+
+.sima-msg {
+    display: flex;
+    align-items: flex-end;
     gap: 10px;
-    min-height: 160px;
-    padding: 22px 16px;
-    border: 1px solid var(--line);
-    border-radius: 18px;
+    max-width: 88%;
+    scroll-margin-top: 90px;
+    animation: sima-entra 0.3s ease both;
+}
+
+.sima-msg p {
+    padding: 12px 16px;
+    border-radius: 18px 18px 18px 4px;
     background: var(--field);
-    color: var(--heading);
-    font: 700 16px/1.3 var(--sans);
-    text-align: center;
-    transition:
-        border-color 0.2s,
-        background 0.2s,
-        transform 0.2s,
-        box-shadow 0.2s;
+    color: var(--text);
+    font-size: 16px;
 }
 
-.sim-op svg,
-.sim-op .flecha {
-    color: var(--accent-text);
+.sima-esc p {
+    display: flex;
+    gap: 4px;
+    padding: 16px;
 }
 
-.sim-op:hover {
-    border-color: var(--gold);
+.sima-esc i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--muted);
+    animation: sima-puntos 1s infinite;
+}
+
+.sima-esc i:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.sima-esc i:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Respuesta del cliente: se puede pulsar para volver a ese paso */
+.sima-yo {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    max-width: 82%;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 18px 18px 4px 18px;
+    background: var(--solid);
+    color: var(--on-solid);
+    font: 600 15px/1.4 var(--sans);
+    text-align: right;
+    animation: sima-entra 0.3s ease both;
+}
+
+.sima-yo small {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--goldl);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.sima-yo:hover {
+    filter: brightness(1.15);
+}
+
+.sima-zona {
+    flex: none;
+    max-height: 55%;
+    overflow-y: auto;
+    padding: 14px clamp(18px, 3vw, 28px) 14px;
+    border-top: 1px solid var(--line);
+}
+
+.sima-zona:has(.sima-resp:empty):has(.exito[hidden]) {
+    display: none;
+}
+
+/* Respuesta a la pregunta actual: botones con las opciones… */
+.sima-ops {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    animation: sima-entra 0.3s ease both;
+}
+
+.sima-op {
+    min-height: 46px;
+    padding: 10px 20px;
+    border: 1px solid var(--heading);
+    border-radius: 999px;
     background: var(--surface);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgb(var(--sh) / 0.08);
+    color: var(--heading);
+    font: 600 15px/1.3 var(--sans);
+    text-align: left;
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.sima-op:hover,
+.sima-op.elegida {
+    background: var(--solid);
+    color: var(--on-solid);
+}
+
+/* …o un campo con «Enviar» (y en la privacidad, la casilla y «Enviar solicitud») */
+.sima-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    animation: sima-entra 0.3s ease both;
+}
+
+.sima-campo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 1 240px;
+}
+
+.sima-form input:not([type='checkbox']),
+.sima-form select {
+    width: 100%;
+    flex: 1 1 240px;
+    height: 52px;
+    padding-inline: 20px;
+    border-radius: 999px;
+}
+
+.sima-campo input.con-ud {
+    padding-right: 76px;
+}
+
+.sima-campo .campo-ud {
+    right: 20px;
+}
+
+.sima-ok {
+    flex: none;
+    min-width: 52px;
+    min-height: 52px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--solid);
+    color: var(--on-solid);
+    font: 700 16px var(--sans);
+    transition: background 0.2s;
+}
+
+.sima-ok span {
+    font-size: 20px;
+}
+
+.sima-ok:disabled {
+    opacity: 0.6;
+}
+
+.sima-chk {
+    flex: 1 1 100%;
+}
+
+.sima-error {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #b4232a;
+    text-align: right;
+}
+
+:root[data-theme='dark'] .sima-error {
+    color: #ff8f85;
+}
+
+.sima-error:empty {
+    display: none;
+}
+
+.sima .exito {
+    padding-top: 8px;
+}
+
+/* Ventajas y sello, bajo la conversación */
+.sima-extra {
+    padding-block: clamp(32px, 4vw, 48px);
+    background: var(--navy);
+    color: var(--iv);
+}
+
+.sima .sim-nota {
+    flex: none;
+    padding: 0 24px 14px;
+}
+
+@keyframes sima-entra {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+@keyframes sima-puntos {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sima-msg,
+    .sima-yo,
+    .sima-esc i {
+        animation: none;
+    }
 }
 
 .sim-nota {
@@ -2573,60 +2885,6 @@ html {
 .sim-nota svg {
     flex: none;
     color: var(--accent-text);
-}
-
-/* Recorrido por pasos */
-.sim-form {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-.sim-n {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 8px;
-    font-size: 13px;
-    color: var(--muted);
-}
-
-.sim-n b {
-    color: var(--accent-text);
-}
-
-.sim-prog {
-    height: 6px;
-    border-radius: 3px;
-    background: var(--bg-alt);
-    overflow: hidden;
-}
-
-.sim-prog i {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--goldl));
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    transition: transform 0.4s ease;
-}
-
-.sim-paso {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.sim-paso-t {
-    font: 500 clamp(24px, 2.4vw, 28px) / 1.2 var(--serif);
-    color: var(--heading);
-    outline: none;
-}
-
-.sim-paso>p {
-    margin-top: -8px;
-    font-size: 15px;
-    color: var(--muted);
 }
 
 .campo {
@@ -2672,115 +2930,8 @@ html {
     color: var(--muted);
 }
 
-.sim-ops,
-.sim-si {
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.sim-ops {
-    gap: 0;
-}
-
-.sim-ops legend {
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-.sim-ops-g {
-    display: grid;
-    gap: 10px;
-}
-
-.sim-ops-g[data-cols='2'] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.sim-ops-g[data-cols='3'] {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.sim-sub {
-    margin-bottom: -6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent-text);
-}
-
-.sim-sol {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 18px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: var(--field);
-}
-
-.sim-sol input,
-.sim-sol select {
-    background: var(--surface);
-}
-
-.sim-form .wiz-nav .btn.navyb {
-    flex: 1;
-    min-height: 52px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-
-    .sim-paso:not([hidden]),
-    .sim-inicio:not([hidden]) {
-        animation: sim-entra 0.35s ease both;
-    }
-}
-
-@keyframes sim-entra {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-}
-
-@media (max-width: 1000px) {
-    .simhero-g {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            'copy'
-            'card'
-            'extra';
-    }
-}
-
 @media (max-width: 620px) {
     .sim-ventajas {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .sim-elige {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .sim-op {
-        min-height: 0;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 14px;
-        text-align: left;
-    }
-
-    .sim-op .flecha {
-        margin-left: auto;
-    }
-
-    .sim-ops-g[data-cols='3'] {
         grid-template-columns: minmax(0, 1fr);
     }
 
@@ -2789,51 +2940,47 @@ html {
         align-items: flex-start;
     }
 
-    /* --- Recorrido en móvil: más ancho útil y menos cajas dentro de cajas --- */
-    .simcard {
+    /* --- Conversación en móvil: más ancho útil, menos relleno y avatares más pequeños --- */
+    .sima {
         margin-inline: calc(8px - var(--g));
-        padding: 24px 18px;
         border-radius: 20px;
     }
 
-    /* Una opción por fila: «Compro solo/a» y «Con otra persona» no se parten en dos líneas */
-    .sim-ops-g[data-cols='2'] {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .sim-form .opt {
+    .sima-cab {
         padding: 14px 16px;
-        border-radius: 14px;
     }
 
-    /* Cada solicitante es una sección separada por una línea, no un recuadro dentro de la tarjeta */
-    .sim-sol {
-        padding: 18px 0 0;
-        border: 0;
-        border-top: 1px solid var(--line);
-        border-radius: 0;
-        background: none;
+    .sima-log {
+        padding: 20px 14px 4px;
     }
 
-    .sim-sol input,
-    .sim-sol select {
-        background: var(--field);
+    .sima-mini {
+        width: 28px;
+        height: 28px;
     }
 
-    /* «Atrás / Continuar» siempre a mano mientras se rellena el paso */
-    .sim-form .wiz-nav {
-        position: sticky;
-        bottom: 0;
-        z-index: 2;
-        margin-inline: -18px;
-        padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
-        background: var(--surface);
-        box-shadow: 0 -10px 18px -14px rgb(var(--sh) / 0.35);
+    .sima-msg {
+        gap: 8px;
+        max-width: 100%;
     }
 
-    /* Mientras se rellena un recorrido, el botón de WhatsApp taparía «Continuar»: se oculta y vuelve
-       en la confirmación o al volver a la elección */
-    body:has(.sim-form:not([hidden])) .wa {
+    .sima-zona {
+        padding: 14px 18px 20px;
+    }
+
+    .sima .sim-nota {
+        padding: 0 18px 18px;
+    }
+
+    /* En móvil la ventana ocupa la pantalla (bajo la cabecera) */
+    .sima {
+        height: calc(100svh - 86px);
+        min-height: 420px;
+        scroll-margin-top: 78px;
+    }
+
+    /* El botón de WhatsApp taparía «Enviar»: se oculta mientras se conversa */
+    body:has(.sima-sec:not([hidden])) .wa {
         display: none;
     }
 }
@@ -2945,6 +3092,40 @@ html {
 .vplay-txt small {
     font-size: 12.5px;
     color: #c4cedb;
+}
+
+/* Portada: el vídeo va en la fila de los botones; en escritorio, en una fila propia debajo */
+.btns-video {
+    flex-basis: 100%;
+    margin-top: 6px;
+}
+
+/* En móvil, solo el círculo con el play junto a «Pedir estudio gratuito»: deja sitio a las islas.
+   El texto sigue ahí para lectores de pantalla */
+@media (max-width: 767px) {
+    .btns-video {
+        flex: none;
+        margin-top: 0;
+    }
+
+    .btns-video .vplay {
+        gap: 0;
+        padding: 2px;
+    }
+
+    .btns-video .vplay-thumb {
+        width: 46px;
+        height: 46px;
+    }
+
+    .btns-video .vplay-txt {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
 }
 
 .vmodal {

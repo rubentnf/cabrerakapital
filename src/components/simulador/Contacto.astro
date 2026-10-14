@@ -12,17 +12,17 @@ const c = t.contacto;
 
 <p>{s.contactoD}</p>
 <div class="f2">
-    <Campo tipo="text" name="nombre" label={c.nombre} autocomplete="given-name" />
+    <Campo tipo="text" name="nombre" label={s.nombre} autocomplete="given-name" />
     <Campo tipo="text" name="apellidos" label={s.apellidos} autocomplete="family-name" />
 </div>
 <div class="f2">
-    <Campo tipo="tel" name="telefono" label={c.telefono} autocomplete="tel" placeholder="600 000 000" pattern="\+?[0-9][0-9 \-]{7,}[0-9]" />
-    <Campo tipo="email" name="correo" label={c.correo} autocomplete="email" />
+    <Campo tipo="tel" name="telefono" label={s.telefono} autocomplete="tel" placeholder="600 000 000" pattern="\+?[0-9][0-9 \-]{7,}[0-9]" />
+    <Campo tipo="email" name="correo" label={s.correo} autocomplete="email" />
 </div>
 <label class="chk">
     <input type="checkbox" name="privacidad" required />
     <span>
-        {c.privacidadA}
+        {c.privacidadA}{" "}
         <a href={rutaLegal("privacidad", lang)} target="_blank" rel="noopener">
             {c.privacidadB}
         </a>

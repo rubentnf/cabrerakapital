@@ -18,9 +18,10 @@ export const es = {
         cerrarMenu: 'Cerrar menú',
         cta: 'Estudio gratuito',
         tema: 'Modo oscuro',
+        instagram: 'Síganos en Instagram',
     },
     video: {
-        titulo: 'Qué hacemos en CK',
+        titulo: 'Qué hacemos en Cabrera Kapital',
         detalle: 'Vídeo · 22 s',
         cerrar: 'Cerrar el vídeo',
     },
@@ -369,8 +370,7 @@ export const es = {
         description:
             'Cuéntenos en unos pasos si quiere comprar vivienda o mejorar su hipoteca y le preparamos un estudio gratuito y sin compromiso.',
         etiqueta: 'Simulador de hipoteca',
-        h1: 'Su mejor hipoteca, negociada por quien conoce la banca.',
-        lead: 'Cuéntenos su caso en unos pasos. Estudiamos su operación con las entidades y negociamos por usted las mejores condiciones.',
+        pregunta: '¿Qué quiere hacer?',
         ventajas: [
             { t: 'Más de 20 años', d: 'en la banca canaria' },
             { t: 'Asesor personal', d: 'le acompaña hasta la firma' },
@@ -378,11 +378,17 @@ export const es = {
         ],
         sello: 'Intermediario de crédito inmobiliario inscrito en el Banco de España con el número E593',
         selloAlt: 'Banco de España',
-        // Pantalla de elección
-        inicioT: 'Le damos la bienvenida al simulador',
-        inicioD: 'Para preparar su estudio necesitamos algunos datos básicos. Empiece eligiendo qué necesita:',
-        comprar: 'Encontrar la mejor hipoteca',
-        mejorar: 'Mejorar mi hipoteca actual',
+        // Portada: dos frases para empezar
+        comprarFrase: 'Quiero comprar una vivienda',
+        mejorarFrase: 'Quiero pagar menos por mi hipoteca',
+        // Conversación con el asesor ({n}: nombre de pila del asesor o del cliente)
+        asesorCargo: 'Asesor hipotecario · Cabrera Kapital',
+        holaComprar: 'Hola, soy {n}. Le hago unas preguntas y le preparo un estudio gratuito y sin compromiso.',
+        holaMejorar: 'Hola, soy {n}. Vamos a ver cuánto puede ahorrar con su hipoteca. Le hago unas preguntas.',
+        despedida: 'Gracias, {n}. Estudio su caso con las entidades y le llamo en 24–48 horas laborables.',
+        cambiar: 'Cambiar',
+        sobreUsted: 'Empecemos por usted.',
+        sobreOtra: 'Ahora, los datos de la otra persona.',
         nota: 'Estudio gratuito · sin compromiso · le llevará unos 2 minutos',
         // Navegación por pasos
         paso: 'Paso',
@@ -423,7 +429,7 @@ export const es = {
             p2: {
                 t: 'Cuéntenos más sobre la vivienda',
                 ubicacion: '¿Dónde está la vivienda?',
-                tipo: 'Tipo de vivienda',
+                tipo: '¿Es de obra nueva o de segunda mano?',
                 tipoOps: [
                     { v: 'Obra nueva', t: 'Obra nueva' },
                     { v: 'Segunda mano', t: 'Segunda mano' },
@@ -483,7 +489,7 @@ export const es = {
             },
             p4: {
                 t: 'Sus condiciones actuales',
-                tipo: 'Tipo de hipoteca',
+                tipo: '¿Qué tipo de interés tiene su hipoteca?',
                 tipoOps: [
                     { v: 'Fijo', t: 'Fijo' },
                     { v: 'Mixto', t: 'Mixto' },
@@ -491,10 +497,10 @@ export const es = {
                 ],
                 tin: '¿Cuál es su TIN?',
                 tramoFijo: 'Primeros años, a tipo fijo',
-                tramoAnios: 'Plazo',
-                tramoTin: 'TIN',
+                tramoAnios: '¿Cuántos años dura el tramo fijo?',
+                tramoTin: '¿Qué TIN tiene en ese tramo?',
                 tramoVariable: 'Resto de años, a tipo variable',
-                diferencial: 'Diferencial sobre el euríbor',
+                diferencial: '¿Qué diferencial paga sobre el euríbor?',
                 diferencialAyuda: 'Lo que se suma al euríbor. Figura en la escritura y en los recibos.',
                 vinculados: '¿Cuánto paga al año por productos vinculados?',
                 vinculadosAyuda: 'Seguros de vida u hogar, alarmas y otros productos contratados con el banco para rebajar el tipo.',
@@ -510,7 +516,7 @@ export const es = {
         },
         // Bloque de cada titular
         solicitante: 'Solicitante',
-        situacion: 'Situación laboral',
+        situacion: '¿Cuál es su situación laboral?',
         situaciones: [
             { v: 'Asalariado indefinido', t: 'Asalariado/a con contrato indefinido' },
             { v: 'Asalariado temporal', t: 'Asalariado/a con contrato temporal' },
@@ -520,14 +526,18 @@ export const es = {
             { v: 'Sin empleo', t: 'Sin empleo' },
             { v: 'Otra', t: 'Otra situación' },
         ],
-        antiguedad: 'Antigüedad laboral',
-        ingresos: 'Ingresos netos al mes',
+        antiguedad: '¿Cuántos años lleva en su trabajo actual?',
+        ingresos: '¿Cuánto ingresa al mes, en neto?',
         prestamos: '¿Cuánto paga al mes por otros préstamos?',
         // Último paso: datos de contacto
         contactoT: 'Le preparamos su estudio',
         contactoD:
             'Un asesor estudiará su caso con las entidades y le llamará para explicarle las opciones. Gratis y sin compromiso.',
-        apellidos: 'Apellidos',
+        // Preguntas del asesor para los datos de contacto (la página de Contacto usa sus propios textos)
+        nombre: '¿Cómo se llama?',
+        apellidos: '¿Y sus apellidos?',
+        telefono: '¿En qué teléfono podemos llamarle?',
+        correo: '¿Y su correo electrónico?',
         enviar: 'Solicitar mi estudio gratuito',
         exitoT: 'Solicitud recibida',
         exito: 'Gracias. Estudiaremos su caso y le llamaremos en 24–48 horas laborables.',
