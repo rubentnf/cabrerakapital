@@ -1334,6 +1334,7 @@ textarea {
 }
 
 @keyframes cue-bota {
+
     0%,
     100% {
         transform: translateY(0);
@@ -1357,6 +1358,7 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .cue-c,
     .cue-c::after {
         animation: none;
@@ -1941,6 +1943,7 @@ html {
 }
 
 @media (max-width: 900px) {
+
     /* minmax(0, …): sin él, la columna crece con la tabla de cookies y la página se desborda */
     .legal-grid {
         grid-template-columns: minmax(0, 1fr);
@@ -1963,7 +1966,7 @@ html {
         background: #fff !important;
     }
 
-    .legal > .wrap {
+    .legal>.wrap {
         padding: 0;
     }
 
@@ -2385,6 +2388,7 @@ html {
         margin-inline: auto;
     }
 }
+
 /* ===== Simulador de hipoteca (views/Simulador.astro) ===== */
 .simhero {
     padding-block: clamp(48px, 7vw, 96px);
@@ -2619,7 +2623,7 @@ html {
     outline: none;
 }
 
-.sim-paso > p {
+.sim-paso>p {
     margin-top: -8px;
     font-size: 15px;
     color: var(--muted);
@@ -2731,6 +2735,7 @@ html {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
     .sim-paso:not([hidden]),
     .sim-inicio:not([hidden]) {
         animation: sim-entra 0.35s ease both;
@@ -2831,4 +2836,32 @@ html {
     body:has(.sim-form:not([hidden])) .wa {
         display: none;
     }
+}
+
+/* ===== Instagram ===== */
+.ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ig-link svg {
+    flex: none;
+}
+
+.exito-ig {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 10px;
+    margin: 22px 0 0;
+    font-size: 15px;
+}
+
+.exito-ig a {
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }

@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import HeroInterior from "../components/HeroInterior.astro";
+import IconoInstagram from "../components/IconoInstagram.astro";
 import Mapa from "../components/Mapa.astro";
 import { rutaLegal } from "../data/legal";
 import { contacto } from "../data/contacto";
@@ -291,6 +292,20 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
                 <div class="card">
                     <span class="eyebrow dk">{c.correoCard}</span>
                     <b>{contacto.correo}</b>
+                </div>
+                <div class="card">
+                    <span class="eyebrow dk">{c.redes}</span>
+                    <b>
+                        <a
+                            class="ig-link"
+                            href={contacto.instagram.enlace}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IconoInstagram tamano={20} />
+                            {contacto.instagram.usuario}
+                        </a>
+                    </b>
                 </div>
                 <div class="card">
                     <span class="eyebrow dk">{c.direccion}</span>

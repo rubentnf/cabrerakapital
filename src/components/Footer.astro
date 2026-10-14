@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import IconoInstagram from "./IconoInstagram.astro";
 import logo from "../assets/logo/ck-simbolo.png";
 import { contacto } from "../data/contacto";
 import { grupoInformacion, grupoLegal, rutaLegal } from "../data/legal";
@@ -35,6 +36,18 @@ const t = useT(lang);
                     <a href={`mailto:${contacto.correo}`}>{contacto.correo}</a>
                 </div>
                 <div>{contacto.direccionCorta}</div>
+                <div>
+                    <a
+                        class="ig-link"
+                        href={contacto.instagram.enlace}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Instagram ${contacto.instagram.usuario}`}
+                    >
+                        <IconoInstagram />
+                        {contacto.instagram.usuario}
+                    </a>
+                </div>
             </div>
             <div>
                 <h2>{t.footer.info}</h2>
