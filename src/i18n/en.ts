@@ -21,6 +21,11 @@ export const en: Dict = {
         cta: 'Free assessment',
         tema: 'Dark mode',
     },
+    video: {
+        titulo: 'What we do at CK',
+        detalle: 'Video in Spanish · 22 s',
+        cerrar: 'Close the video',
+    },
     cookies: {
         titulo: 'Cookie notice',
         texto: 'We only use Google cookies to show you the map of our office. Visit statistics do not use cookies.',

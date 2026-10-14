@@ -2865,3 +2865,139 @@ html {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
+
+/* ===== vídeo de portada ===== */
+.vplay {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 22px 6px 6px;
+    border: 1px solid rgba(232, 184, 104, 0.45);
+    border-radius: 999px;
+    background: var(--navy);
+    color: var(--iv);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(10, 34, 64, 0.35);
+    transition:
+        background 0.3s,
+        box-shadow 0.3s;
+}
+
+.vplay:hover {
+    background: var(--navy2);
+    box-shadow: 0 14px 34px rgba(10, 34, 64, 0.45);
+}
+
+.vplay:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.vplay-thumb {
+    position: relative;
+    flex: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+}
+
+.vplay-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vplay-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 34, 64, 0.45);
+}
+
+.vplay-tri {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    margin: -8px 0 0 -5px;
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent var(--goldl);
+}
+
+.vplay-txt {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vplay-txt b {
+    font: 600 15px var(--sans);
+}
+
+.vplay-txt small {
+    font-size: 12.5px;
+    color: #c4cedb;
+}
+
+.vmodal {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    max-width: none;
+    max-height: none;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible;
+}
+
+.vmodal::backdrop {
+    background: rgba(5, 15, 30, 0.84);
+    backdrop-filter: blur(4px);
+}
+
+.vmodal video {
+    display: block;
+    width: min(92vw, calc(86vh * 9 / 16));
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    background: #000;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.vmodal-x {
+    position: absolute;
+    z-index: 2;
+    top: -14px;
+    right: -14px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    font: 500 26px/1 var(--sans);
+    cursor: pointer;
+}
+
+.vmodal-x:focus-visible {
+    outline: 2px solid var(--iv);
+    outline-offset: 2px;
+}
+
+@media (max-width: 560px) {
+    .vmodal-x {
+        top: 8px;
+        right: 8px;
+    }
+}

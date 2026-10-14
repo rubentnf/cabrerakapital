@@ -19,6 +19,11 @@ export const es = {
         cta: 'Estudio gratuito',
         tema: 'Modo oscuro',
     },
+    video: {
+        titulo: 'Qué hacemos en CK',
+        detalle: 'Vídeo · 22 s',
+        cerrar: 'Cerrar el vídeo',
+    },
     cookies: {
         titulo: 'Aviso de cookies',
         texto: 'Solo usamos cookies de Google para mostrarle el mapa de la oficina. Las estadísticas de visitas no usan cookies.',
