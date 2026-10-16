@@ -1228,36 +1228,6 @@ textarea {
             rgba(241, 214, 160, 0) 70%);
 }
 
-/* Las islas vistas desde arriba (public/img/islas.webp). En escritorio, bajo el titular y a la
-   derecha del texto; la altura sigue al titular (su tamaño va en vw). z-index 2: por encima del cielo
-   claro que aparece al bajar (.skybg), para que se vean ir al centro (scripts/anim/home.ts) */
-.islas {
-    z-index: 2;
-    /* el titular deja de crecer hacia los 1500 px: a partir de ahí las islas no bajan más */
-    top: calc(9vh + min(19vw, 255px, 31vh)); /* 31vh: en pantallas bajas no se meten en la ciudad */
-    left: max(43%, calc(98.5% - 900px)); /* en pantallas anchas, como mucho 900 px */
-    right: 1.5%;
-    aspect-ratio: 1000 / 410;
-}
-
-/* Tabletas en vertical: el texto ocupa más alto, las islas van en la franja de encima de la ciudad */
-@media (min-width: 768px) and (max-width: 1024px) and (max-aspect-ratio: 1 / 1) {
-    .islas {
-        top: auto;
-        bottom: 24%;
-        left: 4%;
-        right: 2%;
-    }
-}
-
-.islas img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
 .city svg {
     width: 100%;
     height: 100%;
@@ -1300,6 +1270,57 @@ textarea {
 .hero-copy h1 em {
     font-style: italic;
     color: #f3e0b8;
+}
+
+/* Sello de la portada: silueta del archipiélago en dorado junto a «Bróker hipotecario en Canarias» */
+.hero-sello {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hero-sello img {
+    flex: none;
+    width: 150px;
+    height: auto;
+}
+
+/* Garantías con cifra, bajo la frase */
+.hero-gar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    color: #d9e1ea;
+    font: 500 14px/1.3 var(--sans);
+}
+
+.hero-gar li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.hero-gar b {
+    font: 500 26px/1 var(--serif);
+    color: var(--goldl);
+}
+
+@media (max-width: 767px) {
+    .hero-sello img {
+        width: 110px;
+    }
+
+    .hero-gar {
+        gap: 6px 18px;
+        font-size: 12.5px;
+    }
+
+    .hero-gar b {
+        font-size: 20px;
+    }
 }
 
 .hero-copy .sub {
@@ -1458,15 +1479,6 @@ textarea {
     .hero-copy {
         padding-top: 48px;
         gap: 16px;
-    }
-
-    /* En móvil, el archipiélago completo a todo el ancho en la franja bajo los botones;
-       scripts/desliza.ts las centra, con el aviso «Siga bajando» debajo, entre los botones y la ciudad */
-    .islas {
-        top: auto;
-        bottom: 20%;
-        left: 5%;
-        right: 5%;
     }
 
     .city {
@@ -3141,10 +3153,213 @@ html {
     color: #c4cedb;
 }
 
-/* Portada: el vídeo va en la misma fila que los botones (si no cabe, pasa debajo); así el texto de la
-   portada no baja hasta la silueta de la ciudad */
-.btns-video {
-    flex: none;
+/* Portada: el vídeo (es vertical, 9:16) como tarjeta. En móvil y tableta, una fila bajo el botón con
+   la miniatura y el título; en escritorio, una tarjeta alta a la derecha del texto */
+.vreel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 420px;
+    padding: 7px 18px 7px 7px;
+    border: 1px solid rgba(232, 184, 104, 0.45);
+    border-radius: 18px;
+    background: var(--navy);
+    color: var(--iv);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(10, 34, 64, 0.35);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.vreel:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.vreel-img {
+    position: relative;
+    display: block;
+    width: 52px;
+    aspect-ratio: 9 / 16;
+    border-radius: 11px;
+    overflow: hidden;
+}
+
+.vreel-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vreel-play {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 5px rgba(232, 184, 104, 0.3);
+    transition: transform 0.3s;
+}
+
+.vreel-play::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    border-style: solid;
+    border-width: 7px 0 7px 11px;
+    border-color: transparent transparent transparent var(--navy);
+}
+
+.vreel:hover .vreel-play {
+    transform: scale(1.08);
+}
+
+.vreel-txt {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vreel-txt b {
+    font: 600 16px/1.3 var(--sans);
+}
+
+.vreel-txt small {
+    font-size: 13px;
+    color: #c4cedb;
+}
+
+/* Móviles bajos (iPhone SE…): fila más fina para que quepa todo sobre la ciudad */
+@media (max-width: 767px) and (max-height: 760px) {
+    .vreel {
+        gap: 12px;
+        padding: 5px 14px 5px 5px;
+        border-radius: 14px;
+    }
+
+    .vreel-img {
+        width: 34px;
+        border-radius: 8px;
+    }
+
+    .vreel-play {
+        width: 22px;
+        height: 22px;
+        margin: -11px 0 0 -11px;
+        box-shadow: 0 0 0 3px rgba(232, 184, 104, 0.3);
+    }
+
+    .vreel-play::before {
+        left: 8px;
+        top: 6px;
+        border-width: 5px 0 5px 8px;
+    }
+
+    .vreel-txt b {
+        font-size: 14px;
+    }
+
+    .vreel-txt small {
+        display: none;
+    }
+}
+
+/* Escritorio (apaisado, desde 1200 px): tarjeta alta a la derecha, centrada en el hueco sobre la
+   ciudad */
+@media (min-width: 1200px) and (min-aspect-ratio: 1 / 1) {
+    .tdhero {
+        --reel-h: clamp(280px, 54vh, 480px);
+    }
+
+    /* El texto no entra en la columna de la tarjeta: deja su ancho más 120 px de aire */
+    .hero-copy {
+        padding-right: calc(var(--g) + var(--reel-h) * 0.5625 + 120px);
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(40px, 4.4vw, 70px);
+    }
+
+    .hero-video {
+        position: absolute;
+        z-index: 1;
+        right: var(--g);
+        top: 44%;
+        transform: translateY(-50%);
+    }
+
+    .vreel {
+        display: block;
+        position: relative;
+        width: auto;
+        max-width: none;
+        padding: 0;
+        border: 0;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow:
+            0 24px 60px rgba(4, 16, 34, 0.45),
+            0 0 0 3px rgba(232, 184, 104, 0.7);
+    }
+
+    .vreel:hover {
+        transform: translateY(-4px);
+    }
+
+    .vreel-img {
+        width: auto;
+        height: var(--reel-h);
+        border-radius: 0;
+    }
+
+    .vreel-img::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(6, 20, 42, 0.92));
+    }
+
+    .vreel-play {
+        top: 44%;
+        width: 66px;
+        height: 66px;
+        margin: -33px 0 0 -33px;
+        box-shadow: 0 0 0 10px rgba(232, 184, 104, 0.3);
+    }
+
+    .vreel-play::before {
+        left: 26px;
+        top: 20px;
+        border-width: 13px 0 13px 21px;
+    }
+
+    .vreel-txt {
+        position: absolute;
+        z-index: 1;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .vreel-txt b {
+        font-size: 15px;
+    }
+
+    .vreel-txt small {
+        font-size: 12.5px;
+    }
 }
 
 /* Portátiles con poca altura útil (MacBook Air con la barra del navegador ≈ 1440×780 a 1470×900,
@@ -3165,24 +3380,8 @@ html {
     }
 }
 
-/* Frase de la portada: completa, o solo «Estudio gratuito…» donde hay poco sitio (los 20 años ya
-   aparecen en las cifras de debajo) */
-.hero-copy .sub-corto {
-    display: none;
-}
-
-@media (max-width: 767px), (max-height: 760px) {
-    .hero-copy .sub-largo {
-        display: none;
-    }
-
-    .hero-copy .sub-corto {
-        display: inline;
-    }
-}
-
 /* Móviles bajos (iPhone SE, o cualquier móvil con las barras del navegador): portada más compacta para
-   que quepan las islas y el aviso «Siga bajando» entre los botones y la ciudad */
+   que quepan el aviso «Siga bajando» y la ciudad */
 @media (max-width: 767px) and (max-height: 760px) {
     .hero-copy {
         padding-top: 22px;
@@ -3215,27 +3414,6 @@ html {
     }
 }
 
-/* Portátiles estrechos y tabletas en horizontal (768–1200 px): el texto llega casi a la mitad derecha,
-   así que las islas van en la franja libre entre los botones y la ciudad, a la derecha del aviso */
-@media (min-width: 768px) and (max-width: 1200px) and (min-aspect-ratio: 1 / 1) {
-    .islas {
-        top: auto;
-        bottom: 21%;
-        left: 54%;
-        right: 2%;
-    }
-}
-
-/* Escritorio con poca altura: las islas suben a la columna derecha, junto al titular, para no quedar
-   detrás del botón del vídeo ni de la ciudad */
-@media (min-width: 768px) and (max-height: 760px) and (min-aspect-ratio: 1 / 1) {
-    .islas {
-        top: 8%;
-        left: max(60%, calc(98% - 560px));
-        right: 2%;
-    }
-}
-
 /* Muy poca altura (ventanas reducidas, portátiles con zoom… ≈ 995×655): todo un punto más compacto y
    la ciudad más baja, para que la torre no tape el botón del vídeo */
 @media (min-width: 768px) and (max-height: 720px) {
@@ -3254,34 +3432,6 @@ html {
 
     .scene .city {
         max-height: 25%;
-    }
-}
-
-/* En móvil, solo el círculo con el play junto a «Pedir estudio gratuito»: deja sitio a las islas.
-   El texto sigue ahí para lectores de pantalla */
-@media (max-width: 767px) {
-    .btns-video {
-        flex: none;
-        margin-top: 0;
-    }
-
-    .btns-video .vplay {
-        gap: 0;
-        padding: 2px;
-    }
-
-    .btns-video .vplay-thumb {
-        width: 46px;
-        height: 46px;
-    }
-
-    .btns-video .vplay-txt {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
     }
 }
 

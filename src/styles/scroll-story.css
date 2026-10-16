@@ -694,7 +694,7 @@ button:hover .rl>span {
                 rgba(206, 220, 244, 0) 100%);
     }
 
-    /* En móvil el titular ocupa todo el ancho: el reflejo baja a la franja de las islas */
+    /* En móvil el titular ocupa todo el ancho: el reflejo baja, sobre la ciudad */
     @media (max-width: 767px) {
         :root[data-theme='dark'] .scene .sun {
             width: 90vmin;
@@ -702,11 +702,6 @@ button:hover .rl>span {
             left: 5%;
             top: 48%;
         }
-    }
-
-    /* Islas en penumbra, bajo la luna */
-    :root[data-theme='dark'] .scene .islas img {
-        filter: brightness(0.4) saturate(0.55);
     }
 
     /* Ciudad: siluetas casi negras y ventanas encendidas */

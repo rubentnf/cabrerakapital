@@ -1,28 +1,49 @@
 ---
+// `tarjeta`: tarjeta vertical con la imagen del vídeo (portada del inicio); sin ella, la píldora redonda
 import { langDe, useT } from "../i18n";
+
+interface Props {
+    tarjeta?: boolean;
+}
+const { tarjeta = false } = Astro.props;
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang).video;
 // Archivos en public/video/: que-hacen-en-ck.mp4 (vídeo), .jpg (póster) y -avatar.jpg (miniatura redonda)
 const base = "/video/que-hacen-en-ck";
 ---
 
-<button class="vplay" type="button" data-video-abrir aria-haspopup="dialog">
-    <span class="vplay-thumb">
-        <img
-            src={`${base}-avatar.jpg`}
-            alt=""
-            width="52"
-            height="52"
-            loading="lazy"
-            decoding="async"
-        />
-        <i class="vplay-tri" aria-hidden="true"></i>
-    </span>
-    <span class="vplay-txt">
-        <b>{t.titulo}</b>
-        <small>{t.detalle}</small>
-    </span>
-</button>
+{
+    tarjeta ? (
+        <button class="vreel" type="button" data-video-abrir aria-haspopup="dialog">
+            <span class="vreel-img">
+                <img src={`${base}.jpg`} alt="" width="720" height="1280" decoding="async" />
+                <i class="vreel-play" aria-hidden="true" />
+            </span>
+            <span class="vreel-txt">
+                <b>{t.titulo}</b>
+                <small>{t.detalle}</small>
+            </span>
+        </button>
+    ) : (
+        <button class="vplay" type="button" data-video-abrir aria-haspopup="dialog">
+            <span class="vplay-thumb">
+                <img
+                    src={`${base}-avatar.jpg`}
+                    alt=""
+                    width="52"
+                    height="52"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <i class="vplay-tri" aria-hidden="true"></i>
+            </span>
+            <span class="vplay-txt">
+                <b>{t.titulo}</b>
+                <small>{t.detalle}</small>
+            </span>
+        </button>
+    )
+}
 
 <!-- El vídeo no se descarga hasta que alguien pulsa el botón (preload="none" y el src se pone al abrir) -->
 <dialog class="vmodal" data-video-modal aria-label={t.titulo}>

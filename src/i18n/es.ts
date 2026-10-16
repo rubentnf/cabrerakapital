@@ -107,13 +107,16 @@ export const es = {
         description:
             'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
         hero: {
-            eyebrow: 'Bróker hipotecario · Financiación para pymes · Canarias',
+            eyebrow: 'Bróker hipotecario en Canarias',
             l1: 'Conocemos la banca',
             l2: 'por dentro.',
             l3: 'Ahora negociamos por usted.',
-            sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
-            // En pantallas con poco sitio (móvil y portátiles bajos) solo se ve esta parte
-            subCorto: 'Estudio gratuito: solo cobramos si la operación se firma.',
+            sub: 'Estudio gratuito: solo cobramos si la operación se firma.',
+            garantias: [
+                { n: '20+', t: 'años en la banca canaria' },
+                { n: '0 €', t: 'si la operación no se firma' },
+                { n: 'E593', t: 'inscritos en el Banco de España' },
+            ],
             lema: 'Intermediación financiera · Canarias',
             desliza: 'Siga bajando',
             pedir: 'Pedir estudio gratuito',

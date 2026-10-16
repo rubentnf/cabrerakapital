@@ -109,13 +109,16 @@ export const en: Dict = {
         description:
             'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
         hero: {
-            eyebrow: 'Mortgage broker · SME financing · Canarias',
+            eyebrow: 'Mortgage broker in the Canary Islands',
             l1: 'We know banking',
             l2: 'from the inside.',
             l3: 'Now we negotiate for you.',
-            sub: 'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
-            // Shown instead on screens with little room (mobile and short laptops)
-            subCorto: 'Free assessment: we only charge if the deal is signed.',
+            sub: 'Free assessment: we only charge if the deal is signed.',
+            garantias: [
+                { n: '20+', t: 'years in Canarian banking' },
+                { n: '€0', t: 'if the deal is not signed' },
+                { n: 'E593', t: 'registered with the Bank of Spain' },
+            ],
             lema: 'Financial brokerage · Canarias',
             desliza: 'Keep scrolling',
             pedir: 'Request a free assessment',

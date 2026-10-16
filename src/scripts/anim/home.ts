@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { $, $$, splitWords } from '../utils';
 
 /**
- * Inicio: hero fijado (islas -> logotipo gigante -> cielo con la frase) y los tres pasos fijados.
+ * Inicio: hero fijado (portada -> logotipo gigante -> cielo con la frase) y los tres pasos fijados.
  * gsap.matchMedia permite recortar el recorrido en móvil sin duplicar código.
  */
 export function initHome() {
@@ -27,15 +27,6 @@ export function initHome() {
         // Recorrido ajustado a la duración de la secuencia (≈9 unidades) para que no haya tramos sin
         // cambios: si se alarga la secuencia, alargar también `end` en la misma proporción.
         gsap.set('.sky', { yPercent: 105, opacity: 1 });
-        /** Distancia del centro de las islas al centro de la escena (posición sin animar). */
-        const alCentro = () => {
-            const islas = $<HTMLElement>('[data-depth="islas"]');
-            if (!islas) return { x: 0, y: 0 };
-            return {
-                x: escena.clientWidth / 2 - (islas.offsetLeft + islas.offsetWidth / 2),
-                y: escena.clientHeight / 2 - (islas.offsetTop + islas.offsetHeight / 2),
-            };
-        };
         const tl = gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: {
@@ -46,29 +37,12 @@ export function initHome() {
                 pin: true,
                 pinSpacing: true,
                 anticipatePin: 1,
-                invalidateOnRefresh: true,
             },
         });
         tl.to('.hero-copy', { opacity: 0, y: -60, filter: 'blur(10px)', duration: 2 }, 0)
             .to('[data-depth="city"]', { yPercent: 40, opacity: 0, duration: 2.5 }, 0.5)
             .to('.skybg', { opacity: 1, duration: 2.5 }, 1)
             .to('[data-depth="sun"]', { opacity: 0, duration: 1.5 }, 1)
-            // Mientras se va el texto, las islas se desplazan al centro de la pantalla y se acercan, como
-            // al descender en avión; se funden justo cuando aparece el logotipo gigante en ese centro.
-            // El desplazamiento se mide (y se vuelve a medir al cambiar el tamaño de la ventana)
-            .to(
-                '[data-depth="islas"]',
-                {
-                    x: () => alCentro().x,
-                    y: () => alCentro().y,
-                    scale: 1.3,
-                    transformOrigin: '50% 50%',
-                    duration: 2.6,
-                    ease: 'power1.inOut',
-                },
-                0.4,
-            )
-            .to('[data-depth="islas"]', { opacity: 0, duration: 1 }, 3)
             .fromTo(
                 '.wm',
                 { opacity: 0, scale: 0.9, filter: 'blur(16px)' },
@@ -120,16 +94,16 @@ export function initHome() {
 
         // ---------- 3) «Siga bajando» sin cortes ----------
         // Al empezar a bajar, el aviso de la portada cede el sitio a uno fijo abajo de la pantalla, que
-        // sigue visible por la frase, las cifras y la oficina hasta la pausa final de los tres pasos.
+        // sigue visible por toda la página hasta que aparece la llamada final (.cta): ahí ya no hace falta.
         const portada = $('.scene .scroll-cue');
         const fijo = $('.cue-fijo');
         if (fijo) {
             const ver = (el: Element | null, si: boolean) => el && gsap.to(el, { autoAlpha: si ? 1 : 0, duration: 0.25 });
-            const pasos = ScrollTrigger.getById('pasos');
+            const final = $('.cta');
             ScrollTrigger.create({
                 start: 10,
-                // Hasta poco antes de soltar los tres pasos (o, si no están, al final de la portada)
-                end: () => (pasos ? pasos.end - window.innerHeight * 0.15 : tl.scrollTrigger!.end),
+                // Hasta que la llamada final entra en pantalla (o, si no está, al final de la portada)
+                end: () => (final ? final.getBoundingClientRect().top + scrollY - window.innerHeight * 0.85 : tl.scrollTrigger!.end),
                 onEnter: () => (ver(portada, false), ver(fijo, true)),
                 onLeave: () => ver(fijo, false),
                 onEnterBack: () => ver(fijo, true),

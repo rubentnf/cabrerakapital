@@ -51,19 +51,10 @@ const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
     }
     <div class="skybg" aria-hidden="true"></div>
     <div class="layer sun" data-depth="sun" aria-hidden="true"></div>
-    <!-- Archipiélago visto desde arriba: relieve real (modelo de elevación abierto AWS Terrain Tiles / Mapzen) -->
-    <div class="layer islas" data-depth="islas" aria-hidden="true">
-        <img
-            src="/img/islas.webp"
-            alt=""
-            width="1000"
-            height="410"
-            decoding="async"
-            fetchpriority="high"
-        />
-    </div>
     <div class="hero-copy">
-        <span class="eyebrow" data-fade>
+        <!-- Sello: silueta real del archipiélago (public/img/archipielago.png) y «Canarias» -->
+        <span class="eyebrow hero-sello" data-fade>
+            <img src="/img/archipielago.png" alt="" width="320" height="128" />
             {t.eyebrow}
         </span>
         <h1 id="hero-title">
@@ -80,17 +71,26 @@ const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
             </span>
         </h1>
         <p class="sub" data-fade>
-            <span class="sub-largo">{t.sub}</span>
-            <span class="sub-corto">{t.subCorto}</span>
+            {t.sub}
         </p>
+        <!-- Tres garantías con cifra -->
+        <ul class="hero-gar" data-fade>
+            {
+                t.garantias.map((g) => (
+                    <li>
+                        <b>{g.n}</b> {g.t}
+                    </li>
+                ))
+            }
+        </ul>
         <div class="btns" data-fade style="margin-top:6px">
             <a class="btn gold" href={ruta("contacto", lang)}>
                 {t.pedir}
             </a>
-            <!-- Junto al botón principal: en escritorio con su texto; en móvil, solo el círculo -->
-            <div class="btns-video">
-                <VideoPortada />
-            </div>
+        </div>
+        <!-- Vídeo: tarjeta vertical a la derecha en escritorio; en móvil y tableta, fila bajo el botón -->
+        <div class="hero-video" data-fade>
+            <VideoPortada tarjeta />
         </div>
     </div>
     <div class="layer city" data-depth="city" aria-hidden="true">
