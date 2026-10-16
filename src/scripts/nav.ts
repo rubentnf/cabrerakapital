@@ -42,5 +42,5 @@ export function initNav() {
     });
 
     // Si la ventana pasa a escritorio con el menú abierto, se cierra (y se recupera el scroll)
-    matchMedia('(min-width: 1001px)').addEventListener('change', (e) => e.matches && set(false));
+    matchMedia('(min-width: 1201px)').addEventListener('change', (e) => e.matches && set(false));
 }

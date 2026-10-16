@@ -80,16 +80,14 @@ const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
             </span>
         </h1>
         <p class="sub" data-fade>
-            {t.sub}
+            <span class="sub-largo">{t.sub}</span>
+            <span class="sub-corto">{t.subCorto}</span>
         </p>
         <div class="btns" data-fade style="margin-top:6px">
             <a class="btn gold" href={ruta("contacto", lang)}>
                 {t.pedir}
             </a>
-            <a class="btn line" href={ruta("servicios", lang)}>
-                {t.servicios}
-            </a>
-            <!-- En escritorio va en su propia fila; en móvil, compacto junto al botón principal -->
+            <!-- Junto al botón principal: en escritorio con su texto; en móvil, solo el círculo -->
             <div class="btns-video">
                 <VideoPortada />
             </div>

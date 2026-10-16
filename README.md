@@ -65,6 +65,20 @@ Copia `.env.example` a `.env`. En producción se definen en el panel del hosting
 | `PUBLIC_UMAMI_ID`      | ID del sitio en [Umami](https://umami.is) (estadísticas sin cookies). Vacía = sin estadísticas. |
 | `PUBLIC_UMAMI_SRC`     | Opcional: URL del `script.js` de un Umami propio. Por defecto, Umami Cloud.     |
 
+### Reseñas de Google
+
+La sección «Opiniones» del inicio carga la nota, el total y hasta 5 reseñas de Google desde
+`/api/resenas` (`server/resenas.mjs`, con caché de 6 horas). Se configura en Cloudflare como secretos
+del worker (y en `.dev.vars` para `npm run cf:dev`):
+
+| Variable            | Para qué sirve                                                                 |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `GOOGLE_PLACES_KEY` | Clave de Google Cloud con «Places API (New)» activada. Sin ella, no se cargan. |
+| `GOOGLE_PLACE_ID`   | Opcional: identificador del negocio. Si falta, se busca «Cabrera Kapital La Laguna». |
+
+`npx wrangler secret put GOOGLE_PLACES_KEY` la guarda en producción. En `src/data/resenas.ts`,
+`modo: 'manual'` muestra la lista escrita a mano y solo toma de Google la nota y el total.
+
 ## Contenido
 
 - **Textos**: los que se repiten están en `src/data/`; el resto, dentro de cada página o componente.

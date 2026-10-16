@@ -488,15 +488,30 @@ button:hover .rl>span {
     transform: translateY(-100%);
 }
 
-/* «Siga bajando» de los tres pasos: debajo del contenido mientras la sección está fijada */
-.chev .scroll-cue {
-    bottom: 12px;
-    gap: 6px;
+/* «Siga bajando» fijo (Inicio): abajo de la pantalla mientras se recorre la portada, la frase, las
+   cifras, la oficina y los tres pasos (scripts/anim/home.ts). El texto va sobre una pastilla azul
+   para leerse igual sobre fondos claros, oscuros y la foto */
+.cue-fijo {
+    position: fixed;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+    z-index: 40;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.chev .cue-c {
-    width: 42px;
-    height: 42px;
+.cue-fijo .cue-t {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(10, 34, 64, 0.82);
+    color: var(--iv);
+    font-size: 12px;
+    backdrop-filter: blur(6px);
+}
+
+.cue-fijo .cue-c {
+    width: 46px;
+    height: 46px;
 }
 
 /* Escritorio: la sección se fija a 70 px del borde superior, así que debe caber en la altura que
@@ -528,7 +543,7 @@ button:hover .rl>span {
 }
 
 /* Con movimiento reducido no hay fijados: el indicador sobra */
-.rm .chev .scroll-cue {
+.rm .cue-fijo {
     display: none;
 }
 

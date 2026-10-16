@@ -1,12 +1,18 @@
 ---
-// Aviso para seguir bajando (portada y tres pasos). Pensado también para personas mayores: dice la
-// acción completa, la flecha rebota hacia abajo y, si se pulsa (como un «siguiente»), la página
-// baja sola (scripts/desliza.ts). Colocación y color en la portada: scripts/desliza.ts.
+// Aviso para seguir bajando. Pensado también para personas mayores: dice la acción completa, la
+// flecha rebota hacia abajo y, si se pulsa (como un «siguiente»), la página baja sola
+// (scripts/desliza.ts). Hay dos en el inicio: el de la portada (colocado por scripts/desliza.ts) y
+// uno `fijo` abajo de la pantalla que toma el relevo al empezar a bajar (scripts/anim/home.ts).
 import { langDe, useT } from "../i18n";
+
+interface Props {
+    fijo?: boolean;
+}
+const { fijo = false } = Astro.props;
 const t = useT(langDe(Astro.url.pathname)).inicio.hero;
 ---
 
-<button type="button" class="scroll-cue" data-desliza aria-label={t.desliza}>
+<button type="button" class:list={["scroll-cue", { "cue-fijo": fijo }]} data-desliza aria-label={t.desliza}>
     <span class="cue-t">{t.desliza}</span>
     <span class="cue-c" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">

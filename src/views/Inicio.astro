@@ -12,6 +12,7 @@ import Cta from "../components/Cta.astro";
 import { langDe, useT } from "../i18n";
 import Caminos from "../components/Caminos.astro";
 import Resenas from "../components/Resenas.astro";
+import Desliza from "../components/Desliza.astro";
 const t = useT(langDe(Astro.url.pathname)).inicio;
 ---
 
@@ -20,6 +21,8 @@ const t = useT(langDe(Astro.url.pathname)).inicio;
     <Manifiesto />
     <Oficina />
     <Pasos />
+    <!-- «Siga bajando» fijo abajo, desde que se empieza a bajar hasta el final de los tres pasos -->
+    <Desliza fijo />
     <Editorial />
     <Caminos />
     <Servicios />

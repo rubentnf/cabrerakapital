@@ -112,6 +112,8 @@ export const es = {
             l2: 'por dentro.',
             l3: 'Ahora negociamos por usted.',
             sub: 'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
+            // En pantallas con poco sitio (móvil y portátiles bajos) solo se ve esta parte
+            subCorto: 'Estudio gratuito: solo cobramos si la operación se firma.',
             lema: 'Intermediación financiera · Canarias',
             desliza: 'Siga bajando',
             pedir: 'Pedir estudio gratuito',
@@ -198,11 +200,13 @@ export const es = {
     resenas: {
         etiqueta: 'Opiniones',
         titulo: 'Lo que dicen nuestros clientes',
-        google: 'Publicado en Google',
+        google: 'Reseña de Google',
         ver: 'Ver todas las reseñas en Google',
         anterior: 'Reseña anterior',
+        leerMas: 'Leer más',
+        leerMenos: 'Leer menos',
         siguiente: 'Reseña siguiente',
-        valoracion: 'valoración en Google',
+        valoracion: 'valoraciones en Google',
     },
     caminos: {
         etiqueta: 'Cómo podemos ayudarle',

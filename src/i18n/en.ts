@@ -114,6 +114,8 @@ export const en: Dict = {
             l2: 'from the inside.',
             l3: 'Now we negotiate for you.',
             sub: 'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
+            // Shown instead on screens with little room (mobile and short laptops)
+            subCorto: 'Free assessment: we only charge if the deal is signed.',
             lema: 'Financial brokerage · Canarias',
             desliza: 'Keep scrolling',
             pedir: 'Request a free assessment',
@@ -200,11 +202,13 @@ export const en: Dict = {
     resenas: {
         etiqueta: 'Reviews',
         titulo: 'What our clients say',
-        google: 'Posted on Google',
+        google: 'Google review',
         ver: 'See all reviews on Google',
         anterior: 'Previous review',
+        leerMas: 'Read more',
+        leerMenos: 'Read less',
         siguiente: 'Next review',
-        valoracion: 'rating on Google',
+        valoracion: 'ratings on Google',
     },
     caminos: {
         etiqueta: 'How we can help',

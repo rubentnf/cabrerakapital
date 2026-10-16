@@ -2,3 +2,6 @@
 RESEND_API_KEY=
 CONTACT_TO=
 MAIL_FROM=
+# Reseñas de Google (server/resenas.mjs). GOOGLE_PLACE_ID es opcional: si falta, se busca el negocio
+GOOGLE_PLACES_KEY=
+GOOGLE_PLACE_ID=

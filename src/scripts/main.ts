@@ -8,6 +8,7 @@ import { initMapa } from './mapa';
 import { initVideo } from './video';
 import { initCookies } from './cookies';
 import { initCarrusel } from './carrusel';
+import { initResenas } from './resenas';
 import { initDesliza } from './desliza';
 import { initTema } from './tema';
 
@@ -22,6 +23,7 @@ initMapa();
 initVideo();
 initCarruselEntidades();
 initCarrusel();
+initResenas();
 initDesliza();
 
 // Animaciones (y GSAP, que es lo que más pesa): solo si la persona no ha pedido movimiento

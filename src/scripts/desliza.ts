@@ -13,6 +13,7 @@ import { $, $$, reducedMotion } from './utils';
  */
 const SEPARACION = 24; // px entre los botones y el aviso
 const SEP_ISLAS = 10; // px entre las islas (móvil) y el aviso
+const MIN_ISLAS = 70; // px de alto: más pequeñas no se reconocen; entonces el aviso va sobre la ciudad
 
 export function initDesliza() {
     // Quien lo pulsa como si fuera un «siguiente» (habitual en personas mayores): la página baja sola
@@ -46,15 +47,22 @@ export function initDesliza() {
         // manda el CSS)
         const ciudad = $('.scene .city')?.getBoundingClientRect();
         if (islas) {
-            let top = '';
+            islas.style.cssText = '';
             if (movil) {
-                const alto = islas.getBoundingClientRect().height;
+                // Si no caben a su tamaño, se reducen (centradas) hasta caber con el aviso debajo
                 const techo = ciudad ? ciudad.top + ciudad.height * 0.35 : e.bottom;
-                const sobra = techo - (b.bottom + 6) - (alto + SEP_ISLAS + a.height);
-                top = `${Math.round(b.bottom - e.top + 6 + Math.max(0, sobra / 2))}px`;
+                const hueco = techo - (b.bottom + 6) - (SEP_ISLAS + a.height);
+                const natural = islas.getBoundingClientRect();
+                let alto = natural.height;
+                if (hueco < alto && hueco > MIN_ISLAS) {
+                    const ancho = Math.round(hueco * (natural.width / natural.height));
+                    islas.style.left = islas.style.right = `${Math.round((e.width - ancho) / 2)}px`;
+                    alto = hueco;
+                }
+                const sobra = hueco - alto;
+                islas.style.top = `${Math.round(b.bottom - e.top + 6 + Math.max(0, sobra / 2))}px`;
+                islas.style.bottom = 'auto';
             }
-            islas.style.top = top;
-            islas.style.bottom = movil ? 'auto' : '';
         }
 
         if (movil || tapa) {

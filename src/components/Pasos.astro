@@ -1,5 +1,4 @@
 ---
-import Desliza from "./Desliza.astro";
 import { langDe, useT } from "../i18n";
 const i18n = useT(langDe(Astro.url.pathname)).inicio;
 const t = i18n.pasos;
@@ -32,6 +31,4 @@ const imgs = ["p1", "p2", "p3"];
             }
         </div>
     </div>
-    <!-- Indicador mientras la sección está fijada (lo oculta home.ts al llegar al último paso) -->
-    <Desliza />
 </section>

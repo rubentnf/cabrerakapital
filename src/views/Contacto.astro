@@ -100,7 +100,7 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
                         <label class="chk">
                             <input type="checkbox" name="privacidad" required />
                             <span>
-                                {c.privacidadA}
+                                {c.privacidadA}{" "}
                                 <a
                                     href={rutaLegal("privacidad", lang)}
                                     target="_blank"
@@ -209,7 +209,7 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
                                         required
                                     />
                                     <span>
-                                        {c.privacidadA}
+                                        {c.privacidadA}{" "}
                                         <a
                                             href={rutaLegal("privacidad", lang)}
                                             target="_blank"
