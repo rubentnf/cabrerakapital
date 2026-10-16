@@ -1691,11 +1691,17 @@ select {
     display: none;
 }
 
-/* Tarjetas de la altura de su contenido (no de la reseña más larga) */
+/* Todas las tarjetas igual de altas (--alto: la más alta con el texto plegado, scripts/resenas.ts) y
+   el autor abajo; al desplegar una con «Leer más», solo crece esa */
 .opin {
     flex: 0 0 min(380px, 86%);
     align-self: flex-start;
+    min-height: var(--alto, auto);
     scroll-snap-align: start;
+}
+
+.opin .opin-quien {
+    margin-top: auto;
 }
 
 /* Reseñas largas: 6 líneas y «Leer más» (scripts/resenas.ts) */

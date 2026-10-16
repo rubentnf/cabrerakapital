@@ -54,6 +54,25 @@ function tarjeta(r: Resena, textoGoogle: string) {
     return li;
 }
 
+/** Iguala las tarjetas a la más alta con el texto plegado (se recalcula al cambiar el ancho). */
+function igualar(sec: HTMLElement) {
+    const pista = sec.querySelector<HTMLElement>('[data-pista]');
+    if (!pista) return;
+    const medir = () => {
+        pista.style.removeProperty('--alto');
+        const cerradas = [...pista.querySelectorAll<HTMLElement>('.opin:not(.abierta)')];
+        const alto = Math.max(0, ...cerradas.map((c) => c.offsetHeight));
+        if (alto) pista.style.setProperty('--alto', `${alto}px`);
+    };
+    medir();
+    if (!pista.dataset.igualada) {
+        pista.dataset.igualada = '1';
+        let ancho = innerWidth;
+        addEventListener('resize', () => innerWidth !== ancho && ((ancho = innerWidth), medir()));
+        document.fonts?.ready.then(medir);
+    }
+}
+
 /** «Leer más» en las reseñas que no caben en sus 6 líneas. */
 function leerMas(sec: HTMLElement) {
     const { leerMas: mas = '', leerMenos: menos = '' } = sec.dataset;
@@ -76,7 +95,10 @@ export async function initResenas() {
     const sec = $<HTMLElement>('[data-resenas]');
     if (!sec) return;
     const { resenas: modo, lang = 'es', textoGoogle = '' } = sec.dataset;
-    if (!sec.hidden) leerMas(sec);
+    if (!sec.hidden) {
+        leerMas(sec);
+        igualar(sec);
+    }
 
     let datos: Datos;
     try {
@@ -104,6 +126,7 @@ export async function initResenas() {
         $('[data-pista]', sec)!.replaceChildren(...datos.resenas.map((r) => tarjeta(r, textoGoogle)));
         sec.hidden = false;
         leerMas(sec);
+        igualar(sec);
         // Los botones del carrusel se recalculan con el nuevo contenido
         dispatchEvent(new Event('resize'));
     }
