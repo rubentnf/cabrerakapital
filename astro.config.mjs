@@ -58,6 +58,7 @@ export default defineConfig({
     ],
     integrations: [
         sitemap({
+            filter: (page) => !page.includes('/404'),
             serialize(item) {
                 const ruta = new URL(item.url).pathname;
                 const par = pares.find((p) => p.es === ruta || p.en === ruta);
