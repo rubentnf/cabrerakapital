@@ -54,6 +54,7 @@ const inicial = (n: string) =>
                         <div class="opin-quien">
                             <span class="opin-av" aria-hidden="true">
                                 {inicial(r.nombre)}
+                                {r.foto && <img src={r.foto} alt="" width="40" height="40" loading="lazy" referrerpolicy="no-referrer" />}
                             </span>
                             <div>
                                 <b>{r.nombre}</b>

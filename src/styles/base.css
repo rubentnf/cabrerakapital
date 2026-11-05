@@ -1737,7 +1737,10 @@ select {
     scrollbar-width: none;
 }
 
+/* La foto va sobre la inicial: si no carga, se ve la inicial */
 .opin-av img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1812,6 +1815,7 @@ select {
 }
 
 .opin-av {
+    position: relative;
     flex: none;
     width: 40px;
     height: 40px;
