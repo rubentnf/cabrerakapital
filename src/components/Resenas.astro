@@ -1,7 +1,7 @@
 ---
 // Opiniones de clientes. Las reseñas y la nota llegan de Google (scripts/resenas.ts → /api/resenas)
 // o de la lista manual de data/resenas.ts, según `modo`. Sin reseñas, la sección no se muestra.
-import { google, modo, resenas } from "../data/resenas";
+import { google, modo, mostrarTotal, resenas } from "../data/resenas";
 import { langDe, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang).resenas;
@@ -17,6 +17,7 @@ const inicial = (n: string) =>
     aria-labelledby="opiniones-t"
     data-resenas={modo}
     data-lang={lang}
+    data-total={mostrarTotal ? "si" : "no"}
     data-texto-google={t.google}
     data-leer-mas={t.leerMas}
     data-leer-menos={t.leerMenos}
@@ -32,7 +33,7 @@ const inicial = (n: string) =>
                 <p class="opin-nota" data-nota hidden={google.puntuacion === null}>
                     <b data-puntuacion>{google.puntuacion?.toFixed(1)}</b>
                     <span class="stars" aria-hidden="true">★★★★★</span>
-                    <span data-total hidden={google.total === null}>
+                    <span data-total hidden={!mostrarTotal || google.total === null}>
                         · <span data-total-n>{google.total}</span> {t.valoracion}
                     </span>
                 </p>

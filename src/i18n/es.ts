@@ -107,10 +107,11 @@ export const es = {
         description:
             'Más de 20 años en la banca canaria, ahora de su lado de la mesa. Estudio gratuito: solo cobramos si la operación se firma.',
         hero: {
-            eyebrow: 'Bróker hipotecario en Canarias',
-            l1: 'Conocemos la banca',
-            l2: 'por dentro.',
-            l3: 'Ahora negociamos por usted.',
+            eyebrow: 'Intermediario de crédito en Canarias',
+            // Titular (lo que hacen) y, debajo y más pequeño, la frase de la experiencia
+            l1: 'Hipotecas y financiación',
+            l2: 'para pymes.',
+            claim: { a: 'Conocemos la banca', b: 'por dentro.', c: 'Ahora negociamos por usted.' },
             sub: 'Estudio gratuito: solo cobramos si la operación se firma.',
             garantias: [
                 { n: '20+', t: 'años en la banca canaria' },

@@ -1240,6 +1240,27 @@ textarea {
     z-index: 5;
 }
 
+/* Pantallas muy anchas: la ciudad deja de crecer (si no, la torre sube hasta la tarjeta del vídeo) y
+   los lados se completan con su reflejo (Hero.astro). También se ajusta a la altura de la pantalla */
+@media (min-width: 1700px) {
+    .scene.tdhero .city {
+        --cw: min(1700px, 150vh);
+        height: calc(var(--cw) * 0.24375);
+        aspect-ratio: auto;
+        max-height: none;
+    }
+
+    .scene.tdhero .city svg {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: var(--cw);
+        height: calc(var(--cw) * 0.24375);
+        transform: translateX(-50%);
+        overflow: visible;
+    }
+}
+
 .hero-copy {
     position: absolute;
     inset: 0;
@@ -1272,17 +1293,31 @@ textarea {
     color: #f3e0b8;
 }
 
-/* Sello de la portada: silueta del archipiélago en dorado junto a «Bróker hipotecario en Canarias» */
+/* Sello de la portada: silueta del archipiélago en dorado junto a «Intermediario de crédito en Canarias» */
 .hero-sello {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 
 .hero-sello img {
     flex: none;
-    width: 150px;
+    /* 460 px en pantallas con altura; menos en portátiles bajos para que el botón no llegue a la ciudad */
+    width: clamp(260px, calc(160vh - 980px), 460px);
     height: auto;
+}
+
+/* «Conocemos la banca por dentro…»: bajo el titular, más pequeño */
+.hero-claim {
+    margin: -4px 0 0;
+    max-width: 34ch;
+    font: 500 clamp(21px, 1.9vw, 28px) / 1.25 var(--serif);
+    color: var(--iv);
+}
+
+.hero-claim em {
+    font-style: italic;
+    color: #f3e0b8;
 }
 
 /* Garantías con cifra, bajo la frase */
@@ -1310,7 +1345,16 @@ textarea {
 
 @media (max-width: 767px) {
     .hero-sello img {
-        width: 110px;
+        width: 170px;
+    }
+
+    .hero-claim {
+        margin-top: -6px;
+        font-size: 18px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(30px, 8.8vw, 40px);
     }
 
     .hero-gar {
@@ -1725,8 +1769,10 @@ select {
     overflow: hidden;
 }
 
+/* Desplegada: con sus párrafos, tal como está escrita en Google */
 .opin.abierta .opin-t {
     display: block;
+    white-space: pre-line;
 }
 
 .opin-mas {

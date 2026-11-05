@@ -109,10 +109,11 @@ export const en: Dict = {
         description:
             'Over 20 years in Canarian banking, now on your side of the table. Free assessment: we only charge if the deal is signed.',
         hero: {
-            eyebrow: 'Mortgage broker in the Canary Islands',
-            l1: 'We know banking',
-            l2: 'from the inside.',
-            l3: 'Now we negotiate for you.',
+            eyebrow: 'Credit intermediary in the Canary Islands',
+            // Headline (what they do) and, below and smaller, the experience line
+            l1: 'Mortgages and financing',
+            l2: 'for SMEs.',
+            claim: { a: 'We know banking', b: 'from the inside.', c: 'Now we negotiate for you.' },
             sub: 'Free assessment: we only charge if the deal is signed.',
             garantias: [
                 { n: '20+', t: 'years in Canarian banking' },

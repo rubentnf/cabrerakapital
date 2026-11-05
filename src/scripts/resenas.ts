@@ -115,7 +115,7 @@ export async function initResenas() {
         $('[data-puntuacion]', sec)!.textContent = datos.puntuacion.toFixed(1);
         $('[data-nota]', sec)!.hidden = false;
     }
-    if (datos.total !== null) {
+    if (datos.total !== null && sec.dataset.total !== 'no') {
         $('[data-total-n]', sec)!.textContent = String(datos.total);
         $('[data-total]', sec)!.hidden = false;
     }
