@@ -137,7 +137,6 @@ export const en: Dict = {
         oficina: {
             alt: 'Front of the Cabrera Kapital office in La Laguna',
             titulo: 'A real office, in Canarias.',
-            chip: 'The real team photo will go here · C/ Santa Eulalia 9',
         },
         pasos: {
             etiqueta: 'How we work',
@@ -320,7 +319,6 @@ export const en: Dict = {
         lead: 'Real banking experience and official accreditations at the service of every deal.',
         olegario: {
             alt: 'Portrait of Olegario',
-            fallback: 'Photo of Olegario',
             rol: 'Founding partner',
             pill: 'Business Administration degree · EIP (EFPA) · LCCI',
             parrafos: [
@@ -332,7 +330,6 @@ export const en: Dict = {
         },
         alejandro: {
             alt: 'Portrait of Alejandro',
-            fallback: 'Photo of Alejandro',
             rol: 'Partner',
             pill: 'Business Administration graduate · LCCI',
             parrafos: [
@@ -341,9 +338,7 @@ export const en: Dict = {
                 'He complements his financial training with knowledge of property investment analysis and wealth planning, bringing a close, dynamic and results-oriented approach. He stands out for his negotiation skills, personal follow-up of each file and commitment to securing the best terms for his clients.',
             ],
         },
-        sociosTitulo: 'The two partners, in their office',
         equipoAlt: 'Olegario and Alejandro Cabrera in their office in La Laguna',
-        equipoFallback: 'Team photo',
         regEtiqueta: 'Registration and accreditations',
         regTitulo: 'Regulated and accredited',
         regs: [
@@ -399,7 +394,6 @@ export const en: Dict = {
         casi: 'Almost there',
         atras: 'Back',
         continuar: 'Continue',
-        obligatorio: 'required',
         rango: 'Enter a value between {min} and {max}.',
         elegir: 'Select…',
         ud: { eur: '€', eurMes: '€/month', eurAnio: '€/year', anios: 'years', pct: '%' },
@@ -559,7 +553,6 @@ export const en: Dict = {
         demo: 'Demo mode: the form does not send anything yet.',
         exitoT: 'Request sent',
         exitoOtra: 'Send another request',
-        exitoRedes: 'In the meantime, follow us on',
         exito: 'Thank you. We have received your request and will reply within 24–48 working hours.',
         error: 'We could not send the form. Please try again or call us on',
         errorO: 'or',

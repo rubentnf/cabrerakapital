@@ -6,50 +6,9 @@ import { langDe, ruta, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang).inicio.hero;
 const m = useT(lang).inicio.manifiesto;
-
-// Vídeo de portada (opcional): si existe src/assets/video/hero.mp4 (o .webm) se usa de fondo.
-// El póster es src/assets/photos/hero-poster.(jpg|png|webp) y también es opcional.
-const videos = import.meta.glob<string>("../assets/video/hero.{mp4,webm}", {
-    eager: true,
-    query: "?url",
-    import: "default",
-});
-const posters = import.meta.glob<string>(
-    "../assets/photos/hero-poster.{jpg,jpeg,png,webp}",
-    {
-        eager: true,
-        query: "?url",
-        import: "default",
-    },
-);
-const video = Object.entries(videos)[0];
-const poster = Object.values(posters)[0];
-const tipo = video?.[0].endsWith(".webm") ? "video/webm" : "video/mp4";
-
-// Barrotes de la balconada del edificio de la ciudad
-const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
 ---
 
-<section
-    class:list={["tdhero", "scene", { "has-video": !!video }]}
-    aria-labelledby="hero-title"
->
-    {
-        video && (
-            <div class="herovid" aria-hidden="true">
-                <video
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    poster={poster}
-                >
-                    <source src={video[1]} type={tipo} />
-                </video>
-            </div>
-        )
-    }
+<section class="tdhero scene" aria-labelledby="hero-title">
     <div class="skybg" aria-hidden="true"></div>
     <div class="layer sun" data-depth="sun" aria-hidden="true"></div>
     <div class="hero-copy">
@@ -91,7 +50,7 @@ const balcon = Array.from({ length: 10 }, (_, i) => 674 + i * 6);
         </div>
         <!-- Vídeo: tarjeta vertical a la derecha en escritorio; en móvil y tableta, fila bajo el botón -->
         <div class="hero-video" data-fade>
-            <VideoPortada tarjeta />
+            <VideoPortada />
         </div>
     </div>
     <div class="layer city" data-depth="city" aria-hidden="true">

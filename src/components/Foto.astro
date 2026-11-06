@@ -1,6 +1,5 @@
 ---
-// Foto con hueco: si existe src/assets/photos/<name>.(jpg|jpeg|png|webp|avif) se muestra optimizada;
-// si no, se muestra el contenido de reserva (la ilustración).
+// Foto de src/assets/photos/<name>.(jpg|jpeg|png|webp|avif), optimizada por Astro
 import { Image } from "astro:assets";
 import { fotos } from "../utils/assets";
 
@@ -21,19 +20,7 @@ const {
 } = Astro.props;
 
 const img = fotos.get(name);
+if (!img) throw new Error(`Falta la foto src/assets/photos/${name}`);
 ---
 
-{
-    img ? (
-        <Image
-            src={img}
-            alt={alt}
-            widths={widths}
-            sizes={sizes}
-            loading={loading}
-            class="foto"
-        />
-    ) : (
-        <slot />
-    )
-}
+<Image src={img} alt={alt} widths={widths} sizes={sizes} loading={loading} class="foto" />

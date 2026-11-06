@@ -42,7 +42,7 @@ npm run dev              # http://localhost:4321
 ## Estructura
 
 ```text
-public/              favicon, robots.txt e ilustraciones SVG de reserva
+public/              favicon, robots.txt, ilustraciones SVG, vídeo y PDF legales
 src/
 ├─ assets/
 │  ├─ photos/        fotos reales (oficina, olegario, alejandro, equipo)
@@ -83,21 +83,18 @@ del worker (y en `.dev.vars` para `npm run cf:dev`):
 ## Contenido
 
 - **Textos**: los que se repiten están en `src/data/`; el resto, dentro de cada página o componente.
-- **Fotos**: se guardan en `src/assets/photos/` con el nombre `oficina`, `olegario`, `alejandro` o `equipo` (jpg, jpeg, png, webp o avif). Si el archivo existe se usa, optimizado por Astro; si no, se muestra una ilustración.
+- **Fotos**: se guardan en `src/assets/photos/` con el nombre `oficina`, `olegario`, `alejandro` o `equipo` (jpg, jpeg, png, webp o avif), optimizadas por Astro. Basta con 3200 px de ancho: Astro no genera tamaños mayores.
 - **Logos de entidades**: en `src/assets/logos/`, con el nombre de la entidad en minúsculas, sin tildes y con guiones (`laboral-kutxa.svg`). Si falta alguno se muestra el nombre en texto. Se usan con permiso de cada entidad (lo indica el aviso legal).
 
 ## Accesibilidad
 
 Con `prefers-reduced-motion: reduce` se desactivan las animaciones de scroll y la portada se muestra como una página normal. Los elementos decorativos llevan `aria-hidden`.
 
-## Antes de publicar
+## Textos legales en PDF
 
-- [ ] Definir `PUBLIC_INDEXAR=true` en el hosting.
-- [ ] Cambiar `public/robots.txt` a `Allow: /` y añadir la línea `Sitemap: https://cabrerakapital.es/sitemap-index.xml`.
-- [ ] Rellenar los textos pendientes: `grep -rnE "pendiente|confirmar|Aquí ir" src`.
-- [ ] Crear las páginas legales (aviso legal, privacidad y cookies, información previa, independencia) y enlazarlas desde el pie.
-- [ ] Confirmar la dirección (número de portal).
-- [ ] Sustituir las ilustraciones por las fotos reales del equipo y la oficina.
+El botón «Descargar PDF» de cada texto legal enlaza a `public/legal/<slug>.pdf` (en inglés,
+`public/legal/en/<slug>.pdf`). Si se cambia un texto en `src/legal/`, hay que volver a generar su PDF
+imprimiendo la página con Chrome: la hoja de estilos de impresión ya le da el formato.
 
 ## Despliegue
 

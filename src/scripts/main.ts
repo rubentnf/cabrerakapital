@@ -1,8 +1,6 @@
-import { reducedMotion } from './utils';
+import { $, reducedMotion } from './utils';
 import { initNav } from './nav';
 import { rollify } from './rollify';
-import { initSimulador } from './simulador';
-import { initFormulario } from './formulario';
 import { initCarruselEntidades } from './carrusel-entidades';
 import { initMapa } from './mapa';
 import { initVideo } from './video';
@@ -16,8 +14,9 @@ import { initTema } from './tema';
 initTema();
 initNav();
 rollify();
-initSimulador();
-initFormulario();
+// El simulador y el formulario de contacto solo están en su página: se descargan aparte y solo allí
+if ($('#simbox')) import('./simulador').then((m) => m.initSimulador());
+if ($('#form')) import('./formulario').then((m) => m.initFormulario());
 initCookies();
 initMapa();
 initVideo();

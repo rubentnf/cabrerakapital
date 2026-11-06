@@ -135,7 +135,6 @@ export const es = {
         oficina: {
             alt: 'Fachada de la oficina de Cabrera Kapital en Canarias',
             titulo: 'Una oficina real, en Canarias.',
-            chip: 'Aquí irá la foto real del equipo · C/ Santa Eulalia 9',
         },
         pasos: {
             etiqueta: 'Cómo trabajamos',
@@ -325,7 +324,6 @@ export const es = {
         lead: 'Experiencia bancaria real y acreditaciones oficiales al servicio de cada operación.',
         olegario: {
             alt: 'Retrato de Olegario',
-            fallback: 'Foto de Olegario',
             rol: 'Socio fundador',
             pill: 'Licenciado en ADE · EIP (EFPA) · LCCI',
             parrafos: [
@@ -337,7 +335,6 @@ export const es = {
         },
         alejandro: {
             alt: 'Retrato de Alejandro',
-            fallback: 'Foto de Alejandro',
             rol: 'Socio',
             pill: 'Graduado en ADE · LCCI',
             parrafos: [
@@ -346,9 +343,7 @@ export const es = {
                 'Complementa su formación financiera con conocimientos en análisis de inversiones inmobiliarias y planificación patrimonial, aportando una visión cercana, dinámica y orientada a resultados. Destaca por su capacidad de negociación, seguimiento personalizado de cada expediente y compromiso con la consecución de las mejores condiciones para sus clientes.',
             ],
         },
-        sociosTitulo: 'Los dos socios, en su oficina',
         equipoAlt: 'Olegario y Alejandro Cabrera en su oficina de La Laguna',
-        equipoFallback: 'Foto del equipo',
         regEtiqueta: 'Registro y acreditaciones',
         regTitulo: 'Regulados y acreditados',
         regs: [
@@ -405,7 +400,6 @@ export const es = {
         casi: 'Ya casi está',
         atras: 'Atrás',
         continuar: 'Continuar',
-        obligatorio: 'obligatorio',
         rango: 'Introduzca un valor entre {min} y {max}.',
         elegir: 'Seleccione…',
         // Unidades de los campos
@@ -571,7 +565,6 @@ export const es = {
         demo: 'Modo demostración: el formulario todavía no envía nada.',
         exitoT: 'Solicitud enviada',
         exitoOtra: 'Enviar otra solicitud',
-        exitoRedes: 'Mientras tanto, síganos en',
         exito: 'Gracias. Hemos recibido su solicitud y le responderemos en 24–48 horas laborables.',
         error: 'No hemos podido enviar el formulario. Inténtelo de nuevo o llámenos al',
         errorO: 'o al',
