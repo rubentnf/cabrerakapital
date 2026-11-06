@@ -29,7 +29,12 @@ export function initDesliza() {
     // Lo más bajo del texto de la portada (en escritorio el vídeo va aparte, a la derecha: no cuenta)
     const finTexto = () => {
         const hijos = [...copia.children].filter((h) => getComputedStyle(h).position !== 'absolute');
-        const r = hijos.map((h) => h.getBoundingClientRect());
+        // Sin el desplazamiento de la animación de entrada (CSS @keyframes entra): la posición final
+        const dy = (h: Element) => parseFloat(getComputedStyle(h).translate.split(' ')[1] ?? '0') || 0;
+        const r = hijos.map((h) => {
+            const x = h.getBoundingClientRect();
+            return { top: x.top - dy(h), bottom: x.bottom - dy(h) };
+        });
         return { top: Math.min(...r.map((x) => x.top)), bottom: Math.max(...r.map((x) => x.bottom)) };
     };
 

@@ -28,7 +28,7 @@ export const es = {
     cookies: {
         titulo: 'Aviso de cookies',
         texto: 'Solo usamos cookies de Google para mostrarle el mapa de la oficina. Las estadísticas de visitas no usan cookies.',
-        mas: 'Más información',
+        mas: 'Política de cookies',
         aceptar: 'Aceptar',
         rechazar: 'Rechazar',
         configurar: 'Configurar cookies',

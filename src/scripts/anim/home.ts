@@ -10,14 +10,7 @@ export function initHome() {
     const escena = $('.scene');
     if (!escena) return;
 
-    gsap.from($$('.hero-copy h1 .line > span'), {
-        yPercent: 105,
-        duration: 1.1,
-        ease: 'power3.out',
-        stagger: 0.12,
-        delay: 0.1,
-    });
-
+    // La entrada del titular va en CSS (base.css, @keyframes sube): empieza sin esperar a GSAP
     const mm = gsap.matchMedia();
     // OJO: matchMedia solo ejecuta la función si al menos UNA condición se cumple, así que se definen las dos.
     mm.add({ escritorio: '(min-width: 768px)', movil: '(max-width: 767px)' }, (ctx) => {

@@ -27,6 +27,6 @@ export function initCarrusel() {
             if (e.key === 'ArrowLeft') ir(-1);
         });
         addEventListener('resize', actualizar);
-        actualizar();
+        requestAnimationFrame(actualizar); // medir al arrancar forzaría el cálculo del diseño
     });
 }

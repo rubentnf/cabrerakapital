@@ -3,13 +3,23 @@
 import { langDe, useT } from "../i18n";
 
 const t = useT(langDe(Astro.url.pathname)).video;
-// Archivos en public/video/: que-hacen-en-ck.mp4 (vídeo) y .webp (póster)
+// Archivos en public/video/: que-hacen-en-ck.mp4 (vídeo), .webp (póster, 720 px) y la misma imagen a
+// 120, 200, 360 y 540 px (-120.webp…) para la tarjeta: cada pantalla descarga la que necesita
 const base = "/video/que-hacen-en-ck";
 ---
 
 <button class="vreel" type="button" data-video-abrir aria-haspopup="dialog">
     <span class="vreel-img">
-        <img src={`${base}.webp`} alt="" width="720" height="1280" decoding="async" />
+        <img
+            src={`${base}-360.webp`}
+            srcset={[120, 200, 360, 540].map((w) => `${base}-${w}.webp ${w}w`).join(", ")}
+            sizes="(min-width: 1200px) and (min-aspect-ratio: 1/1) 270px, 52px"
+            alt=""
+            width="720"
+            height="1280"
+            fetchpriority="high"
+            decoding="async"
+        />
         <i class="vreel-play" aria-hidden="true"></i>
     </span>
     <span class="vreel-txt">
@@ -18,7 +28,7 @@ const base = "/video/que-hacen-en-ck";
     </span>
 </button>
 
-<!-- El vídeo no se descarga hasta que alguien pulsa el botón (preload="none" y el src se pone al abrir) -->
+<!-- Ni el vídeo ni su póster se descargan hasta que alguien pulsa el botón (se ponen al abrir) -->
 <dialog class="vmodal" data-video-modal aria-label={t.titulo}>
     <button
         class="vmodal-x"
@@ -30,6 +40,6 @@ const base = "/video/que-hacen-en-ck";
         controls
         playsinline
         preload="none"
-        poster={`${base}.webp`}
+        data-poster={`${base}.webp`}
         data-src={`${base}.mp4`}></video>
 </dialog>

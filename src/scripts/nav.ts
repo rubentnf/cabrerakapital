@@ -9,7 +9,8 @@ export function initNav() {
 
     const onScroll = () => nav.classList.toggle('solid', scrollY > 40);
     addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    // En el siguiente fotograma: leer scrollY al arrancar obligaría a calcular el diseño antes de tiempo
+    requestAnimationFrame(onScroll);
 
     const abierto = () => menu.classList.contains('open');
     const enfocables = () => [burger, ...$$('a, button', menu)];

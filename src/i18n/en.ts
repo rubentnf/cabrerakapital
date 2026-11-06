@@ -30,7 +30,7 @@ export const en: Dict = {
     cookies: {
         titulo: 'Cookie notice',
         texto: 'We only use Google cookies to show you the map of our office. Visit statistics do not use cookies.',
-        mas: 'Learn more',
+        mas: 'Cookie policy',
         aceptar: 'Accept',
         rechazar: 'Reject',
         configurar: 'Cookie settings',

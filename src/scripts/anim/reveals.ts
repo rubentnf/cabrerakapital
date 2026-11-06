@@ -15,14 +15,7 @@ export function initReveals() {
             .join(' ');
         gsap.from($$('.w', h), { yPercent: 110, duration: 1, ease: 'power3.out', stagger: 0.07 });
     }
-    gsap.from($$('[data-fade]'), {
-        y: 20,
-        opacity: 0,
-        duration: 0.9,
-        delay: 0.3,
-        stagger: 0.1,
-        ease: 'power2.out',
-    });
+    // [data-fade]: entrada en CSS (base.css, @keyframes entra), para que empiece sin esperar a GSAP
 
     // Portada interior con formas que se mueven
     const hero = $('.hero');

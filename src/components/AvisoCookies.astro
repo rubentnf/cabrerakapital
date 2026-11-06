@@ -1,5 +1,5 @@
 ---
-// Aviso de cookies. Oculto por defecto: scripts/cookies.ts lo muestra si aún no hay respuesta guardada.
+// Aviso de cookies. Oculto por defecto: el script de abajo lo muestra si aún no hay respuesta guardada.
 // «Aceptar» y «Rechazar» tienen el mismo peso visual, como pide la guía de cookies de la AEPD.
 import { rutaLegal } from "../data/legal";
 import { langDe, useT } from "../i18n";
@@ -10,7 +10,7 @@ const t = useT(lang).cookies;
 
 <div class="cookies" data-cookies hidden role="region" aria-label={t.titulo}>
     <p>
-        {t.texto}
+        {t.texto}{" "}
         <a href={rutaLegal("cookies", lang)}>{t.mas}</a>
     </p>
     <div class="cookies-btns">
@@ -18,3 +18,16 @@ const t = useT(lang).cookies;
         <button class="btn navyb" type="button" data-cookies-si>{t.aceptar}</button>
     </div>
 </div>
+<script is:inline>
+    // Se muestra ya, con el primer pintado, sin esperar a scripts/cookies.ts (que pone los botones):
+    // si apareciera más tarde, Google lo mediría como lo último en cargarse (LCP).
+    // Misma comprobación que consentimiento() en cookies.ts: respuesta guardada hace menos de 12 meses.
+    (function () {
+        var c = null;
+        try {
+            c = JSON.parse(localStorage.getItem("ck-consentimiento") || "null");
+        } catch (e) {}
+        if (!c || Date.now() - c.fecha >= 365 * 24 * 60 * 60 * 1000)
+            document.querySelector("[data-cookies]").removeAttribute("hidden");
+    })();
+</script>

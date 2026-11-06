@@ -15,7 +15,10 @@ export function initVideo() {
     botones.forEach((b) =>
         b.addEventListener('click', () => {
             origen = b;
-            if (!video.getAttribute('src')) video.src = video.dataset.src ?? '';
+            if (!video.getAttribute('src')) {
+                video.poster = video.dataset.poster ?? '';
+                video.src = video.dataset.src ?? '';
+            }
             modal.showModal();
             video.play().catch(() => {
                 /* el navegador no ha dejado reproducir solo: la persona usa los controles */
