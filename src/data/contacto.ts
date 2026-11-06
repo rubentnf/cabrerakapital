@@ -15,8 +15,7 @@ export const contacto = {
     // Mapa: sin clave de API. Si el cliente tiene el enlace exacto de su ficha de Google Maps,
     // basta con sustituir `mapaEnlace` por ese enlace.
     mapaConsulta: 'C/ Santa Eulalia 9, 38320 San Cristóbal de La Laguna, Santa Cruz de Tenerife',
-    mapaEnlace:
-        'https://www.google.com/maps/search/?api=1&query=C%2F+Santa+Eulalia+9%2C+38320+San+Crist%C3%B3bal+de+La+Laguna',
+    mapaEnlace: 'https://www.google.com/maps?cid=13931612910443998859',
     direccionCorta: 'C/ Santa Eulalia 9, Local · La Laguna',
     // Dirección por partes (datos estructurados para Google)
     direccionPostal: {

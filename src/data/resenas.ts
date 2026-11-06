@@ -23,7 +23,7 @@ export const mostrarTotal = false;
 
 /** Enlace a la ficha de Google del negocio y, si se quiere, la nota media y el total de reseñas. */
 export const google = {
-    enlace: 'https://www.google.com/maps/search/?api=1&query=Cabrera+Kapital+La+Laguna',
+    enlace: 'https://www.google.com/maps?cid=13931612910443998859',
     puntuacion: null as number | null, // por ejemplo 5.0
     total: null as number | null, // por ejemplo 27
 };
