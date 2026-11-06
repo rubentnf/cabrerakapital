@@ -17,7 +17,7 @@ export function initHome() {
         const movil = ctx.conditions?.movil;
 
         // ---------- 1) Hero fijado ----------
-        // Recorrido ajustado a la duración de la secuencia (≈9 unidades) para que no haya tramos sin
+        // Recorrido ajustado a la duración de la secuencia (≈8,7 unidades) para que no haya tramos sin
         // cambios: si se alarga la secuencia, alargar también `end` en la misma proporción.
         gsap.set('.sky', { yPercent: 105, opacity: 1 });
         const tl = gsap.timeline({
@@ -25,7 +25,7 @@ export function initHome() {
             scrollTrigger: {
                 trigger: '.scene',
                 start: 'top top+=70',
-                end: movil ? '+=240%' : '+=300%',
+                end: movil ? '+=230%' : '+=285%',
                 scrub: 0.6,
                 pin: true,
                 pinSpacing: true,
@@ -36,23 +36,24 @@ export function initHome() {
             .to('[data-depth="city"]', { yPercent: 40, opacity: 0, duration: 2.5 }, 0.5)
             .to('.skybg', { opacity: 1, duration: 2.5 }, 1)
             .to('[data-depth="sun"]', { opacity: 0, duration: 1.5 }, 1)
+            // El logotipo entra mientras sale el texto de la portada: sin pantalla de cielo vacío entre medias
             .fromTo(
                 '.wm',
                 { opacity: 0, scale: 0.9, filter: 'blur(16px)' },
-                { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.6 },
-                3,
+                { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.4 },
+                1.6,
             )
-            .fromTo('.wm small', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 3.8)
-            // Logotipo completo un instante y sale mientras el panel ya está subiendo (sin huecos vacíos)
-            .to('.wm', { scale: 1.25, opacity: 0, y: -80, filter: 'blur(10px)', duration: 1.4 }, 5)
-            .to('.sky', { yPercent: 0, duration: 1.6 }, 4.9)
-            .fromTo('.sky-in', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, 5.9);
+            .fromTo('.wm small', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 2.4)
+            // Se queda completo un buen tramo (3 → 4,6) y sale mientras el panel ya está subiendo
+            .to('.wm', { scale: 1.25, opacity: 0, y: -80, filter: 'blur(10px)', duration: 1.4 }, 4.6)
+            .to('.sky', { yPercent: 0, duration: 1.6 }, 4.5)
+            .fromTo('.sky-in', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, 5.5);
 
         const frase = $('[data-skywords]');
         // --k enciende cada palabra (color en scroll-story.css, válido en modo claro y oscuro).
         // `amount` reparte el encendido en un tramo fijo, sea cual sea el número de palabras
         if (frase)
-            tl.fromTo(splitWords(frase), { '--k': 0 }, { '--k': 1, stagger: { amount: 2.4 }, duration: 0.4 }, 6.3);
+            tl.fromTo(splitWords(frase), { '--k': 0 }, { '--k': 1, stagger: { amount: 2.4 }, duration: 0.4 }, 5.9);
 
         // ---------- 2) Tres pasos fijados ----------
         const cvs = $$('.cv'),

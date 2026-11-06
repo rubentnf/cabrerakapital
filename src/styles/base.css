@@ -177,12 +177,14 @@ p {
     color: var(--on-solid);
 }
 
-.line {
+/* Botón con borde. Solo .btn: las líneas del titular de la portada también se llaman .line y con
+   el hover se iluminaban como si estuvieran seleccionadas */
+.btn.line {
     border-color: rgba(247, 243, 234, 0.45);
     color: var(--iv);
 }
 
-.line:hover {
+.btn.line:hover {
     background: rgba(247, 243, 234, 0.1);
 }
 
@@ -1305,6 +1307,12 @@ textarea {
     /* 460 px en pantallas con altura; menos en portátiles bajos para que el botón no llegue a la ciudad */
     width: clamp(260px, calc(160vh - 980px), 460px);
     height: auto;
+}
+
+/* Textos de la portada con la flecha normal: el cursor de texto hacía pensar que se podían editar.
+   Se pueden seguir seleccionando y copiando; botones y enlaces mantienen la mano */
+.hero-copy :is(.eyebrow, h1, .hero-claim, .sub, .hero-gar) {
+    cursor: default;
 }
 
 /* «Conocemos la banca por dentro…»: bajo el titular, más pequeño */
