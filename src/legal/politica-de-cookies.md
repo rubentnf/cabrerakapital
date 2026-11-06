@@ -19,7 +19,7 @@ Puede consultar cómo usa Google estas cookies en [policies.google.com/technolog
 
 ## 3. Estadísticas de visitas sin cookies
 
-Para conocer cuántas personas visitan la web usamos Umami, una herramienta de analítica que **no instala cookies** ni guarda datos en su navegador, no almacena su dirección IP completa y no permite identificarle. Por eso no necesita su consentimiento. Más detalles en la [Política de privacidad](/legal/politica-de-privacidad/).
+Para conocer cuántas personas visitan la web y cómo de rápido carga usamos Cloudflare Web Analytics, una herramienta de analítica que **no instala cookies** ni guarda datos en su navegador y no le sigue entre distintos sitios web. Por eso no necesita su consentimiento. Más detalles en la [Política de privacidad](/legal/politica-de-privacidad/).
 
 ## 4. Cómo aceptar, rechazar o cambiar su decisión
 

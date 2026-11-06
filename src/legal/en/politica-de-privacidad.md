@@ -46,7 +46,7 @@ The legal basis for processing is:
 
 **Contact form.** When you submit the form, the data you enter are collected (name, telephone, email, type of client, details of the transaction or company and your message). They are used solely to answer your enquiry and, where applicable, to prepare the assessment requested. The legal basis is your consent, given by ticking the acceptance box, and the application of pre-contractual measures at your request. The data are sent by email to Cabrera Kapital through the Resend delivery service.
 
-**Visitor statistics.** To find out which pages are viewed we use Umami, an analytics tool that does not set cookies, does not store the full IP address and does not create profiles of the people who visit the website. Only aggregated data are obtained (pages viewed, country, device type and browser, referring page). The legal basis is the legitimate interest in understanding how the website is used in order to improve it.
+**Visitor statistics.** To find out which pages are viewed and how the website performs we use Cloudflare Web Analytics, an analytics tool that does not set cookies, does not use your browser's storage and does not create profiles of the people who visit the website. Only aggregated data are obtained (pages viewed, country, device type and browser, referring page and loading performance). The legal basis is the legitimate interest in understanding how the website is used in order to improve it.
 
 **Google map.** The map on the contact page is provided by Google. It is only loaded if you accept cookies or press «Show map»; at that point Google receives your IP address and may set its own cookies. Google processes that data as an independent controller under its privacy policy ([policies.google.com/privacy](https://policies.google.com/privacy)). More information in the [Cookie policy](/en/legal/politica-de-cookies/).
 
@@ -68,9 +68,8 @@ Cabrera Kapital does not sell or trade personal data to third parties.
 
 Cabrera Kapital uses providers that access personal data only to provide their service, as data processors and under the contract required by Article 28 of the GDPR:
 
-- **Cloudflare, Inc.:** website hosting, content delivery and protection against attacks.
+- **Cloudflare, Inc.:** website hosting, content delivery, protection against attacks and anonymous visitor statistics.
 - **Resend (Plus Five Five, Inc.):** email delivery of contact form messages.
-- **Umami Software, Inc.:** anonymous visitor statistics.
 - **Cabrera Kapital's email provider**, where enquiries are received and stored.
 
 ## 8. International transfers

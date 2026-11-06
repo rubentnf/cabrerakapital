@@ -62,8 +62,9 @@ Copia `.env.example` a `.env`. En producción se definen en el panel del hosting
 | Variable               | Para qué sirve                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------- |
 | `PUBLIC_INDEXAR`       | `true` permite indexar la web; `false` añade `noindex`. Por defecto `false`.    |
-| `PUBLIC_UMAMI_ID`      | ID del sitio en [Umami](https://umami.is) (estadísticas sin cookies). Vacía = sin estadísticas. |
-| `PUBLIC_UMAMI_SRC`     | Opcional: URL del `script.js` de un Umami propio. Por defecto, Umami Cloud.     |
+
+Las estadísticas de visitas son las de Cloudflare Web Analytics (sin cookies), que se activan en el
+panel de Cloudflare: no necesitan código ni variables en la web.
 
 ### Reseñas de Google
 
@@ -91,7 +92,7 @@ Con `prefers-reduced-motion: reduce` se desactivan las animaciones de scroll y l
 
 ## Antes de publicar
 
-- [ ] Definir `PUBLIC_INDEXAR=true` y `PUBLIC_UMAMI_ID` en el hosting.
+- [ ] Definir `PUBLIC_INDEXAR=true` en el hosting.
 - [ ] Cambiar `public/robots.txt` a `Allow: /` y añadir la línea `Sitemap: https://cabrerakapital.es/sitemap-index.xml`.
 - [ ] Rellenar los textos pendientes: `grep -rnE "pendiente|confirmar|Aquí ir" src`.
 - [ ] Crear las páginas legales (aviso legal, privacidad y cookies, información previa, independencia) y enlazarlas desde el pie.

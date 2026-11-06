@@ -2,7 +2,7 @@ import { $, $$ } from './utils';
 
 /**
  * Consentimiento de cookies. La única cookie no necesaria de la web es la del mapa de Google
- * (Umami no usa cookies), así que hay una sola decisión: mapas sí o no.
+ * (la analítica de Cloudflare no usa cookies), así que hay una sola decisión: mapas sí o no.
  * La respuesta se guarda en localStorage durante 12 meses; después se vuelve a preguntar.
  */
 const CLAVE = 'ck-consentimiento';

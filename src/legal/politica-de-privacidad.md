@@ -46,7 +46,7 @@ La base jurídica del tratamiento es:
 
 **Formulario de contacto.** Cuando envía el formulario se recogen los datos que usted introduce (nombre, teléfono, correo electrónico, tipo de cliente, datos de la operación o de la empresa y el mensaje). Se usan únicamente para responder a su consulta y, en su caso, preparar el estudio solicitado. La base jurídica es su consentimiento, que presta al marcar la casilla de aceptación, y la aplicación de medidas precontractuales a petición suya. Los datos se transmiten por correo electrónico a Cabrera Kapital mediante el servicio de envío de Resend.
 
-**Estadísticas de visitas.** Para saber qué páginas se consultan usamos Umami, una herramienta de analítica que no instala cookies, no guarda la dirección IP completa ni crea perfiles de las personas que visitan la web. Solo se obtienen datos agregados (páginas vistas, país, tipo de dispositivo y navegador, página de procedencia). La base jurídica es el interés legítimo en conocer el uso del sitio para mejorarlo.
+**Estadísticas de visitas.** Para saber qué páginas se consultan y cómo funciona la web usamos Cloudflare Web Analytics, una herramienta de analítica que no instala cookies, no utiliza el almacenamiento de su navegador y no crea perfiles de las personas que visitan la web. Solo se obtienen datos agregados (páginas vistas, país, tipo de dispositivo y navegador, página de procedencia y rendimiento de carga). La base jurídica es el interés legítimo en conocer el uso del sitio para mejorarlo.
 
 **Mapa de Google.** El mapa de la página de contacto lo presta Google. Solo se carga si usted acepta las cookies o pulsa «Ver mapa»; en ese momento Google recibe su dirección IP y puede instalar cookies propias. Google trata esos datos como responsable independiente según su política de privacidad ([policies.google.com/privacy](https://policies.google.com/privacy)). Más información en la [Política de cookies](/legal/politica-de-cookies/).
 
@@ -68,9 +68,8 @@ Cabrera Kapital no vende ni comercializa datos personales a terceros.
 
 Cabrera Kapital cuenta con proveedores que acceden a datos personales solo para prestar su servicio, como encargados del tratamiento y con el contrato exigido por el artículo 28 del RGPD:
 
-- **Cloudflare, Inc.:** alojamiento de la web, entrega de contenidos y protección frente a ataques.
+- **Cloudflare, Inc.:** alojamiento de la web, entrega de contenidos, protección frente a ataques y estadísticas anónimas de visitas.
 - **Resend (Plus Five Five, Inc.):** envío por correo electrónico de los mensajes del formulario de contacto.
-- **Umami Software, Inc.:** estadísticas anónimas de visitas.
 - **Proveedor de correo electrónico** de Cabrera Kapital, donde se reciben y guardan las consultas.
 
 ## 8. Transferencias internacionales

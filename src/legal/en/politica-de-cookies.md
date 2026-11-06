@@ -19,7 +19,7 @@ You can see how Google uses these cookies at [policies.google.com/technologies/c
 
 ## 3. Cookie-free visitor statistics
 
-To find out how many people visit the website we use Umami, an analytics tool that **does not set cookies** or store data in your browser, does not store your full IP address and cannot identify you. It therefore does not need your consent. More details in the [Privacy policy](/en/legal/politica-de-privacidad/).
+To find out how many people visit the website and how fast it loads we use Cloudflare Web Analytics, an analytics tool that **does not set cookies** or store data in your browser and does not track you across different websites. It therefore does not need your consent. More details in the [Privacy policy](/en/legal/politica-de-privacidad/).
 
 ## 4. How to accept, reject or change your choice
 
