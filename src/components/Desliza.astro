@@ -4,6 +4,7 @@
 // (scripts/desliza.ts). Hay dos en el inicio: el de la portada (colocado por scripts/desliza.ts) y
 // uno `fijo` abajo de la pantalla que toma el relevo al empezar a bajar (scripts/anim/home.ts).
 import { langDe, useT } from "../i18n";
+import Flecha from "../assets/svg/flecha-abajo.svg";
 
 interface Props {
     fijo?: boolean;
@@ -15,8 +16,6 @@ const t = useT(langDe(Astro.url.pathname)).inicio.hero;
 <button type="button" class:list={["scroll-cue", { "cue-fijo": fijo }]} data-desliza aria-label={t.desliza}>
     <span class="cue-t">{t.desliza}</span>
     <span class="cue-c" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 5v13M6 12l6 6 6-6"></path>
-        </svg>
+        <Flecha width="24" height="24" />
     </span>
 </button>

@@ -3,6 +3,7 @@
 import { langDe, useT } from "../i18n";
 
 const t = useT(langDe(Astro.url.pathname)).video;
+// La ventana (dialog) la mueve scripts/video.ts al final de <body> al arrancar.
 // Archivos en public/video/: que-hacen-en-ck.mp4 (vídeo), .webp (póster, 720 px) y la misma imagen a
 // 120, 200, 360 y 540 px (-120.webp…) para la tarjeta: cada pantalla descarga la que necesita
 const base = "/video/que-hacen-en-ck";

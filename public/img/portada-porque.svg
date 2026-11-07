@@ -1,26 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+<!-- «Estuvimos al otro lado de la mesa. Ahora estamos del suyo»: mesa vista desde arriba.
+     Izquierda, el lado del banco (una silla apagada y el banco sobre la mesa); derecha, el del cliente
+     (dos sillas doradas juntas: el cliente y Cabrera Kapital) con su expediente. El arco va de un lado al otro. -->
 <defs><radialGradient id="halo"><stop offset="0" stop-color="#e8b868" stop-opacity=".22"/><stop offset="1" stop-color="#e8b868" stop-opacity="0"/></radialGradient></defs>
-<circle cx="440" cy="260" r="220" fill="url(#halo)"/>
+<circle cx="430" cy="270" r="210" fill="url(#halo)"/>
 
-<rect x="60" y="410" width="480" height="5" rx="2" fill="#2a5a8c"/>
+<!-- Lado del banco: una silla, apagada -->
 <g fill="#1d4a7a">
-<polygon points="92,162 150,128 208,162"/>
-<rect x="98" y="162" width="104" height="8"/>
-<rect x="108" y="170" width="12" height="54"/><rect x="132" y="170" width="12" height="54"/><rect x="156" y="170" width="12" height="54"/><rect x="180" y="170" width="12" height="54"/>
-<rect x="96" y="224" width="108" height="10"/>
+<rect x="70" y="228" width="16" height="104" rx="7"/>
+<rect x="92" y="236" width="62" height="88" rx="14"/>
 </g>
-<g fill="#1d4a7a"><rect x="96" y="262" width="14" height="148"/><rect x="96" y="328" width="76" height="12"/><rect x="164" y="340" width="8" height="70"/></g>
-<rect x="196" y="300" width="208" height="14" rx="4" fill="#f7f3ea"/>
-<g fill="#c4d0de"><rect x="214" y="314" width="12" height="96"/><rect x="374" y="314" width="12" height="96"/></g>
-<rect x="232" y="286" width="72" height="14" rx="2" fill="#e8b868"/>
-<rect x="314" y="290" width="54" height="10" rx="2" fill="#3f6596"/>
-<rect x="490" y="262" width="14" height="148" fill="#e8b868"/>
-<path d="M414 334C414 290 430 266 456 266C482 266 498 290 498 334Z" fill="#3c6d99"/>
-<polygon points="444,268 468,268 456,292" fill="#f7f3ea"/>
-<circle cx="456" cy="226" r="32" fill="#f7f3ea"/>
-<path d="M425 218C428 196 444 190 458 190C474 190 487 200 488 216C476 206 452 204 425 218Z" fill="#6d86a6"/>
-<rect x="428" y="328" width="76" height="12" fill="#e8b868"/>
-<rect x="428" y="340" width="8" height="70" fill="#e8b868"/>
-<path d="M150 112C210 30 390 30 438 166" fill="none" stroke="#e8b868" stroke-width="6" stroke-dasharray="14 11" stroke-linecap="round"/>
-<polygon points="446,184 447,157 425,167" fill="#e8b868"/>
+
+<!-- Mesa -->
+<rect x="176" y="146" width="250" height="238" rx="18" fill="#2a5a8c"/>
+<rect x="190" y="160" width="222" height="210" rx="12" fill="none" stroke="#3f6596" stroke-width="3"/>
+
+<!-- El banco, sobre su lado de la mesa -->
+<g fill="#1d4a7a">
+<polygon points="204,246 236,228 268,246"/>
+<rect x="208" y="246" width="56" height="5"/>
+<rect x="213" y="251" width="7" height="26"/><rect x="226" y="251" width="7" height="26"/><rect x="239" y="251" width="7" height="26"/><rect x="252" y="251" width="7" height="26"/>
+<rect x="206" y="277" width="60" height="6"/>
+</g>
+
+<!-- Expediente del cliente, en su lado -->
+<g transform="rotate(-6 352 266)">
+<rect x="318" y="220" width="70" height="92" rx="5" fill="#f7f3ea"/>
+<g fill="#c4d0de"><rect x="330" y="236" width="46" height="5" rx="2"/><rect x="330" y="250" width="40" height="5" rx="2"/><rect x="330" y="264" width="46" height="5" rx="2"/><rect x="330" y="278" width="30" height="5" rx="2"/></g>
+<rect x="330" y="292" width="22" height="8" rx="2" fill="#e8b868"/>
+</g>
+
+<!-- Lado del cliente: dos sillas juntas, en dorado -->
+<g fill="#e8b868">
+<rect x="448" y="168" width="62" height="88" rx="14"/>
+<rect x="516" y="160" width="16" height="104" rx="7"/>
+<rect x="448" y="274" width="62" height="88" rx="14"/>
+<rect x="516" y="266" width="16" height="104" rx="7"/>
+</g>
+
+<!-- Del lado del banco al del cliente -->
+<path d="M236 214C262 84 410 70 436 150" fill="none" stroke="#e8b868" stroke-width="6" stroke-dasharray="14 11" stroke-linecap="round"/>
+<polygon points="443,170 449,143 425,150" fill="#e8b868"/>
 </svg>

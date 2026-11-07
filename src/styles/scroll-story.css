@@ -133,7 +133,7 @@
         max-height: 50%;
     }
 
-    .scene .city svg {
+    .scene .city > svg {
         height: 100%;
     }
 }
@@ -312,7 +312,7 @@
     transform: translateY(-50%);
     z-index: 2;
     font: 500 clamp(48px, 7vw, 104px)/1 var(--serif);
-    color: #f3e0b8;
+    color: var(--gold-cream);
 }
 
 /* Los tres pasos se superponen en la misma celda de la rejilla: el contenedor mide lo que el paso
@@ -368,7 +368,7 @@
 
 .dk-head p {
     max-width: 34ch;
-    color: #9fb0c4;
+    color: var(--on-deep-soft);
     font-size: 15px;
 }
 
@@ -376,7 +376,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid #1d3558;
+    border-top: 1px solid var(--deep-line);
 }
 
 .row {
@@ -386,7 +386,7 @@
     align-items: center;
     gap: 28px;
     padding: clamp(22px, 3.4vw, 46px) 0;
-    border-bottom: 1px solid #1d3558;
+    border-bottom: 1px solid var(--deep-line);
     overflow: hidden;
     isolation: isolate;
 }
@@ -420,7 +420,7 @@
     gap: 14px;
     align-items: flex-start;
     font-size: 14px;
-    color: #c4d0de;
+    color: var(--on-deep-muted);
     max-width: 34ch;
     opacity: 0.55;
     transition: opacity 0.5s;
@@ -431,13 +431,13 @@
     flex: none;
     width: 22px;
     height: 22px;
-    border: 1px solid #6d86a6;
+    border: 1px solid var(--deep-ring);
     border-radius: 50%;
     display: grid;
     place-items: center;
     font: 700 11px var(--sans);
     font-style: normal;
-    color: #c4d0de;
+    color: var(--on-deep-muted);
 }
 
 .rt {
@@ -448,8 +448,10 @@
 .rt span {
     display: block;
     font: 500 clamp(48px, 9vw, 148px)/1.02 var(--sans);
+    /* Hueco para los trazos que bajan de la línea (g de «Buying», p de «Comprar»): .rt recorta lo que sobresale */
+    padding-bottom: 0.14em;
     letter-spacing: -0.045em;
-    color: #4a617f;
+    color: var(--on-deep-faint);
     transition:
         color 0.5s,
         transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -457,7 +459,7 @@
 
 .rt em {
     font: italic 500 clamp(18px, 2vw, 28px) var(--serif);
-    color: #9fb0c4;
+    color: var(--on-deep-soft);
     letter-spacing: 0;
     margin-left: 0.6em;
 }

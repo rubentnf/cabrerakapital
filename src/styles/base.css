@@ -49,6 +49,23 @@
     --cue: var(--navy);
     --sh: 10 34 64;
     /* color base de las sombras (r g b) */
+
+    /* Sobre azul marino (llamada final, servicios, tarjeta del vídeo, portada): iguales en los dos
+       temas porque esas superficies son oscuras en ambos */
+    --on-deep-muted: #c4cedb;
+    /* texto secundario */
+    --on-deep-soft: #9fb0c4;
+    /* texto más suave */
+    --on-deep-faint: #4a617f;
+    /* palabras grandes inactivas */
+    --deep-line: #1d3558;
+    /* líneas divisorias */
+    --deep-ring: #6d86a6;
+    /* contornos finos */
+    --gold-cream: #f3e0b8;
+    /* cursivas destacadas sobre el cielo */
+    --foot-text: #c9c4b8;
+    --foot-muted: #9a958a;
     color-scheme: light;
 }
 
@@ -123,6 +140,8 @@ h3 {
 
 p {
     margin: 0;
+    /* evita una palabra sola en la última línea (los navegadores que no lo entienden lo ignoran) */
+    text-wrap: pretty;
 }
 
 :focus-visible {
@@ -284,13 +303,22 @@ p {
 }
 
 .lang a {
+    position: relative;
     display: block;
     line-height: 0;
     border-radius: 3px;
-    overflow: hidden;
     opacity: 0.55;
     outline-offset: 3px;
     transition: opacity 0.2s;
+}
+
+/* Zona de pulsación invisible: la bandera mide 15-17 px de alto y cuesta acertar con el dedo
+   (público mayor). Crece en vertical hasta ~44 px y en horizontal solo la mitad del hueco entre
+   banderas, para que las dos zonas no se pisen. No cambia nada de lo que se ve */
+.lang a::after {
+    content: '';
+    position: absolute;
+    inset: -14px -3px;
 }
 
 .lang a:hover,
@@ -300,7 +328,7 @@ p {
 
 .lang svg {
     display: block;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
 }
 
 /* Selector de modo claro / oscuro (src/scripts/tema.ts): luna en claro, sol en oscuro */
@@ -727,7 +755,7 @@ p {
 
 .ph small {
     font: 400 13px var(--sans);
-    color: #c4cedb;
+    color: var(--on-deep-muted);
 }
 
 .sec {
@@ -964,14 +992,14 @@ p {
 }
 
 .cta p {
-    color: #c4cedb;
+    color: var(--on-deep-muted);
     margin-top: 12px;
     max-width: 52ch;
 }
 
 .foot {
     background: var(--foot-bg);
-    color: #c9c4b8;
+    color: var(--foot-text);
     padding: 56px 0 24px;
     font-size: 14px;
 }
@@ -1000,12 +1028,27 @@ p {
     margin-bottom: 6px;
 }
 
+/* Pantallas táctiles: cada enlace del pie y cada teléfono de «Contacto» ocupa una fila de 44 px
+   (con 19-22 px costaba acertar, sobre todo a personas mayores). Con ratón se ve como siempre */
+@media (pointer: coarse) {
+    .foot div>div:has(> a) {
+        margin-bottom: 0;
+    }
+
+    .foot div>div>a,
+    .info .card b>a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+}
+
 .fbot {
     margin-top: 36px;
     padding-top: 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     font-size: 13px;
-    color: #9a958a;
+    color: var(--foot-muted);
 }
 
 /* equipo */
@@ -1028,6 +1071,8 @@ p {
 
 .person p {
     margin-top: 14px;
+    /* ~72 caracteres por línea: a 1920 px llegaban a 107 y costaba seguir la línea */
+    max-width: 56ch;
 }
 
 .person .pill {
@@ -1104,6 +1149,18 @@ textarea {
     color: var(--muted);
     align-items: flex-start;
     gap: 10px;
+}
+
+/* «política de privacidad»: subrayado y en el color de enlace, para que se vea que se puede abrir */
+.chk a {
+    color: var(--accent-text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.chk a:hover {
+    text-decoration-thickness: 2px;
 }
 
 .info {
@@ -1230,7 +1287,8 @@ textarea {
             rgba(241, 214, 160, 0) 70%);
 }
 
-.city svg {
+/* Solo el <svg> contenedor: dentro van las copias de la silueta (assets/svg/ciudad.svg), que no deben recibir estas medidas */
+.city > svg {
     width: 100%;
     height: 100%;
     display: block;
@@ -1252,7 +1310,7 @@ textarea {
         max-height: none;
     }
 
-    .scene.tdhero .city svg {
+    .scene.tdhero .city > svg {
         position: absolute;
         left: 50%;
         bottom: 0;
@@ -1292,7 +1350,7 @@ textarea {
 
 .hero-copy h1 em {
     font-style: italic;
-    color: #f3e0b8;
+    color: var(--gold-cream);
 }
 
 /* Sello de la portada: silueta del archipiélago en dorado junto a «Intermediario de crédito en Canarias» */
@@ -1325,7 +1383,7 @@ textarea {
 
 .hero-claim em {
     font-style: italic;
-    color: #f3e0b8;
+    color: var(--gold-cream);
 }
 
 /* Garantías con cifra, bajo la frase */
@@ -1664,7 +1722,7 @@ select {
 
 .mapa-in small {
     max-width: 34ch;
-    color: #c4cedb;
+    color: var(--on-deep-muted);
 }
 
 .mapa-link {
@@ -1788,7 +1846,12 @@ select {
 
 .opin-mas {
     align-self: flex-start;
-    padding: 0;
+    /* 47 px de alto para el dedo; el margen negativo lo compensa y el texto no se mueve */
+    padding: 14px 0;
+    margin-block: -14px;
+    /* por encima del bloque del autor, que si no tapa la parte baja de la zona de pulsación */
+    position: relative;
+    z-index: 1;
     border: 0;
     background: none;
     color: var(--accent-text);
@@ -1869,6 +1932,9 @@ select {
 .legal-texto ul,
 .legal-texto ol {
     margin: 0 0 16px;
+    /* 56ch ≈ 72 caracteres reales con Manrope (1ch es el ancho del «0», más ancho que la letra media).
+       En pantalla; al imprimir el PDF el texto ocupa la página entera */
+    max-width: 56ch;
 }
 
 .legal-texto ul,
@@ -2001,6 +2067,7 @@ select {
 }
 
 .legal-texto {
+    /* Ancho de la columna (títulos y tabla de cookies); el texto corrido se estrecha más abajo */
     max-width: 70ch;
     font-size: 17px;
     /* enlaces largos (policies.google.com/…) se parten en móviles estrechos */
@@ -2036,6 +2103,9 @@ select {
     padding: 10px 12px;
     text-align: left;
     vertical-align: top;
+    /* Las palabras solo se parten si no caben enteras (no «Titul-ar» ni «Cabr-era») */
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .legal-texto th {
@@ -2120,8 +2190,12 @@ html {
         display: block;
     }
 
-    .legal-texto {
+    .legal-texto,
+    .legal-texto :is(p, ul, ol) {
         max-width: none;
+    }
+
+    .legal-texto {
         font-size: 12pt;
     }
 }
@@ -2151,6 +2225,44 @@ html {
 
 .seal.wide img {
     max-height: 120px;
+}
+
+/* «Saltar al contenido»: fuera de la vista hasta que recibe el foco del teclado */
+.saltar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--navy);
+    font: 700 15px var(--sans);
+    translate: 0 -200%;
+}
+
+.saltar:focus-visible {
+    translate: 0 0;
+}
+
+/* El contenido recibe el foco al saltar, pero no lleva el anillo dorado de un control */
+main:focus {
+    outline: none;
+}
+
+/* Título de cada paso del simulador: ahora h2, con el tamaño que tenía como h3 */
+.sim-paso-t {
+    font-size: 1.17em;
+}
+
+/* Texto solo para lectores de pantalla (títulos de sección que la vista ya da por obvios) */
+.solo-lector {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 /* utilidades */
@@ -3254,7 +3366,7 @@ html {
 
 .vreel-txt small {
     font-size: 13px;
-    color: #c4cedb;
+    color: var(--on-deep-muted);
 }
 
 /* Móviles bajos (iPhone SE…): fila más fina para que quepa todo sobre la ciudad */

@@ -10,6 +10,10 @@ export function initVideo() {
     const video = modal ? $<HTMLVideoElement>('video', modal) : null;
     if (!modal || !video || !botones.length) return;
 
+    // La ventana se saca de la portada: el texto de la portada se desvanece y se oculta al hacer scroll,
+    // y nada de eso debe poder ocultar un vídeo que está sonando
+    document.body.append(modal);
+
     let origen: HTMLElement | null = null;
 
     botones.forEach((b) =>
@@ -34,6 +38,14 @@ export function initVideo() {
     // Cualquier cierre (×, Escape, fondo): pausa y devuelve el foco al botón
     modal.addEventListener('close', () => {
         video.pause();
-        origen?.focus();
+        origen?.focus({ preventScroll: true });
     });
+    // Al cambiar de pestaña, minimizar o salir de la página, el vídeo se cierra y deja de sonar
+    // (también si el navegador guarda la página en memoria para el botón «Atrás»)
+    const parar = () => {
+        if (modal.open) modal.close();
+        video.pause();
+    };
+    document.addEventListener('visibilitychange', () => document.hidden && parar());
+    addEventListener('pagehide', parar);
 }

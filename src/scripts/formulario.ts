@@ -28,6 +28,9 @@ export async function enviar(form: HTMLFormElement): Promise<boolean> {
             method: 'POST',
             headers: { Accept: 'application/json' },
             body: new FormData(form),
+            // Con una red móvil colgada, sin límite el botón quedaría desactivado indefinidamente:
+            // a los 20 s se da por fallido y se muestra el aviso con los teléfonos
+            signal: AbortSignal.timeout?.(20_000),
         });
         if (!respuesta.ok) throw new Error(String(respuesta.status));
         // /api/contacto responde {ok:true}; otros servicios (Formspree) también aceptan la petición

@@ -1,4 +1,9 @@
 ---
+import Confirmado from "../assets/svg/confirmado.svg";
+import Candado from "../assets/svg/candado.svg";
+import Banco from "../assets/svg/banco.svg";
+import Persona from "../assets/svg/persona.svg";
+import Escudo from "../assets/svg/escudo.svg";
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Cta from "../components/Cta.astro";
@@ -30,11 +35,7 @@ const asesores = [
     { id: "olegario", nombre: "Olegario Cabrera", foto: fotos.get("olegario") },
 ];
 // Iconos de las ventajas (mismo orden que s.ventajas): años de banca, asesor, estudio gratuito
-const iconos = [
-    "M3 21h18M5 21V10m4 11V10m6 11V10m4 11V10M2 10l10-6 10 6",
-    "M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z",
-    "M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3Zm-3.5 9 2.5 2.5 4.5-5",
-];
+const iconos = [Banco, Persona, Escudo];
 ---
 
 <Base title={s.title} description={s.description} page="simulador">
@@ -177,20 +178,14 @@ const iconos = [
 
                         <!-- Confirmación: sustituye al recorrido cuando el envío ha ido bien -->
                         <div class="exito" id="sim-exito" role="status" tabindex="-1" hidden>
-                            <svg class="exito-svg" viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
-                                <circle class="exito-aro" cx="60" cy="60" r="52"></circle>
-                                <path class="exito-tick" d="M36 62 L53 79 L85 44"></path>
-                            </svg>
+                            <Confirmado class="exito-svg" width="112" height="112" aria-hidden="true" />
                             <h2>{s.exitoT}</h2>
                             <p>{s.exito}</p>
                             <button class="btn line" type="button" id="sim-otra">{s.exitoOtra}</button>
                         </div>
                     </div>
                     <p class="sim-nota">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
-                            <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
-                        </svg>
+                        <Candado width="16" height="16" aria-hidden="true" />
                         {s.nota}
                     </p>
                 </div>
@@ -202,15 +197,16 @@ const iconos = [
                 <div class="simhero-extra" data-fade>
                     <ul class="sim-ventajas">
                         {
-                            s.ventajas.map((v, i) => (
-                                <li>
-                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                        <path d={iconos[i]} />
-                                    </svg>
-                                    <b>{v.t}</b>
-                                    <span>{v.d}</span>
-                                </li>
-                            ))
+                            s.ventajas.map((v, i) => {
+                                const Icono = iconos[i];
+                                return (
+                                    <li>
+                                        <Icono width="28" height="28" aria-hidden="true" />
+                                        <b>{v.t}</b>
+                                        <span>{v.d}</span>
+                                    </li>
+                                );
+                            })
                         }
                     </ul>
                     <div class="sim-sello">

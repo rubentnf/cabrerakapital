@@ -127,8 +127,10 @@ const og = await getImage({
     </head>
     <body data-sin-animaciones={animaciones ? undefined : ""}>
         <div class="prog" aria-hidden="true"></div>
+        <!-- Para quien navega con teclado: el primer tabulador lo muestra y salta la cabecera -->
+        <a class="saltar" href="#contenido">{t.header.saltar}</a>
         <Header page={page} alts={alts} />
-        <main>
+        <main id="contenido" tabindex="-1">
             <slot />
         </main>
         <Footer />

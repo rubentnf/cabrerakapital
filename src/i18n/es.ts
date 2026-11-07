@@ -13,6 +13,7 @@ export const es = {
     },
     header: {
         inicio: 'Cabrera Kapital, inicio',
+        saltar: 'Saltar al contenido',
         principal: 'Principal',
         abrirMenu: 'Abrir menú',
         cerrarMenu: 'Cerrar menú',
@@ -362,6 +363,7 @@ export const es = {
         etiqueta: 'Por qué Cabrera Kapital',
         h1: 'Estuvimos al otro lado de la mesa. Ahora estamos del suyo.',
         lead: 'Durante más de veinte años dirigimos oficinas, analizamos riesgos y decidimos qué operaciones salían adelante. Hoy ponemos todo ese conocimiento a su favor.',
+        motivosTitulo: 'Por qué elegirnos',
         entEtiqueta: 'Entidades colaboradoras',
         entTitulo: '19 entidades financieras',
         ctaTitulo: 'Empecemos por el paso uno.',
@@ -593,7 +595,8 @@ export const es = {
                     name: 'facturacion',
                     t: '¿Cuánto factura su empresa al año?',
                     opciones: [
-                        { v: 'Menos de 250.000 €', t: 'Menos de 250.000 €' },
+                        { v: 'Menos de 100.000 €', t: 'Menos de 100.000 €' },
+                        { v: 'Entre 100.000 € y 250.000 €', t: 'Entre 100.000 € y 250.000 €' },
                         { v: 'Entre 250.000 € y 500.000 €', t: 'Entre 250.000 € y 500.000 €' },
                         { v: 'Entre 500.000 € y 1.000.000 €', t: 'Entre 500.000 € y 1.000.000 €' },
                         { v: 'Más de 1.000.000 €', t: 'Más de 1.000.000 €' },

@@ -1,7 +1,7 @@
 ---
 import VideoPortada from "./VideoPortada.astro";
 import Desliza from "./Desliza.astro";
-import SiluetaCiudad from "./SiluetaCiudad.astro";
+import Ciudad from "../assets/svg/ciudad.svg";
 import { langDe, ruta, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
 const t = useT(lang).inicio.hero;
@@ -55,10 +55,12 @@ const m = useT(lang).inicio.manifiesto;
     </div>
     <div class="layer city" data-depth="city" aria-hidden="true">
         <svg viewBox="0 -190 1600 390" preserveAspectRatio="xMidYMax slice">
-            <!-- En pantallas muy anchas la ciudad no crece: se completa con su reflejo a cada lado -->
-            <g transform="scale(-1 1)"><SiluetaCiudad /></g>
-            <g transform="translate(3200 0) scale(-1 1)"><SiluetaCiudad /></g>
-            <SiluetaCiudad />
+            {/* En pantallas muy anchas la ciudad no crece: se completa con su reflejo a cada lado.
+               La silueta (src/assets/svg/ciudad.svg) ocupa justo el mismo recuadro que este viewBox.
+               Sus colores #0a2240 y #f3e0b8 los cambia el modo oscuro en scroll-story.css */}
+            <g transform="scale(-1 1)"><Ciudad x="0" y="-190" /></g>
+            <g transform="translate(3200 0) scale(-1 1)"><Ciudad x="0" y="-190" /></g>
+            <Ciudad x="0" y="-190" />
         </svg>
     </div>
     <div class="wm" aria-hidden="true">

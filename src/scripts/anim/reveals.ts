@@ -17,9 +17,9 @@ export function initReveals() {
     }
     // [data-fade]: entrada en CSS (base.css, @keyframes entra), para que empiece sin esperar a GSAP
 
-    // Portada interior con formas que se mueven
+    // Portada interior con formas que se mueven (no todas las llevan: «Equipo», por ejemplo, va sin ellas)
     const hero = $('.hero');
-    if (hero) {
+    if (hero && $('.deco', hero)) {
         const st = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
         gsap.to($('.d1', hero), {
             yPercent: 40,

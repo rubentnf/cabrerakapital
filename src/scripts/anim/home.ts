@@ -32,7 +32,9 @@ export function initHome() {
                 anticipatePin: 1,
             },
         });
-        tl.to('.hero-copy', { opacity: 0, y: -60, filter: 'blur(10px)', duration: 2 }, 0)
+        // autoAlpha: al llegar a 0 también pasa a visibility: hidden. Con solo opacidad, la tarjeta del
+        // vídeo seguía pulsable aunque no se viera y un toque sobre el cielo lo ponía a sonar
+        tl.to('.hero-copy', { autoAlpha: 0, y: -60, filter: 'blur(10px)', duration: 2 }, 0)
             .to('[data-depth="city"]', { yPercent: 40, opacity: 0, duration: 2.5 }, 0.5)
             .to('.skybg', { opacity: 1, duration: 2.5 }, 1)
             .to('[data-depth="sun"]', { opacity: 0, duration: 1.5 }, 1)

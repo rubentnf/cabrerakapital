@@ -5,8 +5,10 @@ interface Props {
     lead: string;
     /** Ilustración de la derecha (public/img/portada-*.svg). Sin ella se muestran las formas decorativas. */
     ilustracion?: string;
+    /** false: sin ilustración ni formas decorativas, solo el fondo azul (por ejemplo «Equipo»). */
+    decoracion?: boolean;
 }
-const { etiqueta, titulo, lead, ilustracion } = Astro.props;
+const { etiqueta, titulo, lead, ilustracion, decoracion = true } = Astro.props;
 ---
 
 <section class="hero inner">
@@ -21,7 +23,7 @@ const { etiqueta, titulo, lead, ilustracion } = Astro.props;
                     decoding="async"
                 />
             </div>
-        ) : (
+        ) : decoracion && (
             <div class="deco" aria-hidden="true">
                 <i class="d1" />
                 <i class="d2" />

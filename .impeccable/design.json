@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-07T11:50:05.877Z",
+  "title": "Design System: Cabrera Kapital",
+  "extensions": {
+    "colorMeta": {
+      "ledger-navy": {
+        "role": "primary",
+        "displayName": "Ledger Navy",
+        "canonical": "#0a2240",
+        "tonalRamp": [
+          "#030a13",
+          "#051120",
+          "#07182d",
+          "#091e38",
+          "#3b4e66",
+          "#788596",
+          "#b6bdc6",
+          "#e2e4e8"
+        ]
+      },
+      "branch-blue": {
+        "role": "primary",
+        "displayName": "Branch Blue",
+        "canonical": "#10325a",
+        "tonalRamp": [
+          "#050f1b",
+          "#08192d",
+          "#0b233f",
+          "#0e2c4f",
+          "#405b7b",
+          "#7c8ea4",
+          "#b7c2ce",
+          "#e2e6eb"
+        ]
+      },
+      "canarian-gold": {
+        "role": "secondary",
+        "displayName": "Canarian Gold",
+        "canonical": "#d8a858",
+        "tonalRamp": [
+          "#41321a",
+          "#6c542c",
+          "#97763e",
+          "#be944d",
+          "#e0b979",
+          "#eacfa3",
+          "#f3e5cd",
+          "#faf5eb"
+        ]
+      },
+      "lit-gold": {
+        "role": "secondary",
+        "displayName": "Lit Gold",
+        "canonical": "#e8b868",
+        "tonalRamp": [
+          "#46371f",
+          "#745c34",
+          "#a28149",
+          "#cca25c",
+          "#edc686",
+          "#f2d8ac",
+          "#f8ead2",
+          "#fcf6ed"
+        ]
+      },
+      "gold-ink": {
+        "role": "secondary",
+        "displayName": "Gold Ink",
+        "canonical": "#835f21",
+        "tonalRamp": [
+          "#271d0a",
+          "#423011",
+          "#5c4317",
+          "#73541d",
+          "#9c7f4d",
+          "#bba785",
+          "#dacfbc",
+          "#f0ece4"
+        ]
+      },
+      "ivory-paper": {
+        "role": "neutral",
+        "displayName": "Ivory Paper",
+        "canonical": "#f7f3ea",
+        "tonalRamp": [
+          "#4a4946",
+          "#7c7a75",
+          "#adaaa4",
+          "#d9d6ce",
+          "#f9f5ee",
+          "#fbf8f3",
+          "#fdfbf9",
+          "#fefefc"
+        ]
+      },
+      "parchment": {
+        "role": "neutral",
+        "displayName": "Parchment",
+        "canonical": "#eee7d8",
+        "tonalRamp": [
+          "#474541",
+          "#77746c",
+          "#a7a297",
+          "#d1cbbe",
+          "#f1ece0",
+          "#f6f2ea",
+          "#faf8f3",
+          "#fdfcfa"
+        ]
+      },
+      "surface-white": {
+        "role": "neutral",
+        "displayName": "Surface White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#4d4d4d",
+          "#808080",
+          "#b3b3b3",
+          "#e0e0e0",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#181818",
+        "tonalRamp": [
+          "#070707",
+          "#0c0c0c",
+          "#111111",
+          "#151515",
+          "#464646",
+          "#808080",
+          "#bababa",
+          "#e3e3e3"
+        ]
+      },
+      "slate-note": {
+        "role": "neutral",
+        "displayName": "Slate Note",
+        "canonical": "#55606e",
+        "tonalRamp": [
+          "#1a1d21",
+          "#2b3037",
+          "#3c434d",
+          "#4b5461",
+          "#77808b",
+          "#a2a8af",
+          "#cccfd4",
+          "#ebecee"
+        ]
+      },
+      "ledger-rule": {
+        "role": "neutral",
+        "displayName": "Ledger Rule",
+        "canonical": "#ddd3bf",
+        "tonalRamp": [
+          "#423f39",
+          "#6f6a60",
+          "#9b9486",
+          "#c2baa8",
+          "#e4dccc",
+          "#ece7dc",
+          "#f5f2ec",
+          "#fbfaf7"
+        ]
+      },
+      "morning-sky": {
+        "role": "neutral",
+        "displayName": "Morning Sky",
+        "canonical": "#eaf2f9",
+        "tonalRamp": [
+          "#46494b",
+          "#75797d",
+          "#a4a9ae",
+          "#ced5db",
+          "#eef5fa",
+          "#f3f8fc",
+          "#f9fbfd",
+          "#fcfdfe"
+        ]
+      },
+      "night-bg": {
+        "role": "neutral",
+        "displayName": "Night Bg",
+        "canonical": "#0c1727",
+        "tonalRamp": [
+          "#04070c",
+          "#060c14",
+          "#08101b",
+          "#0b1422",
+          "#3d4552",
+          "#797f88",
+          "#b6b9be",
+          "#e2e3e5"
+        ]
+      },
+      "night-surface": {
+        "role": "neutral",
+        "displayName": "Night Surface",
+        "canonical": "#14253c",
+        "tonalRamp": [
+          "#060b12",
+          "#0a131e",
+          "#0e1a2a",
+          "#122135",
+          "#435163",
+          "#7e8794",
+          "#b9bec5",
+          "#e3e5e8"
+        ]
+      },
+      "night-text": {
+        "role": "neutral",
+        "displayName": "Night Text",
+        "canonical": "#e8e3d8",
+        "tonalRamp": [
+          "#464441",
+          "#74726c",
+          "#a29f97",
+          "#ccc8be",
+          "#ede9e0",
+          "#f2f0ea",
+          "#f8f7f3",
+          "#fcfcfa"
+        ]
+      },
+      "on-deep-muted": {
+        "role": "neutral",
+        "displayName": "On-Deep Muted",
+        "canonical": "#c4cedb",
+        "tonalRamp": [
+          "#3b3e42",
+          "#62676e",
+          "#899099",
+          "#acb5c1",
+          "#d0d8e2",
+          "#dfe4eb",
+          "#edf0f4",
+          "#f8f9fb"
+        ]
+      },
+      "on-deep-soft": {
+        "role": "neutral",
+        "displayName": "On-Deep Soft",
+        "canonical": "#9fb0c4",
+        "tonalRamp": [
+          "#30353b",
+          "#505862",
+          "#6f7b89",
+          "#8c9bac",
+          "#b2c0d0",
+          "#cad4df",
+          "#e2e7ed",
+          "#f3f6f8"
+        ]
+      },
+      "on-deep-faint": {
+        "role": "neutral",
+        "displayName": "On-Deep Faint",
+        "canonical": "#4a617f",
+        "tonalRamp": [
+          "#161d26",
+          "#253140",
+          "#344459",
+          "#415570",
+          "#6e8199",
+          "#9ba8b9",
+          "#c9d0d9",
+          "#e9ecf0"
+        ]
+      },
+      "deep-line": {
+        "role": "neutral",
+        "displayName": "Deep Line",
+        "canonical": "#1d3558",
+        "tonalRamp": [
+          "#09101a",
+          "#0f1b2c",
+          "#14253e",
+          "#1a2f4d",
+          "#4a5d79",
+          "#8390a3",
+          "#bbc2cd",
+          "#e4e7eb"
+        ]
+      },
+      "deep-ring": {
+        "role": "neutral",
+        "displayName": "Deep Ring",
+        "canonical": "#6d86a6",
+        "tonalRamp": [
+          "#212832",
+          "#374353",
+          "#4c5e74",
+          "#607692",
+          "#8a9eb8",
+          "#afbcce",
+          "#d3dbe4",
+          "#edf0f4"
+        ]
+      },
+      "gold-cream": {
+        "role": "neutral",
+        "displayName": "Gold Cream",
+        "canonical": "#f3e0b8",
+        "tonalRamp": [
+          "#494337",
+          "#7a705c",
+          "#aa9d81",
+          "#d6c5a2",
+          "#f5e6c6",
+          "#f8eed8",
+          "#fbf6ea",
+          "#fefbf6"
+        ]
+      },
+      "foot-text": {
+        "role": "neutral",
+        "displayName": "Foot Text",
+        "canonical": "#c9c4b8",
+        "tonalRamp": [
+          "#3c3b37",
+          "#65625c",
+          "#8d8981",
+          "#b1aca2",
+          "#d4d0c6",
+          "#e1dfd8",
+          "#efedea",
+          "#f9f8f6"
+        ]
+      },
+      "foot-muted": {
+        "role": "neutral",
+        "displayName": "Foot Muted",
+        "canonical": "#9a958a",
+        "tonalRamp": [
+          "#2e2d29",
+          "#4d4b45",
+          "#6c6861",
+          "#888379",
+          "#aeaaa1",
+          "#c7c5bf",
+          "#e1dfdc",
+          "#f3f2f1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero headline only (Newsreader; italic second line in light gold)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text and UI copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase eyebrows above headings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-lift",
+        "value": "0 18px 36px rgb(10 34 64 / 0.1)",
+        "purpose": "Card hover, with translateY(-5px)."
+      },
+      {
+        "name": "nav-hairline",
+        "value": "0 1px 0 rgba(232, 184, 104, 0.25)",
+        "purpose": "Gold underline of the nav once scrolled."
+      },
+      {
+        "name": "floating",
+        "value": "0 18px 40px -12px rgb(10 34 64 / 0.35)",
+        "purpose": "Cookie notice and floating cards."
+      },
+      {
+        "name": "modal",
+        "value": "0 30px 80px rgba(0, 0, 0, 0.55)",
+        "purpose": "Video dialog."
+      }
+    ],
+    "motion": [
+      {
+        "name": "entrance",
+        "value": "0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "purpose": "CSS entrance of above-the-fold text ([data-fade]), staggered 0.1s."
+      },
+      {
+        "name": "headline-rise",
+        "value": "1.1s cubic-bezier(0.215, 0.61, 0.355, 1)",
+        "purpose": "Hero headline lines rising from their mask."
+      },
+      {
+        "name": "state",
+        "value": "0.3s ease",
+        "purpose": "Hover/colour transitions on buttons and links."
+      },
+      {
+        "name": "scroll-scrub",
+        "value": "GSAP ScrollTrigger, scrub 0.6",
+        "purpose": "Pinned home sequences; disabled under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "767px"
+      },
+      {
+        "name": "menu",
+        "value": "1200px"
+      },
+      {
+        "name": "reel",
+        "value": "1200px (landscape)"
+      },
+      {
+        "name": "wide",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action: «Pedir estudio gratuito».",
+      "html": "<button class=\"ds-btn-gold\">Pedir estudio gratuito</button>",
+      "css": ".ds-btn-gold{display:inline-flex;align-items:center;min-height:46px;padding:0 24px;border-radius:999px;font:700 15px Manrope, Helvetica Neue, Arial, sans-serif;cursor:pointer;transition:background .3s;border:1px solid transparent;background:#d8a858;color:#0a2240}.ds-btn-gold:hover{background:#e8b868}.ds-btn-gold:focus-visible{outline:3px solid #d8a858;outline-offset:3px}"
+    },
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Secondary confirmations (cookie Accept/Reject with equal weight).",
+      "html": "<button class=\"ds-btn-navy\">Aceptar</button>",
+      "css": ".ds-btn-navy{display:inline-flex;align-items:center;min-height:46px;padding:0 24px;border-radius:999px;font:700 15px Manrope, Helvetica Neue, Arial, sans-serif;cursor:pointer;transition:background .3s;border:0;background:#0a2240;color:#f7f3ea}.ds-btn-navy:hover{background:#10325a}.ds-btn-navy:focus-visible{outline:3px solid #d8a858;outline-offset:3px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Only on dark bands (CTA «Llamar»).",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-btn-line\">Llamar</button></div>",
+      "css": ".ds-dark{background:#0a2240;padding:20px}.ds-btn-line{display:inline-flex;align-items:center;min-height:46px;padding:0 24px;border-radius:999px;font:700 15px Manrope, Helvetica Neue, Arial, sans-serif;cursor:pointer;transition:background .3s;border:1px solid rgba(247,243,234,.45);background:transparent;color:#f7f3ea}.ds-btn-line:hover{background:rgba(247,243,234,.1)}.ds-btn-line:focus-visible{outline:3px solid #d8a858;outline-offset:3px}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Content card: flat at rest, lifts on hover; optional navy pill.",
+      "html": "<article class=\"ds-card\"><h3>Estudio gratuito</h3><p>Solo cobramos si la operación se firma.</p><span class=\"ds-pill\">0 €</span></article>",
+      "css": ".ds-card{max-width:320px;background:#fff;border:1px solid #ddd3bf;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .4s,box-shadow .4s}.ds-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgb(10 34 64 / .1)}.ds-card h3{margin:0;font:500 26px/1.06 Newsreader, Georgia, serif;letter-spacing:-.02em;color:#0a2240}.ds-card p{margin:0;font:400 15px/1.6 Manrope, Helvetica Neue, Arial, sans-serif;color:#55606e}.ds-pill{align-self:flex-start;background:#0a2240;color:#f7f3ea;font:700 12px Manrope, Helvetica Neue, Arial, sans-serif;padding:6px 12px;border-radius:999px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Form field with the gold focus ring.",
+      "html": "<label class=\"ds-field\">Nombre<input type=\"text\" placeholder=\"Su nombre\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;font:600 14px Manrope, Helvetica Neue, Arial, sans-serif;color:#181818;max-width:320px}.ds-field input{height:50px;border:1px solid #ddd3bf;border-radius:12px;padding:0 14px;background:#f7f3ea;font:400 17px Manrope, Helvetica Neue, Arial, sans-serif;color:#181818}.ds-field input:focus-visible{outline:3px solid #d8a858;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky navy bar: serif brand, sans links, gold active state and CTA.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-brand\">Cabrera Kapital</span><a href=\"#\" aria-current=\"page\">Inicio</a><a href=\"#\">Servicios</a><a href=\"#\">Contacto</a><span class=\"ds-cta\">Estudio gratuito</span></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:28px;background:#0a2240;color:#f7f3ea;padding:14px 24px;font:500 15px Manrope, Helvetica Neue, Arial, sans-serif}.ds-brand{font:500 24px Newsreader, Georgia, serif;margin-right:auto}.ds-nav a{color:inherit;text-decoration:none;padding:6px 2px;border-bottom:2px solid transparent;transition:color .3s}.ds-nav a:hover{color:#e8b868}.ds-nav a[aria-current]{font-weight:700;color:#e8b868;border-color:#d8a858}.ds-cta{background:#d8a858;color:#0a2240;font-weight:700;padding:10px 20px;border-radius:999px}"
+    },
+    {
+      "name": "Hero Seal",
+      "kind": "custom",
+      "description": "Eyebrow with the gold archipelago inline (islands simplified here).",
+      "html": "<div class=\"ds-hero\"><span class=\"ds-eyebrow\"><svg viewBox=\"0 0 120 40\" width=\"120\" height=\"40\" aria-hidden=\"true\"><g fill=\"#e8b868\"><ellipse cx=\"8\" cy=\"14\" rx=\"4\" ry=\"7\"/><ellipse cx=\"30\" cy=\"20\" rx=\"10\" ry=\"6\"/><circle cx=\"52\" cy=\"26\" r=\"6\"/><ellipse cx=\"92\" cy=\"18\" rx=\"5\" ry=\"12\" transform=\"rotate(30 92 18)\"/><ellipse cx=\"108\" cy=\"6\" rx=\"6\" ry=\"3\"/></g></svg>Intermediario de crédito en Canarias</span><h1>Hipotecas y financiación <em>para pymes.</em></h1></div>",
+      "css": ".ds-hero{background:linear-gradient(180deg,#1f4f86,#4f86c9);padding:28px;color:#f7f3ea}.ds-eyebrow{display:inline-flex;align-items:center;gap:16px;font:700 12px Manrope, Helvetica Neue, Arial, sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d8a858}.ds-hero h1{margin:16px 0 0;font:500 44px/1.06 Newsreader, Georgia, serif;letter-spacing:-.02em;cursor:default}.ds-hero em{color:#f3e0b8}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Banca por dentro",
+    "overview": "The site reads like a well-written report by someone who spent twenty years inside a bank and now sits on your side of the table. The type does the talking: a warm serif (Newsreader) carries every headline in medium weight with slightly tight tracking, and a calm humanist sans (Manrope) carries everything practical. Decoration is scarce and always earned. Three things recur: the gold archipelago silhouette next to the \"Intermediario de crédito en Canarias\" eyebrow, the La Laguna rooftops under the home sky, and the circular gold CK emblem.\n\nThe palette is three notes that belong together: ledger navy for authority, ivory paper for warmth, and gold for the few things that matter: the main action, figures and the brand mark. Light and dark themes are both first-class. Dark is not inverted; it is its own night palette, with ivory text on deep blue and gold that stays legible.\n\nEverything is warm and calm. Pills and generous rounded corners, soft hairline borders, and shadows that appear only on hover. Nothing pushes, flashes or hurries, because many visitors are older and none should feel pressured. Real people and places only: no stock photography, no Teide, and no floating social buttons.",
+    "keyCharacteristics": [
+      "Serif headlines (Newsreader 500, −0.02em), sans body (Manrope 17px/1.6).",
+      "Navy / ivory / gold, with gold reserved for action, figures and the brand.",
+      "Pill buttons and 20px cards; flat at rest, lifted on hover.",
+      "Light and dark themes defined token by token (`data-theme`).",
+      "Motion is scroll-led on the home page and always disabled under `prefers-reduced-motion`.",
+      "Only real imagery: the office, the partners, the city silhouette and the islands."
+    ],
+    "rules": [
+      {
+        "name": "The Gold Is Earned Rule",
+        "body": "Gold marks only the main action, key figures, the brand mark and focus. If gold appears on something a visitor cannot act on or should not remember, remove it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Themes Rule",
+        "body": "Every colour is set through a role variable (`--bg`, `--surface`, `--text`, `--heading`, `--accent-text`, `--solid`…). Components never hard-code a theme colour, so dark mode stays correct.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif Speaks, Sans Works Rule",
+        "body": "Headings, figures and the brand name are serif. Buttons, labels, forms and navigation are sans. Never set a button in serif or a section title in sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Balanced Line Rule",
+        "body": "Headings use `text-wrap: balance`. Never force breaks that leave a single orphan word.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Nothing casts a shadow at rest except floating layers (cookie notice, modal, video card). Shadows answer hover, elevation or focus.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every colour through role variables so both themes stay correct.",
+      "Do keep gold for the primary action, figures, the brand mark and focus.",
+      "Do use Newsreader 500 with −0.02em tracking for headings and figures, and Manrope for everything interactive.",
+      "Do use pill buttons at least 46px tall and 20px-radius cards with hairline borders.",
+      "Do show only real photography: the office, Olegario, Alejandro and the team.",
+      "Do make every animation start without waiting for JavaScript where it affects first paint, and switch all motion off under `prefers-reduced-motion`.",
+      "Do keep text cursors and hover highlights off non-editable headline text."
+    ],
+    "donts": [
+      "Don't use stock photography or generic finance imagery.",
+      "Don't use the Teide or any volcano/mountain motif.",
+      "Don't add floating social buttons. Instagram lives in the header, the menu and the footer.",
+      "Don't centre the archipelago above the eyebrow; it stays inline.",
+      "Don't introduce colours outside navy, ivory and gold. The only exception is WhatsApp green on its own button.",
+      "Don't add resting shadows to cards or sections.",
+      "Don't leave blank, empty-sky moments in the scroll sequence; one element should hand over to the next."
+    ]
+  }
+}

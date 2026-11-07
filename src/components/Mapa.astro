@@ -1,4 +1,5 @@
 ---
+import Ubicacion from "../assets/svg/ubicacion.svg";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
 const lang = langDe(Astro.url.pathname);
@@ -9,17 +10,7 @@ const src = `https://www.google.com/maps?q=${encodeURIComponent(contacto.mapaCon
 <div class="mapa-caja">
     <div class="mapa" data-mapa data-src={src} data-titulo={t.titulo}>
         <div class="mapa-in">
-            <svg
-                viewBox="0 0 24 24"
-                width="40"
-                height="40"
-                aria-hidden="true"
-                fill="currentColor"
-            >
-                <path
-                    d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
-                ></path>
-            </svg>
+            <Ubicacion width="40" height="40" aria-hidden="true" />
             <b>{contacto.direccionCorta}</b>
             <button class="btn gold" type="button" data-mapa-btn>
                 {t.cargar}

@@ -15,6 +15,7 @@ export const en: Dict = {
     },
     header: {
         inicio: 'Cabrera Kapital, home',
+        saltar: 'Skip to content',
         principal: 'Main',
         abrirMenu: 'Open menu',
         cerrarMenu: 'Close menu',
@@ -357,6 +358,7 @@ export const en: Dict = {
         etiqueta: 'Why Cabrera Kapital',
         h1: 'We sat on the other side of the table. Now we are on yours.',
         lead: 'For over twenty years we ran branches, analysed risk and decided which deals went ahead. Today we put all that knowledge to work for you.',
+        motivosTitulo: 'Why choose us',
         entEtiqueta: 'Partner lenders',
         entTitulo: '19 financial institutions',
         ctaTitulo: "Let's start with step one.",
@@ -581,7 +583,8 @@ export const en: Dict = {
                     name: 'facturacion',
                     t: 'What is your annual turnover?',
                     opciones: [
-                        { v: 'Menos de 250.000 €', t: 'Under €250,000' },
+                        { v: 'Menos de 100.000 €', t: 'Under €100,000' },
+                        { v: 'Entre 100.000 € y 250.000 €', t: 'Between €100,000 and €250,000' },
                         { v: 'Entre 250.000 € y 500.000 €', t: 'Between €250,000 and €500,000' },
                         { v: 'Entre 500.000 € y 1.000.000 €', t: 'Between €500,000 and €1,000,000' },
                         { v: 'Más de 1.000.000 €', t: 'Over €1,000,000' },

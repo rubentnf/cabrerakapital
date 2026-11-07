@@ -6,6 +6,7 @@ const { titulo } = Astro.props;
 ---
 
 <div class="sim-paso" data-paso hidden>
-    <h3 class="sim-paso-t" tabindex="-1">{titulo}</h3>
+    <!-- h2: va justo después del h1 de la página (antes era h3 y el esquema se saltaba un nivel) -->
+    <h2 class="sim-paso-t" tabindex="-1">{titulo}</h2>
     <slot />
 </div>

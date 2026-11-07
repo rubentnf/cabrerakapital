@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import HeroInterior from "../components/HeroInterior.astro";
 import IconoInstagram from "../components/IconoInstagram.astro";
 import Mapa from "../components/Mapa.astro";
+import Confirmado from "../assets/svg/confirmado.svg";
 import { rutaLegal } from "../data/legal";
 import { contacto } from "../data/contacto";
 import { langDe, useT } from "../i18n";
@@ -117,7 +118,7 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
                         >
                             {c.enviar}
                         </button>
-                        <p class="ok" data-aviso hidden></p>
+                        <p class="ok" data-aviso role="alert" hidden></p>
                     </form>
 
                     <!-- Empresas y autónomos: formulario por pasos -->
@@ -247,7 +248,7 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
                                 {p.enviar}
                             </button>
                         </div>
-                        <p class="ok" data-aviso hidden></p>
+                        <p class="ok" data-aviso role="alert" hidden></p>
                     </form>
                 </div>
 
@@ -259,18 +260,7 @@ const tels = contacto.telefonos.map((p) => p.visible).join(` ${c.errorO} `);
                     tabindex="-1"
                     hidden
                 >
-                    <svg
-                        class="exito-svg"
-                        viewBox="0 0 120 120"
-                        width="112"
-                        height="112"
-                        aria-hidden="true"
-                    >
-                        <circle class="exito-aro" cx="60" cy="60" r="52"
-                        ></circle>
-                        <path class="exito-tick" d="M36 62 L53 79 L85 44"
-                        ></path>
-                    </svg>
+                    <Confirmado class="exito-svg" width="112" height="112" aria-hidden="true" />
                     <h2>{c.exitoT}</h2>
                     <p>{c.exito}</p>
                     <button class="btn line" type="button" id="exito-otra">
